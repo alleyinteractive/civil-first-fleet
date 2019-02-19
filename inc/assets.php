@@ -112,7 +112,7 @@ function enqueue_assets() {
 			[
 				'handle'  => 'civil-first-fleet-common-js',
 				'src'     => get_template_directory_uri() . '/client/build/' . ai_get_versioned_asset( 'common.js' ),
-				'deps'    => array( 'jquery' ),
+				'deps'    => [ 'jquery' ],
 				'version' => '1.0',
 			]
 		);
@@ -129,7 +129,7 @@ function enqueue_assets() {
 			[
 				'handle'      => 'civil-first-fleet-home-js',
 				'src'         => get_template_directory_uri() . '/client/build/' . ai_get_versioned_asset( 'home.js' ),
-				'deps'        => array( 'civil-first-fleet-common-js' ),
+				'deps'        => [ 'civil-first-fleet-common-js' ],
 				'version'     => '1.0',
 				'load_method' => 'async',
 				'condition'   => 'home',
@@ -145,12 +145,11 @@ function enqueue_assets() {
 		);
 
 		// Article assets.
-		am_enqueue_script( 'sharing-js' );
 		am_enqueue_script(
 			[
 				'handle'      => 'civil-first-fleet-article-js',
 				'src'         => get_template_directory_uri() . '/client/build/' . ai_get_versioned_asset( 'article.js' ),
-				'deps'        => array( 'civil-first-fleet-common-js', 'sharing-js' ),
+				'deps'        => [ 'civil-first-fleet-common-js', 'sharing-js' ],
 				'version'     => '1.0',
 				'load_method' => 'async',
 				'condition'   => 'content-single',

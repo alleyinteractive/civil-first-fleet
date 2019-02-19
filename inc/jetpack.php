@@ -20,8 +20,19 @@ function remove_jetpack_shares() {
 		remove_filter( 'the_content', array( \Jetpack_Likes::init(), 'post_likes' ), 30, 1 );
 	}
 }
-
 add_action( 'loop_start', __NAMESPACE__ . '\remove_jetpack_shares' );
+
+/**
+ * Make sure sharing JS is enqueued whether or not CSS/JS is disabled in options,
+ * but only if we actually have some sharing options enabled.
+ */
+function maybe_enqueue_sharing_js( $enabled ) {
+	if ( count( $enabled['all'] ) > 0 ) {
+		wp_enqueue_script( 'sharing-js' );
+	}
+	return $enabled;
+}
+add_filter( 'sharing_enabled', __NAMESPACE__ . '\maybe_enqueue_sharing_js' );
 
 /**
  * Dequeue Jetpack styles.
