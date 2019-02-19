@@ -75,7 +75,7 @@ class Stylesheets {
 	 */
 	public function setup( $ajax = false, $json_filepath = false ) {
 		if ( empty( $json_filepath ) ) {
-			$this->set_json_classname_filepath( CIVIL_CMS_PATH . '/client/build/classnames.json' );
+			$this->set_json_classname_filepath( CIVIL_FIRST_FLEET_PATH . '/client/build/classnames.json' );
 		} else {
 			$this->set_json_classname_filepath( $json_filepath );
 		}

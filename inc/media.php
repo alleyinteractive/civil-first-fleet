@@ -214,8 +214,8 @@ namespace Civil_CMS;
  * Override the default WordPress media templates.
  */
 function custom_media_templates() {
-	require_once CIVIL_CMS_PATH . '/template-parts/media-templates/attachment-details.php';
-	require_once CIVIL_CMS_PATH . '/template-parts/media-templates/attachment-details-two-column.php';
+	require_once CIVIL_FIRST_FLEET_PATH . '/template-parts/media-templates/attachment-details.php';
+	require_once CIVIL_FIRST_FLEET_PATH . '/template-parts/media-templates/attachment-details-two-column.php';
 }
 
 add_action( 'print_media_templates', __NAMESPACE__ . '\custom_media_templates' );

@@ -42,7 +42,7 @@ function ai_get_versioned_asset( $asset_path ) {
 	static $asset_map;
 
 	if ( ! isset( $asset_map ) ) {
-		$asset_map_file = CIVIL_CMS_PATH . '/client/build/assetMap.json';
+		$asset_map_file = CIVIL_FIRST_FLEET_PATH . '/client/build/assetMap.json';
 
 		if ( file_exists( $asset_map_file ) && 0 === validate_file( $asset_map_file ) ) {
 			ob_start();
