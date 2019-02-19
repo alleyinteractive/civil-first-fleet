@@ -1,3 +1,24 @@
 [submodule "plugins/wordpress-fieldmanager"]
 	path = plugins/wordpress-fieldmanager
 	url = git@github.com:alleyinteractive/wordpress-fieldmanager.git
+[submodule "plugins/co-authors-plus"]
+	path = plugins/co-authors-plus
+	url = git@github.com:Automattic/Co-Authors-Plus.git
+[submodule "plugins/fm-zones"]
+	path = plugins/fm-zones
+	url = git@github.com:alleyinteractive/fm-zones.git
+[submodule "plugins/msm-sitemap"]
+	path = plugins/msm-sitemap
+	url = git@github.com:Automattic/msm-sitemap.git
+[submodule "plugins/safe-redirect-manager"]
+	path = plugins/safe-redirect-manager
+	url = git@github.com:10up/safe-redirect-manager.git
+[submodule "plugins/wp-seo"]
+	path = plugins/wp-seo
+	url = git@github.com:alleyinteractive/wp-seo.git
+[submodule "plugins/wpcom-thumbnail-editor"]
+	path = plugins/wpcom-thumbnail-editor
+	url = git@github.com:Automattic/wpcom-thumbnail-editor.git
+[submodule "plugins/wp-asset-manager"]
+	path = plugins/wp-asset-manager
+	url = git@github.com:alleyinteractive/wp-asset-manager.git

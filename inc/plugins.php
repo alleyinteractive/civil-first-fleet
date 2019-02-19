@@ -9,20 +9,27 @@ namespace Civil_CMS;
 
 // Plugin dependencies.
 $civil_first_fleet_plugins = [
-	'Coauthors Plus'        => 'co-authors-plus',
+	'Coauthors Plus'        => 'co-authors-plus/co-authors-plus.php',
 	'FM Zones'              => 'fm-zones/fm-zones.php',
-	'MSM Sitemap'           => 'msm-sitemap',
-	'Safe Redirect Manager' => 'safe-redirect-manager',
+	'MSM Sitemap'           => 'msm-sitemap/msm-sitemap.php',
+	'Safe Redirect Manager' => 'safe-redirect-manager/safe-redirect-manager.php',
 	'Fieldmanager'          => 'wordpress-fieldmanager/fieldmanager.php',
 	'WP Asset Manager'      => 'wp-asset-manager/asset-manager.php',
-	'WP SEO'                => 'wp-seo',
-	'Thumbnail Editor'      => 'wpcom-thumbnail-editor',
+	'WP SEO'                => 'wp-seo/wp-seo.php',
+	'Thumbnail Editor'      => 'wpcom-thumbnail-editor/wpcom-thumbnail-editor.php',
 ];
 foreach ( $civil_first_fleet_plugins as $label => $path ) {
 	if ( function_exists( 'wpcom_vip_load_plugin' ) ) {
 		wpcom_vip_load_plugin( $path );
 	} elseif ( file_exists( CIVIL_FIRST_FLEET_PATH . '/plugins/' . $path ) ) {
 		require_once CIVIL_FIRST_FLEET_PATH . '/plugins/' . $path;
+	} else {
+		wp_die(
+			sprintf(
+				esc_html__( 'Plugin "%1$s" is missing and could not be loaded. Ensure you have cloned your submodule plugins properly.', 'civil-first-fleet' ),
+				esc_html( $label )
+			)
+		);
 	}
 }
 
