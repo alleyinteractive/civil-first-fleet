@@ -20,7 +20,7 @@ function _manually_load_environment() {
 	remove_action( 'switch_theme', 'rri_wpcom_action_switch_theme' );
 
 	// Set our theme.
-	switch_theme( 'civil-cms' );
+	switch_theme( 'civil-first-fleet' );
 
 	// Re-add the action.
 	add_action( 'switch_theme', 'rri_wpcom_action_switch_theme' );

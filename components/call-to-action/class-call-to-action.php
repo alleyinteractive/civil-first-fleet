@@ -5,12 +5,12 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS\Component;
+namespace Civil_First_Fleet\Component;
 
 /**
  * Call To Action component class.
  */
-class Call_To_Action extends \Civil_CMS\Component {
+class Call_To_Action extends \Civil_First_Fleet\Component {
 
 	/**
 	 * Unique component slug.
@@ -47,7 +47,7 @@ class Call_To_Action extends \Civil_CMS\Component {
 			'id'          => 'call-to-action',
 			'title'       => '',
 			'description' => '',
-			'button_text' => __( 'Subscribe Now', 'civil-cms' ),
+			'button_text' => __( 'Subscribe Now', 'civil-first-fleet' ),
 		];
 	}
 
@@ -57,44 +57,48 @@ class Call_To_Action extends \Civil_CMS\Component {
 	 * @return array Fieldmanager fields.
 	 */
 	public function default_fm_fields() : array {
+		if ( ! defined( 'FM_VERSION' ) ) {
+			return [];
+		}
+
 		return [
-			'enable' => new \Fieldmanager_Checkbox( __( 'Enable', 'civil-cms' ) ),
+			'enable' => new \Fieldmanager_Checkbox( __( 'Enable', 'civil-first-fleet' ) ),
 			'settings' => new \Fieldmanager_Group(
 				[
-					'label' => __( 'Settings', 'civil-cms' ),
+					'label' => __( 'Settings', 'civil-first-fleet' ),
 					'collapsed' => true,
 					'children'  => [
 						'type'  => new \Fieldmanager_Select(
 							[
-								'label'   => __( 'Type', 'civil-cms' ),
+								'label'   => __( 'Type', 'civil-first-fleet' ),
 								'options' => array(
-									'subscribe'  => __( 'Subscribe', 'civil-cms' ),
-									'newsletter' => __( 'Newsletter Sign up', 'civil-cms' ),
+									'subscribe'  => __( 'Subscribe', 'civil-first-fleet' ),
+									'newsletter' => __( 'Newsletter Sign up', 'civil-first-fleet' ),
 								),
 							]
 						),
 						'theme' => new \Fieldmanager_Select(
 							[
-								'label'   => __( 'Theme', 'civil-cms' ),
+								'label'   => __( 'Theme', 'civil-first-fleet' ),
 								'options' => [
-									'light'  => __( 'Light', 'civil-cms' ),
-									'medium' => __( 'Medium', 'civil-cms' ),
-									'dark'   => __( 'Dark', 'civil-cms' ),
+									'light'  => __( 'Light', 'civil-first-fleet' ),
+									'medium' => __( 'Medium', 'civil-first-fleet' ),
+									'dark'   => __( 'Dark', 'civil-first-fleet' ),
 								],
 							]
 						),
 						'layout' => new \Fieldmanager_Select(
 							[
-								'label'   => __( 'Layout', 'civil-cms' ),
+								'label'   => __( 'Layout', 'civil-first-fleet' ),
 								'options' => [
-									'block'  => __( 'Block', 'civil-cms' ),
-									'inline' => __( 'Inline', 'civil-cms' ),
+									'block'  => __( 'Block', 'civil-first-fleet' ),
+									'inline' => __( 'Inline', 'civil-first-fleet' ),
 								],
 							]
 						),
 						'newsletter' => new \Fieldmanager_Select(
 							[
-								'label'       => __( 'Newsletter', 'civil-cms' ),
+								'label'       => __( 'Newsletter', 'civil-first-fleet' ),
 								'options'     => $this->get_newsletter_options(),
 								'display_if'  => [
 									'src'   => 'type',
@@ -111,13 +115,13 @@ class Call_To_Action extends \Civil_CMS\Component {
 			),
 			'data' => new \Fieldmanager_Group(
 				[
-					'label'     => __( 'Override Copy', 'civil-cms' ),
+					'label'     => __( 'Override Copy', 'civil-first-fleet' ),
 					'collapsed' => true,
 					'children'  => [
-						'customize' => new \Fieldmanager_Checkbox( __( 'Customize Copy', 'civil-cms' ) ),
+						'customize' => new \Fieldmanager_Checkbox( __( 'Customize Copy', 'civil-first-fleet' ) ),
 						'title'       => new \Fieldmanager_Textfield(
 							[
-								'label' => __( 'Title', 'civil-cms' ),
+								'label' => __( 'Title', 'civil-first-fleet' ),
 								'display_if' => [
 									'src' => 'customize',
 									'value' => true,
@@ -126,7 +130,7 @@ class Call_To_Action extends \Civil_CMS\Component {
 						),
 						'description' => new \Fieldmanager_Textfield(
 							[
-								'label' => __( 'Description', 'civil-cms' ),
+								'label' => __( 'Description', 'civil-first-fleet' ),
 								'display_if' => [
 									'src' => 'customize',
 									'value' => true,
@@ -135,7 +139,7 @@ class Call_To_Action extends \Civil_CMS\Component {
 						),
 						'button_text' => new \Fieldmanager_Textfield(
 							[
-								'label' => __( 'Button Text', 'civil-cms' ),
+								'label' => __( 'Button Text', 'civil-first-fleet' ),
 								'display_if' => [
 									'src' => 'customize',
 									'value' => true,
@@ -158,24 +162,24 @@ class Call_To_Action extends \Civil_CMS\Component {
 	 */
 	public function sticky_cta_fm_fields() : array {
 		return [
-			'enable' => new \Fieldmanager_Checkbox( __( 'Enable', 'civil-cms' ) ),
+			'enable' => new \Fieldmanager_Checkbox( __( 'Enable', 'civil-first-fleet' ) ),
 			'settings' => new \Fieldmanager_Group(
 				[
-					'label' => __( 'Settings', 'civil-cms' ),
+					'label' => __( 'Settings', 'civil-first-fleet' ),
 					'collapsed' => true,
 					'children'  => [
 						'type'  => new \Fieldmanager_Select(
 							[
-								'label'   => __( 'Type', 'civil-cms' ),
+								'label'   => __( 'Type', 'civil-first-fleet' ),
 								'options' => array(
-									'subscribe'  => __( 'Subscribe', 'civil-cms' ),
-									'newsletter' => __( 'Newsletter Sign up', 'civil-cms' ),
+									'subscribe'  => __( 'Subscribe', 'civil-first-fleet' ),
+									'newsletter' => __( 'Newsletter Sign up', 'civil-first-fleet' ),
 								),
 							]
 						),
 						'newsletter' => new \Fieldmanager_Select(
 							[
-								'label'       => __( 'Newsletter', 'civil-cms' ),
+								'label'       => __( 'Newsletter', 'civil-first-fleet' ),
 								'options'     => $this->get_newsletter_options(),
 								'display_if'  => [
 									'src'   => 'type',
@@ -192,13 +196,13 @@ class Call_To_Action extends \Civil_CMS\Component {
 			),
 			'data' => new \Fieldmanager_Group(
 				[
-					'label'     => __( 'Override Copy', 'civil-cms' ),
+					'label'     => __( 'Override Copy', 'civil-first-fleet' ),
 					'collapsed' => true,
 					'children'  => [
-						'customize' => new \Fieldmanager_Checkbox( __( 'Customize Copy', 'civil-cms' ) ),
+						'customize' => new \Fieldmanager_Checkbox( __( 'Customize Copy', 'civil-first-fleet' ) ),
 						'title'       => new \Fieldmanager_Textfield(
 							[
-								'label' => __( 'Title', 'civil-cms' ),
+								'label' => __( 'Title', 'civil-first-fleet' ),
 								'display_if' => [
 									'src' => 'customize',
 									'value' => true,
@@ -207,7 +211,7 @@ class Call_To_Action extends \Civil_CMS\Component {
 						),
 						'description' => new \Fieldmanager_Textfield(
 							[
-								'label' => __( 'Description', 'civil-cms' ),
+								'label' => __( 'Description', 'civil-first-fleet' ),
 								'display_if' => [
 									'src' => 'customize',
 									'value' => true,
@@ -216,7 +220,7 @@ class Call_To_Action extends \Civil_CMS\Component {
 						),
 						'button_text' => new \Fieldmanager_Textfield(
 							[
-								'label' => __( 'Button Text', 'civil-cms' ),
+								'label' => __( 'Button Text', 'civil-first-fleet' ),
 								'display_if' => [
 									'src' => 'customize',
 									'value' => true,
@@ -345,15 +349,15 @@ class Call_To_Action extends \Civil_CMS\Component {
 					'attributes' => [
 						'title' => [
 							'type'    => 'text',
-							'default' => __( 'CTA Title', 'civil-cms' ),
+							'default' => __( 'CTA Title', 'civil-first-fleet' ),
 						],
 						'cta_text' => [
 							'type'    => 'text',
-							'default' => __( 'CTA Description', 'civil-cms' ),
+							'default' => __( 'CTA Description', 'civil-first-fleet' ),
 						],
 						'cta_button_text' => [
 							'type'    => 'text',
-							'default' => __( 'CTA Button', 'civil-cms' ),
+							'default' => __( 'CTA Button', 'civil-first-fleet' ),
 						],
 						'newsletter' => [
 							'type' => 'boolean',
@@ -401,7 +405,7 @@ class Call_To_Action extends \Civil_CMS\Component {
 	 */
 	public function provide_newsletter_options() {
 		wp_add_inline_script(
-			'civil-cms-admin-js',
+			'civil-first-fleet-admin-js',
 			sprintf(
 				'var civilNewsletterOptions = %1$s;',
 				wp_json_encode( $this->get_newsletter_options_for_gutenberg() )
@@ -449,20 +453,20 @@ function newsletter_submission_ajax() {
 	 * Validate nonce.
 	 */
 	if ( ! isset( $_POST['newsletter_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['newsletter_nonce'] ) ), 'civil_newsletter_nonce' ) ) {
-		wp_send_json_error( __( 'Something went wrong! Reload the page and try again.', 'civil-cms' ) );
+		wp_send_json_error( __( 'Something went wrong! Reload the page and try again.', 'civil-first-fleet' ) );
 	}
 
 	/**
 	 * Validate email.
 	 */
 	if ( empty( $_POST['email'] ) ) {
-		wp_send_json_error( __( 'Please provide an email.', 'civil-cms' ) );
+		wp_send_json_error( __( 'Please provide an email.', 'civil-first-fleet' ) );
 	}
 	$email = sanitize_text_field( wp_unslash( $_POST['email'] ) );
 
 	// Invalid email.
 	if ( ! filter_var( $email, FILTER_VALIDATE_EMAIL ) ) {
-		wp_send_json_error( __( 'Email is invalid, please enter a valid email address (i.e. email@example.com).', 'civil-cms' ) );
+		wp_send_json_error( __( 'Email is invalid, please enter a valid email address (i.e. email@example.com).', 'civil-first-fleet' ) );
 	}
 
 	/**
@@ -484,17 +488,17 @@ function newsletter_submission_ajax() {
 
 	// Validate newsletter list id.
 	if ( empty( $newsletter_list_id ) ) {
-		wp_send_json_error( __( 'No email list found.', 'civil-cms' ) );
+		wp_send_json_error( __( 'No email list found.', 'civil-first-fleet' ) );
 	}
 
 	// Fallback success message.
 	if ( empty( $success_message ) ) {
-		$success_message = __( 'Thank you for subscribing!', 'civil-cms' );
+		$success_message = __( 'Thank you for subscribing!', 'civil-first-fleet' );
 	}
 
 	// Mailchimp is not configured for this site.
 	if ( empty( $mailchimp_api_key ) ) {
-		wp_send_json_error( __( 'Mailchimp is not configured properly.', 'civil-cms' ) );
+		wp_send_json_error( __( 'Mailchimp is not configured properly.', 'civil-first-fleet' ) );
 	}
 
 	// Get the domain.
@@ -532,13 +536,13 @@ function newsletter_submission_ajax() {
 
 	// Generic error if title and detail are unavailable.
 	if ( empty( $body['title'] ) || empty( $body['detail'] ) ) {
-		wp_send_json_success( esc_html__( 'Something went wrong. Unknown error.', 'civil-cms' ) );
+		wp_send_json_success( esc_html__( 'Something went wrong. Unknown error.', 'civil-first-fleet' ) );
 	}
 
 	// Determine which response to use.
 	switch ( $body['title'] ) {
 		case 'Member Exists':
-			$message = __( 'You are already subscribed to this list. Thanks!', 'civil-cms' );
+			$message = __( 'You are already subscribed to this list. Thanks!', 'civil-first-fleet' );
 			break;
 
 		default:

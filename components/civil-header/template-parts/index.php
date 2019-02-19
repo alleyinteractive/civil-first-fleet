@@ -8,7 +8,7 @@
  */
 
 // @TODO add accessibility.
-namespace Civil_CMS;
+namespace Civil_First_Fleet;
 
 // Get this instance.
 $component = ai_get_var( 'component' );
@@ -18,12 +18,12 @@ $component = ai_get_var( 'component' );
 	<div class="<?php ai_the_classnames( [ 'inner' ] ); ?>">
 		<?php
 		// Render Logo.
-		\Civil_CMS\Component\logo()->render();
+		\Civil_First_Fleet\Component\logo()->render();
 		?>
 
 		<button class="<?php ai_the_classnames( [ 'menu-trigger' ] ); ?>" aria-controls="civil-header-left" aria-expanded="false">
 			<span class="<?php ai_the_classnames( [ 'arrow' ] ); ?>"></span>
-			<span class="<?php ai_the_classnames( [ 'text' ] ); ?>"><?php esc_html_e( 'Expand Menu', 'civil-cms' ); ?></span>
+			<span class="<?php ai_the_classnames( [ 'text' ] ); ?>"><?php esc_html_e( 'Expand Menu', 'civil-first-fleet' ); ?></span>
 		</button>
 
 		<?php
@@ -48,8 +48,8 @@ $component = ai_get_var( 'component' );
 				]
 			);
 			?>
-			<a href="#" class="<?php ai_the_classnames( [ 'login' ] ); ?>"><?php esc_html_e( 'Log In', 'civil-cms' ); ?></a>
-			<button class="<?php ai_the_classnames( [ 'button-secondary-dark' ] ); ?>"><?php esc_html_e( 'Get Started', 'civil-cms' ); ?></button>
+			<a href="#" class="<?php ai_the_classnames( [ 'login' ] ); ?>"><?php esc_html_e( 'Log In', 'civil-first-fleet' ); ?></a>
+			<button class="<?php ai_the_classnames( [ 'button-secondary-dark' ] ); ?>"><?php esc_html_e( 'Get Started', 'civil-first-fleet' ); ?></button>
 		</nav><!-- #site-navigation -->
 	</div>
 </header>

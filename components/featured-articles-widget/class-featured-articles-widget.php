@@ -5,12 +5,12 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS\Component;
+namespace Civil_First_Fleet\Component;
 
 /**
  * Featured Articles Widget component class.
  */
-class Featured_Articles_Widget extends \Civil_CMS\Component\Content_List {
+class Featured_Articles_Widget extends \Civil_First_Fleet\Component\Content_List {
 
 	/**
 	 * Unique component slug.
@@ -57,7 +57,7 @@ class Featured_Articles_Widget extends \Civil_CMS\Component\Content_List {
 		$fields = array_merge(
 			array(
 				'enable' => new \Fieldmanager_Checkbox(
-					__( 'Show list of featured articles in post sidebar.', 'civil-cms' )
+					__( 'Show list of featured articles in post sidebar.', 'civil-first-fleet' )
 				),
 			),
 			$fields
@@ -66,13 +66,13 @@ class Featured_Articles_Widget extends \Civil_CMS\Component\Content_List {
 		// Change meta.
 		$fields['meta'] = new \Fieldmanager_Group(
 			[
-				'label'     => __( 'Settings', 'civil-cms' ),
+				'label'     => __( 'Settings', 'civil-first-fleet' ),
 				'collapsed' => false,
 				'children'  => [
 					'title'  => new \Fieldmanager_TextField(
 						[
-							'label'         => __( 'Title', 'civil-cms' ),
-							'default_value' => __( 'Featured Articles', 'civil-cms' ),
+							'label'         => __( 'Title', 'civil-first-fleet' ),
+							'default_value' => __( 'Featured Articles', 'civil-first-fleet' ),
 						]
 					),
 				],

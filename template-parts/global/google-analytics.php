@@ -6,7 +6,7 @@
  */
 
 // Get the site's property code.
-$component = new \Civil_CMS\Component();
+$component = new \Civil_First_Fleet\Component();
 $ga_property_code = $component->get_option( 'newsroom-settings', 'analytics', 'ga_property_code' );
 
 // No code found.

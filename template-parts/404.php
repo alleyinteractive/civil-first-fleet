@@ -10,7 +10,7 @@
 <div class="<?php ai_the_classnames( [ 'wrapper' ] ); ?>">
 	<?php
 	// Output Error Page content.
-	\Civil_CMS\Component\error_page()
+	\Civil_First_Fleet\Component\error_page()
 		->set_setting( 'is_main_site', is_main_site() )
 		->render();
 	?>

@@ -77,7 +77,7 @@ if ( $featured_video_url ) {
 	<!-- meta: bylines, bios, shares, tip -->
 	<div class="<?php ai_the_classnames( [ 'meta-wrapper' ] ); ?>">
 
-		<?php \Civil_CMS\Component\article_bylines()->render(); ?>
+		<?php \Civil_First_Fleet\Component\article_bylines()->render(); ?>
 
 		<!-- secondary bylines -->
 		<?php if ( ! empty( $component->get_data( 'secondary_bylines' ) ) ) : ?>

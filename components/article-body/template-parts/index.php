@@ -5,7 +5,7 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS;
+namespace Civil_First_Fleet;
 
 // Get this instance.
 $component                = ai_get_var( 'component' );
@@ -19,21 +19,21 @@ $post_indicators = array_filter( $credibility_indicators );
 <div class="<?php ai_the_classnames( [ 'wrapper' ] ); ?>">
 	<aside class="<?php ai_the_classnames( [ 'sidebar-left' ] ); ?>">
 		<?php
-		\Civil_CMS\Component\credibility_indicators()
+		\Civil_First_Fleet\Component\credibility_indicators()
 			->set_data( $credibility_indicators ?? [] )
 			->render();
 		?>
 	</aside>
 
 	<?php
-	\Civil_CMS\Component\body_content()->render();
+	\Civil_First_Fleet\Component\body_content()->render();
 	?>
 
 	<aside class="<?php ai_the_classnames( [ 'sidebar-right' ] ); ?>">
 		<?php
 		if ( ! empty( $call_to_action['enable'] ) ) {
 			// Always use the inline theme for the sidebar.
-			\Civil_CMS\Component\call_to_action()
+			\Civil_First_Fleet\Component\call_to_action()
 				->set_setting( $call_to_action['settings'] )
 				->set_setting( 'layout', 'inline' )
 				->set_data( $call_to_action['data'] )
@@ -43,7 +43,7 @@ $post_indicators = array_filter( $credibility_indicators );
 
 		// Output featured articles widget if turned on.
 		if ( (bool) $featured_articles_widget['enable'] ?? false ) :
-			\Civil_CMS\Component\featured_articles_widget()
+			\Civil_First_Fleet\Component\featured_articles_widget()
 				->data( $featured_articles_widget ?? [] )
 				->render();
 		endif;
@@ -52,7 +52,7 @@ $post_indicators = array_filter( $credibility_indicators );
 
 	<?php
 	// Output Article Footer.
-	\Civil_CMS\Component\article_footer()
+	\Civil_First_Fleet\Component\article_footer()
 		->set_post_id( get_the_ID() )
 		->render();
 	?>

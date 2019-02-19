@@ -95,7 +95,7 @@ if ( ! function_exists( 'ai_get_var' ) ) :
 	 * @return mixed           The variable or $default.
 	 */
 	function ai_get_var( $key, $default = null ) {
-		return \Civil_CMS\Partials::instance()->get_var( $key, $default );
+		return \Civil_First_Fleet\Partials::instance()->get_var( $key, $default );
 	}
 
 endif;
@@ -176,21 +176,21 @@ if ( ! function_exists( 'ai_partial' ) ) :
 	/**
 	 * Get a partial in one of several ways.
 	 *
-	 * @see \Civil_CMS\Partials::load().
+	 * @see \Civil_First_Fleet\Partials::load().
 	 *
 	 * @param array $args Options for loading the partial.
 	 */
 	function ai_partial( $args ) {
-		$use_stylesheet = class_exists( '\Civil_CMS\Stylesheets' ) && function_exists( 'ai_use_stylesheet' ) && ! empty( $args['variables']['stylesheet'] );
+		$use_stylesheet = class_exists( '\Civil_First_Fleet\Stylesheets' ) && function_exists( 'ai_use_stylesheet' ) && ! empty( $args['variables']['stylesheet'] );
 		$old_stylesheet = '';
 
 		// Set stylesheet, assuming it has the same name as component slug.
 		if ( $use_stylesheet ) {
-			$old_stylesheet = \Civil_CMS\Stylesheets::instance()->current_stylesheet;
+			$old_stylesheet = \Civil_First_Fleet\Stylesheets::instance()->current_stylesheet;
 			\ai_use_stylesheet( $args['variables']['stylesheet'] );
 		}
 
-		$partial = \Civil_CMS\Partials::instance()->load( $args );
+		$partial = \Civil_First_Fleet\Partials::instance()->load( $args );
 
 		// When finished rendering, reset stylesheet to what it was before.
 		if ( $use_stylesheet ) {

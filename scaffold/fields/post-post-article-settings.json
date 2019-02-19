@@ -38,7 +38,7 @@
 				"label": {
 					"label": { "__": "Enable Label" },
 					"type": "checkboxes",
-					"options": "`\\Civil_CMS\\Component\\Content_Item()->get_label_options()`"
+					"options": "`\\Civil_First_Fleet\\Component\\Content_Item()->get_label_options()`"
 				}
 			}
 		},
@@ -65,7 +65,7 @@
 			"children": {
 				"credibility_indicators" : {
 					"type": "group",
-					"children": "`\\Civil_CMS\\Component\\credibility_indicators()->article_fields()`"
+					"children": "`\\Civil_First_Fleet\\Component\\credibility_indicators()->article_fields()`"
 				}
 			}
 		},
@@ -76,7 +76,7 @@
 			"children": {
 				"call_to_action" : {
 					"type": "group",
-					"children": "`\\Civil_CMS\\Component\\call_to_action()->get_fm_fields()`"
+					"children": "`\\Civil_First_Fleet\\Component\\call_to_action()->get_fm_fields()`"
 				}
 			}
 		},

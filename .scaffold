@@ -1,8 +1,8 @@
 {
   "version": "0.4.5",
-  "cpt:landing-page": "9f678dbcbd45e416d2a4b20a5c4bf61d",
-  "fm:post-landing-page-settings": "d9647f0a961fee6085909e81221d0525",
-  "fm:post-guest-author-info": "96c78f14744cd8c19c6c1df7ad7f69fc",
-  "fm:post-post-article-settings": "76737f7179fe6709452727980e582b5e",
-  "fm:submenu-newsroom-settings": "90c6c0edff97dbd5fb84924a968329c2"
+  "cpt:landing-page": "624fd6834855112188aaabeae01defa9",
+  "fm:post-landing-page-settings": "e8979c921858ad4d4a88be57f1a77aee",
+  "fm:post-guest-author-info": "9433f023253e25140983f6822e7136fe",
+  "fm:post-post-article-settings": "313c5a3a94098fb823c660f2b88a9ebd",
+  "fm:submenu-newsroom-settings": "5205c39265c6e79aab548495c0d91209"
 }

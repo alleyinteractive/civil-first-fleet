@@ -23,8 +23,8 @@ import './article-template.css';
 
 initEntry();
 
-// Create instance of the component manager using `civil-cms`
-const manager = new ComponentManager('civil-cms');
+// Create instance of the component manager using `civil-first-fleet`
+const manager = new ComponentManager('civil-first-fleet');
 
 // Initialize components
 domContentLoaded(() => {

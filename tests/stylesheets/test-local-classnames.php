@@ -20,13 +20,13 @@ class LocalClassnamesTest extends WP_UnitTestCase {
 
 	public function setUp() {
 		ob_start();
-		\Civil_CMS\Stylesheets::instance()->setup( true, get_stylesheet_directory() . '/tests/stylesheets/mocks/mock-classnames.json' );
+		\Civil_First_Fleet\Stylesheets::instance()->setup( true, get_stylesheet_directory() . '/tests/stylesheets/mocks/mock-classnames.json' );
 		ob_get_clean();
 		ai_use_stylesheet( 'mock-one' );
 	}
 
 	public function test_use_stylesheet() {
-		$this->assertEquals( $this->test_classnames, \Civil_CMS\Stylesheets::instance()->current_stylesheet_classnames );
+		$this->assertEquals( $this->test_classnames, \Civil_First_Fleet\Stylesheets::instance()->current_stylesheet_classnames );
 	}
 
 	public function test_get_classnames() {

@@ -5,7 +5,7 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS;
+namespace Civil_First_Fleet;
 
 /**
  * Return a list of landing page types.
@@ -14,7 +14,7 @@ namespace Civil_CMS;
  */
 function get_landing_page_types() : array {
 	return [
-		'homepage' => __( 'Homepage', 'civil-cms' ),
+		'homepage' => __( 'Homepage', 'civil-first-fleet' ),
 	];
 }
 
@@ -27,18 +27,18 @@ function get_homepage_fields() : array {
 	return [
 		'featured_articles' => Component\featured_articles(
 			[
-				'label' => __( 'Featured Articles', 'civil-cms' ),
+				'label' => __( 'Featured Articles', 'civil-first-fleet' ),
 				'items' => 7,
 			]
 		)->get_fm_group(),
 		'call_to_action_1' => Component\call_to_action(
 			[
-				'label' => __( 'Call To Action (below featured articles)', 'civil-cms' ),
+				'label' => __( 'Call To Action (below featured articles)', 'civil-first-fleet' ),
 			]
 		)->get_fm_group(),
 		'articles_grid' => Component\content_list(
 			[
-				'label' => __( 'Articles Grid', 'civil-cms' ),
+				'label' => __( 'Articles Grid', 'civil-first-fleet' ),
 				'items' => 7,
 			]
 		)
@@ -47,20 +47,20 @@ function get_homepage_fields() : array {
 		->get_fm_group(),
 		'call_to_action_2' => Component\call_to_action(
 			[
-				'label' => __( 'Call To Action (below article grid)', 'civil-cms' ),
+				'label' => __( 'Call To Action (below article grid)', 'civil-first-fleet' ),
 			]
 		)->get_fm_group(),
 		'featured_image' => new \Fieldmanager_Group(
 			[
-				'label' => __( 'Featured Image', 'civil-cms' ),
+				'label' => __( 'Featured Image', 'civil-first-fleet' ),
 				'children' => [
 					'image' => new \Fieldmanager_Media(
 						[
-							'label'              => __( 'Featured Image', 'civil-cms' ),
-							'button_label'       => __( 'Select featured image', 'civil-cms' ),
+							'label'              => __( 'Featured Image', 'civil-first-fleet' ),
+							'button_label'       => __( 'Select featured image', 'civil-first-fleet' ),
 							'preview_size'       => 'card',
-							'modal_button_label' => __( 'Use featured image', 'civil-cms' ),
-							'modal_title'        => __( 'Featured Image', 'civil-cms' ),
+							'modal_button_label' => __( 'Use featured image', 'civil-first-fleet' ),
+							'modal_title'        => __( 'Featured Image', 'civil-first-fleet' ),
 						]
 					),
 				],

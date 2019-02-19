@@ -8,7 +8,7 @@
  */
 
 // @TODO add accessibility.
-namespace Civil_CMS;
+namespace Civil_First_Fleet;
 
 // Get this instance.
 $ai_component = ai_get_var( 'component' );
@@ -18,7 +18,7 @@ $ai_component = ai_get_var( 'component' );
 	<div class="<?php ai_the_classnames( [ 'inner' ] ); ?>">
 		<?php
 		// Render Logo.
-		\Civil_CMS\Component\logo()
+		\Civil_First_Fleet\Component\logo()
 			->set_setting( 'context', 'newsroom' )
 			->set_setting( 'version', 'black' )
 			->render();
@@ -49,11 +49,11 @@ $ai_component = ai_get_var( 'component' );
 						?>
 						<button class="<?php ai_the_classnames( [ 'search-trigger' ] ); ?>" aria-hidden="true">
 							<span class="<?php ai_the_classnames( [ 'search-trigger__icon' ] ); ?>"></span>
-							<span class="<?php ai_the_classnames( [ 'search-trigger__label' ] ); ?>" style="display: none;"><?php echo esc_html__( 'Search', 'civil-cms' ); ?></span>
+							<span class="<?php ai_the_classnames( [ 'search-trigger__label' ] ); ?>" style="display: none;"><?php echo esc_html__( 'Search', 'civil-first-fleet' ); ?></span>
 						</button>
 						<div class="<?php ai_the_classnames( [ 'hidden-search' ] ); ?>">
 							<?php
-							\Civil_CMS\Component\search_form()
+							\Civil_First_Fleet\Component\search_form()
 								->set_data( 'include_button', true )
 								->set_data( 'context', 'header' )
 								->render();
@@ -61,7 +61,7 @@ $ai_component = ai_get_var( 'component' );
 						</div>
 						<?php
 					} elseif ( 'inline' === $search_style ) {
-						\Civil_CMS\Component\search_form()
+						\Civil_First_Fleet\Component\search_form()
 							->set_data( 'include_button', true )
 							->set_data( 'context', 'header' )
 							->render();
@@ -74,7 +74,7 @@ $ai_component = ai_get_var( 'component' );
 
 			<div class="<?php ai_the_classnames( [ 'subscribe-wrapper' ] ); ?>">
 				<?php
-				\Civil_CMS\Component\subscribe_button()
+				\Civil_First_Fleet\Component\subscribe_button()
 					->set_data( 'id', 'subscribe-button-header' )
 					->render();
 				?>
@@ -85,7 +85,7 @@ $ai_component = ai_get_var( 'component' );
 
 		<button class="<?php ai_the_classnames( [ 'menu-trigger' ] ); ?>" aria-controls="newsroom-nav" aria-expanded="false">
 			<span><?php ai_get_template_part( $ai_component->get_component_path( 'svg/hamburger.svg' ) ); ?></span>
-			<span class="screen-reader-text"><?php esc_html_e( 'Newsroom Navigation', 'civil-cms' ); ?></span>
+			<span class="screen-reader-text"><?php esc_html_e( 'Newsroom Navigation', 'civil-first-fleet' ); ?></span>
 		</button>
 
 		<span class="<?php ai_the_classnames( [ 'runs-on-civil' ] ); ?>"><a href="https://civil.co" target="_blank"><?php ai_get_template_part( $ai_component->get_component_path( 'svg/runs-on-civil-black.svg' ) ); ?></a></span>

@@ -24,8 +24,8 @@ if ( empty( $indicators ) ) {
 
 <div class="<?php ai_the_classnames( [ 'wrapper', 'custom-block' ] ); ?>" data-component="credibility-indicators">
 	<header class="<?php ai_the_classnames( [ 'intro' ] ); ?>">
-		<h2 class="<?php ai_the_classnames( [ 'title' ] ); ?>"><?php esc_html_e( 'Credibility Indicators', 'civil-cms' ); ?></h2>
-		<p class="<?php ai_the_classnames( [ 'description' ] ); ?>"><?php esc_html_e( 'These are selected by the writer and confirmed by the editor', 'civil-cms' ); ?></p>
+		<h2 class="<?php ai_the_classnames( [ 'title' ] ); ?>"><?php esc_html_e( 'Credibility Indicators', 'civil-first-fleet' ); ?></h2>
+		<p class="<?php ai_the_classnames( [ 'description' ] ); ?>"><?php esc_html_e( 'These are selected by the writer and confirmed by the editor', 'civil-first-fleet' ); ?></p>
 	</header>
 	<ul class="<?php ai_the_classnames( [ 'list' ] ); ?>">
 		<?php foreach ( (array) $indicators as $indicator_key => $indicator ) : ?>

@@ -36,7 +36,7 @@ if ( ! function_exists( 'ai_get_classnames' ) ) :
 	 * @return string              The variable or $default.
 	 */
 	function ai_get_classnames( $static_classes, $dynamic_classes = [], $stylesheet = false ) {
-		$valid_classes = \Civil_CMS\Stylesheets::instance()->get_classnames( $static_classes, $dynamic_classes, $stylesheet );
+		$valid_classes = \Civil_First_Fleet\Stylesheets::instance()->get_classnames( $static_classes, $dynamic_classes, $stylesheet );
 		return implode( ' ', $valid_classes );
 	}
 endif;
@@ -52,7 +52,7 @@ if ( ! function_exists( 'ai_the_classnames' ) ) :
 	 *                             will use stylesheet provided via ai_use_stylesheet.
 	 */
 	function ai_the_classnames( $static_classes, $dynamic_classes = [], $stylesheet = false ) {
-		$valid_classes = \Civil_CMS\Stylesheets::instance()->get_classnames( $static_classes, $dynamic_classes, $stylesheet );
+		$valid_classes = \Civil_First_Fleet\Stylesheets::instance()->get_classnames( $static_classes, $dynamic_classes, $stylesheet );
 		echo esc_attr( implode( ' ', $valid_classes ) );
 	}
 endif;
@@ -67,7 +67,7 @@ if ( ! function_exists( 'ai_use_stylesheet' ) ) :
 	 * @return void
 	 */
 	function ai_use_stylesheet( $stylesheet ) {
-		\Civil_CMS\Stylesheets::instance()->use_stylesheet( $stylesheet );
+		\Civil_First_Fleet\Stylesheets::instance()->use_stylesheet( $stylesheet );
 	}
 
 endif;

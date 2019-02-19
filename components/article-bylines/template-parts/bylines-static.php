@@ -46,7 +46,7 @@ $ai_coauthors = get_coauthors( $post_id );
 					</p>
 
 					<a class="<?php ai_the_classnames( [ 'bio-more' ] ); ?>" href="<?php echo esc_url( get_author_posts_url( $coauthor->ID, $coauthor->user_nicename ) ); ?>">
-						<?php esc_html_e( 'See more', 'civil-cms' ); ?>
+						<?php esc_html_e( 'See more', 'civil-first-fleet' ); ?>
 					</a>
 				</span>
 			</div>

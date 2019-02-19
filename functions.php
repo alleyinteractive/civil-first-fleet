@@ -5,11 +5,11 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS;
+namespace Civil_First_Fleet;
 
 define( 'CIVIL_FIRST_FLEET_PATH', dirname( __FILE__ ) );
-define( 'CIVIL_CMS_URL', get_template_directory_uri() );
-define( 'CIVIL_CMS_STATIC_VERSION', '1.0.3' );
+define( 'CIVIL_FIRST_FLEET_URL', get_template_directory_uri() );
+define( 'CIVIL_FIRST_FLEET_STATIC_VERSION', '1.0.3' );
 
 // Activate and customize plugins.
 require_once CIVIL_FIRST_FLEET_PATH . '/inc/plugins.php';
@@ -172,9 +172,15 @@ require_once CIVIL_FIRST_FLEET_PATH . '/inc/class-wrapping.php';
 require_once CIVIL_FIRST_FLEET_PATH . '/inc/fields.php';
 
 // Post Type Base Class.
-require_once CIVIL_FIRST_FLEET_PATH . '/inc/post-types/class-civil-cms-post-type.php';
+require_once CIVIL_FIRST_FLEET_PATH . '/inc/post-types/class-civil-first-fleet-post-type.php';
 
 // Landing Pages Post Type (cpt:landing-page).
-require_once CIVIL_FIRST_FLEET_PATH . '/inc/post-types/class-civil-cms-post-type-landing-page.php';
+require_once CIVIL_FIRST_FLEET_PATH . '/inc/post-types/class-civil-first-fleet-post-type-landing-page.php';
+
+// Post Type Base Class.
+require_once CIVIL_FIRST_FLEET_PATH . '/inc/post-types/class-civil-first-fleet-post-type.php';
+
+// Landing Pages Post Type (cpt:landing-page).
+require_once CIVIL_FIRST_FLEET_PATH . '/inc/post-types/class-civil-first-fleet-post-type-landing-page.php';
 
 /* End Data Structures */

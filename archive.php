@@ -6,7 +6,7 @@
  */
 
 $queried_object = get_queried_object();
-$modifier       = \Civil_CMS\is_ajax_request() ? 'ajax' : '';
+$modifier       = \Civil_First_Fleet\is_ajax_request() ? 'ajax' : '';
 $template       = '404';
 
 switch ( $queried_object ) {

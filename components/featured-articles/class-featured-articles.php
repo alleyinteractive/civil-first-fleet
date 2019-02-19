@@ -5,12 +5,12 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS\Component;
+namespace Civil_First_Fleet\Component;
 
 /**
  * Featured Articles component class.
  */
-class Featured_Articles extends \Civil_CMS\Component\Content_List {
+class Featured_Articles extends \Civil_First_Fleet\Component\Content_List {
 
 	/**
 	 * Unique component slug.
@@ -44,18 +44,18 @@ class Featured_Articles extends \Civil_CMS\Component\Content_List {
 		// Simplify meta and add CTA component.
 		$fields['meta'] = new \Fieldmanager_Group(
 			[
-				'label'     => __( 'Settings', 'civil-cms' ),
+				'label'     => __( 'Settings', 'civil-first-fleet' ),
 				'collapsed' => true,
 				'children'  => [
-					'title'          => new \Fieldmanager_Textfield( __( 'Title', 'civil-cms' ) ),
+					'title'          => new \Fieldmanager_Textfield( __( 'Title', 'civil-first-fleet' ) ),
 					'hide_sidebar'   => new \Fieldmanager_Checkbox(
 						[
-							'label'       => __( 'Hide Sidebar (only display one post)', 'civil-cms' ),
+							'label'       => __( 'Hide Sidebar (only display one post)', 'civil-first-fleet' ),
 						]
 					),
 					'call_to_action' => new \Fieldmanager_Group(
 						[
-							'label'     => __( 'Call To Action', 'civil-cms' ),
+							'label'     => __( 'Call To Action', 'civil-first-fleet' ),
 							'collapsed' => true,
 							'children'  => call_to_action()->get_fm_fields(),
 						]

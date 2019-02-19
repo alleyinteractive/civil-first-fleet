@@ -5,12 +5,12 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS\Component;
+namespace Civil_First_Fleet\Component;
 
 /**
  * Search_Form component class.
  */
-class Search_Form extends \Civil_CMS\Component {
+class Search_Form extends \Civil_First_Fleet\Component {
 
 	/**
 	 * Unique component slug.

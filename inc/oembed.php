@@ -7,7 +7,7 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS;
+namespace Civil_First_Fleet;
 
 /**
  * Returns the post deck (AKA 'dek' or subtitle) for the embed excerpt if one is
@@ -16,7 +16,7 @@ namespace Civil_CMS;
  * @param  string $output Post excerpt.
  */
 function get_excerpt_embed( $output ) {
-	$dek = \Civil_CMS\Component\content_item()
+	$dek = \Civil_First_Fleet\Component\content_item()
 		->set_data( 'post_id', get_the_ID() )
 		->get_dek();
 

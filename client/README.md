@@ -2,7 +2,7 @@
 
 ## Production Note
 
-The included `.travis.deploy.yml` is moved to the root of the repository (overwriting the [alleyinteractive](https://github.com/alleyinteractive/civil-cms/blob/production/.travis.yml) `.travis.yml` when pushing to [wpcomvip](https://github.com/wpcomvip/civil) to facilitate the asset build deployment in production. See the [vip-go-documentation](https://vip.wordpress.com/documentation/automated-build-and-deploy-on-vip-go/) for more information.
+The included `.travis.deploy.yml` is moved to the root of the repository (overwriting the [alleyinteractive](https://github.com/alleyinteractive/civil-first-fleet/blob/production/.travis.yml) `.travis.yml` when pushing to [wpcomvip](https://github.com/wpcomvip/civil) to facilitate the asset build deployment in production. See the [vip-go-documentation](https://vip.wordpress.com/documentation/automated-build-and-deploy-on-vip-go/) for more information.
 
 ## Client Side Assets
 
@@ -26,10 +26,10 @@ In cases where the front end build for the site is very large or contains many l
 Enabling hot reloading is a two-step process:
 
 1. `npm run dev`
-2. Load the page with the query param `?civil-cms-dev=1` appended (for example, on the homepage, load `wp.dev?civil-cms-dev=true`). Hot reloading will _only_ work on pages that have this query param added.
+2. Load the page with the query param `?civil-first-fleet-dev=1` appended (for example, on the homepage, load `wp.dev?civil-first-fleet-dev=true`). Hot reloading will _only_ work on pages that have this query param added.
 
 ### Why are there two steps?
-`npm run dev` bundles files much differently than either `npm run watch` or `npm run build`, and this theme loads different assets depending on whether you've toggled the `?civil-cms-dev` query param. The `civil-cms-dev` query param will tell wordpress to load all static assets in a single bundle from `localhost:8080` rather than broadway, allowing webpack to access and update the modules in the bundle on-the-fly.
+`npm run dev` bundles files much differently than either `npm run watch` or `npm run build`, and this theme loads different assets depending on whether you've toggled the `?civil-first-fleet-dev` query param. The `civil-first-fleet-dev` query param will tell wordpress to load all static assets in a single bundle from `localhost:8080` rather than broadway, allowing webpack to access and update the modules in the bundle on-the-fly.
 
 ### Adding a script to the hot-reloaded `dev.bundle.js`
 1. All client-side assets will be added to the `dev` entry point used for hot reloading automatically. If you provide a specific entry to build with `--env.entry`, the `dev` entry point will contain only those assets.

@@ -5,12 +5,12 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS\Component;
+namespace Civil_First_Fleet\Component;
 
 /**
  * Subscribe_Button component class.
  */
-class Subscribe_Button extends \Civil_CMS\Component {
+class Subscribe_Button extends \Civil_First_Fleet\Component {
 
 	/**
 	 * Unique component slug.
@@ -38,7 +38,7 @@ class Subscribe_Button extends \Civil_CMS\Component {
 	 * @return array Default data.
 	 */
 	public function default_data() : array {
-		$button_text = $this->get_option( 'newsroom-settings', 'component_defaults', 'paywall_call_to_action', 'button_text' ) ?: __( 'Subscribe', 'civil-cms' );
+		$button_text = $this->get_option( 'newsroom-settings', 'component_defaults', 'paywall_call_to_action', 'button_text' ) ?: __( 'Subscribe', 'civil-first-fleet' );
 
 		return [
 			'id'            => 'subscribe-button',

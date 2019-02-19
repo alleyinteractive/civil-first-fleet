@@ -5,12 +5,12 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS\Component;
+namespace Civil_First_Fleet\Component;
 
 /**
  * Image component class.
  */
-class Image extends \Civil_CMS\Component {
+class Image extends \Civil_First_Fleet\Component {
 
 	/**
 	 * Unique component slug.

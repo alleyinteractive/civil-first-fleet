@@ -1,36 +1,35 @@
 <?php
 /**
- * Load and customize plugins
+ * Load and customize plugins.
  *
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS;
+namespace Civil_First_Fleet;
 
-// Plugin dependencies.
-$civil_first_fleet_plugins = [
-	'Coauthors Plus'        => 'co-authors-plus/co-authors-plus.php',
-	'FM Zones'              => 'fm-zones/fm-zones.php',
-	'MSM Sitemap'           => 'msm-sitemap/msm-sitemap.php',
-	'Safe Redirect Manager' => 'safe-redirect-manager/safe-redirect-manager.php',
-	'Fieldmanager'          => 'wordpress-fieldmanager/fieldmanager.php',
-	'WP Asset Manager'      => 'wp-asset-manager/asset-manager.php',
-	'WP SEO'                => 'wp-seo/wp-seo.php',
-	'Thumbnail Editor'      => 'wpcom-thumbnail-editor/wpcom-thumbnail-editor.php',
-];
-foreach ( $civil_first_fleet_plugins as $label => $path ) {
-	if ( function_exists( 'wpcom_vip_load_plugin' ) ) {
-		wpcom_vip_load_plugin( $path );
-	} elseif ( file_exists( CIVIL_FIRST_FLEET_PATH . '/plugins/' . $path ) ) {
-		require_once CIVIL_FIRST_FLEET_PATH . '/plugins/' . $path;
-	} else {
-		wp_die(
-			sprintf(
-				esc_html__( 'Plugin "%1$s" is missing and could not be loaded. Ensure you have cloned your submodule plugins properly.', 'civil-first-fleet' ),
-				esc_html( $label )
-			)
-		);
-	}
+/**
+ * Display an admin notice if a required plugin is missing from the theme.
+ *
+ * @param string $plugin_name Plugin name.
+ */
+function missing_plugin_notice( $plugin_name ) {
+	add_action(
+		'admin_notices',
+		function() use ( $plugin_name ) {
+			echo '<div class="notice notice-error"><p>';
+			printf(
+				// Translators: %1$s, plugin name.
+				esc_html__( 'Could not load required plugin %1$s. Your site will not work without it. Please reference theme documentation for information on installing.', 'civil-first-fleet' ),
+				esc_html( $plugin_name )
+			);
+			echo '</p></div>';
+		}
+	);
+}
+
+// Ensure various plugins are loaded.
+if ( ! defined( 'FM_VERSION' ) ) {
+	missing_plugin_notice( __( 'Fieldmanager', 'civil-first-fleet' ) );
 }
 
 // Disable plugin credibility indicators since the theme has them built in.

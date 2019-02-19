@@ -13,7 +13,7 @@
 		"landing_page_type": {
 			"type": "select",
 			"first_empty": true,
-			"options": "`\\Civil_CMS\\get_landing_page_types()`"
+			"options": "`\\Civil_First_Fleet\\get_landing_page_types()`"
 		},
 		"homepage": {
 			"label": { "__": "Homepage" },
@@ -22,7 +22,7 @@
 				"src": "landing_page_type",
 				"value": "homepage"
 			},
-			"children": "`\\Civil_CMS\\get_homepage_fields()`"
+			"children": "`\\Civil_First_Fleet\\get_homepage_fields()`"
 		}
 	}
 }

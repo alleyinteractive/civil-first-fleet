@@ -5,7 +5,7 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS;
+namespace Civil_First_Fleet;
 
 /**
  * Class User_Roles.
@@ -34,7 +34,7 @@ class User_Roles {
 		// Create the user roles.
 		$this->user_roles = [
 			'administrator' => [
-				'display_name' => __( 'Administrator', 'civil-cms' ),
+				'display_name' => __( 'Administrator', 'civil-first-fleet' ),
 				'action'       => 'merge',
 				'caps'         => [
 					// Edit flow.
@@ -45,7 +45,7 @@ class User_Roles {
 				],
 			],
 			'editor' => [
-				'display_name' => __( 'Editor', 'civil-cms' ),
+				'display_name' => __( 'Editor', 'civil-first-fleet' ),
 				'action'       => 'merge',
 				'caps'         => [
 					'unfiltered_html'         => false,
@@ -62,7 +62,7 @@ class User_Roles {
 				],
 			],
 			'author' => [
-				'display_name' => __( 'Author', 'civil-cms' ),
+				'display_name' => __( 'Author', 'civil-first-fleet' ),
 				'action'       => 'merge',
 				'caps'         => [
 					'publish_posts'           => false,
@@ -75,7 +75,7 @@ class User_Roles {
 				],
 			],
 			'contributor' => [
-				'display_name' => __( 'Contributor', 'civil-cms' ),
+				'display_name' => __( 'Contributor', 'civil-first-fleet' ),
 				'action'       => 'merge',
 				'caps'         => [
 					'upload_files'         => true,
@@ -118,7 +118,7 @@ class User_Roles {
 		}
 
 		$this->user_roles['administrator_unfiltered'] = [
-			'display_name' => __( 'Administrator (unfiltered)', 'civil-cms' ),
+			'display_name' => __( 'Administrator (unfiltered)', 'civil-first-fleet' ),
 			'action'       => 'add',
 			'caps'         => $admin_unfiltered_caps,
 		];

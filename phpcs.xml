@@ -61,7 +61,7 @@
 			Verify that the text_domain is set to the desired text-domain.
 			Multiple valid text domains can be provided as a comma-delimited list.
 			 -->
-			<property name="text_domain" type="array" value="civil-cms" />
+			<property name="text_domain" type="array" value="civil-first-fleet" />
 		</properties>
 
 		<exclude-pattern>plugins/</exclude-pattern>
@@ -79,7 +79,7 @@
 
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
-			<property name="prefixes" type="array" value="civil_cms,ai,_ai" />
+			<property name="prefixes" type="array" value="civil_first_fleet,ai,_ai" />
 		</properties>
 
 		<!-- In practice, partials should be loaded outside of the global namespace with get_template_part(). -->

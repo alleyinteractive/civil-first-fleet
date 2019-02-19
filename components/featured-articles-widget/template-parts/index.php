@@ -17,7 +17,7 @@ if ( empty( $articles ) ) {
 // Get title.
 $title = $component->get_data( 'meta', 'title' );
 if ( empty( $title ) ) {
-	$title = __( 'Featured Articles', 'civil-cms' );
+	$title = __( 'Featured Articles', 'civil-first-fleet' );
 }
 ?>
 

@@ -8,12 +8,12 @@
 global $wp_query;
 
 // Output Search Form.
-$article_grid = \Civil_CMS\Component\search_form()
+$article_grid = \Civil_First_Fleet\Component\search_form()
 	->set_data( 'search_query', get_search_query() )
 	->render();
 
 // Output Article Grid.
-$article_grid = \Civil_CMS\Component\article_grid()
+$article_grid = \Civil_First_Fleet\Component\article_grid()
 	->set_setting( 'items', 0 )
 	->set_data(
 		'curate',

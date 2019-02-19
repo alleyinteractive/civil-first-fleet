@@ -5,7 +5,7 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS;
+namespace Civil_First_Fleet;
 
 /**
  * Custom rewrites using the Path_Dispatch class
@@ -31,7 +31,7 @@ function disable_non_ajax_pagination() {
 
 	// Disable non-ajax pagination.
 	if (
-		! \Civil_CMS\is_ajax_request()
+		! \Civil_First_Fleet\is_ajax_request()
 		&& ( is_archive() || is_search() )
 		&& 1 <= get_query_var( 'paged' )
 	) {

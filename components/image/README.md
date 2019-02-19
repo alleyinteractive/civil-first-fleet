@@ -39,7 +39,7 @@ Some configuration is required to use the image component. You need to declare a
 /**
  * Register image sizes for use by the Image component.
  */
-\Civil_CMS\Component\Image::register_sizes( [
+\Civil_First_Fleet\Component\Image::register_sizes( [
     'large-feature' => [
         'sources' => [
             [
@@ -63,14 +63,14 @@ In addition, if you need to use a `<picture>` element you'll need to register br
 
 ```php
 
-\Civil_CMS\Component\Image::register_breakpoints( [
+\Civil_First_Fleet\Component\Image::register_breakpoints( [
     'xl' => '80rem',
     'lg' => '64rem',
     'md' => '48rem',
     'sm' => '32rem',
 ] );
 
-\Civil_CMS\Component\Image::register_sizes( [
+\Civil_First_Fleet\Component\Image::register_sizes( [
     'large-feature' => [
         'sources' => [
             [

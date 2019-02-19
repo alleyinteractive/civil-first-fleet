@@ -45,7 +45,7 @@ $context     = $component->get_data( 'context' );
 		<?php if ( 'inline' !== $layout ) : ?>
 		<div class="<?php ai_the_classnames( [ 'civil__call-to-action__button-wrapper' ] ); ?>">
 			<?php
-			\Civil_CMS\Component\subscribe_button()
+			\Civil_First_Fleet\Component\subscribe_button()
 				->set_data( 'text', $button_text )
 				->set_data( 'id', empty( $context ) ? 'subscribe-button-cta' : 'subscribe-button-cta-' . $context )
 				->render();

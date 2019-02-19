@@ -20,7 +20,7 @@ $featured_article = array_shift( $articles );
 // Setup title.
 $title = $component->get_data( 'meta', 'title' );
 if ( empty( $title ) ) {
-	$title = __( 'Top Stories', 'civil-cms' );
+	$title = __( 'Top Stories', 'civil-first-fleet' );
 }
 
 // Determine if this component has a call to action.
@@ -50,7 +50,7 @@ $hide_sidebar = (bool) $component->get_data( 'meta', 'hide_sidebar' );
 			<?php if ( isset( $call_to_action['enable'] ) && true === (bool) $call_to_action['enable'] ) : ?>
 				<div class="call-to-action">
 					<?php
-					\Civil_CMS\Component\call_to_action()
+					\Civil_First_Fleet\Component\call_to_action()
 						->set_setting( $call_to_action['settings'] )
 						->set_data( $call_to_action['data'] )
 						->set_data( 'location', 'river' )

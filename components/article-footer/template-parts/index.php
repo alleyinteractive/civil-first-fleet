@@ -27,7 +27,7 @@ $taxonomies             = $component->get_option( 'newsroom-settings', 'article_
 
 	<?php
 	if ( ! empty( $call_to_action['enable'] ) ) {
-		\Civil_CMS\Component\call_to_action()
+		\Civil_First_Fleet\Component\call_to_action()
 			->set_setting( $call_to_action['settings'] )
 			->set_setting( 'layout', 'inline' )
 			->set_data( $call_to_action['data'] )
@@ -38,7 +38,7 @@ $taxonomies             = $component->get_option( 'newsroom-settings', 'article_
 
 	<div class="<?php ai_the_classnames( [ 'bylines' ] ); ?>">
 		<?php
-		\Civil_CMS\Component\article_bylines()
+		\Civil_First_Fleet\Component\article_bylines()
 			->set_setting( 'layout', 'static' )
 			->render();
 		?>
@@ -46,7 +46,7 @@ $taxonomies             = $component->get_option( 'newsroom-settings', 'article_
 
 	<div class="<?php ai_the_classnames( [ 'indicators' ] ); ?>">
 		<?php
-		\Civil_CMS\Component\credibility_indicators()
+		\Civil_First_Fleet\Component\credibility_indicators()
 			->set_data( $credibility_indicators ?? [] )
 			->render();
 		?>
@@ -56,7 +56,7 @@ $taxonomies             = $component->get_option( 'newsroom-settings', 'article_
 		<?php
 		// Get tags, if enabled.
 		if ( ! empty( $taxonomies['tags']['enable'] ?? '' ) ) {
-			\Civil_CMS\Component\article_taxonomies()
+			\Civil_First_Fleet\Component\article_taxonomies()
 				->set_setting( $taxonomies['tags'] )
 				->set_data( 'taxonomy', 'post_tag' )
 				->set_data( 'post_id', get_the_ID() )
@@ -65,7 +65,7 @@ $taxonomies             = $component->get_option( 'newsroom-settings', 'article_
 
 		// Get categories, if enabled.
 		if ( ! empty( $taxonomies['categories']['enable'] ?? '' ) ) {
-			\Civil_CMS\Component\article_taxonomies()
+			\Civil_First_Fleet\Component\article_taxonomies()
 				->set_setting( $taxonomies['categories'] )
 				->set_data( 'post_id', get_the_ID() )
 				->set_data( 'taxonomy', 'category' )

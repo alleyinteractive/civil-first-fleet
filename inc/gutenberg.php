@@ -5,7 +5,7 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS;
+namespace Civil_First_Fleet;
 
 // Disable all links to the Classic Editor.
 remove_action( 'admin_init', 'gutenberg_add_edit_link_filters' );

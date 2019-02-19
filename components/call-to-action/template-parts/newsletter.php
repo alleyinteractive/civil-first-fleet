@@ -50,14 +50,14 @@ $location    = $component->get_data( 'location' );
 				value="<?php echo esc_attr( $newsletter ); ?>"
 			>
 			<div>
-				<label class="<?php ai_the_classnames( [ 'screen-reader-text' ] ); ?>"><?php esc_html_e( 'Email Address', 'civil-cms' ); ?></label>
+				<label class="<?php ai_the_classnames( [ 'screen-reader-text' ] ); ?>"><?php esc_html_e( 'Email Address', 'civil-first-fleet' ); ?></label>
 			</div>
 			<div class="<?php ai_the_classnames( [ 'civil__call-to-action__input-wrapper' ] ); ?>">
 				<input
 					autocomplete="email"
 					class="<?php ai_the_classnames( [ 'civil__call-to-action__newsletter-email' ] ); ?>"
 					name="email"
-					placeholder="<?php esc_attr_e( 'Email Address', 'civil-cms' ); ?>"
+					placeholder="<?php esc_attr_e( 'Email Address', 'civil-first-fleet' ); ?>"
 					required
 					type="email"
 					value=""

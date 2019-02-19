@@ -5,7 +5,7 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS;
+namespace Civil_First_Fleet;
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -19,7 +19,7 @@ function theme_setup() {
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
 	 *
-	 * load_theme_textdomain( 'civil-cms', THEME_PATH . '/languages' );
+	 * load_theme_textdomain( 'civil-first-fleet', THEME_PATH . '/languages' );
 	 */
 
 	// Add default posts and comments RSS feed links to head.
@@ -48,11 +48,11 @@ function theme_setup() {
 	if ( ! is_multisite() || 1 !== get_current_blog_id() ) {
 		register_nav_menus(
 			[
-				'newsroom-footer-one'   => __( 'Footer (Column One)', 'civil-cms' ),
-				'newsroom-footer-two'   => __( 'Footer (Column Two)', 'civil-cms' ),
-				'newsroom-footer-three' => __( 'Footer (Column Three)', 'civil-cms' ),
-				'newsroom-footer-four'  => __( 'Footer (Column Four)', 'civil-cms' ),
-				'newsroom-header'       => __( 'Header', 'civil-cms' ),
+				'newsroom-footer-one'   => __( 'Footer (Column One)', 'civil-first-fleet' ),
+				'newsroom-footer-two'   => __( 'Footer (Column Two)', 'civil-first-fleet' ),
+				'newsroom-footer-three' => __( 'Footer (Column Three)', 'civil-first-fleet' ),
+				'newsroom-footer-four'  => __( 'Footer (Column Four)', 'civil-first-fleet' ),
+				'newsroom-header'       => __( 'Header', 'civil-first-fleet' ),
 			]
 		);
 	}

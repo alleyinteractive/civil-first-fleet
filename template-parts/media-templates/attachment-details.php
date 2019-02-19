@@ -9,10 +9,10 @@
 
 <script type="text/html" id="tmpl-civil-attachment-details">
 	<h2>
-		<?php esc_html_e( 'Attachment Details', 'civil-cms' ); ?>
+		<?php esc_html_e( 'Attachment Details', 'civil-first-fleet' ); ?>
 		<span class="settings-save-status">
 			<span class="spinner"></span>
-			<span class="saved"><?php esc_html_e( 'Saved.', 'civil-cms' ); ?></span>
+			<span class="saved"><?php esc_html_e( 'Saved.', 'civil-first-fleet' ); ?></span>
 		</span>
 	</h2>
 	<div class="attachment-info">
@@ -36,23 +36,23 @@
 				<# } #>
 
 				<# if ( data.can.save && data.sizes ) { #>
-					<a class="edit-attachment" href="{{ data.editLink }}&amp;image-editor" target="_blank"><?php esc_html_e( 'Edit Image', 'civil-cms' ); ?></a>
+					<a class="edit-attachment" href="{{ data.editLink }}&amp;image-editor" target="_blank"><?php esc_html_e( 'Edit Image', 'civil-first-fleet' ); ?></a>
 				<# } #>
 			<# } #>
 
 			<# if ( data.fileLength ) { #>
-				<div class="file-length"><?php esc_html_e( 'Length:', 'civil-cms' ); ?> {{ data.fileLength }}</div>
+				<div class="file-length"><?php esc_html_e( 'Length:', 'civil-first-fleet' ); ?> {{ data.fileLength }}</div>
 			<# } #>
 
 			<# if ( ! data.uploading && data.can.remove ) { #>
 				<?php if ( MEDIA_TRASH ) : ?>
 				<# if ( 'trash' === data.status ) { #>
-					<button type="button" class="button-link untrash-attachment"><?php esc_html_e( 'Untrash', 'civil-cms' ); ?></button>
+					<button type="button" class="button-link untrash-attachment"><?php esc_html_e( 'Untrash', 'civil-first-fleet' ); ?></button>
 				<# } else { #>
-					<button type="button" class="button-link trash-attachment"><?php esc_html_e( 'Trash', 'civil-cms' ); ?></button>
+					<button type="button" class="button-link trash-attachment"><?php esc_html_e( 'Trash', 'civil-first-fleet' ); ?></button>
 				<# } #>
 				<?php else : ?>
-					<button type="button" class="button-link delete-attachment"><?php esc_html_e( 'Delete Permanently', 'civil-cms' ); ?></button>
+					<button type="button" class="button-link delete-attachment"><?php esc_html_e( 'Delete Permanently', 'civil-first-fleet' ); ?></button>
 				<?php endif; ?>
 			<# } #>
 
@@ -65,21 +65,21 @@
 	</div>
 
 	<label class="setting" data-setting="url">
-		<span class="name"><?php esc_html_e( 'URL', 'civil-cms' ); ?></span>
+		<span class="name"><?php esc_html_e( 'URL', 'civil-first-fleet' ); ?></span>
 		<input type="text" value="{{ data.url }}" readonly />
 	</label>
 	<# var maybeReadOnly = data.can.save || data.allowLocalEdits ? '' : 'readonly'; #>
 	<?php if ( post_type_supports( 'attachment', 'title' ) ) : ?>
 	<label class="setting" data-setting="title">
-		<span class="name"><?php esc_html_e( 'Title', 'civil-cms' ); ?></span>
+		<span class="name"><?php esc_html_e( 'Title', 'civil-first-fleet' ); ?></span>
 		<input type="text" value="{{ data.title }}" {{ maybeReadOnly }} />
 	</label>
 	<?php endif; ?>
 	<# if ( 'audio' === data.type ) { #>
 	<?php
 	foreach ( array(
-		'artist' => __( 'Artist', 'civil-cms' ),
-		'album'  => __( 'Album', 'civil-cms' ),
+		'artist' => __( 'Artist', 'civil-first-fleet' ),
+		'album'  => __( 'Album', 'civil-first-fleet' ),
 	) as $key => $label ) :
 		?>
 		<label class="setting" data-setting="<?php echo esc_attr( $key ); ?>">
@@ -89,17 +89,17 @@
 	<?php endforeach; ?>
 	<# } #>
 	<label class="setting" data-setting="caption">
-		<span class="name"><?php esc_html_e( 'Caption', 'civil-cms' ); ?></span>
+		<span class="name"><?php esc_html_e( 'Caption', 'civil-first-fleet' ); ?></span>
 		<textarea {{ maybeReadOnly }}>{{ data.caption }}</textarea>
 	</label>
 	<# if ( 'image' === data.type ) { #>
 		<label class="setting" data-setting="alt">
-			<span class="name"><?php esc_html_e( 'Alt Text', 'civil-cms' ); ?></span>
+			<span class="name"><?php esc_html_e( 'Alt Text', 'civil-first-fleet' ); ?></span>
 			<input type="text" value="{{ data.alt }}" {{ maybeReadOnly }} />
 		</label>
 	<# } #>
 	<label class="setting" data-setting="description">
-		<span class="name"><?php esc_html_e( 'Credit', 'civil-cms' ); ?></span>
+		<span class="name"><?php esc_html_e( 'Credit', 'civil-first-fleet' ); ?></span>
 		<textarea {{ maybeReadOnly }}>{{ data.description }}</textarea>
 	</label>
 </script>

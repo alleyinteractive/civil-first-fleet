@@ -5,12 +5,12 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS\Component;
+namespace Civil_First_Fleet\Component;
 
 /**
  * Error Page component class.
  */
-class Error_Page extends \Civil_CMS\Component\Content_Item {
+class Error_Page extends \Civil_First_Fleet\Component\Content_Item {
 
 	/**
 	 * Unique component slug.
@@ -59,7 +59,7 @@ class Error_Page extends \Civil_CMS\Component\Content_Item {
 	public function get_civil_default_content() {
 		return '<p>' . sprintf(
 			/* translators: 1: The site's home URL. 2: The Civil Help page. */
-			__( 'Like the hearts of the vulture capitalists pillaging newsrooms around the world, this page is not found. Go to our <a href="%1$s">homepage</a> — or visit our <a href="%2$s">help section</a> if you’ve got any questions.', 'civil-cms' ),
+			__( 'Like the hearts of the vulture capitalists pillaging newsrooms around the world, this page is not found. Go to our <a href="%1$s">homepage</a> — or visit our <a href="%2$s">help section</a> if you’ve got any questions.', 'civil-first-fleet' ),
 			esc_url( home_url() ),
 			esc_url( home_url( '/help/' ) )
 		) . '</p>';
@@ -71,7 +71,7 @@ class Error_Page extends \Civil_CMS\Component\Content_Item {
 	public function get_newsroom_default_content() {
 		return '<p>' . sprintf(
 			/* translators: 1: The site's home URL. */
-			__( 'Stop the presses! This page was not found. Go to our <a href="%1$s">homepage</a>.', 'civil-cms' ),
+			__( 'Stop the presses! This page was not found. Go to our <a href="%1$s">homepage</a>.', 'civil-first-fleet' ),
 			esc_url( home_url() )
 		) . '</p>';
 	}

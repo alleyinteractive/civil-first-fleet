@@ -7,7 +7,7 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS;
+namespace Civil_First_Fleet;
 
 /**
  * Add custom query vars.
@@ -17,7 +17,7 @@ namespace Civil_CMS;
  */
 function query_vars( $vars ) {
 	// Add a query var to enable hot reloading.
-	$vars[] = 'civil-cms-dev';
+	$vars[] = 'civil-first-fleet-dev';
 	$vars[] = 'ajax';
 
 	return $vars;
@@ -73,7 +73,7 @@ function modify_term_archives( $wp_query ) {
 		$wp_query->set( 'fields', 'ids' );
 
 		// Is this ajax?
-		if ( ! \Civil_CMS\is_ajax_request() ) {
+		if ( ! \Civil_First_Fleet\is_ajax_request() ) {
 			// First page gets 16 posts in total.
 			$wp_query->set( 'posts_per_page', 16 );
 		} else {
@@ -140,9 +140,9 @@ add_action( 'pre_get_posts', __NAMESPACE__ . '\modify_search' );
 function load_more( $wp_query ) {
 
 	// Disable theme wrapper and setup stylesheets (without printing <script> tag).
-	if ( \Civil_CMS\is_ajax_request() ) {
-		add_filter( 'civil_cms_skip_theme_wrapper', '__return_true' );
-		\Civil_CMS\Stylesheets::instance()->setup( true );
+	if ( \Civil_First_Fleet\is_ajax_request() ) {
+		add_filter( 'civil_first_fleet_skip_theme_wrapper', '__return_true' );
+		\Civil_First_Fleet\Stylesheets::instance()->setup( true );
 	}
 }
 add_action( 'pre_get_posts', __NAMESPACE__ . '\load_more' );

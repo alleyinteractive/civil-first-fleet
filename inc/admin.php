@@ -5,7 +5,7 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS;
+namespace Civil_First_Fleet;
 
 /**
  * Remove the "Custom Fields" meta box.
@@ -25,7 +25,7 @@ add_action( 'add_meta_boxes', __NAMESPACE__ . '\remove_postcustom', 11 );
  * Set up CSS Modules functionality for Gutenberg blocks
  */
 function admin_init_cssmodules() {
-	\Civil_CMS\Stylesheets::instance()->setup( true );
+	\Civil_First_Fleet\Stylesheets::instance()->setup( true );
 }
 add_action( 'admin_init', __NAMESPACE__ . '\admin_init_cssmodules', 11 );
 

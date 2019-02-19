@@ -5,12 +5,12 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS\Component;
+namespace Civil_First_Fleet\Component;
 
 /**
  * Content Item component class.
  */
-class Content_Item extends \Civil_CMS\Component {
+class Content_Item extends \Civil_First_Fleet\Component {
 
 	/**
 	 * Unique component slug.
@@ -126,7 +126,7 @@ class Content_Item extends \Civil_CMS\Component {
 			'<time datetime="%1$s" class="%4$s"><span class="screen-reader-text">%3$s </span>%2$s</span></time>',
 			get_the_date( 'Y-m-d H:i:s\Z', $this->data( 'post_id' ) ),
 			get_the_date( 'M j, Y g:iA T', $this->data( 'post_id' ) ),
-			esc_html__( 'Published on', 'civil-cms' ),
+			esc_html__( 'Published on', 'civil-first-fleet' ),
 			ai_get_classnames( [ 'date' ] )
 		);
 	}
@@ -167,7 +167,7 @@ class Content_Item extends \Civil_CMS\Component {
 			'<a href="%2$s" class="%4$s">%1$s <span class="screen-reader-text">%3$s</span></a>',
 			esc_html( $category->name ),
 			esc_url( (string) get_term_link( $category, 'category' ) ),
-			esc_html__( 'Primary category in which blog post is published', 'civil-cms' ),
+			esc_html__( 'Primary category in which blog post is published', 'civil-first-fleet' ),
 			ai_get_classnames( [ 'eyebrow' ] )
 		);
 	}
@@ -202,7 +202,7 @@ class Content_Item extends \Civil_CMS\Component {
 	 */
 	public function get_label_options() {
 		return [
-			'opinion' => __( 'Is Opinion', 'civil-cms' ),
+			'opinion' => __( 'Is Opinion', 'civil-first-fleet' ),
 		];
 	}
 
@@ -219,7 +219,7 @@ class Content_Item extends \Civil_CMS\Component {
 			return sprintf(
 				/* translators: 1: Label to identify opinion pieces. */
 				'<span>%1$s</span>',
-				esc_html__( 'Opinion', 'civil-cms' )
+				esc_html__( 'Opinion', 'civil-first-fleet' )
 			);
 		}
 		return '';
@@ -246,7 +246,7 @@ class Content_Item extends \Civil_CMS\Component {
 		$avatar_id = get_post_meta( $coauthor_id, '_thumbnail_id', true );
 
 		if ( ! empty( $avatar_id ) ) {
-			\Civil_CMS\Component\image()
+			\Civil_First_Fleet\Component\image()
 				->set_post_id( $avatar_id )
 				->size( $size )
 				->aspect_ratio( false )
@@ -301,7 +301,7 @@ class Content_Item extends \Civil_CMS\Component {
 		}
 
 		// Get the image credit.
-		$image_credit = \Civil_CMS\get_image_credit( $featured_image_id );
+		$image_credit = \Civil_First_Fleet\get_image_credit( $featured_image_id );
 
 		// No credit found.
 		if ( empty( $image_credit ) ) {
@@ -321,7 +321,7 @@ class Content_Item extends \Civil_CMS\Component {
 	 */
 	public function featured_image() {
 		$featured_image_id = absint( get_post_meta( $this->data( 'post_id' ), '_thumbnail_id', true ) );
-		return \Civil_CMS\Component\image()
+		return \Civil_First_Fleet\Component\image()
 			->set_post_id( $featured_image_id )
 			->set_data( 'alt', get_post_meta( $featured_image_id, '_wp_attachment_image_alt', true ) );
 	}

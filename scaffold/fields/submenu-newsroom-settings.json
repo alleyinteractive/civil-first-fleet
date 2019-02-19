@@ -120,7 +120,7 @@
 				"sticky_call_to_action": {
 					"label": { "__": "Sticky CTA" },
 					"collapsed": true,
-					"children": "`\\Civil_CMS\\Component\\call_to_action()->set_fm_fields( \\Civil_CMS\\Component\\call_to_action()->sticky_cta_fm_fields() )->get_fm_fields()`"
+					"children": "`\\Civil_First_Fleet\\Component\\call_to_action()->set_fm_fields( \\Civil_First_Fleet\\Component\\call_to_action()->sticky_cta_fm_fields() )->get_fm_fields()`"
 				}
 			}
 		},
@@ -141,17 +141,17 @@
 				"credibility_indicators": {
 					"label": { "__": "Credibility Indicators" },
 					"collapsed": true,
-					"children": "`\\Civil_CMS\\Component\\credibility_indicators()->get_fm_fields()`"
+					"children": "`\\Civil_First_Fleet\\Component\\credibility_indicators()->get_fm_fields()`"
 				},
 				"newsletter_call_to_action": {
 					"label": { "__": "Newsletter CTA" },
 					"collapsed": true,
-					"children": "`\\Civil_CMS\\Component\\call_to_action()->set_setting( 'type', 'newsletter' )->remove_fm_field( 'enable' )->remove_fm_field( 'settings' )->get_fm_fields()`"
+					"children": "`\\Civil_First_Fleet\\Component\\call_to_action()->set_setting( 'type', 'newsletter' )->remove_fm_field( 'enable' )->remove_fm_field( 'settings' )->get_fm_fields()`"
 				},
 				"subscribe_call_to_action": {
 					"label": { "__": "Subscribe CTA" },
 					"collapsed": true,
-					"children": "`\\Civil_CMS\\Component\\call_to_action()->set_setting( 'type', 'subscribe' )->remove_fm_field( 'enable' )->remove_fm_field( 'settings' )->get_fm_fields()`"
+					"children": "`\\Civil_First_Fleet\\Component\\call_to_action()->set_setting( 'type', 'subscribe' )->remove_fm_field( 'enable' )->remove_fm_field( 'settings' )->get_fm_fields()`"
 				}
 			}
 		},
@@ -188,7 +188,7 @@
 		},
 		"article_taxonomies": {
 			"label": { "__": "Article Taxonomies" },
-			"children": "`\\Civil_CMS\\Component\\article_taxonomies()->get_fm_fields()`"
+			"children": "`\\Civil_First_Fleet\\Component\\article_taxonomies()->get_fm_fields()`"
 		}
 	}
 }

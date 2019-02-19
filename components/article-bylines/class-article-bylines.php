@@ -5,12 +5,12 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS\Component;
+namespace Civil_First_Fleet\Component;
 
 /**
  * Article Bylines component class.
  */
-class Article_Bylines extends \Civil_CMS\Component\Content_Item {
+class Article_Bylines extends \Civil_First_Fleet\Component\Content_Item {
 
 	/**
 	 * Unique component slug.

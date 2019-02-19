@@ -5,7 +5,7 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS;
+namespace Civil_First_Fleet;
 
 // Get this instance.
 $component = ai_get_var( 'component' );
@@ -19,7 +19,7 @@ the_content(
 	sprintf(
 		wp_kses(
 			/* translators: %s: Name of current post. Only visible to screen readers. */
-			__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'civil-cms' ),
+			__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'civil-first-fleet' ),
 			array(
 				'span' => array(
 					'class' => array(),

@@ -5,12 +5,12 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS\Component;
+namespace Civil_First_Fleet\Component;
 
 /**
  * Site Header component class.
  */
-class Newsroom_Header extends \Civil_CMS\Component {
+class Newsroom_Header extends \Civil_First_Fleet\Component {
 
 	/**
 	 * Unique component slug.

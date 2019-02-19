@@ -1,8 +1,8 @@
 <?php
 
-WP_CLI::add_command( 'civil-cms', 'Civil_CMS_CLI_Command' );
+WP_CLI::add_command( 'civil-first-fleet', 'Civil_First_Fleet_CLI_Command' );
 
-class Civil_CMS_CLI_Command extends WP_CLI_Command {
+class Civil_First_Fleet_CLI_Command extends WP_CLI_Command {
 
 	/**
 	 * Prevent memory leaks from growing out of control

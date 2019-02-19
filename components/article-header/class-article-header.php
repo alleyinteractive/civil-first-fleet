@@ -5,12 +5,12 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS\Component;
+namespace Civil_First_Fleet\Component;
 
 /**
  * Article Header component class.
  */
-class Article_Header extends \Civil_CMS\Component\Content_Item {
+class Article_Header extends \Civil_First_Fleet\Component\Content_Item {
 
 	/**
 	 * Unique component slug.

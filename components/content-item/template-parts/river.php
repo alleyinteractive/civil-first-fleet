@@ -6,7 +6,7 @@
  */
 
 // @TODO: this markup is almost identical to large-feature.php. This works fine for now, but we might consider consolidating them somehow in the future.
-namespace Civil_CMS;
+namespace Civil_First_Fleet;
 
 // Get this instance.
 $component  = ai_get_var( 'component' );

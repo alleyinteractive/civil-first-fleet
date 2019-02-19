@@ -5,7 +5,7 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS;
+namespace Civil_First_Fleet;
 
 /**
  * DRY up theme templates, just a little bit. Based on "Theme Wrappers" from
@@ -38,7 +38,7 @@ class Wrapping {
 		if (
 			false === strpos( $template, 'wp-content/themes/' )
 			|| false !== strpos( $template, 'themes/vip/plugins/' )
-			|| apply_filters( 'civil_cms_skip_theme_wrapper', false, $template )
+			|| apply_filters( 'civil_first_fleet_skip_theme_wrapper', false, $template )
 		) {
 			return $template;
 		}

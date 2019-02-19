@@ -7,7 +7,7 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS;
+namespace Civil_First_Fleet;
 
 add_filter( 'the_author', __NAMESPACE__ . '\show_guest_author_name_in_feeds', 10, 1 );
 /**

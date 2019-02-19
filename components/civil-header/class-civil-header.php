@@ -5,12 +5,12 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS\Component;
+namespace Civil_First_Fleet\Component;
 
 /**
  * Site Header component class.
  */
-class Civil_Header extends \Civil_CMS\Component {
+class Civil_Header extends \Civil_First_Fleet\Component {
 
 	/**
 	 * Unique component slug.
@@ -27,9 +27,9 @@ class Civil_Header extends \Civil_CMS\Component {
 	 * @param array $args Arguments for wp_nav_menu.
 	 */
 	public function civil_wp_nav_menu( array $args ) {
-		\Civil_CMS\civ_switch_to_blog();
+		\Civil_First_Fleet\civ_switch_to_blog();
 		wp_nav_menu( $args );
-		\Civil_CMS\civ_restore_current_blog();
+		\Civil_First_Fleet\civ_restore_current_blog();
 	}
 }
 

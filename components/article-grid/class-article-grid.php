@@ -5,12 +5,12 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS\Component;
+namespace Civil_First_Fleet\Component;
 
 /**
  * Article Grid component class.
  */
-class Article_Grid extends \Civil_CMS\Component\Content_List {
+class Article_Grid extends \Civil_First_Fleet\Component\Content_List {
 
 	/**
 	 * Unique component slug.

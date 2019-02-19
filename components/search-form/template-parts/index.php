@@ -18,7 +18,7 @@ $search_input_id = $context ? 'search-input-' . $context : 'search-input';
 
 <form class="<?php ai_the_classnames( [ 'wrapper' ] ); ?>" name="search-form" aria-role="search">
 	<label class="<?php ai_the_classnames( [ 'label' ] ); ?>" for="search-input">
-		<?php esc_html_e( 'Search', 'civil-cms' ); ?>
+		<?php esc_html_e( 'Search', 'civil-first-fleet' ); ?>
 	</label>
 
 	<input
@@ -37,6 +37,6 @@ $search_input_id = $context ? 'search-input-' . $context : 'search-input';
 		<input
 			class="<?php ai_the_classnames( [ 'submit' ] ); ?>"
 			type="submit"
-			value="<?php echo esc_attr__( 'Search', 'civil-cms' ); ?>">
+			value="<?php echo esc_attr__( 'Search', 'civil-first-fleet' ); ?>">
 	<?php } ?>
 </form>

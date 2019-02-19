@@ -6,7 +6,7 @@
  */
 
 $credibility_indicators = (array) get_post_meta( get_the_ID(), 'credibility_indicators', true );
-$sticky_cta             = ( new Civil_CMS\Component() )->get_option( 'newsroom-settings', 'newsletter', 'sticky_call_to_action' );
+$sticky_cta             = ( new Civil_First_Fleet\Component() )->get_option( 'newsroom-settings', 'newsletter', 'sticky_call_to_action' );
 
 // Get indicators for this post (keys only).
 $post_indicators = array_filter( $credibility_indicators );
@@ -15,12 +15,12 @@ $post_indicators = array_filter( $credibility_indicators );
 <div class="<?php ai_the_classnames( [ 'wrapper' ], [ 'no-indicators' => empty( $post_indicators ) ] ); ?>">
 	<?php
 	// Output Article Header.
-	\Civil_CMS\Component\article_header()
+	\Civil_First_Fleet\Component\article_header()
 		->set_post_id( get_the_ID() )
 		->render();
 
 	// Output Article Body.
-	\Civil_CMS\Component\article_body()
+	\Civil_First_Fleet\Component\article_body()
 		->set_post_id( get_the_ID() )
 		->render();
 	?>
@@ -41,14 +41,14 @@ $post_indicators = array_filter( $credibility_indicators );
 /**
  * Render related posts from Jetpack.
  */
-\Civil_CMS\Component\article_grid()
+\Civil_First_Fleet\Component\article_grid()
 	->load_jetpack_related_posts( 3, get_the_ID() )
 	->set_setting( 'load_more', false )
 	->render();
 
 // Show sticky CTA if turned on.
 if ( (bool) $sticky_cta['enable'] ?? false ) :
-	\Civil_CMS\Component\call_to_action()
+	\Civil_First_Fleet\Component\call_to_action()
 		->set_setting( $sticky_cta['settings'] ?? [] )
 		->set_setting( 'layout', 'sticky' )
 		->set_data( $sticky_cta['data'] ?? [] )

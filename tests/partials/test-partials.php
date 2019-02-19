@@ -182,7 +182,7 @@ class PartialsTest extends WP_UnitTestCase {
 
 		$this->assertSame( $expected, $contents );
 		$this->assertSame( $posts[0], get_the_ID() );
-		$this->assertEmpty( \Civil_CMS\Partials::instance()->original_posts );
+		$this->assertEmpty( \Civil_First_Fleet\Partials::instance()->original_posts );
 	}
 
 	public function test_basic_return() {
@@ -308,7 +308,7 @@ class PartialsTest extends WP_UnitTestCase {
 
 		$this->assertSame( $expected, $contents );
 		$this->assertSame( $posts[0], get_the_ID() );
-		$this->assertEmpty( \Civil_CMS\Partials::instance()->original_posts );
+		$this->assertEmpty( \Civil_First_Fleet\Partials::instance()->original_posts );
 	}
 
 	public function test_empty_post_restoring() {
@@ -327,7 +327,7 @@ class PartialsTest extends WP_UnitTestCase {
 
 		$this->assertSame( "[Parent loop post 0: {$parent_post}]\n[Post 0: {$child_post}]\n", $contents );
 		$this->assertSame( null, $GLOBALS['post'] );
-		$this->assertEmpty( \Civil_CMS\Partials::instance()->original_posts );
+		$this->assertEmpty( \Civil_First_Fleet\Partials::instance()->original_posts );
 	}
 
 	public function test_basic_cache_load() {

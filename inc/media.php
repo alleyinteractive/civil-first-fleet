@@ -6,9 +6,9 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS;
+namespace Civil_First_Fleet;
 
-\Civil_CMS\Component\Image::register_breakpoints(
+\Civil_First_Fleet\Component\Image::register_breakpoints(
 	[
 		'xxl' => '90rem',
 		'xl'  => '80rem',
@@ -18,7 +18,7 @@ namespace Civil_CMS;
 	]
 );
 
-\Civil_CMS\Component\Image::register_crop_sizes(
+\Civil_First_Fleet\Component\Image::register_crop_sizes(
 	[
 		'Wide' => [
 			'large-feature' => [
@@ -53,7 +53,7 @@ namespace Civil_CMS;
 /**
  * Register image sizes for use by the Image component.
  */
-\Civil_CMS\Component\Image::register_sizes(
+\Civil_First_Fleet\Component\Image::register_sizes(
 	[
 		'large-feature' => [
 			'sources' => [

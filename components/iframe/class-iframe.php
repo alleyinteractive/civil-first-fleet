@@ -5,12 +5,12 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS\Component;
+namespace Civil_First_Fleet\Component;
 
 /**
  * IFrame component class.
  */
-class IFrame extends \Civil_CMS\Component {
+class IFrame extends \Civil_First_Fleet\Component {
 
 	/**
 	 * Unique component slug.
@@ -77,7 +77,7 @@ class IFrame extends \Civil_CMS\Component {
 			'block-js-' . $this->slug,
 			get_template_directory_uri() . "/{$this->path}/{$this->slug}/assets/block.js",
 			[ 'wp-blocks', 'wp-element' ],
-			CIVIL_CMS_STATIC_VERSION
+			CIVIL_FIRST_FLEET_STATIC_VERSION
 		);
 
 		// Expose settings.

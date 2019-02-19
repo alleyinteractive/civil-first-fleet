@@ -1,5 +1,5 @@
 <?php
-namespace Civil_CMS;
+namespace Civil_First_Fleet;
 
 class TestWPUtils extends \WP_UnitTestCase {
 	function test_is_wp_post() {

@@ -39,7 +39,7 @@ This repo can serve as the `wp-content` directory of a WordPress installation. V
 
 - Set up VVV according to <https://varyingvagrantvagrants.org/docs/en-US/installation/>. Once it's installed and running, you should be able to visit <http://vvv.test> to see information about your environment.
 - You can use the default `wordpress-develop` VVV comes with, available at <http://src.wordpress-develop.test>. By default, this installation is located at `[vagrant-dir]/www/wordpress-develop/`
-- Navigate to `[vagrant-dir]/www/wordpress-develop/public_html/src/`, delete or rename `wp-content`, and then install the repo in its place (`git clone --recursive git@github.com:alleyinteractive/civil-cms.git wp-content`)
+- Navigate to `[vagrant-dir]/www/wordpress-develop/public_html/src/`, delete or rename `wp-content`, and then install the repo in its place (`git clone --recursive git@github.com:alleyinteractive/civil-first-fleet.git wp-content`)
 - You should then be able to log in at <http://src.wordpress-develop.test/wp-admin/> (default credentials `admin`/`password`) and, for instance, select the Civil theme from Appearance > Themes.
 
 ## Front-end Codebase

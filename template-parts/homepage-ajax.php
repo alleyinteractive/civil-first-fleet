@@ -11,13 +11,13 @@ $homepage     = get_post_meta( $homepage_id, 'homepage', true );
 $hide_sidebar = (bool) $homepage['featured_articles']['meta']['hide_sidebar'] ?? false;
 
 // Replicate code ran on homepage to account for curated ids and backfill.
-\Civil_CMS\Component\featured_articles()
+\Civil_First_Fleet\Component\featured_articles()
 	->set_setting( 'items', $hide_sidebar ? 1 : 7 )
 	->data( $homepage['featured_articles'] ?? [] )
 	->get_content_items();
 
 // Replicate code ran on homepage to account for curated ids and backfill.
-\Civil_CMS\Component\article_grid()
+\Civil_First_Fleet\Component\article_grid()
 	->set_setting( 'items', 9 )
 	->data( $homepage['articles_grid'] ?? [] )
 	->get_content_items();
@@ -33,7 +33,7 @@ $query_args = [
 ];
 
 // Apply the articles_grid filters to the query being ran.
-$query_args = \Civil_CMS\Component\content_list()
+$query_args = \Civil_First_Fleet\Component\content_list()
 	->apply_query_filters(
 		$query_args,
 		$homepage['articles_grid']['filters']['filter']
@@ -46,7 +46,7 @@ $paginated_posts = new \WP_Query( $query_args );
 $homepage['articles_grid']['curate']['post_ids'] = [];
 
 // Output grid with query results.
-\Civil_CMS\Component\article_grid()
+\Civil_First_Fleet\Component\article_grid()
 	->set_setting( 'items', count( $paginated_posts->posts ) )
 	->set_data(
 		'curate',

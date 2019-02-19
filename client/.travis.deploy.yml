@@ -5,7 +5,7 @@ sudo: false
 # Define global theme slug
 env:
   global:
-    - THEME_SLUG=civil-cms
+    - THEME_SLUG=civil-first-fleet
 
 # Cache Node modules on successful build (speeds future builds)
 cache:

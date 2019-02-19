@@ -5,7 +5,7 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS;
+namespace Civil_First_Fleet;
 
 // Disable Jetpack's Open Graph.
 add_filter( 'jetpack_enable_open_graph', '__return_false' );
@@ -45,7 +45,7 @@ function generate_header_meta() {
 	/**
 	 * Determine the ID.
 	 */
-	if ( \Civil_CMS\is_landing_page() ) {
+	if ( \Civil_First_Fleet\is_landing_page() ) {
 		$id = get_the_ID();
 	} elseif ( $queried_object instanceof \WP_Post || 'guest-author' === $queried_object->type ) {
 		$id = $queried_object->ID;
@@ -92,7 +92,7 @@ function generate_header_meta() {
 	);
 
 	// Get newsroom SEO settings.
-	$component             = new \Civil_CMS\Component();
+	$component             = new \Civil_First_Fleet\Component();
 	$newsroom_seo_settings = $component->get_option( 'newsroom-settings', 'seo', 'social' );
 
 	// Add Facebook App ID.
@@ -108,11 +108,11 @@ function generate_header_meta() {
 	/**
 	 * Determine the description.
 	 */
-	if ( is_single() || is_page() || \Civil_CMS\is_landing_page() ) {
+	if ( is_single() || is_page() || \Civil_First_Fleet\is_landing_page() ) {
 		$description = (string) get_post_meta( $id, '_meta_description', true );
 		if ( empty( $description ) ) {
 			// Fallback to excerpt.
-			$description = \Civil_CMS\Component\content_item()
+			$description = \Civil_First_Fleet\Component\content_item()
 				->set_data( 'post_id', $id )
 				->get_dek();
 		}
@@ -137,7 +137,7 @@ function generate_header_meta() {
 	}
 
 	// Determine the image.
-	if ( \Civil_CMS\is_landing_page() ) {
+	if ( \Civil_First_Fleet\is_landing_page() ) {
 		$landing_page_meta = get_post_meta( $id, 'homepage', true );
 		$image_url         = wp_get_attachment_url( $landing_page_meta['featured_image']['image'] ?? 0 );
 	} elseif ( is_author() ) {
@@ -188,7 +188,7 @@ function generate_header_meta() {
  * Output a post's or page's social meta tags.
  */
 function social_meta() {
-	if ( is_single() || is_page() || \Civil_CMS\is_landing_page() || is_archive() ) {
+	if ( is_single() || is_page() || \Civil_First_Fleet\is_landing_page() || is_archive() ) {
 
 		$meta = generate_header_meta();
 		array_walk(

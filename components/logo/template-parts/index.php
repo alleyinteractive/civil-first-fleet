@@ -5,7 +5,7 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS;
+namespace Civil_First_Fleet;
 
 // Get this instance.
 $component = ai_get_var( 'component' );
@@ -44,7 +44,7 @@ if ( 'civil' === $context ) {
 		// Use image for logo.
 		$newsroom_logo_image_id = $component->get_option( 'newsroom-settings', 'branding', $newsroom_location, 'image_id' );
 		if ( ! empty( $newsroom_logo_image_id ) ) {
-			\Civil_CMS\Component\image()
+			\Civil_First_Fleet\Component\image()
 				->set_post_id( (int) $newsroom_logo_image_id )
 				->size( 'newsroom-header-logo' )
 				->aspect_ratio( false )

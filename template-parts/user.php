@@ -7,19 +7,19 @@
 
 global $wp_query;
 
-\Civil_CMS\Component\article_bylines()
+\Civil_First_Fleet\Component\article_bylines()
 	->set_setting( 'layout', 'full' )
 	->render();
 
 printf(
 	'<h2 class="%1$s">%2$s %3$s</h2>',
 	esc_attr( ai_get_classnames( [ 'heading' ] ) ),
-	esc_html__( 'Articles By', 'civil-cms' ),
+	esc_html__( 'Articles By', 'civil-first-fleet' ),
 	esc_html( get_the_author_meta( 'display_name' ) )
 );
 
 // Output Article Grid.
-$article_grid = \Civil_CMS\Component\article_grid()
+$article_grid = \Civil_First_Fleet\Component\article_grid()
 	->set_setting( 'items', 0 )
 	->set_data(
 		'curate',

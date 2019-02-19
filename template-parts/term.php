@@ -13,7 +13,7 @@ printf(
 );
 
 // Output Featured Articles.
-\Civil_CMS\Component\featured_articles()
+\Civil_First_Fleet\Component\featured_articles()
 	->set_setting( 'items', 0 )
 	->set_data(
 		'curate',
@@ -24,7 +24,7 @@ printf(
 	->render();
 
 // Output Article Grid.
-$article_grid = \Civil_CMS\Component\article_grid()
+$article_grid = \Civil_First_Fleet\Component\article_grid()
 	->set_setting( 'items', 0 )
 	->set_data(
 		'curate',

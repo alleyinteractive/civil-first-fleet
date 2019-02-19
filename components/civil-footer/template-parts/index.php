@@ -9,7 +9,7 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_CMS;
+namespace Civil_First_Fleet;
 
 // Get this instance.
 $component = ai_get_var( 'component' );
@@ -18,7 +18,7 @@ $component = ai_get_var( 'component' );
 	<div class="<?php ai_the_classnames( [ 'left-wrapper' ] ); ?>">
 		<?php
 		// Render logo.
-		\Civil_CMS\Component\logo()
+		\Civil_First_Fleet\Component\logo()
 			->set_setting( 'version', 'black' )
 			->render();
 		?>
@@ -37,6 +37,6 @@ $component = ai_get_var( 'component' );
 				<li class="menu-item"><a href="https://civil.co/help/">Have a Problem?</a></li>
 			</ul>
 		</nav>
-		<a href="https://civil.co/contact/" target="_blank"><button class="<?php ai_the_classnames( [ 'contact-button', 'button-secondary-light' ] ); ?>"><?php esc_html_e( 'Contact Civil', 'civil-cms' ); ?></button></a>
+		<a href="https://civil.co/contact/" target="_blank"><button class="<?php ai_the_classnames( [ 'contact-button', 'button-secondary-light' ] ); ?>"><?php esc_html_e( 'Contact Civil', 'civil-first-fleet' ); ?></button></a>
 	</div>
 </footer>
