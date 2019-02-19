@@ -28,8 +28,17 @@ function missing_plugin_notice( $plugin_name ) {
 }
 
 // Ensure various plugins are loaded.
-if ( ! defined( 'FM_VERSION' ) ) {
-	missing_plugin_notice( __( 'Fieldmanager', 'civil-first-fleet' ) );
+$required_plugins = [
+	'FM_VERSION'             => __( 'Fieldmanager', 'civil-first-fleet' ),
+	'COAUTHORS_PLUS_VERSION' => __( 'CoAuthors Plus', 'civil-first-fleet' ),
+	'AM_VERSION'             => __( 'WP Asset Manager', 'civil-first-fleet' ),
+	'FMZ_VERSION'            => __( 'FM Zones', 'civil-first-fleet' ),
+];
+
+foreach ( $required_plugins as $define => $label ) {
+	if ( ! defined( $define ) ) {
+		missing_plugin_notice( $label );
+	}
 }
 
 // Disable plugin credibility indicators since the theme has them built in.
