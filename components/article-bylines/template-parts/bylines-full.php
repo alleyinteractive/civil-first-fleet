@@ -8,7 +8,8 @@
 // Get this instance.
 $ai_component = ai_get_var( 'component' );
 $author_id = get_the_author_meta( 'ID' );
-$coauthor_id = array_pop( get_the_coauthor_meta( 'ID', $author_id ) );
+$coauthor_meta = get_the_coauthor_meta( 'ID', $author_id );
+$coauthor_id = array_pop( $coauthor_meta );
 ?>
 
 <!-- avatars, bylines, and bios -->
@@ -18,7 +19,7 @@ $coauthor_id = array_pop( get_the_coauthor_meta( 'ID', $author_id ) );
 		<?php $ai_component->author_avatar( $coauthor_id, 'avatar-large' ); ?>
 	</span>
 
-	<div class="<?php ai_the_classnames( [ 'bio-content-wrapper' ] ); ?>" id="<?php echo esc_attr( $ai_component->get_bio_frag_id( $coauthor->ID ) ); ?>">
+	<div class="<?php ai_the_classnames( [ 'bio-content-wrapper' ] ); ?>" id="<?php echo esc_attr( $ai_component->get_bio_frag_id( $coauthor_id ) ); ?>">
 		<span class="<?php ai_the_classnames( [ 'bio-name' ] ); ?>">
 			<?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?>
 		</span>

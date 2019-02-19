@@ -27,19 +27,26 @@ function missing_plugin_notice( $plugin_name ) {
 	);
 }
 
-// Ensure various plugins are loaded.
-$required_plugins = [
-	'FM_VERSION'             => __( 'Fieldmanager', 'civil-first-fleet' ),
-	'COAUTHORS_PLUS_VERSION' => __( 'CoAuthors Plus', 'civil-first-fleet' ),
-	'AM_VERSION'             => __( 'WP Asset Manager', 'civil-first-fleet' ),
-	'FMZ_VERSION'            => __( 'FM Zones', 'civil-first-fleet' ),
-];
+/**
+ * Ensure all required plugins are loaded properly.
+ */
+add_action(
+	'after_setup_theme',
+	function() {
+		$required_plugins = [
+			'AM_VERSION'             => __( 'WP Asset Manager', 'civil-first-fleet' ),
+			'COAUTHORS_PLUS_VERSION' => __( 'CoAuthors Plus', 'civil-first-fleet' ),
+			'FM_VERSION'             => __( 'Fieldmanager', 'civil-first-fleet' ),
+			'FMZ_VERSION'            => __( 'FM Zones', 'civil-first-fleet' ),
+		];
 
-foreach ( $required_plugins as $define => $label ) {
-	if ( ! defined( $define ) ) {
-		missing_plugin_notice( $label );
+		foreach ( $required_plugins as $define => $label ) {
+			if ( ! defined( $define ) ) {
+				missing_plugin_notice( $label );
+			}
+		}
 	}
-}
+);
 
 // Disable plugin credibility indicators since the theme has them built in.
 add_filter( 'civil_enable_credibility_indicators', '__return_false' );
