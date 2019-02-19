@@ -1,0 +1,146 @@
+@import 'core/index.css';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: rem(20);
+
+  @media (--mdMin) {
+    margin-bottom: rem(40);
+  }
+
+  @media (--lgMin) {
+    margin-bottom: rem(0);
+  }
+}
+
+.intro {
+  border-bottom: var(--heavyBorderBlack);
+}
+
+.title {
+  font-size: rem(16);
+  font-weight: 700;
+  margin-bottom: rem(5);
+}
+
+.title,
+.description,
+.text {
+  font-family: var(--franklin);
+  line-height: 1.43;
+}
+
+.description {
+  @include plain-text;
+  font-size: rem(14);
+  margin-bottom: rem(10);
+}
+
+.indicators {
+  display: flex;
+  flex-direction: column;
+}
+
+.indicator {
+  border-bottom: 1px solid var(--gray5);
+  /* Necessary b/c real css vars won't work with rem() function */
+  max-height: calc(var(--indicatorHeight) / 16 * 1rem);
+  overflow: hidden;
+  transition: max-height var(--transitionDurShort) ease-in-out;
+  will-change: max-height;
+}
+
+.heading {
+  @include button-reset;
+  align-items: center;
+  display: flex;
+  height: rem(50);
+  text-align: left;
+  width: 100%;
+
+  &:hover {
+    color: var(--blue);
+    outline: none;
+
+    path {
+      fill: var(--blue);
+    }
+  }
+}
+
+.icon,
+.type,
+.toggle {
+  padding: 0 rem(3);
+}
+
+.icon {
+  align-items: center;
+  display: flex;
+  height: rem(14);
+  justify-content: center;
+  width: rem(24);
+
+  svg {
+    display: block;
+  }
+}
+
+.type {
+  font-family: var(--franklin);
+  font-size: rem(14);
+  font-weight: 600;
+}
+
+.toggle {
+  height: rem(18);
+  margin-left: auto;
+  position: relative;
+  width: rem(30);
+}
+
+.close-icon {
+  opacity: 0;
+  pointer-events: none;
+
+  .open & {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.open-icon {
+  opacity: 1;
+  pointer-events: auto;
+
+  .open & {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.open-icon,
+.close-icon {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity var(--transitionDurShort) linear;
+}
+
+.text {
+  font-size: rem(14);
+  padding: 0 rem(10) 1rem rem(32);
+}
+
+.learn-more {
+  color: var(--blue);
+  display: block;
+  font-family: var(--franklin);
+  font-size: rem(12);
+  font-style: italic;
+  font-weight: 500;
+  padding: rem(12) 0;
+  text-decoration: none;
+}

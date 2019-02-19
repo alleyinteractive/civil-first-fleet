@@ -1,0 +1,243 @@
+@import 'core/index.css';
+
+/* stylelint-disable selector-max-specificity, declaration-no-important */
+
+:global {
+
+  /* Outter wrapper */
+  .sharedaddy {
+    /* TBD */
+  }
+
+  /* Inner wrapper */
+  .robots-nocontent .sd-block .sd-social .sd-social-icon-text .sd-sharing {
+    /* TBD */
+  }
+
+  .sd-sharing {
+    align-items: center;
+    display: flex;
+  }
+
+  /* List wrapper */
+  .sd-content {
+
+    ul {
+      align-items: center;
+      display: flex;
+    }
+
+    li {
+      margin-right: rem(18);
+    }
+  }
+
+  .share-icon {
+    display: inline-block;
+    height: rem(20);
+    width: rem(20);
+
+    span {
+      @include screenreader-only;
+    }
+
+    &.share-email {
+      background: url('svg/icon_email.svg') center / contain no-repeat;
+    }
+
+    &.share-facebook {
+      background: url('svg/icon_facebook.svg') center / contain no-repeat;
+    }
+
+    &.share-google-plus-1 {
+      background: url('svg/icon_googleplus.svg') center / contain no-repeat;
+    }
+
+    &.share-linkedin {
+      background: url('svg/icon_linkedin.svg') center / contain no-repeat;
+    }
+
+    &.share-pinterest {
+      background: url('svg/icon_pinterest.svg') center / contain no-repeat;
+    }
+
+    &.share-pocket {
+      background: url('svg/icon_pocket.svg') center / contain no-repeat;
+    }
+
+    &.share-print {
+      background: url('svg/icon_print.svg') center / contain no-repeat;
+    }
+
+    &.share-reddit {
+      background: url('svg/icon_reddit.svg') center / contain no-repeat;
+      height: rem(20);
+      vertical-align: rem(4);
+    }
+
+    &.share-skype {
+      background: url('svg/icon_skype.svg') center / contain no-repeat;
+    }
+
+    &.share-telegram {
+      background: url('svg/icon_telegram.svg') center / contain no-repeat;
+    }
+
+    &.share-tumblr {
+      background: url('svg/icon_tumblr.svg') center / contain no-repeat;
+    }
+
+    &.share-twitter {
+      background: url('svg/icon_twitter.svg') center / contain no-repeat;
+    }
+
+    &.share-jetpack-whatsapp {
+      background: url('svg/icon_whatsapp.svg') center / contain no-repeat;
+    }
+  }
+
+  /* Dummy last-child */
+  .share-end {
+    @include screenreader-only;
+  }
+
+  .article-header__social-shares {
+
+    .sd-title {
+      @include screenreader-only;
+    }
+  }
+
+  .article-footer__social-shares {
+
+    .share-icon {
+      height: rem(30);
+      width: rem(30);
+    }
+
+    .sd-content {
+
+      li {
+        margin-right: rem(24);
+      }
+    }
+
+    .sd-title {
+      color: var(--black);
+      font-family: var(--franklin);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-right: rem(24);
+    }
+  }
+}
+
+/* email share */
+
+:global(#sharing_email) {
+
+  &::before {
+    background-color: rgba(0, 0, 0, 0.25);
+    content: '';
+    height: 100%;
+    left: 0 !important;
+    position: fixed;
+    top: 0 !important;
+    width: 100%;
+    z-index: 100;
+  }
+
+  form,
+  :global(.response) {
+    align-items: center;
+    background-color: var(--white);
+    border: 2px solid var(--gray4);
+    display: flex;
+    flex-direction: column;
+    left: 50% !important;
+    padding: 3rem;
+    position: fixed;
+    top: 50% !important;
+    transform: translate(-50%, -50%);
+    width: rem(640);
+    z-index: 100;
+
+    @media (--mdMax) {
+      width: rem(300);
+    }
+  }
+
+  label {
+    @include caption;
+  }
+
+  img {
+    margin-bottom: 1.5rem;
+  }
+
+  [type="submit"] {
+    @include button-primary;
+  }
+
+  [type="email"],
+  [type="text"] {
+    @include input-base;
+    border: 1px solid var(--gray4);
+    height: rem(40);
+    margin-bottom: 1.5rem;
+  }
+
+  :global(#jetpack-source_f_name) {
+    display: none;
+  }
+
+  :global(.errors) {
+    color: var(--red);
+    font-family: var(--franklin);
+    font-size: rem(14);
+    font-weight: 800;
+    margin-top: 1.5rem;
+  }
+
+  :global(.response-title) {
+    @include medium-headline-spectral;
+    margin-bottom: 1.5rem;
+    text-align: center;
+
+    @media (--mdMax) {
+      font-size: rem(24);
+    }
+  }
+
+  :global(.response-sub) {
+    @include body-large-spectral;
+    text-align: center;
+
+    @media (--mdMax) {
+      font-size: 1rem;
+      line-height: 1.25;
+    }
+  }
+
+  :global(.sharing_cancel) {
+    color: var(--white);
+    font-size: 0;
+    position: absolute;
+    right: 0;
+    text-decoration: none;
+    top: 0;
+
+    &::before {
+      background-image: url('../../../client/src/images/close.svg');
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: rem(25) rem(25);
+      content: '';
+      display: block;
+      height: rem(46);
+      margin: 0;
+      width: rem(46);
+    }
+  }
+}
+/* stylelint-enable */

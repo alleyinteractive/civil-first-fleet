@@ -1,0 +1,36 @@
+/* Styles for core image block */
+@mixin block-image {
+
+  /* Gutenberg block styles */
+  .wp-block-image {
+
+    img {
+      margin-bottom: 0;
+    }
+
+    figcaption {
+      @include body-link-small;
+      @include caption;
+    }
+
+    .credit {
+      @include image-credit;
+    }
+  }
+
+  .alignleft {
+    float: left;
+    margin: 0 rem(10) rem(10) 0;
+  }
+
+  .alignright {
+    float: right;
+    margin: 0 0 rem(10) rem(10);
+  }
+
+  .aligncenter {
+    clear: both;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

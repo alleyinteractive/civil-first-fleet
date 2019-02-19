@@ -1,0 +1,28 @@
+{
+	"contexts": [
+		{
+			"type": "post",
+			"post_types": [ "landing-page" ],
+			"title": "Landing Page Settings",
+			"priority": "high"
+		}
+	],
+	"serialize_data": false,
+	"add_to_prefix": false,
+	"children": {
+		"landing_page_type": {
+			"type": "select",
+			"first_empty": true,
+			"options": "`\\Civil_CMS\\get_landing_page_types()`"
+		},
+		"homepage": {
+			"label": { "__": "Homepage" },
+			"tabbed": "vertical",
+			"display_if": {
+				"src": "landing_page_type",
+				"value": "homepage"
+			},
+			"children": "`\\Civil_CMS\\get_homepage_fields()`"
+		}
+	}
+}

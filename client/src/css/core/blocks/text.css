@@ -1,0 +1,96 @@
+/* Styles for any in-block text */
+
+/**
+ * Mixin for styling block-level text elements
+ */
+@mixin block-level {
+  display: block;
+  margin-bottom: var(--gridGap);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/**
+ * Mixin for styling body content links.
+ */
+@mixin body-link {
+
+  a {
+    border-bottom: var(--heavyBorderTeal);
+    color: inherit;
+    display: inline;
+    text-decoration: none;
+    transition: color var(--transitionDur) ease-in-out;
+
+    /* Use native border where supported */
+    @supports (text-underline-position: under) {
+      border: none;
+      text-decoration: underline var(--teal);
+      text-underline-position: under;
+    }
+
+    &:hover {
+      color: var(--teal);
+    }
+  }
+}
+
+/**
+ * Mixin for styling links in captions and blockquotes (elements with smaller text/line-heights).
+ */
+@mixin body-link-small {
+  @include body-link;
+
+  a {
+    @supports not (text-underline-position: under) {
+      /* Override the default link border width */
+      border-bottom-width: 1px;
+    }
+  }
+}
+
+/* Styles for any paragraph-like element (with italic, bold, links) */
+@mixin body-paragraph {
+  @include block-level;
+  @include body-link;
+
+  b,
+  strong {
+    font-weight: 700;
+  }
+
+  em,
+  i {
+    font-style: italic;
+  }
+
+  &.is-small-text {
+    @include body-small-spectral;
+  }
+
+  &.is-large-text {
+    font-size: rem(36);
+  }
+
+  &.is-larger-text {
+    font-size: rem(48);
+  }
+
+  &.has-drop-cap {
+
+    &::first-letter {
+      display: inline-block;
+      font-size: rem(100);
+    }
+  }
+}
+
+/* In-body heading styles */
+@mixin body-heading {
+  @include body-headline-spectral;
+  color: var(--black);
+  line-height: 1.2;
+  opacity: 0.85;
+}

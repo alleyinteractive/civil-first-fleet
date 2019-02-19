@@ -1,0 +1,335 @@
+/* Include core styles */
+@import 'core/index.css';
+
+/* Note that in order to display in the admin,
+ * we need to use global classes until the
+ * CSSmodule support is set up in that context
+ */
+
+/* stylelint-disable selector-max-specificity */
+:global(.civil__call-to-action__wrapper) {
+  padding: var(--gridGap) calc(var(--gridGap) / 2);
+
+  &:global(.civil__call-to-action__river) {
+    padding: rem(12) 0 rem(26) 0;
+
+    @media (--mdMin) {
+      border-bottom: var(--heavyBorderBlue);
+      padding: rem(28) 0 rem(30) 0;
+    }
+
+    @media (--lgMin) {
+      padding: rem(22) 0 rem(44) 0;
+    }
+  }
+
+  /* Landing Page context.
+   * Account for site-content bottom.
+   */
+  :global(.site-main) > & {
+    margin: rem(100) 0;
+
+    &:last-child {
+      margin-bottom: rem(65);
+    }
+  }
+
+  @media (--mdMin) {
+    padding: var(--gridGap);
+  }
+
+  :global(.civil__call-to-action__body) {
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    @media (--smMin) {
+      /* stop stretch to container */
+      align-items: center;
+    }
+
+    @media (--lgMin) {
+      align-items: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    :global(.civil__call-to-action__river) & {
+      text-align: left;
+
+      @media (--mdMin) {
+        text-align: center;
+      }
+
+      @media (--lgMin) {
+        text-align: left;
+      }
+    }
+  }
+
+  :global(.civil__call-to-action__text) {
+    color: var(--black);
+    font-family: var(--franklin);
+    font-size: rem(18);
+    font-weight: 600;
+    line-height: 1.67;
+    /* maintain spacing with button or form when wrapping. */
+    margin: 0 var(--containerPaddingSmall) var(--containerPaddingSmall);
+
+    :global(.civil__call-to-action__river) & {
+      font-weight: 400;
+      margin: 0 0 1rem 0;
+
+      @media (--lgMin) {
+        width: 100%;
+      }
+    }
+  }
+
+  :global(.civil__call-to-action__form) {
+    align-items: stretch;
+    display: flex;
+    min-height: rem(60);
+    position: relative;
+    width: 100%;
+
+    @media (--smMin) {
+      align-self: center;
+      max-width: rem(400);
+    }
+
+    @media (--lgMin) {
+      /* maintain alignment with .text. */
+      margin: 0 0 var(--containerPaddingSmall);
+    }
+
+    :global(.civil__call-to-action__river) & {
+      @media (--lgMin) {
+        margin-bottom: 0;
+      }
+    }
+
+    div {
+      margin-bottom: 0;
+    }
+  }
+
+  :global(.civil__call-to-action__newsletter-data) {
+    display: none;
+    height: 0;
+    left: 0;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+  }
+}
+
+:global(.civil__call-to-action__theme-light) {
+  background-color: var(--white);
+
+  :global(.civil__call-to-action__input-wrapper) {
+    border: 1px solid var(--gray4);
+  }
+
+  :global(.civil__call-to-action__submit-wrapper) {
+    border: 1px solid var(--blue);
+  }
+}
+
+:global(.civil__call-to-action__theme-medium) {
+  background-color: var(--gray5);
+}
+
+:global(.civil__call-to-action__theme-dark) {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+:global(.civil__call-to-action__heading) {
+  @include medium-headline-spectral;
+  display: none;
+  font-weight: 800;
+  margin: 0 0 calc(var(--gridGap) / 2);
+  text-align: center;
+
+  @media (--mdMin) {
+    display: block;
+  }
+
+  @media (--lgMin) {
+    margin: 0 0 var(--gridGap);
+  }
+
+  :global(.civil__call-to-action__river) & {
+    display: block;
+    font-family: var(--franklin);
+    font-size: rem(16);
+    line-height: calc(30/16);
+    margin-bottom: 1rem;
+    text-align: left;
+
+    @media (--mdMin) {
+      font-size: rem(18);
+      line-height: calc(30/18);
+      text-align: center;
+    }
+
+    @media (--lgMin) {
+      text-align: left;
+    }
+  }
+}
+
+:global(.civil__call-to-action__input-wrapper) {
+  flex: 1 1 100%;
+}
+
+:global(.civil__call-to-action__newsletter-email) {
+  appearance: none;
+  border: none;
+  display: block;
+  font-family: var(--franklin);
+  font-size: rem(14);
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  text-indent: var(--containerPaddingSmall);
+  width: 100%;
+}
+
+:global(.civil__call-to-action__submit-wrapper) {
+  flex: 1 2 100%;
+}
+
+:global(.civil__call-to-action__newsletter-submit) {
+  @include button-primary;
+  appearance: none;
+  border: none;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+:global(.civil__call-to-action__button-wrapper) {
+  height: rem(60);
+  min-width: rem(240);
+  position: relative;
+
+  @media (--lgMin) {
+    /* maintain alignment with .text. */
+    margin: 0 0 var(--containerPaddingSmall);
+
+    :global(.civil__call-to-action__river) & {
+      margin-bottom: 0;
+      width: 100%;
+    }
+  }
+}
+
+:global(.civil__call-to-action__newsletter-message) {
+  align-items: center;
+  background-color: var(--white);
+  border-left: 6px solid var(--blue);
+  display: flex;
+  font-family: var(--franklin);
+  font-size: rem(18);
+  line-height: 1.67;
+  min-height: rem(60);
+  padding: 1rem;
+  width: 100%;
+}
+
+:global(.message-success) {
+  color: var(--blue);
+}
+
+:global(.message-error) {
+  color: var(--red);
+}
+
+:global(.civil__call-to-action__layout-inline) {
+
+  :global(.rich-text) > & {
+    @media (--lgMin) {
+      @include inline-left-grid-gutter-breakout(4);
+    }
+  }
+
+  &:global(.civil__call-to-action__wrapper) {
+    border-left: 4px solid var(--blue);
+    margin: rem(32) 0;
+    padding: 0 0 0 rem(16);
+
+    @media (--lgMin) {
+      padding: rem(8) 0 rem(8) var(--gridGap);
+    }
+  }
+
+  :global(.civil__call-to-action__body) {
+    align-items: flex-start;
+    justify-content: space-between;
+
+    @media (--mdMin) {
+      align-items: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+
+  :global(.civil__call-to-action__heading) {
+    font-family: var(--franklin);
+    font-size: rem(14);
+    font-weight: 600;
+    line-height: 1.67;
+    margin: 0 0 rem(8);
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+  :global(.civil__call-to-action__text) {
+    font-size: rem(16);
+    font-weight: 400;
+    margin: rem(16) rem(16) rem(16) 0;
+  }
+
+  :global(.civil__call-to-action__inline-link) {
+    font-family: var(--franklin);
+    font-size: rem(16);
+    font-weight: 600;
+    line-height: 1.67;
+  }
+
+  :global(.civil__call-to-action__form) {
+    align-self: auto;
+    margin: 0;
+    min-height: rem(60);
+    width: 100%;
+
+    @media (--lgMin) {
+      width: rem(300);
+    }
+  }
+
+  :global(.civil__call-to-action__newsletter-email) {
+    border: 1px solid var(--gray4);
+    box-sizing: border-box;
+    font-size: rem(12);
+    font-weight: 600;
+  }
+
+  :global(.civil__call-to-action__newsletter-submit) {
+    font-size: rem(12);
+    padding: 0 rem(8);
+  }
+
+  &:global(.civil__call-to-action__newsletter) {
+
+    :global(.civil__call-to-action__body) {
+      justify-content: space-between;
+    }
+  }
+}
+/* stylelint-enable */

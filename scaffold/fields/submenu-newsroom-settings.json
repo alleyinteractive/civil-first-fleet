@@ -1,0 +1,194 @@
+{
+	"name": "newsroom-settings",
+	"contexts": [
+		{
+			"type": "submenu",
+			"page_title": { "__": "Newsroom Settings" },
+			"menu_title": { "__": "Newsroom Settings" },
+			"type": "submenu",
+			"parent_slug": "options-general.php",
+			"capability": "manage_options"
+		}
+	],
+	"tabbed": "vertical",
+	"serialize_data": false,
+	"add_to_prefix": false,
+	"children": {
+		"branding": {
+			"label": { "__": "Branding" },
+			"children": {
+				"logo": {
+					"label": { "__": "Logo" },
+					"children": {
+						"image_id": {
+							"label": { "__": "Upload a logo image" },
+							"type": "media"
+						},
+						"svg": {
+							"label": { "__": "Logo SVG" },
+							"type": "textarea"
+						}
+					}
+				},
+				"footer_logo": {
+					"label": { "__": "Footer Logo" },
+					"children": {
+						"image_id": {
+							"label": { "__": "Upload a logo image" },
+							"type": "media"
+						},
+						"svg": {
+							"label": { "__": "Logo SVG" },
+							"type": "textarea"
+						}
+					}
+				}
+			}
+		},
+		"analytics": {
+			"label": { "__": "Analytics" },
+			"children": {
+				"ga_property_code": {
+					"type": "text",
+					"label": { "__": "Google Analytics Property ID" },
+					"description": { "__": "This is the Google Analytics Property ID that will be used to track all data on this site. (i.e. 'UA-XXXXX-Y')" }
+				}
+			}
+		},
+		"seo": {
+			"label": { "__": "SEO" },
+			"children": {
+				"social": {
+					"label": { "__": "Social" },
+					"children": {
+						"facebook_app_id": {
+							"type": "text",
+							"label": { "__": "Facebook App ID" },
+							"description": { "__": "Newsroom Facebook App ID" }
+						},
+						"twitter_handle": {
+							"type": "text",
+							"label": { "__": "Twitter Handle" },
+							"description": { "__": "Newsroom Twitter Handle" },
+							"sanitize": "`function( $value ) { return str_replace( '@', '', $value ); }`"
+						}
+					}
+				}
+			}
+		},
+		"newsletter": {
+			"label": { "__": "Newsletter" },
+			"children": {
+				"mailchimp_api_key": {
+					"type": "text",
+					"label": { "__": "MailChimp API Key" }
+				},
+				"mailchimp_list_id": {
+					"type": "text",
+					"label": { "__": "MailChimp List ID" },
+					"attributes": {
+						"disabled": true
+					},
+					"description": { "__": "This field has been deprecated. Please add a new list below to use Mailchimp." }
+				},
+				"success_message": {
+					"type": "text",
+					"label": { "__": "Success Message" },
+					"description": { "__": "The message shown to the user after a successful signup." },
+					"default_value": { "__": "Thank you for subscribing!" }
+				},
+				"mailchimp_lists": {
+					"label": { "__": "Mailchimp Lists" },
+					"children": {
+						"lists": {
+							"label": { "__": "New List" },
+							"label_macro": [ "%s", "name" ],
+							"limit": 0,
+							"collapsed": true,
+							"add_more_label": { "__": "Add List" },
+							"children": {
+								"name": {
+									"label": { "__": "List Name" }
+								},
+								"id": {
+									"label": { "__": "List ID" }
+								}
+							}
+						}
+					}
+				},
+				"sticky_call_to_action": {
+					"label": { "__": "Sticky CTA" },
+					"collapsed": true,
+					"children": "`\\Civil_CMS\\Component\\call_to_action()->set_fm_fields( \\Civil_CMS\\Component\\call_to_action()->sticky_cta_fm_fields() )->get_fm_fields()`"
+				}
+			}
+		},
+		"component_defaults": {
+			"label": { "__": "Component Defaults" },
+			"children": {
+				"paywall_call_to_action": {
+					"label": { "__": "Paywall Call to Action" },
+					"collapsed": true,
+					"children": {
+						"button_text": {
+							"label": { "__": "Button Text" },
+							"description": { "__": "E.g. the \"Subscribe\" buttons in header and footer navs" },
+							"default_value": { "__": "Subscribe" }
+						}
+					}
+				},
+				"credibility_indicators": {
+					"label": { "__": "Credibility Indicators" },
+					"collapsed": true,
+					"children": "`\\Civil_CMS\\Component\\credibility_indicators()->get_fm_fields()`"
+				},
+				"newsletter_call_to_action": {
+					"label": { "__": "Newsletter CTA" },
+					"collapsed": true,
+					"children": "`\\Civil_CMS\\Component\\call_to_action()->set_setting( 'type', 'newsletter' )->remove_fm_field( 'enable' )->remove_fm_field( 'settings' )->get_fm_fields()`"
+				},
+				"subscribe_call_to_action": {
+					"label": { "__": "Subscribe CTA" },
+					"collapsed": true,
+					"children": "`\\Civil_CMS\\Component\\call_to_action()->set_setting( 'type', 'subscribe' )->remove_fm_field( 'enable' )->remove_fm_field( 'settings' )->get_fm_fields()`"
+				}
+			}
+		},
+		"contact": {
+			"label": { "__": "Contact Info" },
+			"children": {
+				"email": {
+					"label": { "__": "Email Address" },
+					"default_value": "support@civil.co"
+				}
+			}
+		},
+		"search": {
+			"label": { "__": "Search" },
+			"children": {
+				"search_display": {
+					"label": { "__": "Search Form Display" },
+					"children": {
+						"show_search_in_header_nav": {
+							"type": "checkbox",
+							"label": { "__": "Show search form in header navigation." }
+						},
+						"search_form_style": {
+							"type": "select",
+							"label": { "__": "Display style:" },
+							"options": {
+								"trigger": { "__": "Toggle: Hide search form until user clicks icon to display it" },
+								"inline": { "__": "Inline: Show a search form in the header navigation" }
+							}
+						}
+					}
+				}
+			}
+		},
+		"article_taxonomies": {
+			"label": { "__": "Article Taxonomies" },
+			"children": "`\\Civil_CMS\\Component\\article_taxonomies()->get_fm_fields()`"
+		}
+	}
+}

@@ -1,0 +1,129 @@
+/* Styles for core quote block */
+@mixin block-quote {
+
+  .wp-block-pullquote,
+  .wp-block-quote {
+
+    cite {
+      color: inherit;
+      margin: 0;
+      text-transform: none;
+
+      &::before {
+        content: '\2014';
+        display: inline-block;
+        margin-right: rem(3);
+      }
+    }
+  }
+
+  .wp-block-quote {
+    @include body-link-small;
+    border-bottom: 0;
+    border-left: var(--heavyBorderTeal);
+    border-top: 0;
+    color: var(--gray1);
+    padding-left: rem(20);
+
+    p {
+      font-family: var(--spectral);
+      font-size: rem(18);
+      line-height: calc(27/18);
+
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+    }
+
+    cite {
+      font-size: rem(14);
+    }
+
+    &.is-large {
+
+      p {
+        font-size: rem(22);
+        font-style: normal;
+      }
+    }
+  }
+
+  .wp-block-pullquote {
+    @include body-link;
+    border-bottom: var(--heavyBorderBlack);
+    border-top: var(--heavyBorderBlack);
+    padding: rem(14) 0 rem(14) 1.7ch;
+    text-align: left;
+
+    p {
+      color: var(--black2);
+      font-family: var(--franklin);
+      font-size: rem(22);
+      font-style: normal;
+      font-weight: 800;
+      line-height: calc(26/22);
+      margin-bottom: rem(10);
+
+      @media (--lgMin) {
+        font-size: rem(28);
+        line-height: calc(30/28);
+      }
+
+      /* stylelint-disable selector-max-specificity */
+      &::before,
+      &::after {
+        display: inline;
+        font-size: rem(22);
+
+        @media (--lgMin) {
+          font-size: rem(28);
+        }
+      }
+
+      &::before {
+        content: '\201C';
+        margin-left: -0.7ch;
+      }
+
+      &::after {
+        content: '\201D';
+      }
+    }
+
+    a {
+      display: inline;
+    }
+
+    cite {
+      font-size: 1rem;
+    }
+  }
+}
+
+@mixin block-quote-alignment {
+
+  .wp-block-pullquote {
+
+    &.alignleft,
+    &.alignright {
+      border-top: none;
+      padding: rem(14) 0;
+    }
+
+    &.alignleft {
+      @media (--xlMin) {
+        @include grid-breakout-left(-2);
+        @include grid-span(2);
+        float: left;
+      }
+    }
+
+    &.alignright {
+      @media (--xlMin) {
+        @include grid-breakout-right(-2);
+        @include grid-span(2);
+        float: right;
+      }
+    }
+  }
+}

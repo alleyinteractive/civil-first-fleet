@@ -1,0 +1,9 @@
+.heading {
+  border-top: 3px solid var(--gray1);
+  font-family: var(--franklin);
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.81;
+  padding: 2rem 0 4rem;
+  text-transform: uppercase;
+}

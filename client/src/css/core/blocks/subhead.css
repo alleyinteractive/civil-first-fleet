@@ -1,0 +1,16 @@
+/* Styles for core subhead block */
+@mixin block-subhead {
+
+  .wp-block-subhead {
+    @include subhead;
+    color: var(--black);
+    font-style: normal;
+    line-height: 1.15;
+    opacity: 0.85;
+
+    .page &,
+    .post-type-page & {
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,54 @@
+@import 'core/index.css';
+@import 'reset.css';
+@import 'buttons.css';
+@import 'rich-text.css';
+@import 'typography.css';
+
+body,
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
+  text-size-adjust: 100%;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  appearance: none;
+  border: none;
+  border-radius: 0;
+  font: inherit;
+  margin: 0;
+}
+
+.site-content {
+  @include site-container;
+  min-height: 100vh;
+  padding: rem(35) 0;
+}
+
+.screen-reader-text {
+  @include screenreader-only;
+}
+
+.skip-link {
+
+  &:focus {
+    background-color: var(--white);
+    border: 0;
+    clip: auto;
+    display: block;
+    height: 50px;
+    margin: auto;
+    overflow: visible;
+    width: 150px;
+    z-index: 100;
+  }
+}

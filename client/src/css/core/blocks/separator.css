@@ -1,0 +1,9 @@
+/* Styles for horizontal rule separator block */
+@mixin block-separator {
+
+  .wp-block-separator {
+    margin: rem(32) auto;
+    max-width: none;
+    width: 33%;
+  }
+}

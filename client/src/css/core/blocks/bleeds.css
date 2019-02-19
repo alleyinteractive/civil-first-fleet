@@ -1,0 +1,69 @@
+@mixin block-bleeds {
+
+  .alignwide {
+    @media (--lgMin) {
+      @include grid-gutter-breakout;
+    }
+  }
+
+  .alignfull {
+    margin-left: calc(var(--containerPaddingSmall) * -1);
+    max-width: none;
+    position: relative;
+    width: 100vw;
+    z-index: 2;
+
+    img {
+      display: block;
+    }
+
+    @media (--mdMin) {
+      margin-left: calc(var(--containerPaddingMedium) * -1);
+    }
+
+    @media (--lgMin) {
+      @include grid-image-alignfull-fluid(-1);
+
+      /* Add a top and bottom shadow so that when things are underneath the
+         image, they appear to fade behind it. */
+      img {
+        box-shadow: 0 0 20px 20px #fff;
+      }
+    }
+
+    @media (--xlMin) {
+      @include grid-image-alignfull-fluid(-2);
+    }
+
+    @media (--xxlMin) {
+      @include grid-image-alignfull-static(-3);
+
+      :global(.no-indicators) & { /* stylelint-disable-line selector-max-specificity */
+        @include grid-image-alignfull-static(-2);
+      }
+    }
+
+    /* Don't break the figcaption out, but constrain it to the content width */
+    figcaption,
+    .credit {
+      padding: 0 var(--containerPaddingSmall);
+      width: calc(100vw - (var(--containerPaddingSmall) * 2));
+
+      @media (--mdMin) {
+        width: calc(100vw - (var(--containerPaddingMedium) * 2));
+      }
+
+      @media (--lgMin) {
+        @include grid-span(9);
+        padding: 0 var(--containerPaddingLarge);
+      }
+    }
+  }
+
+  /* Make sure images with `alignwide` and `alignfull` are able to escape their
+     containers. This CSS overrides some rules set by Parsely. */
+  .wp-block-image.alignwide,
+  .wp-block-image.alignwide img {
+    max-width: initial;
+  }
+}

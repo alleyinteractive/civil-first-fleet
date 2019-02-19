@@ -1,0 +1,81 @@
+@import 'core/index.css';
+
+.wrapper {
+  @include site-container;
+  align-items: center;
+  background-color: var(--white);
+  display: flex;
+
+  @media (--mdMin) {
+    height: rem(60);
+  }
+
+  @media (--mdMax) {
+    flex-flow: column nowrap;
+    padding: rem(25) 0;
+  }
+}
+
+.left-wrapper {
+  align-items: center;
+  display: flex;
+
+  @media (--mdMax) {
+    flex-flow: column nowrap;
+  }
+
+  nav {
+    margin: rem(25) 0 rem(25) rem(25);
+
+    @media (--mdMax) {
+      margin-left: rem(15);
+    }
+  }
+}
+
+.left-wrapper nav ul,
+.right-nav-wrapper {
+  align-items: center;
+  display: flex;
+
+  li {
+    margin-right: rem(25);
+
+    @media (--mdMax) {
+      margin-right: rem(12);
+    }
+  }
+
+  a {
+    @include menu-item-alt;
+    color: var(--gray1);
+    text-decoration: none;
+  }
+}
+
+.right-nav-wrapper {
+  @media (--mdMin) {
+    margin-left: auto;
+  }
+
+  .avoid-pico & {
+    @media (--mdMax) {
+      flex-direction: column;
+
+      nav {
+        margin: 0 0 rem(12) rem(12);
+      }
+    }
+  }
+}
+
+.contact-button {
+  font-weight: 500;
+  text-transform: uppercase;
+
+  .avoid-pico & {
+    @media (--mdMin) {
+      margin-right: rem(125);
+    }
+  }
+}

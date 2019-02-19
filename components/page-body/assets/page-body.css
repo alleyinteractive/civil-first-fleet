@@ -1,0 +1,5 @@
+@import 'core/index.css';
+
+.wrapper {
+  @include single-content-body;
+}

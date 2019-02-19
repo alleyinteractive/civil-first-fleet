@@ -1,0 +1,21 @@
+@import 'core/index.css';
+
+.wrapper {
+  margin-bottom: rem(35);
+
+  @media (--lgMax) {
+    order: -1;
+  }
+}
+
+.sidebar {
+  @include article-content;
+}
+
+.centered {
+  min-width: 0; /* Needed for Firefox; see https://stackoverflow.com/a/43312314 */
+
+  @media (--lgMin) {
+    grid-column: var(--pageText);
+  }
+}

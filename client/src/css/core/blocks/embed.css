@@ -1,0 +1,12 @@
+@mixin block-embed {
+
+  .wp-block-embed,
+  [class^="wp-block-embed-"] {
+
+    /* stylelint-disable declaration-no-important */
+    > * {
+      margin: 0 auto !important;
+    }
+    /* stylelint-enable */
+  }
+}

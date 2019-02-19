@@ -1,0 +1,39 @@
+@import 'core/index.css';
+
+.wrapper {
+  @include article-content;
+
+  > div {
+    margin-bottom: 2rem;
+  }
+}
+
+.bylines {
+  @media (--lgMin) {
+    display: none;
+  }
+}
+
+.indicators {
+  @media (--xlMin) {
+    display: none;
+  }
+}
+
+.shares-wrapper {
+  display: none;
+
+  @media (--mdMin) {
+    display: flex;
+    grid-column: 5 / span 3;
+    z-index: 1;
+  }
+
+  @media (--lgMin) {
+    grid-column: 6 / span 2;
+  }
+}
+
+.social-shares {
+  align-self: start;
+}

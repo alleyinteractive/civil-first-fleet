@@ -1,0 +1,340 @@
+<?php
+/**
+ * Content Item component.
+ *
+ * @package Civil_First_Fleet
+ */
+
+namespace Civil_CMS\Component;
+
+/**
+ * Content Item component class.
+ */
+class Content_Item extends \Civil_CMS\Component {
+
+	/**
+	 * Unique component slug.
+	 *
+	 * @var string
+	 */
+	public $slug = 'content-item';
+
+	/**
+	 * Default component settings.
+	 *
+	 * @return array Default settings.
+	 */
+	public function default_settings() : array {
+		return array(
+			'layout' => 'single',
+		);
+	}
+
+	/**
+	 * Default component data.
+	 *
+	 * @return array Default data.
+	 */
+	public function default_data() : array {
+		return array(
+			'post_id' => 0,
+		);
+	}
+
+	/**
+	 * Validate post before updating the data.
+	 *
+	 * @param int $post_id Post ID.
+	 */
+	public function set_post_id( $post_id = null ) {
+		$post_id = $post_id ?? get_the_ID();
+		$post = get_post( $post_id );
+
+		// Only update if a valid post_Id.
+		if ( $post instanceof \WP_Post ) {
+			if ( 'trash' === $post->post_status ) {
+				return null;
+			}
+
+			$this->set_data( 'post_id', $post_id );
+		}
+
+		return $this;
+	}
+
+	/**
+	 * Render this component using the correct layout option.
+	 */
+	public function render() {
+		\ai_get_template_part(
+			$this->get_component_path( $this->setting( 'layout' ) ), array(
+				'component' => $this,
+				'stylesheet' => $this->setting( 'layout' ),
+			)
+		);
+	}
+
+	/**
+	 * Outputs open tag for the permalink.
+	 */
+	public function open_permalink() {
+		printf(
+			'<a href="%1$s" title="%2$s">',
+			esc_url( get_permalink( $this->get_data( 'post_id' ) ) ),
+			esc_attr( get_the_title( $this->get_data( 'post_id' ) ) )
+		);
+	}
+
+	/**
+	 * Outputs close tag for the permalink.
+	 */
+	public function close_permalink() {
+		echo '</a>';
+	}
+
+	/**
+	 * Text-only byline helper.
+	 *
+	 * @return string The byline.
+	 */
+	public function get_byline_no_avatar() {
+		$coauthors = $this->get_data( 'coauthors' );
+		$coauthor = array_shift( $coauthors );
+
+		return sprintf(
+			'<a href="%1$s" class="%2$s">By %3$s</a>',
+			esc_url( get_author_posts_url( $coauthor->ID, $coauthor->user_nicename ) ),
+			ai_get_classnames( [ 'byline' ] ),
+			esc_html( $coauthor->display_name )
+		);
+	}
+
+	/**
+	 * Display text-only byline.
+	 */
+	public function byline_no_avatar() {
+		echo wp_kses_post( $this->get_byline_no_avatar() );
+	}
+
+	/**
+	 * Published date helper.
+	 *
+	 * @return string Published date.
+	 */
+	public function get_published_date() {
+		return sprintf(
+			'<time datetime="%1$s" class="%4$s"><span class="screen-reader-text">%3$s </span>%2$s</span></time>',
+			get_the_date( 'Y-m-d H:i:s\Z', $this->data( 'post_id' ) ),
+			get_the_date( 'M j, Y g:iA T', $this->data( 'post_id' ) ),
+			esc_html__( 'Published on', 'civil-cms' ),
+			ai_get_classnames( [ 'date' ] )
+		);
+	}
+
+	/**
+	 * Published date helper.
+	 */
+	public function published_date() {
+		echo wp_kses(
+			$this->get_published_date(),
+			array(
+				'time' => array(
+					'datetime' => array(),
+					'class' => array(),
+				),
+				'span' => array(
+					'class' => array(),
+				),
+			)
+		);
+	}
+
+	/**
+	 * Get eyebrow markup.
+	 */
+	public function get_eyebrow() {
+
+		// Get and validate primary category.
+		$category_id = absint( get_post_meta( $this->data( 'post_id' ), 'primary_category_id', true ) );
+		$category = get_term_by( 'id', $category_id, 'category' );
+
+		if ( ! $category instanceof \WP_Term ) {
+			return;
+		}
+
+		// Output.
+		return sprintf(
+			'<a href="%2$s" class="%4$s">%1$s <span class="screen-reader-text">%3$s</span></a>',
+			esc_html( $category->name ),
+			esc_url( (string) get_term_link( $category, 'category' ) ),
+			esc_html__( 'Primary category in which blog post is published', 'civil-cms' ),
+			ai_get_classnames( [ 'eyebrow' ] )
+		);
+	}
+
+	/**
+	 * Output eyebrow markup.
+	 */
+	public function eyebrow() {
+		echo wp_kses_post( $this->get_eyebrow() );
+	}
+
+	/**
+	 * Get dek.
+	 *
+	 * @return string Dek.
+	 */
+	public function get_dek() {
+		return (string) get_post_meta( $this->data( 'post_id' ), 'dek', true );
+	}
+
+	/**
+	 * Output dek.
+	 */
+	public function dek() {
+		echo wp_kses_post( $this->get_dek() );
+	}
+
+	/**
+	 * Return a list of available post labels.
+	 *
+	 * @return array List of post label options.
+	 */
+	public function get_label_options() {
+		return [
+			'opinion' => __( 'Is Opinion', 'civil-cms' ),
+		];
+	}
+
+	/**
+	 * Get label.
+	 *
+	 * @param int $post_id ID of post to get label for.
+	 * @return string The post's label or empty string.
+	 */
+	public function get_label( $post_id = null ) {
+		$post_id = $post_id ?? get_the_ID();
+		$labels = get_post_meta( $post_id, 'label', true );
+		if ( is_array( $labels ) && in_array( 'opinion', $labels, true ) ) {
+			return sprintf(
+				/* translators: 1: Label to identify opinion pieces. */
+				'<span>%1$s</span>',
+				esc_html__( 'Opinion', 'civil-cms' )
+			);
+		}
+		return '';
+	}
+
+	/**
+	 * Display label.
+	 *
+	 * @param int $post_id ID of post to print label for.
+	 * @return void
+	 */
+	public function label( $post_id = null ) {
+		$post_id = $post_id ?? get_the_ID();
+		echo wp_kses_post( $this->get_label( $post_id ) );
+	}
+
+	/**
+	 * Display the author avatar.
+	 *
+	 * @param object $coauthor_id The coauthor ID.
+	 * @param string $size Image size to use for avatar image.
+	 */
+	public function author_avatar( $coauthor_id, $size = 'avatar-small' ) {
+		$avatar_id = get_post_meta( $coauthor_id, '_thumbnail_id', true );
+
+		if ( ! empty( $avatar_id ) ) {
+			\Civil_CMS\Component\image()
+				->set_post_id( $avatar_id )
+				->size( $size )
+				->aspect_ratio( false )
+				->disable_lazyload()
+				->render();
+		} else {
+			echo wp_kses_post(
+				sprintf(
+					'<img src="%1$s">',
+					esc_url( get_avatar_url( $coauthor_id, 75 ) )
+				)
+			);
+		}
+	}
+
+	/**
+	 * Return the caption for the post's featured image.
+	 */
+	public function get_featured_image_caption() {
+		$featured_image_id = absint( get_post_meta( $this->data( 'post_id' ), '_thumbnail_id', true ) );
+
+		// No image found.
+		if ( empty( $featured_image_id ) ) {
+			return;
+		}
+
+		// Get the image caption.
+		$image_caption = get_post( $featured_image_id )->post_excerpt;
+
+		// No caption found.
+		if ( empty( $image_caption ) ) {
+			return;
+		}
+
+		return sprintf(
+			'<span class="%1$s wp-caption-%2$s">%3$s</span>',
+			ai_get_classnames( [ 'caption' ] ),
+			esc_attr( $featured_image_id ),
+			esc_html( $image_caption )
+		);
+	}
+
+	/**
+	 * Return an image credit for the post's featured image.
+	 */
+	public function get_featured_image_credit() {
+		$featured_image_id = absint( get_post_meta( $this->data( 'post_id' ), '_thumbnail_id', true ) );
+
+		// No image found.
+		if ( empty( $featured_image_id ) ) {
+			return;
+		}
+
+		// Get the image credit.
+		$image_credit = \Civil_CMS\get_image_credit( $featured_image_id );
+
+		// No credit found.
+		if ( empty( $image_credit ) ) {
+			return;
+		}
+
+		return sprintf(
+			'<span class="%1$s wp-credit-%2$s">%3$s</span>',
+			ai_get_classnames( [ 'credit' ] ),
+			esc_attr( $featured_image_id ),
+			esc_html( $image_credit )
+		);
+	}
+
+	/**
+	 * Return an image Component for the post's featured image.
+	 */
+	public function featured_image() {
+		$featured_image_id = absint( get_post_meta( $this->data( 'post_id' ), '_thumbnail_id', true ) );
+		return \Civil_CMS\Component\image()
+			->set_post_id( $featured_image_id )
+			->set_data( 'alt', get_post_meta( $featured_image_id, '_wp_attachment_image_alt', true ) );
+	}
+}
+
+/**
+ * Helper for creating new instances of this component.
+ *
+ * @param  array $settings  Instance settings.
+ * @param  array $data      Instance data.
+ * @param  array $fm_fields Instance FM fields.
+ * @return Content_Item  An instance of this component.
+ */
+function content_item( array $settings = [], array $data = [], array $fm_fields = [] ) : Content_Item {
+	return new Content_Item( $settings, $data );
+}

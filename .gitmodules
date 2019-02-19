@@ -1,0 +1,6 @@
+[submodule "plugins/wordpress-fieldmanager"]
+	path = plugins/wordpress-fieldmanager
+	url = git@github.com:alleyinteractive/wordpress-fieldmanager.git
+[submodule "plugins/Co-Authors-Plus"]
+	path = plugins/Co-Authors-Plus
+	url = git@github.com:Automattic/Co-Authors-Plus.git

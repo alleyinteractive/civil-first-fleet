@@ -1,0 +1,302 @@
+@import './blocks/index.css';
+
+/**
+ * Contains styles for core markup
+ *
+ * These should be used for both frontend representations of body content and admin editor styles
+ *
+ * All article-level nodes should be styled in this partial. A list of these nodes can be found here:
+ * https://github.com/WordPress/WordPress/blob/master/wp-includes/kses.php#L61-L415
+ */
+
+/* Spacing for block-level elements. Disabling some linting rules b/c they're throwing false positives */
+/* stylelint-disable indentation */
+
+/**
+ * Add styles to all block-level elements
+ */
+@mixin block-element-override {
+
+  p,
+  ul,
+  ol,
+  blockquote,
+  q,
+  pre,
+  address,
+  area,
+  article,
+  aside,
+  audio,
+  code,
+  colgroup,
+  div,
+  details,
+  figure,
+  footer,
+  form,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  header,
+  hgroup,
+  hr,
+  img,
+  section,
+  table,
+  summary,
+  video {
+    @content;
+  }
+}
+
+/* Plain text styles */
+@mixin plain-text {
+  @include block-list;
+
+  p {
+    @include body-paragraph;
+  }
+}
+
+/* Mixin for all core blocks */
+@mixin blocks {
+  @include block-subhead;
+  @include block-quote;
+  @include block-quote-alignment;
+  @include block-image;
+  @include block-cover-image;
+  @include block-gallery;
+  @include block-separator;
+  @include block-bleeds;
+  @include block-embed;
+}
+
+/**
+ * Mixin for styling rich text and gutenberg field content
+ *
+ * NOTE: Some of these elements have their own core blocks,
+ * and should be split out as needed
+ */
+@mixin rich-text {
+  @include plain-text;
+
+  p,
+  ul,
+  ol {
+    @include body-large-spectral;
+  }
+
+  blockquote,
+  q,
+  pre,
+  address,
+  area,
+  article,
+  aside,
+  audio,
+  code,
+  colgroup,
+  div,
+  details,
+  figure,
+  footer,
+  form,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  header,
+  hgroup,
+  hr,
+  img,
+  section,
+  table,
+  summary,
+  video {
+    @include block-level;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @include body-heading;
+  }
+
+  hr {
+    border: 1px solid gray;
+  }
+
+  table {
+
+    th {
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    th,
+    td {
+      border: 1px solid gray;
+      padding: 0.5em;
+    }
+  }
+
+  del,
+  strike {
+    text-decoration: line-through;
+  }
+
+  b,
+  strong {
+    font-weight: 700;
+  }
+
+  em,
+  i {
+    font-style: italic;
+  }
+
+  address {
+    font-size: 0.75em;
+  }
+
+  abbr,
+  acronym {
+    color: gray;
+    text-decoration: underline dotted;
+  }
+
+  code,
+  var,
+  tt,
+  kbd {
+    display: inline;
+    font: 400 1em 'Courier', monospace;
+  }
+
+  pre {
+    font: 400 1em 'Courier', monospace;
+  }
+
+  .wp-smiley {
+    margin: 0;
+  }
+
+  /* Widgets */
+  .widget {
+    display: block;
+  }
+
+  .widget-area .widget_search {
+    overflow: hidden;
+
+    input {
+      float: left;
+    }
+  }
+}
+/* styleint-disable */
+
+/* Classic editor image styles */
+@mixin classic-editor-image {
+  /* Include image block styles for alignments */
+  @include block-image;
+
+  a {
+
+    img {
+      border: none;
+      display: inline-block;
+    }
+  }
+
+  p {
+
+    img {
+      margin-bottom: 0.5em;
+      /* a small bottom margin prevents content floating under images */
+    }
+  }
+
+  .wp-caption {
+    height: auto;
+  }
+
+  .image-attachment {
+
+    div.entry-meta {
+      float: left;
+    }
+
+    nav {
+      float: right;
+      margin: 0 0 1em;
+    }
+  }
+
+  .entry-content {
+    clear: both;
+  }
+
+  .entry-attachment {
+    background: #eee;
+    margin: 0 0 1em;
+    padding: 1em;
+    text-align: center;
+  }
+
+  .attachment {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /*
+  Resize images to fit the main content area.
+  - Applies only to images uploaded via WordPress by targeting size-* classes.
+  - Other images will be left alone. Use "size-auto" class to apply to other images.
+  */
+  img {
+
+    &.size-auto,
+    &.size-full,
+    &.size-large,
+    &.size-medium {
+      height: auto;
+      /* Override height to match resized width for correct aspect ratio. */
+      max-width: 100%;
+      /* When images are too wide for containing element, force them to fit. */
+    }
+
+    &.alignleft {
+      margin-right: 1em;
+    }
+
+    &.alignright {
+      margin-left: 1em;
+    }
+  }
+
+  .wp-caption {
+    height: auto;
+    max-width: 100%;
+    padding: 0.5em;
+    text-align: center;
+
+    .wp-caption-text {
+      margin: 0.5em;
+    }
+
+    img {
+      margin: 0.25em;
+    }
+  }
+}

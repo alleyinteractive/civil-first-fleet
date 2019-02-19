@@ -1,0 +1,36 @@
+{
+	"contexts": [
+		{
+			"type": "post",
+			"post_types": [ "guest-author" ],
+			"title": "Info",
+			"context": "normal"
+		}
+	],
+	"serialize_data": false,
+	"add_to_prefix": false,
+	"children": {
+		"email": {
+			"label": { "__": "Email" }
+		},
+		"twitter": {
+			"type": "text",
+			"label": { "__": "Twitter" },
+			"sanitize": "`function( $value ) { return str_replace( '@', '', $value ); }`"
+		},
+		"biography": {
+			"label": { "__": "Biography" },
+			"type": "richtextarea",
+			"buttons_1": [ "bold", "italic", "link" ],
+			"buttons_2": [],
+			"sanitize": "wp_filter_post_kses",
+			"editor_settings": {
+				"media_buttons": false
+			},
+			"attributes": {
+				"style": "width: 100%",
+				"rows": 4
+			}
+		}
+	}
+}

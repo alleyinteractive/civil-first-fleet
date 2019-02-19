@@ -1,0 +1,29 @@
+@import 'core/index.css';
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: rem(35);
+  position: relative;
+  width: 100%;
+}
+
+.label {
+  @include screenreader-only;
+}
+
+.input {
+  @include input-base;
+  border: 1px solid var(--gray4);
+  box-sizing: border-box;
+  font-weight: 600;
+  min-height: rem(60);
+
+  &::-webkit-search-cancel-button {
+    margin-right: rem(10);
+  }
+}
+
+.submit {
+  margin-left: 0.5rem;
+}

@@ -1,0 +1,7 @@
+@import 'core/index.css';
+
+/* Page grid matches grid in article-template.css */
+
+.wrapper {
+  @include single-container;
+}

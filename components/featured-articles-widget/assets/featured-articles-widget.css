@@ -1,0 +1,46 @@
+@import 'core/index.css';
+
+.wrapper {
+  font-family: var(--franklin);
+  font-size: rem(16);
+  margin-top: 0.5rem;
+  position: sticky;
+  top: 55px;
+}
+
+.headline {
+  font-size: rem(18);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.list {
+  margin-top: 0.25rem;
+
+  :global(.content-item) {
+    font-size: rem(16);
+    font-weight: 300;
+    margin: 1.15rem 0;
+  }
+
+  :global(.title a) {
+    color: var(--black);
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  :global(.authors) {
+    font-size: rem(12);
+    margin: 4px 0 2px;
+  }
+
+  :global(.authors a) {
+    color: #555;
+    text-decoration: none;
+  }
+
+  :global(.date) {
+    color: #888;
+    font-size: rem(12);
+  }
+}

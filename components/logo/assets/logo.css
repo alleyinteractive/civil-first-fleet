@@ -1,0 +1,45 @@
+@import 'core/index.css';
+
+.wrapper {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+
+  svg {
+    display: block;
+    height: rem(14);
+    width: rem(53);
+  }
+
+  :global(.image__wrapper) {
+    align-items: center;
+    display: flex;
+    height: 100%;
+  }
+
+  img {
+    display: block;
+    max-height: 100%;
+    max-width: 100%;
+  }
+}
+
+.white {
+  background-color: var(--black);
+}
+
+.newsroom {
+  height: rem(50);
+  max-width: rem(160);
+
+  &.footer {
+    height: rem(80);
+    max-width: rem(275);
+  }
+}
+
+.site-title {
+  @include medium-headline;
+}

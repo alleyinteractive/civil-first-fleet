@@ -1,0 +1,280 @@
+/* Abstract headline styles for each font family */
+@mixin spectral-headline {
+  font-family: var(--spectral);
+  letter-spacing: -0.5px;
+  line-height: 1.05;
+}
+
+@mixin franklin-headline {
+  font-family: var(--franklin);
+  line-height: 1.07;
+}
+
+/* Specific headline styles */
+@mixin large-headline {
+  @include spectral-headline;
+  font-size: rem(48);
+
+  @media (--smMax) {
+    font-size: rem(26);
+  }
+}
+
+@mixin medium-headline {
+  @include spectral-headline;
+  font-size: rem(24);
+
+  @media (--xlMax) {
+    font-size: rem(16);
+  }
+}
+
+@mixin entry-headline-spectral {
+  @include large-headline;
+  font-weight: 800;
+}
+
+@mixin headline {
+  @include spectral-headline;
+  font-size: rem(38);
+}
+
+@mixin medium-headline-spectral {
+  @include spectral-headline;
+  font-size: rem(32);
+}
+
+@mixin body-headline-spectral {
+  @include spectral-headline;
+  font-size: rem(28);
+  font-weight: 800;
+
+  @media (--smMax) {
+    font-size: rem(18);
+  }
+}
+
+@mixin river-headline-spectral {
+  @include spectral-headline;
+  font-size: rem(16);
+
+  @media (--mdMin) {
+    font-size: rem(21);
+  }
+}
+
+@mixin card-headline-spectral {
+  font-size: rem(20);
+
+  @media (--mdMin) {
+    font-size: rem(32);
+  }
+
+  @media (--lgMin) {
+    font-size: rem(38);
+  }
+}
+
+@mixin small-headline-franklin {
+  @include franklin-headline;
+  font-size: rem(18);
+}
+
+@mixin archive-heading {
+  @include franklin-headline;
+  font-size: rem(32);
+  font-weight: 700;
+  line-height: 0.88;
+}
+
+@mixin subhead {
+  @include franklin-headline;
+  font-size: rem(28);
+}
+
+/* Other miscellaneous type styles */
+@mixin menu-item {
+  font-family: var(--franklin);
+  font-size: rem(12);
+  font-weight: 500;
+  letter-spacing: 0.8;
+  text-transform: uppercase;
+}
+
+@mixin menu-item-alt {
+  font-family: var(--franklin);
+  font-size: rem(14);
+  font-weight: 500;
+}
+
+@mixin menu-item-large {
+  font-family: var(--franklin);
+  font-size: rem(18);
+  font-weight: 400;
+}
+
+@mixin eyebrow-bold {
+  font-family: var(--franklin);
+  font-size: rem(11);
+  font-weight: 800;
+  letter-spacing: 2px;
+
+  @media (--mdMin) {
+    font-size: rem(12);
+  }
+}
+
+@mixin eyebrow {
+  font-family: var(--franklin);
+  font-size: rem(14);
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+@mixin eyebrow-article-header {
+  color: inherit;
+  font-size: rem(11);
+  font-weight: 800;
+  letter-spacing: rem(0.9);
+  line-height: normal;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  @media (--mdMin) {
+    font-size: rem(14);
+    letter-spacing: rem(1.1);
+  }
+}
+
+@mixin byline-link {
+  color: var(--gray2);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--gray1);
+  }
+}
+
+@mixin byline {
+  font-family: var(--franklin);
+  font-size: rem(16);
+  font-weight: 700;
+
+  @media (--mdMax) {
+    font-size: rem(14);
+  }
+
+  a {
+    @include byline-link;
+  }
+}
+
+@mixin dek {
+  font-family: var(--franklin);
+  font-size: rem(21);
+  font-weight: 300;
+  letter-spacing: -0.1px;
+  line-height: 1.25;
+
+  @media (--smMax) {
+    font-size: rem(14);
+    line-height: 1.14;
+  }
+}
+
+/* Body copy styles */
+@mixin body-large-spectral {
+  color: var(--gray1);
+  font-family: var(--spectral);
+  font-size: rem(21);
+  font-weight: 400;
+  line-height: 1.57;
+}
+
+@mixin body-large-franklin {
+  font-family: var(--franklin);
+  font-size: rem(18);
+  font-weight: 400;
+  line-height: 1.83;
+}
+
+@mixin body-small-spectral {
+  font-family: var(--spectral);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+@mixin body-small-franklin {
+  font-family: var(--franklin);
+  font-size: rem(14);
+  font-weight: 400;
+  line-height: 1.43;
+}
+
+@mixin caption {
+  color: var(--gray2);
+  font-family: var(--franklin);
+  font-size: rem(12);
+  font-weight: 500;
+  line-height: calc(20/14);
+  margin-bottom: rem(5);
+  text-align: left;
+
+  @media (--mdMin) {
+    font-size: rem(14);
+  }
+}
+
+@mixin caption-label {
+  font-family: var(--franklin);
+  font-size: rem(12);
+  font-weight: 800;
+  letter-spacing: 2px;
+  line-height: 1.25;
+}
+
+@mixin image-credit {
+  color: var(--gray4);
+  font-family: var(--franklin);
+  font-size: rem(11);
+  font-weight: 800;
+  letter-spacing: 1px;
+  line-height: calc(15/12);
+  text-transform: uppercase;
+
+  @media (--mdMin) {
+    font-size: rem(12);
+  }
+}
+
+@mixin pullquote {
+  font-family: var(--franklin);
+  font-size: rem(28);
+  font-weight: 800;
+  line-height: 1.07;
+}
+
+@mixin byline-twitter-handle() {
+  color: var(--blue);
+  font-style: italic;
+  margin-left: rem(3);
+  text-decoration: none;
+}
+
+@mixin byline-bio-content() {
+  color: var(--gray1);
+  font-family: var(--franklin);
+  font-size: rem(14);
+  line-height: 1.43;
+  margin-bottom: rem(5);
+}
+
+@mixin byline-bio-more {
+  color: var(--blue);
+  font-family: var(--franklin);
+  font-size: rem(12);
+  font-style: italic;
+  font-weight: 500;
+  text-decoration: none;
+}

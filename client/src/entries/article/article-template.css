@@ -1,0 +1,18 @@
+@import 'core/index.css';
+
+.wrapper {
+  @include single-container;
+}
+
+.comments-wrapper {
+  @include single-container;
+  margin-bottom: 4rem;
+}
+
+.comments-inner {
+  grid-column: 3 / span 8;
+
+  @media (--lgMin) {
+    grid-column: 2 / span 10;
+  }
+}

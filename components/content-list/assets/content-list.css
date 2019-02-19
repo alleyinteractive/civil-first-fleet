@@ -1,0 +1,34 @@
+.load-more-wrapper {
+  @media (--mdMin) {
+    margin-bottom: 3rem;
+  }
+
+  @media (--lgMin) {
+    margin-bottom: 4rem;
+  }
+}
+
+.more-button-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: rem(64) 0;
+  width: 100%;
+}
+
+.load-more-button {
+  font-weight: 800;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+
+  &[disabled] {
+    border-color: var(--gray2);
+    opacity: 0.5;
+
+    /* stylelint-disable selector-max-specificity */
+    &:hover {
+      background-color: transparent;
+      color: var(--blue);
+    }
+    /* stylelint-enable */
+  }
+}

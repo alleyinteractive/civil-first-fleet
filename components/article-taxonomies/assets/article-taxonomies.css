@@ -1,0 +1,36 @@
+@import 'core/index.css';
+
+.wrapper {
+  margin-bottom: 1.75rem;
+}
+
+.title {
+  font-size: rem(16);
+  font-weight: 700;
+  margin-bottom: rem(10);
+}
+
+.title,
+.list {
+  font-family: var(--franklin);
+  line-height: 1.43;
+}
+
+.list li {
+  display: inline-block;
+}
+
+.link {
+  background-color: var(--gray5);
+  color: var(--black);
+  display: inline-block;
+  font-size: rem(14);
+  margin: 0 rem(8) rem(10) 0;
+  padding: rem(8) rem(10) rem(6) rem(10);
+  text-decoration: none;
+  transition: background-color var(--transitionDurShort) linear;
+}
+
+.link:hover {
+  background-color: var(--gray4);
+}

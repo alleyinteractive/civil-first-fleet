@@ -1,0 +1,362 @@
+@mixin container {
+  max-width: var(--xxlVal);
+  padding: 0 var(--containerPaddingSmall);
+
+  @media (--lgMin) {
+    padding: 0 var(--containerPaddingLarge);
+  }
+}
+
+@mixin container-full {
+  max-width: 100vw;
+  padding: 0 var(--containerPaddingSmall);
+
+  @media (--lgMin) {
+    padding: 0 var(--containerPaddingLarge);
+  }
+}
+
+@mixin site-container-base {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--contentMaxWidth);
+  width: calc(100vw - (var(--containerPaddingSmall) * 2));
+}
+
+@mixin site-container {
+  @include site-container-base;
+
+  @media (--lgMin) {
+    width: calc(100vw - (var(--containerPaddingLarge) * 2));
+  }
+}
+
+/* Ensure a proper line-length in post content */
+@mixin article-content {
+  min-width: 0; /* Needed for Firefox; see https://stackoverflow.com/a/43312314 */
+
+  @media (--lgMin) {
+    grid-column: 2 / span 8;
+  }
+
+  @media (--xlMin) {
+    grid-column: 3 / span 7;
+  }
+
+  @media (--xxlMin) {
+    grid-column: 4 / span 6;
+
+    :global(.no-indicators) & {
+      grid-column: 3 / span 7;
+    }
+  }
+}
+
+/**
+ * Grid positioning for article left sidebar.
+ */
+@mixin grid-item-article-sidebar-left {
+  display: none;
+  min-width: 0; /* Needed for Firefox; see https://stackoverflow.com/a/43312314 */
+
+  @media (--xlMin) {
+    display: block;
+    grid-column: 1 / span 2;
+    grid-row: auto;
+  }
+
+  :global(.no-indicators) & {
+    grid-column-start: 1;
+  }
+
+  @media (--xxlMin) {
+    grid-column-start: 2;
+  }
+}
+
+/**
+ * Grid positioning for the article right sidebar.
+ */
+@mixin grid-item-article-sidebar-right {
+  display: none;
+  min-width: 0; /* Needed for Firefox; see https://stackoverflow.com/a/43312314 */
+
+  @media (--lgMin) {
+    display: block;
+    grid-column-end: span 3;
+  }
+}
+
+/**
+ * This is essentially the main grid, but specific to the article template
+ * because that's what I'm currently working on :)
+ */
+@mixin grid-article-container($columns: 12) {
+  display: grid;
+  grid-gap: 0 var(--gridGap);
+  grid-template-columns: repeat($columns, 1fr);
+}
+
+/**
+ * Break out of column(s) to span an extra gutter on either side.
+ */
+@mixin grid-gutter-breakout {
+  margin-left: calc(var(--gridGap) * -1);
+  margin-right: calc(var(--gridGap) * -1);
+}
+
+/**
+ * Break out of the left side of the article grid.
+ * Span full-bleed until we reach the site's max-width.
+ *
+ * Based on a full-width 12-column grid with 32px (--gridGap) gaps.
+ *
+ * @param {Number} $cols The number of grid columns to the left of the image.
+ */
+@mixin grid-image-alignfull-fluid($cols) {
+  /**
+   * Grid calculations based on viewport until we reach max site-width.
+   *
+   * calc((((100vw - padding * 2) / 12 - (gap / 12) * 11 ) * cols) + gap * cols);
+   *
+   * (100vw - containerPadding * 2): The grid area width
+   * ^ / 12 - (gap / 12) * 11:       Column division minus shared gap value
+   * ^ * cols:                       The number of columns to span
+   * + gap * cols:                   The number of gaps to span (always the same as columns)
+   *  - var(--containerPaddingLarge) Subtract edge padding, since it has to be full-bleed
+   */
+  margin-left: calc(((((100vw - var(--containerPaddingLarge) * 2) / 12 - (var(--gridGap) / 12) * 11) * $cols) + var(--gridGap) * $cols) - var(--containerPaddingLarge));
+}
+
+/*
+  * At max-content-width, switch to basing the grid calculations off of the
+  * site max-width rather than the viewport.
+  * At this point, we span the site-width rather than full-bleed.
+  *
+  * @see grid-image-alignfull() for the math breakdown.
+  */
+@mixin grid-image-alignfull-static($cols) {
+  margin-left: calc((((var(--contentMaxWidth) - var(--containerPaddingLarge) * 2) / 12 - (var(--gridGap) / 12) * 11) * $cols) + var(--gridGap) * $cols);
+  max-width: calc(var(--contentMaxWidth) - var(--containerPaddingLarge) * 2);
+}
+
+/**
+ * Break out of the left side of the article grid.
+ * Based on a full-width 12-column grid with 32px (--gridGap) gaps.
+ *
+ * @param {Number} $cols The number of grid columns to break out.
+ */
+@mixin grid-breakout-left($cols) {
+  /**
+   * Grid calculations based on viewport until we reach max site-width.
+   * @see grid-image-alignfull() for the math breakdown.
+   */
+  @media (--lgMin) {
+    margin-left: calc((((100vw - var(--containerPaddingLarge) * 2) / 12 - var(--gridGap) / 12 * 11) * $cols) + var(--gridGap) * $cols);
+  }
+
+  /*
+   * Switch to basing the grid calculations off of the site max-width rather than the viewport.
+   */
+  @media (--xxlMin) {
+    margin-left: calc(((var(--contentMaxWidth) / 12 - (var(--gridGap) / 12) * 11) * $cols) + var(--gridGap) * $cols);
+  }
+}
+
+/**
+ * Break out of the left side of the article grid.
+ * Based on a full-width 12-column grid with 32px (--gridGap) gaps.
+ *
+ * @param {Number} $cols The number of grid columns to break out.
+ */
+@mixin grid-breakout-right($cols) {
+  /**
+   * Grid calculations based on viewport until we reach max site-width.
+   * @see grid-image-alignfull() for the math breakdown.
+   */
+  @media (--lgMin) {
+    margin-right: calc((((100vw - var(--containerPaddingLarge) * 2) / 12 - var(--gridGap) / 12 * 11) * $cols) + var(--gridGap) * $cols);
+  }
+
+  /*
+   * Switch to basing the grid calculations off of the site max-width rather than the viewport.
+   */
+  @media (--xxlMin) {
+    margin-right: calc(((var(--contentMaxWidth) / 12 - (var(--gridGap) / 12) * 11) * $cols) + var(--gridGap) * $cols);
+  }
+}
+
+/**
+ * Span the specified number of grid columns.
+ * Based on a full-width 12-column grid with 32px (--gridGap) gaps.
+ * For use in subgrids or where `display-grid` won't do the trick.
+ *
+ * @param {Number} $cols The number of grid columns to span.
+ */
+@mixin grid-span($cols) {
+  /**
+   * Grid calculations based on viewport.
+   * @see grid-image-alignfull() for the math breakdown.
+   */
+  max-width: calc(((var(--contentMaxWidth) / 12 - (var(--gridGap) / 12) * 11) * $cols) + var(--gridGap) * ($cols - 1));
+  width: calc((((100vw - var(--containerPaddingLarge) * 2) / 12 - var(--gridGap) / 12 * 11) * $cols) + var(--gridGap) * ($cols - 1));
+}
+
+/**
+ * Layout mixins for single pieces of content
+ */
+@mixin single-container {
+  @media (--mdMin) {
+    margin-left: auto;
+    margin-right: auto;
+    width: calc(100vw - (var(--containerPaddingMedium) * 2));
+  }
+
+  @media (--lgMin) {
+    @include grid-article-container;
+    width: 100%;
+  }
+}
+
+@mixin single-content-body {
+  margin-bottom: rem(16);
+
+  @media (--mdMin) {
+    margin-bottom: rem(45);
+  }
+
+  @media (--lgMax) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (--lgMin) {
+    @include grid-article-container;
+    grid-column: -1 / 1;
+  }
+}
+
+/**
+ * Inline widget with left border accent.
+ *
+ * @param {Number} $border-width The border width.
+ */
+@mixin inline-left-grid-gutter-breakout($border-width) {
+  margin-left: calc(var(--gridGap) * -1 - $border-width * 1px);
+}
+
+@mixin hide-slide-menu($color) {
+
+  > * {
+    z-index: 2;
+  }
+
+  &::before {
+    background-color: $color;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+}
+
+@mixin slide-menu-initial {
+  flex-direction: column;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 100%;
+  transform: translateY(-100%);
+  transition: transform var(--transitionDur) ease-in-out,
+    opacity var(--transitionDur) ease-in-out;
+  width: 100vw;
+  z-index: 0;
+}
+
+@mixin slide-menu-unset {
+  border: none;
+  flex-direction: row;
+  opacity: 1;
+  pointer-events: all;
+  position: static;
+  transform: none;
+  width: auto;
+}
+
+/* Visual reordering of items. This is necessary b/c items are ordered according to
+  importance in source, for accessibility reasons. */
+@mixin content-item-ordering {
+  /* Layout ordering */
+  .image {
+    order: 0;
+  }
+
+  .content {
+    order: 1;
+  }
+
+  /* Text content ordering */
+  .eyebrow {
+    order: 0;
+  }
+
+  .title,
+  .dek {
+    order: 1;
+  }
+
+  .authors {
+    order: 2;
+  }
+
+  .byline,
+  .date {
+    order: 3;
+  }
+}
+
+/* Rounded avatar image wrapped in an anchor */
+@mixin avatar {
+  display: block;
+  flex: 0 0 rem(37);
+  height: rem(37);
+  padding: rem(4);
+  width: rem(37);
+
+  &,
+  img {
+    border-radius: 50%;
+  }
+
+  img {
+    height: auto;
+    width: 100%;
+  }
+}
+
+/* Opinion Label */
+@mixin opinion-label {
+  align-self: center;
+  background-color: var(--yellow);
+  padding: rem(6) 1rem;
+}
+
+@mixin intrinsic-wrapper($ratio) {
+  padding-bottom: calc($ratio * 100%);
+  position: relative;
+  width: 100%;
+}
+
+@mixin intrinsic-content {
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}

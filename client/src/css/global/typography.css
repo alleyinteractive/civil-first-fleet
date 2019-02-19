@@ -1,0 +1,6 @@
+.archive-header {
+  @include archive-heading;
+  border-bottom: 2px solid var(--black);
+  margin-bottom: rem(40);
+  padding-bottom: rem(15);
+}

@@ -1,0 +1,54 @@
+language: php
+
+sudo: false
+
+# Define global theme slug
+env:
+  global:
+    - THEME_SLUG=civil-cms
+
+# Cache Node modules on successful build (speeds future builds)
+cache:
+  directories:
+    - themes/$THEME_SLUG/node_modules
+
+# Specify when Travis should build.
+branches:
+  only:
+    - master
+    - develop
+
+# This "ignore" directive travis from processing branches with
+# a -built suffix, thus avoiding endless loops
+if: branch =~ ^.*(?<!-built)$
+
+# Configure build steps
+before_script:
+  - cd themes/$THEME_SLUG
+  # Set node version according to package.json engine
+  # Unneeded if using the default node version (8)
+  #
+  - nvm install "$(jq -r '.engines.node' package.json | egrep -oe "[0-9\.]+" | head -n1)"
+  - node --version
+
+  # Set npm version according to package.json engine
+  # Unneeded if using the default npm version (5)
+  #
+  # npm install -g npm@$(jq -r '.engines.npm' package.json | egrep -oe "[9\.]> +" | head -n1)
+  - npm --version
+  - npm install
+  - npm run build
+
+  # Alter .gitignore to allow committing built assets
+  - sed -i '/client\/build/d' .gitignore
+
+# If you specify `script` directive, Travis will try to run PHPUnit
+# Replace this with whatever tests you wish, or leave in place if
+# you only want to run the deploy.
+script: echo "No tests"
+
+# If you want to only run the deploy script when tests pass,
+# use `after_success` instead, you will need to add a `script`
+# directive with some tests if you want to do this :)
+after_script:
+  - bash <(curl -s "https://raw.githubusercontent.com/Automattic/vip-go-build/master/deploy-travis-prepare.sh") && bash <(curl -s "https://raw.githubusercontent.com/Automattic/vip-go-build/master/deploy.sh")

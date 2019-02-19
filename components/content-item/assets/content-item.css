@@ -1,0 +1,31 @@
+/* Shared styles across content items */
+@import 'core/index.css';
+
+.date {
+  @include caption;
+  color: var(--gray3);
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  @include eyebrow-bold;
+
+  a {
+    color: var(--black);
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:hover {
+      color: var(--gray1);
+    }
+
+    @media (--mdMax) {
+      font-size: rem(11);
+    }
+  }
+
+  span {
+    text-transform: uppercase;
+  }
+}

@@ -1,0 +1,97 @@
+@import 'core/index.css';
+
+.wrapper {
+  border-bottom: var(--heavyBorderTeal);
+  display: grid;
+  grid-gap: 32px;
+  grid-template-columns: 1fr 1fr rem(120);
+  padding: rem(18) 0;
+
+  @media (--lgMin) {
+    padding: rem(12) 0;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  grid-column: span 2;
+
+  .no-image & {
+    grid-column: span 3;
+  }
+}
+
+.image {
+  grid-column: 3 / span 1;
+
+  a {
+    display: block;
+    height: 0;
+    padding-bottom: 100%;
+    position: relative;
+  }
+}
+
+/* Visual reordering of items. This is necessary b/c items are ordered according to
+importance in source, for accessibility reasons. */
+.eyebrow {
+  order: 0;
+}
+
+.title {
+  order: 1;
+}
+
+.byline,
+.date {
+  order: 2;
+}
+
+.eyebrow,
+.title {
+  margin-bottom: rem(10);
+}
+
+.eyebrow {
+  composes: eyebrow from './content-item.css';
+
+  a {
+    font-size: rem(12);
+  }
+}
+
+.label {
+  @include opinion-label;
+  align-self: flex-start;
+  composes: eyebrow from '../../content-item/assets/content-item.css';
+  margin-bottom: rem(10);
+}
+
+.title {
+  @include river-headline-spectral;
+  color: var(--black2);
+  font-weight: 800;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.date {
+  composes: date from './content-item.css';
+
+  @media (--smMax) {
+    font-size: rem(10);
+  }
+}
+
+.byline {
+  color: var(--gray3);
+  font-family: var(--franklin);
+  font-size: rem(13);
+  font-weight: 600;
+  margin-bottom: rem(10);
+  text-decoration: none;
+}

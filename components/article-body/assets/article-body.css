@@ -1,0 +1,17 @@
+@import 'core/index.css';
+
+.wrapper {
+  @include single-content-body;
+
+  @media (--lgMin) {
+    grid-template-rows: auto;
+  }
+}
+
+.sidebar-left {
+  @include grid-item-article-sidebar-left;
+}
+
+.sidebar-right {
+  @include grid-item-article-sidebar-right;
+}

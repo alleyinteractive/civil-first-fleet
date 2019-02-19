@@ -1,0 +1,11 @@
+.sass-cache
+.DS_Store
+.thumbsdb
+.svn
+npm-debug.log
+node_modules
+npm-debug.log
+bower_components
+
+# Ignore static assets
+/client/build/*

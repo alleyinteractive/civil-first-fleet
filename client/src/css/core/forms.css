@@ -1,0 +1,18 @@
+@mixin input-reset {
+  appearance: none;
+  border: none;
+  border-radius: 0;
+  display: block;
+  font: inherit;
+  font-size: rem(16);
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+@mixin input-base {
+  @include input-reset;
+  font-family: var(--franklin);
+  text-indent: var(--containerPaddingSmall);
+}

@@ -1,0 +1,177 @@
+@import 'core/index.css';
+
+.lightbox-wrapper {
+  background-color: rgba(0, 0, 0, 0.75);
+  height: 100vh;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  transition: opacity var(--transitionDur)ms ease;
+  width: 100vw;
+  z-index: 100;
+
+  /* overrides for .rich-text child styles */
+  .slide {
+    margin: 0;
+  }
+
+  .figure,
+  .direction-controls {
+    display: flex;
+  }
+
+  &.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.lightbox-gallery {
+
+  div {
+    height: 100vh;
+  }
+}
+
+.lightbox-gallery,
+.slide,
+.figure {
+  height: 100%;
+  width: 100%;
+}
+
+.figure {
+  align-items: center;
+  flex-direction: column;
+
+  :global(.image__wrapper) {
+    align-items: center;
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+.image-meta {
+  align-items: flex-start;
+  background-color: var(--black);
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  padding: 2rem;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+.caption {
+  @include caption;
+  color: var(--white);
+  font-weight: 800;
+}
+
+.credit {
+  @include image-credit;
+  margin-bottom: 1rem;
+}
+
+.close,
+.previous,
+.next {
+  @include button-reset;
+  align-items: center;
+  display: flex;
+  height: rem(65);
+  justify-content: center;
+  opacity: 0.5;
+  width: rem(65);
+
+  @media ($lgMin) {
+    height: rem(100);
+    width: rem(100);
+  }
+
+  svg,
+  path {
+    fill: var(--white);
+    height: rem(40);
+    width: rem(40);
+
+    @media ($lgMin) {
+      height: rem(70);
+      width: rem(70);
+    }
+  }
+
+  path {
+    stroke: rgba(0, 0, 0, 0.25);
+    stroke-width: 1px;
+  }
+
+  &:hover,
+  &:focus {
+
+    svg,
+    path {
+      fill: var(--teal);
+    }
+  }
+}
+
+.close,
+.direction-controls {
+  z-index: 1;
+}
+
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  @media (--lgMin) {
+    right: rem(15);
+  }
+}
+
+.direction-controls {
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+.previous[disabled],
+.next[disabled] {
+
+  path {
+    fill: var(--gray2);
+    stroke-width: 0;
+  }
+
+  /* stylelint-disable selector-max-specificity */
+  &:hover,
+  &:focus {
+
+    path {
+      fill: var(--gray2);
+    }
+  }
+  /* stylelint-enable */
+}
+
+.previous {
+  transform: rotate(90deg);
+}
+
+.next {
+  margin-left: auto;
+  transform: rotate(-90deg);
+
+  @media (--lgMin) {
+    margin-right: rem(15);
+  }
+}

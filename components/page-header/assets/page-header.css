@@ -1,0 +1,12 @@
+@import 'core/index.css';
+
+.wrapper {
+  grid-column: var(--pageText);
+  margin-bottom: rem(12);
+  text-align: center;
+}
+
+.title {
+  @include entry-headline-spectral;
+  line-height: 1.08;
+}

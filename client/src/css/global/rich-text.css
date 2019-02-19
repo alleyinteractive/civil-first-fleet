@@ -1,0 +1,6 @@
+@import 'core/index.css';
+
+.rich-text {
+  @include rich-text;
+  @include blocks;
+}

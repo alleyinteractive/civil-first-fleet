@@ -1,0 +1,51 @@
+@import 'core/index.css';
+
+.wrapper {
+  @include single-container;
+  align-items: center;
+  min-height: calc(100vh - rem(94)); /* newsroom header height */
+}
+
+.heading {
+  color: var(--black);
+  font-family: var(--franklin);
+  font-size: rem(14);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.content {
+  @include body-paragraph;
+  @include block-list;
+  color: var(--black2);
+  font-family: var(--spectral);
+  font-size: rem(36);
+  font-weight: 200;
+  grid-column: 4 / span 6;
+  line-height: calc(51/48);
+
+  @media (--mdMin) {
+    font-size: rem(48);
+  }
+
+  p {
+    margin-bottom: var(--gridGap);
+  }
+
+  a {
+    border: none; /* override body-link mixin */
+    color: var(--blue);
+    font-family: var(--franklin);
+    font-size: 85%;
+    font-weight: 600;
+    line-height: calc(51 / (48 * 0.85)); /* maintain line-height */
+
+    @supports (text-underline-position: under) {
+      text-decoration: none; /* override body-link mixin */
+    }
+
+    &:hover {
+      color: var(--blue); /* override body-link mixin */
+    }
+  }
+}

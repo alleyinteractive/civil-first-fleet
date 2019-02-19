@@ -1,0 +1,121 @@
+/* Styles for core gallery block */
+@mixin block-gallery {
+
+  .wp-block-gallery,
+  .wp-block-civil-lightbox-gallery {
+
+    /* stylelint-disable selector-max-specificity */
+    &:not(.components-placeholder) {
+      display: grid;
+      grid-gap: 2rem;
+      list-style: none;
+      width: 100%;
+
+      &.columns-1 {
+        display: flex;
+        flex-direction: column;
+      }
+
+      &.columns-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      &.columns-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      &.columns-4 {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      &.columns-1,
+      &.columns-2,
+      &.columns-3,
+      &.columns-4 {
+        @media (--mdMax) {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+
+      li {
+        @media (--mdMax) {
+          margin-bottom: 2rem;
+        }
+      }
+
+      figure {
+        margin: 0;
+        position: relative;
+      }
+      /* stylelint-enable */
+    }
+
+    /* plucked from existing gallery block */
+    figcaption {
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3) 60%, transparent);
+      bottom: 0;
+      color: #fff;
+      font-size: rem(13);
+      max-height: 100%;
+      overflow: auto;
+      padding: rem(40) rem(10) rem(5);
+      position: absolute;
+      text-align: center;
+      width: 100%;
+
+      &:not([data-is-placeholder-visible=true]) {
+        overflow: hidden;
+        position: relative;
+      }
+    }
+
+    .editor-rich-text {
+      bottom: 0;
+      max-height: 100%;
+      overflow-y: auto;
+      position: absolute;
+      width: 100%;
+    }
+  }
+
+  .wp-block-gallery {
+
+    .blocks-gallery-item {
+      margin: 0;
+      width: auto;
+
+      img {
+        height: auto;
+        max-height: 100%;
+        max-width: 100%;
+        width: auto;
+      }
+    }
+  }
+
+  .wp-block-civil-lightbox-gallery {
+
+    .lightbox-gallery__item,
+    .blocks-gallery-item {
+      margin: 0;
+      width: auto;
+
+      figure {
+        height: 0;
+        padding-bottom: 100%;
+        position: relative;
+        width: 100%;
+      }
+
+      img {
+        height: 100%;
+        left: 0;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+    }
+  }
+}

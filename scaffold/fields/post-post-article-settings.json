@@ -1,0 +1,136 @@
+{
+	"contexts": [
+		{
+			"type": "post",
+			"post_types": [ "post" ],
+			"title": { "__": "Article Settings" }
+		}
+	],
+	"tabbed": "vertical",
+	"serialize_data": false,
+	"add_to_prefix": false,
+	"children": {
+		"settings_group": {
+			"label": { "__": "Settings" },
+			"serialize_data": false,
+			"add_to_prefix": false,
+			"children": {
+				"dek": {
+					"label": { "__": "Deck" },
+					"type": "textarea",
+					"attributes": {
+						"style": "width: 100%;",
+						"rows": "5"
+					}
+				},
+				"primary_category_id": {
+					"label": { "__": "Primary Category" },
+					"type": "autocomplete",
+					"description": { "__": "Begin typing to select a primary category." },
+					"datasource": {
+						"type": "term",
+						"taxonomy": "category",
+						"taxonomy_save_to_terms": false,
+						"only_save_to_taxonomy": false
+
+					}
+				},
+				"label": {
+					"label": { "__": "Enable Label" },
+					"type": "checkboxes",
+					"options": "`\\Civil_CMS\\Component\\Content_Item()->get_label_options()`"
+				}
+			}
+		},
+		"featured_media": {
+			"label": { "__": "Featured Media" },
+			"serialize_data": false,
+			"add_to_prefix": false,
+			"children": {
+				"disable_featured_image": {
+					"label": { "__": "Hide image on article header" },
+					"description": { "__": "This will still display as the thumbnail on archives." },
+					"type": "checkbox"
+				},
+				"featured_video_url": {
+					"label": { "__": "Video URL for the featured homepage slot and article header." },
+					"type": "link"
+				}
+			}
+		},
+		"credibility_indicators_group": {
+			"label": { "__": "Credibility Indicators" },
+			"serialize_data": false,
+			"add_to_prefix": false,
+			"children": {
+				"credibility_indicators" : {
+					"type": "group",
+					"children": "`\\Civil_CMS\\Component\\credibility_indicators()->article_fields()`"
+				}
+			}
+		},
+		"call_to_action_group": {
+			"label": { "__": "Call to Action" },
+			"serialize_data": false,
+			"add_to_prefix": false,
+			"children": {
+				"call_to_action" : {
+					"type": "group",
+					"children": "`\\Civil_CMS\\Component\\call_to_action()->get_fm_fields()`"
+				}
+			}
+		},
+		"secondary_bylines_group": {
+			"label": { "__": "Secondary Bylines" },
+			"serialize_data": false,
+			"add_to_prefix": false,
+			"children": {
+				"secondary_bylines": {
+					"limit": 0,
+					"add_more_label": { "__": "Add Byline" },
+					"label": { "__": "New Byline" },
+					"label_macro": [ "Byline: %s", "type" ],
+					"minimum_count": 0,
+					"extra_elements": 0,
+					"collapsed": true,
+					"sortable": true,
+					"children": {
+						"role": {
+							"type": "text",
+							"label": { "__": "Role" },
+							"description": { "__": "e.g., \"Edited by\", \"Fact-checked by\"" }
+						},
+						"id": {
+							"type": "autocomplete",
+							"label": { "__": "Name" },
+							"description": { "__": "Begin typing to select a user." },
+							"datasource": {
+								"type": "post",
+								"query_args": {
+									"post_type": [ "guest-author" ]
+								}
+							},
+							"display_if": {
+								"src": "name_toggle",
+								"value": false
+							}
+						},
+						"custom_name": {
+							"type": "text",
+							"label": { "__": "Name" },
+							"description": { "__": "Enter a custom name." },
+							"display_if": {
+								"src": "name_toggle",
+								"value": true
+							}
+						},
+						"name_toggle": {
+							"type": "checkbox",
+							"label": { "__": "Manually enter name." }
+						}
+					}
+				}
+			}
+		}
+	}
+}

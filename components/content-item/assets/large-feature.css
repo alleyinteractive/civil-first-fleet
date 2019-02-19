@@ -1,0 +1,166 @@
+@import 'core/index.css';
+
+.wrapper {
+  @include content-item-ordering;
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  @media (--smMin) {
+    /* in case of no image, offset the negative margin .content */
+    min-height: rem(45);
+  }
+
+  @media (--mdMax) {
+    margin: 0 -1rem;
+  }
+
+  img {
+    display: block;
+  }
+}
+
+.video {
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 */
+  position: relative;
+  width: 100%;
+
+  iframe {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.content {
+  background-color: var(--white);
+  border: 1px solid var(--gray4);
+
+  &.has-video {
+    margin: 0;
+  }
+
+  @media (--smMax) {
+    margin: 0 -1rem;
+  }
+
+  @media (--smMin) {
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (--smMin) and (--mdMax) {
+    margin: rem(-45) 1rem 0;
+  }
+
+  @media (--mdMin) {
+    margin: rem(-45) 2rem 0;
+  }
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+
+  @media (--smMax) {
+    padding: rem(10) rem(18) 1rem rem(18);
+  }
+
+  @media (--smMin) {
+    border-bottom: var(--heavyBorderTeal);
+    padding: 2rem;
+  }
+}
+
+.eyebrow {
+  composes: eyebrow from './content-item.css';
+}
+
+.label {
+  @include opinion-label;
+  composes: eyebrow from '../../content-item/assets/content-item.css';
+  display: block;
+  grid-column: span 3;
+  justify-self: center;
+  margin-bottom: rem(18);
+  order: -2;
+  text-align: center;
+
+  @media (--lgMin) {
+    margin-bottom: rem(30);
+  }
+}
+
+.title {
+  @include large-headline;
+  font-weight: 200;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.eyebrow,
+.title,
+.dek {
+  @media (--smMax) {
+    margin-bottom: rem(5);
+  }
+
+  @media (--smMin) {
+    margin-bottom: rem(10);
+  }
+}
+
+.dek {
+  @include dek;
+}
+
+.authors {
+  align-items: center;
+  display: grid;
+  grid-gap: rem(10) var(--gridGap);
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0 0 rem(32) 0;
+
+  @media (--smMax) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (--smMin) and (--mdMax),
+    (--lgMin) and (--xlMax) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .opinion & {
+    @media (--mdMin) {
+      justify-items: center;
+    }
+  }
+}
+
+.byline {
+  @include byline;
+}
+
+.avatar {
+  @include byline-link;
+  align-items: center;
+  display: flex;
+
+  img {
+    @include avatar;
+    margin-right: rem(4);
+  }
+}
+
+.date {
+  composes: date from './content-item.css';
+  position: relative;
+  top: rem(8);
+}

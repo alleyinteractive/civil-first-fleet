@@ -1,0 +1,1 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-231 238.6 24 24"><path d="M-230.6 259.4h23.2v-2.9h-23.2v2.9zm0-7.3h23.2v-2.9h-23.2v2.9zm0-10.2v2.9h23.2v-2.9h-23.2z"/></svg>

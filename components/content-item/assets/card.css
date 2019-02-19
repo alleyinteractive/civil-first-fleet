@@ -1,0 +1,158 @@
+@import 'core/index.css';
+
+.wrapper {
+  @include content-item-ordering;
+  border-bottom: 1px solid var(--gray4);
+  display: flex;
+  flex-direction: column;
+  margin: 0 -1rem;
+
+  @media (--mdMin) {
+    border: 1px solid var(--gray4);
+    margin: 0;
+  }
+}
+
+.content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 1rem;
+
+  @media (--mdMin) {
+    border-bottom: var(--heavyBorderTeal);
+  }
+
+  .opinion & {
+    text-align: center;
+  }
+
+  .no-image & { /* stylelint-disable-line selector-max-specificity */
+    padding-top: rem(20);
+
+    @media (--mdMin) {
+      padding-top: 2rem;
+    }
+
+    @media (--lgMin) {
+      padding-top: rem(40);
+    }
+  }
+}
+
+.title {
+  @include spectral-headline;
+  font-size: rem(20);
+  font-weight: 800;
+  margin-bottom: rem(10);
+
+  .no-image & {
+    /* Covers all breakpoints */
+    @include card-headline-spectral;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  @media (--mdMin) {
+    font-size: rem(21);
+
+    .no-image & {
+      margin-bottom: 1rem;
+    }
+
+    /* stylelint-disable selector-max-specificity */
+    .no-dek.no-image & {
+      margin-bottom: 2rem;
+    }
+    /* stylelint-enable */
+  }
+}
+
+.eyebrow {
+  composes: eyebrow from './content-item.css';
+  margin-bottom: rem(10);
+
+  @media (--mdMin) {
+    margin-bottom: rem(20);
+  }
+
+  .opinion & {
+    display: none;
+  }
+}
+
+.label {
+  @include opinion-label;
+  composes: eyebrow from './content-item.css';
+  margin-bottom: rem(10);
+
+  @media (--mdMin) {
+    margin-bottom: rem(25);
+  }
+
+  @media (--lgMin) {
+    margin-bottom: rem(40);
+  }
+}
+
+.authors {
+  align-items: center;
+  display: grid;
+  grid-gap: rem(10) var(--gridGap);
+  grid-template-columns: repeat(4, 1fr);
+
+  .opinion & {
+    @media (--mdMin) {
+      justify-items: center;
+    }
+  }
+
+  li {
+    grid-column: span 2;
+
+    @media (--mdMin) {
+      grid-column: span 4;
+    }
+  }
+}
+
+.byline {
+  @include byline;
+}
+
+.avatar {
+  @include byline-link;
+  align-items: center;
+  display: flex;
+
+  img {
+    @include avatar;
+    margin-right: rem(4);
+  }
+}
+
+.dek {
+  color: var(--gray1);
+  font-family: var(--franklin);
+  font-size: rem(14);
+  letter-spacing: -0.1px;
+  line-height: 1.43;
+  margin-bottom: 1rem;
+
+  @media (--mdMin) {
+
+    .no-image & {
+      font-size: rem(18);
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.date {
+  composes: date from './content-item.css';
+  margin-top: auto;
+  padding-top: rem(20);
+}

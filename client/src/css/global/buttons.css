@@ -1,0 +1,15 @@
+.button {
+  @include button-reset;
+}
+
+.button-secondary-light {
+  @include button-secondary(var(--blue));
+}
+
+.button-secondary-dark {
+  @include button-secondary(var(--white));
+}
+
+.button-primary {
+  @include button-primary;
+}

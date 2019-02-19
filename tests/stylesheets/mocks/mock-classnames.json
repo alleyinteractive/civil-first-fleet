@@ -1,0 +1,12 @@
+{
+	"mock-one":{
+		"alignleft":"article__alignleft___1cXIA",
+		"alignright":"article__alignright___18ifD","title":
+		"article__title___2kGA7 _typography__header-main___2IME8",
+		"article-body":"article__article-body___RnJE3"
+	},
+	"mock-two":{
+		"alignleft":"site__alignleft___Lww3s",
+		"alignright":"site__alignright___33Y6O"
+	}
+}

@@ -1,0 +1,33 @@
+@import 'core/index.css';
+
+.wrapper {
+  display: block;
+
+  &.intrinsic {
+    background-color: var(--gray5);
+    height: 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  &.featured-image {
+    margin-bottom: rem(10);
+  }
+}
+
+.image {
+
+  .intrinsic & {
+    @include intrinsic-content;
+  }
+}
+
+.image-lazyload {
+  filter: blur(5px);
+  transition: filter 250ms linear;
+
+  &:global(.lazyloaded) {
+    filter: blur(0);
+  }
+}

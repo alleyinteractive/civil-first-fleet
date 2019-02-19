@@ -1,0 +1,21 @@
+@import 'core/index.css';
+
+.wrapper {
+  /* tbd */
+}
+
+.grid-wrapper {
+  margin-bottom: 2rem;
+  width: 100%;
+
+  @media (--mdMin) {
+    display: grid;
+    grid-auto-rows: 1fr;
+    grid-gap: var(--gridGap);
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (--lgMin) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

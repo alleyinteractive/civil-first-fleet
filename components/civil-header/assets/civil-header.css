@@ -1,0 +1,169 @@
+@import 'core/index.css';
+
+.wrapper {
+  background-color: var(--black);
+  border-bottom: 1px solid var(--gray1);
+  height: rem(52);
+  position: relative;
+  z-index: 11;
+}
+
+.inner {
+  @include container-full;
+  @include hide-slide-menu(var(--black));
+  align-items: center;
+  display: flex;
+  height: 100%;
+
+  @media (--xlMin) {
+
+    &::before {
+      content: none;
+    }
+  }
+}
+
+.menu-trigger {
+  @include button-reset;
+  align-items: center;
+  display: flex;
+  height: rem(40);
+  justify-content: center;
+  width: rem(40);
+
+  .arrow {
+    border: 4px solid transparent;
+    border-top-color: var(--white);
+    height: 0;
+    margin-top: rem(3);
+    width: 0;
+  }
+
+  .text {
+    @include screenreader-only;
+  }
+
+  @media (--xlMin) {
+    display: none;
+  }
+}
+
+.left-nav {
+  @include slide-menu-initial;
+  background-color: var(--black);
+  border-bottom: 1px solid var(--gray1);
+  border-top: 1px solid var(--gray1);
+
+  .open & {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  @media (--xlMin) {
+    @include slide-menu-unset;
+    margin-left: rem(43);
+  }
+
+  ul {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: rem(10) 0;
+
+    @media (--lgMin) {
+      flex-direction: row;
+      padding: 0;
+    }
+  }
+
+  li {
+    width: 100%;
+
+    @media (--lgMin) {
+      margin-right: rem(10);
+      width: auto;
+    }
+
+    @media (--xlMin) {
+      margin-right: 1rem;
+    }
+  }
+
+  a {
+    @include menu-item;
+    color: var(--gray4);
+    display: block;
+    padding: rem(10) rem(20);
+    text-decoration: none;
+    width: 100%;
+
+    @media (--xlMin) {
+      padding: 0;
+    }
+
+    &:hover {
+      color: var(--gray5);
+    }
+  }
+}
+
+/* Make sure these appear above the left nav as it slides up */
+.menu-expand,
+.right-nav-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.right-nav-wrapper {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  height: 100%;
+  margin-left: auto;
+  position: relative;
+
+  .login {
+    align-items: center;
+    color: var(--gray4);
+    display: flex;
+    font-family: var(--franklin);
+    font-size: rem(14);
+    font-weight: 500;
+    height: 100%;
+    padding: 0 rem(15);
+    text-decoration: none;
+
+    @media (--mdMin) {
+      border-left: 1px solid var(--gray1);
+      margin-left: rem(18);
+      padding: 0 rem(24) 0 rem(18);
+    }
+  }
+
+  button {
+    height: rem(36);
+  }
+}
+
+.right-nav {
+  display: none;
+
+  @media (--mdMin) {
+    display: block;
+  }
+
+  a {
+    border-bottom: 1px solid var(--gray4);
+    color: var(--gray4);
+    display: inline-block;
+    font-family: var(--franklin);
+    font-size: rem(12);
+    padding-bottom: rem(2);
+    text-decoration: none;
+
+    @media (--xlMin) {
+      font-size: rem(14);
+    }
+  }
+}

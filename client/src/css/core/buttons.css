@@ -1,0 +1,58 @@
+@mixin button-reset {
+  align-items: center;
+  appearance: none;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  display: inline-flex;
+  justify-content: center;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+}
+
+@mixin button-with-icon {
+  @include button-reset;
+  align-items: center;
+  display: flex;
+  height: rem(40);
+  justify-content: center;
+  margin-left: auto;
+  width: rem(40);
+}
+
+@mixin button-primary {
+  @include button-reset;
+  background-color: var(--blue);
+  color: var(--white);
+  font-family: var(--franklin);
+  font-size: rem(14);
+  font-weight: 500;
+  height: rem(45);
+  letter-spacing: 1.1px;
+  padding: 0 rem(24);
+  text-transform: uppercase;
+  transition: background-color var(--transitionDurShort) linear;
+
+  &:hover {
+    background-color: var(--blueLight);
+  }
+}
+
+@mixin button-secondary($color) {
+  @include button-reset;
+  background-color: transparent;
+  border: 2px solid var(--blue);
+  color: $color;
+  font-family: var(--franklin);
+  font-size: rem(14);
+  font-weight: 500;
+  height: rem(41);
+  padding: 0 1rem;
+  transition: background-color var(--transitionDurShort) linear;
+
+  &:hover {
+    background-color: var(--blue);
+    color: var(--white);
+  }
+}
