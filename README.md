@@ -1,89 +1,33 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-# Civil CMS
+# Civil First Fleet
+The Civil First Fleet is an open source WordPress theme designed by Civil and developed by Alley for use by the First Fleet. This is a pre-beta release, and documentation is a work in progress, so proceed at your own caution and discretion.
 
-- [Project Overview](#project-overview)
-- [Branch Workflow](#branch-workflow)
-- [New Environment Setup](#new-environment-setup)
-  - [WordPress Environment](#wordpress-environment)
-  - [Front-end Codebase](#front-end-codebase)
-  - [Back-end Codebase](#back-end-codebase)
-  - [Database](#database)
-  - [Admin Area](#admin-area)
-    - [Plugins to Activate](#plugins-to-activate)
-    - [Pages/Posts to Add](#pagesposts-to-add)
-    - [Menus to Assign](#menus-to-assign)
-- [Theme Specific](#theme-specific)
-- [Docs](#docs)
+# Usage
+Download this repo and extract to `/wp-content/themes/civil-first-fleet/`.
 
-## Directory Specific READMEs
+## Frontend Build
+This theme uses NPM to build frontend assets. Build scripts can be found in [package.json](https://github.com/alleyinteractive/civil-first-fleet/blob/master/package.json#L6-L14). To get started, you should `npm install` and `npm run build` from the theme root.
 
-- [client](./client/README.md)
-- [client configuration](./client/config/README.md)
-- [components](./components/README.md)
-    - [Images](./components/image/README.md)
+## Required Plugins
+There are [four required plugins](https://github.com/alleyinteractive/civil-first-fleet/blob/master/inc/plugins.php#L36-L41) for this theme to work properly. Without them installed and enabled the theme will not work as expected. An admin notice will display when they are not available.
 
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+* [Co-Authors Plus](https://github.com/Automattic/Co-Authors-Plus)
+* [Fieldmanager](https://github.com/alleyinteractive/wordpress-fieldmanager)
+* [FM Zones](https://github.com/alleyinteractive/fm-zones)
+* [WP Asset Manager](https://github.com/alleyinteractive/wp-asset-manager)
 
-# Branch Workflow
+## Optional Plugins and Integrations
 
-The purpose of this section is to answer any questions that a newly onboarded devs might have about the branching workflow. The information provided here should be clear and concise. Perhaps a numbered list providing the preferred steps of deployment accompanied by a brief note of clarification.
+### Civil Publisher
+https://github.com/joincivil/civil-publisher-wordpress-plugin
 
-# New Environment Setup
+### Edit Flow
+https://github.com/Automattic/Edit-Flow
 
-After reading this section, a newly onboarded dev should have a 100% functional theme to work with. Overall goal here is to be able to get any new instance of `apm install <package>` off the ground without hitches.
+### Parsely
+https://github.com/Parsely/wp-parsely
 
-## WordPress Environment
+### Pico
+https://github.com/PicoNetworks/wordpress-plugin
 
-This repo can serve as the `wp-content` directory of a WordPress installation. Varying Vagrant Vagrants (VVV) is recommended as a WP environment for development.
-
-- Set up VVV according to <https://varyingvagrantvagrants.org/docs/en-US/installation/>. Once it's installed and running, you should be able to visit <http://vvv.test> to see information about your environment.
-- You can use the default `wordpress-develop` VVV comes with, available at <http://src.wordpress-develop.test>. By default, this installation is located at `[vagrant-dir]/www/wordpress-develop/`
-- Navigate to `[vagrant-dir]/www/wordpress-develop/public_html/src/`, delete or rename `wp-content`, and then install the repo in its place (`git clone --recursive git@github.com:alleyinteractive/civil-first-fleet.git wp-content`)
-- You should then be able to log in at <http://src.wordpress-develop.test/wp-admin/> (default credentials `admin`/`password`) and, for instance, select the Civil theme from Appearance > Themes.
-
-## Front-end Codebase
-
-Get the front-end off the ground locally with:
-
-* `npm install`
-
-*NOTE*: The front end lead should freeze all node package versions when setting up a new build. The FE lead should also be responsible for vetting, implementing and informing team members of any package updates over the course of a project.
-
-Update this section with any other important FE/FE-tool chain related information.
-
-## Back-end Codebase
-
-Update this section with any other important back-end codebase related information.
-
-Any code manipulations, function call suppressions, etc should all be fixed in the code base to the fullest extent possible. This section is dedicated to addressing any hitches in the codebase, but avoiding them is always better.
-
-## Database
-
-Is the `apm` database up to date? If not, get it there. Should it be necessary, any idiosyncratic information regarding the database should be explained here.
-
-## Admin Area
-
-Update this section with any other important Admin area actions that need to occur before having a fully set up new environment. (Add or delete subsections below as needed.)
-
-### Plugins to Activate
-
-What (if any) plugins need to be activated for this theme to function? You should show the plugins both listed and unlisted in `inc/plugins.php`.
-
-### Pages/Posts to Add
-
-Are any posts or pages necessary to create before having a fully functional install?
-
-### Menus to Assign
-
-Are any menus necessary to assign/create that aren't provided in the DB?
-
-# Theme Specific
-
-This section may contain information that is important to know that will vary from theme to theme. For example, rewrite rules, CPT use-cases, large scale features, any tricky or unorthodox code that occurs in `inc/` might be explained here, as well as any other theme aspects that you might deem important information to share with a new dev to the project.
-
-# Docs
-
-_NOTE:_ You must manually run the doctoc task (from the repo root, run `grunt doctoc`) when editing this README file, which is excluded from the watch to avoid triggering redundant watch tasks.
-
-&copy; Alley Interactive
+## Settings
+Coming soon.
