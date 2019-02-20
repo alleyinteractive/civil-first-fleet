@@ -149,7 +149,7 @@ function enqueue_assets() {
 			[
 				'handle'      => 'civil-first-fleet-article-js',
 				'src'         => get_template_directory_uri() . '/client/build/' . ai_get_versioned_asset( 'article.js' ),
-				'deps'        => [ 'civil-first-fleet-common-js', 'sharing-js' ],
+				'deps'        => [ 'civil-first-fleet-common-js' ],
 				'version'     => '1.0',
 				'load_method' => 'async',
 				'condition'   => 'content-single',
