@@ -1,9 +1,5 @@
 # Civil CMS Client-side Source Files
 
-## Production Note
-
-The included `.travis.deploy.yml` is moved to the root of the repository (overwriting the [alleyinteractive](https://github.com/alleyinteractive/civil-first-fleet/blob/production/.travis.yml) `.travis.yml` when pushing to [wpcomvip](https://github.com/wpcomvip/civil) to facilitate the asset build deployment in production. See the [vip-go-documentation](https://vip.wordpress.com/documentation/automated-build-and-deploy-on-vip-go/) for more information.
-
 ## Client Side Assets
 
 This is the root directory of client-side source file assets. Webpack will compile and/or copy your files to `static` for use in the site. Three NPM scripts are available from the theme root:
