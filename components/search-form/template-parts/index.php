@@ -16,7 +16,7 @@ $search_input_id = $context ? 'search-input-' . $context : 'search-input';
 
 ?>
 
-<form class="<?php ai_the_classnames( [ 'wrapper' ] ); ?>" name="search-form" aria-role="search">
+<form action="/" class="<?php ai_the_classnames( [ 'wrapper' ] ); ?>" name="search-form" aria-role="search">
 	<label class="<?php ai_the_classnames( [ 'label' ] ); ?>" for="search-input">
 		<?php esc_html_e( 'Search', 'civil-first-fleet' ); ?>
 	</label>
