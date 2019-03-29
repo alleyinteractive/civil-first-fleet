@@ -102,9 +102,6 @@ require_once CIVIL_FIRST_FLEET_PATH . '/inc/cache.php';
 // Include comments.
 require_once CIVIL_FIRST_FLEET_PATH . '/inc/comments.php';
 
-// Sponsors.
-require_once CIVIL_FIRST_FLEET_PATH . '/inc/class-sponsors.php';
-
 // Customizer additions.
 require_once CIVIL_FIRST_FLEET_PATH . '/inc/customizer.php';
 
