@@ -21,6 +21,7 @@ function wp_seo_single_post_types( $post_types ) {
 	// Build an array of post types to remove from WP SEO.
 	$post_types_to_remove = array(
 		'guest-author',
+		'sponsor',
 	);
 
 	// Remove post types.

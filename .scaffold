@@ -3,6 +3,9 @@
   "cpt:landing-page": "624fd6834855112188aaabeae01defa9",
   "fm:post-landing-page-settings": "e8979c921858ad4d4a88be57f1a77aee",
   "fm:post-guest-author-info": "9433f023253e25140983f6822e7136fe",
-  "fm:post-post-article-settings": "313c5a3a94098fb823c660f2b88a9ebd",
-  "fm:submenu-newsroom-settings": "5205c39265c6e79aab548495c0d91209"
+  "fm:post-post-article-settings": "eddddb5ac7728e9cc769c1d5e78357a0",
+  "fm:submenu-newsroom-settings": "5205c39265c6e79aab548495c0d91209",
+  "cpt:sponsor": "02317589f360974a4992a92f2792d198",
+  "fm:post-sponsor-settings": "73143e0799f90b8c07466e6d15816018",
+  "fm:term-mixed-sponsorship": "b839e20bdf2676933fbb7efa6359083c"
 }

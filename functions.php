@@ -102,6 +102,9 @@ require_once CIVIL_FIRST_FLEET_PATH . '/inc/cache.php';
 // Include comments.
 require_once CIVIL_FIRST_FLEET_PATH . '/inc/comments.php';
 
+// Sponsors.
+require_once CIVIL_FIRST_FLEET_PATH . '/inc/class-sponsors.php';
+
 // Customizer additions.
 require_once CIVIL_FIRST_FLEET_PATH . '/inc/customizer.php';
 
@@ -183,5 +186,8 @@ require_once CIVIL_FIRST_FLEET_PATH . '/inc/post-types/class-civil-first-fleet-p
 
 // Landing Pages Post Type (cpt:landing-page).
 require_once CIVIL_FIRST_FLEET_PATH . '/inc/post-types/class-civil-first-fleet-post-type-landing-page.php';
+
+// Sponsors Post Type (cpt:sponsor).
+require_once CIVIL_FIRST_FLEET_PATH . '/inc/post-types/class-civil-first-fleet-post-type-sponsor.php';
 
 /* End Data Structures */
