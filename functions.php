@@ -13,6 +13,7 @@ define( 'CIVIL_FIRST_FLEET_STATIC_VERSION', '1.0.3' );
 
 // Activate and customize plugins.
 require_once CIVIL_FIRST_FLEET_PATH . '/inc/plugins.php';
+require_once CIVIL_FIRST_FLEET_PATH . '/inc/wp-components/wp-components.php';
 
 /**
  * Traits.
