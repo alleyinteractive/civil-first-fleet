@@ -64,7 +64,7 @@ class Featured_Articles extends \Civil_First_Fleet\Component\Content_List {
 					'sponsors'       => new \Fieldmanager_Group(
 						[
 							'label'    => __( 'Sponsors', 'civil-first-flett' ),
-							'children' => \Civil_First_Fleet\Sponsors::instance()->get_scheduling_fields(),
+							'children' => \Civil_First_Fleet\Components\Sponsor\Sponsor::get_fm_fields(),
 						],
 					),
 				],

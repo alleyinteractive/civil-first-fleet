@@ -20,6 +20,24 @@ require_once CIVIL_FIRST_FLEET_PATH . '/inc/wp-components/wp-components.php';
  */
 require_once CIVIL_FIRST_FLEET_PATH . '/inc/traits/trait-singleton.php';
 
+// Filter the namespace for autoloading.
+add_filter(
+	'wp_components_theme_components_namespace',
+	function() {
+		return 'Civil_First_Fleet\Components';
+	}
+);
+
+// Filter the theme component path for autoloading.
+add_filter(
+	'wp_components_theme_components_path',
+	function( $class, $dirs ) {
+		return get_template_directory() . '/components' . implode( '/', $dirs ) . "/class-{$class}.php";
+	},
+	10,
+	2
+);
+
 /**
  * Classes
  */

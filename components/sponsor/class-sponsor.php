@@ -5,7 +5,7 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_First_Fleet\Components;
+namespace Civil_First_Fleet\Components\Sponsor;
 
 /**
  * Class for the Article template.
@@ -52,28 +52,46 @@ class Sponsor extends \WP_Components\Component {
 		return [
 			'schedules' => new \Fieldmanager_Group(
 				[
-					'label'          => __( 'Schedules', 'civil-first-fleet' ),
+					'label'          => __( 'Sponsor Schedules', 'civil-first-fleet' ),
 					'limit'          => 0,
 					'extra_elements' => 0,
 					'label'          => __( 'New Schedule', 'civil-first-fleet' ),
-					'label_macro'    => [ __( 'From %s-%s', 'civil-first-fleet' ), 'start_date', 'end_date' ],
+					'label_macro'    => [ __( '%s', 'civil-first-fleet' ), 'sponsor_id' ],
 					'add_more_label' => __( 'Add Schedule', 'civil-first-fleet' ),
 					'collapsed'      => true,
 					'collapsible'    => true,
 					'sortable'       => true,
 					'children'       => [
-						'sponsor_ids'    => new \Fieldmanager_Zone_Field(
+						'sponsor_id'    => new \Fieldmanager_Select(
 							[
-								'label'      => __( 'Sponsor', 'cpr' ),
-								'query_args' => [
-									'post_type' => [ 'sponsor' ],
-									'limit'     => 1,
-								],
+								'datasource' => new \Fieldmanager_Datasource_Post(
+									[
+										'query_args' => [
+											'post_type' => 'sponsor',
+										],
+									]
+								),
 							]
 						),
 						'schedule'       => new \Fieldmanager_Checkbox( __( 'Schedule this sponsor?', 'civil-first-fleet' ) ),
-						'start_date'     => new \Fieldmanager_Datepicker( __( 'Start Date', 'civil-first-fleet' ) ),
-						'end_date'       => new \Fieldmanager_Datepicker( __( 'Start Date', 'civil-first-fleet' ) ),
+						'start_date'     => new \Fieldmanager_Datepicker(
+							[
+								'label'      => __( 'Start Date', 'civil-first-fleet' ),
+								'display_if' => [
+									'src'   => 'schedule',
+									'value' => true,
+								],
+							]
+						),
+						'end_date'       => new \Fieldmanager_Datepicker(
+							[
+								'label'      => __( 'Start Date', 'civil-first-fleet' ),
+								'display_if' => [
+									'src'   => 'schedule',
+									'value' => true,
+								],
+							]
+						),
 					],
 				]
 			),
@@ -87,11 +105,11 @@ class Sponsor extends \WP_Components\Component {
 		$this->set_config( 'start_date', $data['start_date'] ?? '' );
 		$this->set_config( 'end_date', $data['end_date'] ?? '' );
 
-		$sponsor_id = $data['sponsor_ids'][0] ?? 0;
-		$this->set_config( 'link', get_post_meta( $sponsor_id, 'link', true );
-		$this->set_config( 'logo_id', get_post_meta( $sponsor_id, 'logo_id', true );
-		$this->set_config( 'message', get_post_meta( $sponsor_id, 'message', true );
-		$this->set_config( 'short_message', get_post_meta( $sponsor_id, 'short_message', true );
+		$sponsor_id = $data['sponsor_id'] ?? 0;
+		$this->set_config( 'link', get_post_meta( $sponsor_id, 'link', true ) );
+		$this->set_config( 'logo_id', get_post_meta( $sponsor_id, 'logo_id', true ) );
+		$this->set_config( 'message', get_post_meta( $sponsor_id, 'message', true ) );
+		$this->set_config( 'short_message', get_post_meta( $sponsor_id, 'short_message', true ) );
 
 	}
 }
