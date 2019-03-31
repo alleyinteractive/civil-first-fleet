@@ -2,6 +2,7 @@
 
 .wrapper {
   border: 2px solid #CCC;
+  grid-column: 1 / -1;
   margin: 2rem auto;
   max-width: 80%;
 }
