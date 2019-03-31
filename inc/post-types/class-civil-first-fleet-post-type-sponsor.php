@@ -58,7 +58,7 @@ class Civil_First_Fleet_Post_Type_Sponsor extends Civil_First_Fleet_Post_Type {
 				],
 				'public' => true,
 				'show_in_rest' => true,
-				'has_archive' => true,
+				'publicly_queryable' => false,
 				'menu_icon' => 'dashicons-groups',
 				'supports' => [ 'title' ],
 			]

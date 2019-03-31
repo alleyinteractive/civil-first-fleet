@@ -37,7 +37,7 @@ $hide_sidebar = (bool) $component->get_data( 'meta', 'hide_sidebar' );
 		$featured_article->set_setting( 'layout', 'large-feature' )->render();
 
 		// Display the sponsor.
-		$sponsorship = (array) $component->get_data( 'sponsorship' );
+		$sponsorship = (array) $component->get_data( 'meta', 'sponsorship' );
 		if ( ! empty( $sponsorship ) ) {
 			\WP_Render\render(
 				( new \Civil_First_Fleet\Components\Sponsor\Sponsor() )

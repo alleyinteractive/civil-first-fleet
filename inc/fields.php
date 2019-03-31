@@ -480,12 +480,7 @@ function civil_first_fleet_fm_post_sponsor_settings() {
 			'name' => 'post-sponsor-settings',
 			'serialize_data' => false,
 			'add_to_prefix' => false,
-			'children' => [
-				'link' => new Fieldmanager_Link( __( 'Link', 'civil-first-fleet' ) ),
-				'logo_id' => new Fieldmanager_Media( __( 'Logo', 'civil-first-fleet' ) ),
-				'message' => new Fieldmanager_RichTextArea( __( 'Message', 'civil-first-fleet' ) ),
-				'short_message' => new Fieldmanager_RichTextArea( __( 'Short Message', 'civil-first-fleet' ) ),
-			],
+			'children' => \Civil_First_Fleet\Components\Sponsor\Sponsor::get_fm_fields(),
 		]
 	);
 	$fm->add_meta_box( __( 'Settings', 'civil-first-fleet' ), [ 'sponsor' ], 'normal', 'high' );

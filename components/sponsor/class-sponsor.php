@@ -51,11 +51,6 @@ class Sponsor extends \WP_Components\Component {
 				( new \WP_Components\HTML() )
 					->set_config( 'context', 'message' )
 					->set_config( 'content', (string) get_post_meta( $this->get_post_id(), 'message', true ) ),
-
-				// Short message HTML component.
-				( new \WP_Components\HTML() )
-					->set_config( 'context', 'short_message' )
-					->set_config( 'content', (string) get_post_meta( $this->get_post_id(), 'short_message', true ) ),
 			]
 		);
 
@@ -70,6 +65,19 @@ class Sponsor extends \WP_Components\Component {
 		}
 
 		return $this;
+	}
+
+	/**
+	 * Get the FM fields used for the sponsor post type.
+	 *
+	 * @return array
+	 */
+	public static function get_fm_fields() {
+		return [
+			'link'          => new \Fieldmanager_Link( __( 'Link', 'civil-first-fleet' ) ),
+			'logo_id'       => new \Fieldmanager_Media( __( 'Logo', 'civil-first-fleet' ) ),
+			'message'       => new \Fieldmanager_RichTextArea( __( 'Message', 'civil-first-fleet' ) ),
+		];
 	}
 
 	/**
@@ -130,8 +138,8 @@ class Sponsor extends \WP_Components\Component {
 	/**
 	 * Parse the first valid sponsor from an array of scheduled sponsors.
 	 *
-	 * @param  array  $schedules Schedules.
-	 * @return [type]            [description]
+	 * @param array $schedules Schedules.
+	 * @return self
 	 */
 	public function parse_from_schedule_fm_data( array $schedules ) : self {
 
@@ -188,6 +196,9 @@ class Sponsor extends \WP_Components\Component {
 				return $this;
 			}
 		}
+
+		// No valid sponsor has been set.
+		$this->set_invalid();
 
 		return $this;
 	}

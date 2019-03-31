@@ -9,22 +9,5 @@
 	],
 	"serialize_data": false,
 	"add_to_prefix": false,
-	"children": {
-		"link": {
-			"label": { "__": "Link" },
-			"type": "link"
-		},
-		"logo_id": {
-			"label": { "__": "Logo" },
-			"type": "media"
-		},
-		"message": {
-			"label": { "__": "Message" },
-			"type": "richtextarea"
-		},
-		"short_message": {
-			"label": { "__": "Short Message" },
-			"type": "richtextarea"
-		}
-	}
+	"children": "`\\Civil_First_Fleet\\Components\\Sponsor\\Sponsor::get_fm_fields()`"
 }

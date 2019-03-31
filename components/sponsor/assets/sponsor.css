@@ -1,15 +1,22 @@
+@import 'core/index.css';
+
 .wrapper {
-  align-items: center;
   border: 2px solid #CCC;
-  display: flex;
-  flex-direction: column;
   margin: 2rem auto;
   max-width: 80%;
+}
+
+.inner {
+  align-items: center;
+  border-bottom: 3px solid var(--teal);
+  display: flex;
+  flex-direction: column;
   padding: 2rem;
 }
 
 .intro {
-  background: red;
+  @include byline;
+  color: var(--gray4);
 }
 
 .info {

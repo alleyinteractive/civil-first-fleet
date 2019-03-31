@@ -22,8 +22,11 @@ printf(
 		]
 	)
 	->set_data(
-		'sponsorship',
-		(array) get_term_meta( get_queried_object_id(), 'sponsorship', true)
+		'meta',
+		[
+			'sponsorship' => (array) get_term_meta( get_queried_object_id(), 'sponsorship', true ),
+		],
+		true
 	)
 	->render();
 

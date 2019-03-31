@@ -83,6 +83,9 @@ class Featured_Articles extends \Civil_First_Fleet\Component\Content_List {
 		$hide_sidebar        = (bool) $this->get_data( 'meta', 'hide_sidebar' ) ?? false;
 		$show_call_to_action = (bool) $this->get_data( 'meta', 'call_to_action', 'enable' ) ?? false;
 
+		// Set the sponsorship data.
+		$this->set_data( 'sponsorship', $this->get_data( 'meta', 'sponsorship' ) );
+
 		if ( true === $hide_sidebar ) {
 			// Only 1 item if we're hiding the sidebar.
 			$this->set_setting( 'items', 1 );
