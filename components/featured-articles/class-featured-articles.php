@@ -28,7 +28,7 @@ class Featured_Articles extends \Civil_First_Fleet\Component\Content_List {
 	public function default_data() : array {
 		$data = parent::default_data();
 		$data['call_to_action'] = null;
-		$data['has_sponsor']    = false;
+		$data['sponsorship']    = false;
 		$data['hide_sidebar']   = false;
 		return $data;
 	}
@@ -61,10 +61,10 @@ class Featured_Articles extends \Civil_First_Fleet\Component\Content_List {
 							'children'  => call_to_action()->get_fm_fields(),
 						]
 					),
-					'sponsors'       => new \Fieldmanager_Group(
+					'sponsorship'    => new \Fieldmanager_Group(
 						[
 							'label'    => __( 'Sponsors', 'civil-first-flett' ),
-							'children' => \Civil_First_Fleet\Components\Sponsor\Sponsor::get_fm_fields(),
+							'children' => \Civil_First_Fleet\Components\Sponsor\Sponsor::get_schedule_fm_fields(),
 						],
 					),
 				],

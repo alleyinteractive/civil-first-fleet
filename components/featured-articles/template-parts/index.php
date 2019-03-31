@@ -35,6 +35,16 @@ $hide_sidebar = (bool) $component->get_data( 'meta', 'hide_sidebar' );
 		<?php
 		// Get the first article and output as a `large-feature`.
 		$featured_article->set_setting( 'layout', 'large-feature' )->render();
+
+		// Display the sponsor.
+		$sponsorship = (array) $component->get_data( 'sponsorship' );
+		if ( ! empty( $sponsorship ) ) {
+			\WP_Render\render(
+				( new \Civil_First_Fleet\Components\Sponsor\Sponsor() )
+					->parse_from_schedule_fm_data( $sponsorship['schedules'] ?? [] )
+					->set_theme( 'featured-articles-module' )
+			);
+		}
 		?>
 	</div>
 	<?php if ( ! $hide_sidebar ) : ?>

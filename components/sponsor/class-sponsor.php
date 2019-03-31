@@ -13,7 +13,6 @@ namespace Civil_First_Fleet\Components\Sponsor;
 class Sponsor extends \WP_Components\Component {
 
 	use \WP_Components\WP_Post;
-	use \WP_Components\WP_Term;
 
 	/**
 	 * Unique component slug.
@@ -29,7 +28,9 @@ class Sponsor extends \WP_Components\Component {
 	 */
 	public function default_config() : array {
 		return [
-			'link' => '',
+			'link'  => '',
+			'title' => '',
+			'theme' => 'module',
 		];
 	}
 
@@ -39,16 +40,44 @@ class Sponsor extends \WP_Components\Component {
 	 * @return self
 	 */
 	public function post_has_set() : self {
-		$schedules = get_post_meta( $this->get_post_id(), 'schedules', true );
-		$this->parse_from_fm->data( $schedules );
+
+		$this->set_config( 'link', get_post_meta( $this->get_post_id(), 'link', true ) );
+		$this->wp_post_set_title();
+
+		// Append the message and short_message as HTML components.
+		$this->append_children(
+			[
+				// Message HTML component.
+				( new \WP_Components\HTML() )
+					->set_config( 'context', 'message' )
+					->set_config( 'content', (string) get_post_meta( $this->get_post_id(), 'message', true ) ),
+
+				// Short message HTML component.
+				( new \WP_Components\HTML() )
+					->set_config( 'context', 'short_message' )
+					->set_config( 'content', (string) get_post_meta( $this->get_post_id(), 'short_message', true ) ),
+			]
+		);
+
+		// Add thes sponsor logo as a child component.
+		$logo_id = get_post_meta( $this->get_post_id(), 'logo_id', true );
+		if ( ! empty( $logo_id ) ) {
+			$this->append_child(
+				( new \WP_Components\Image() )
+					->set_attachment_id( $logo_id )
+					->set_config_for_size( 'large' )
+			);
+		}
+
 		return $this;
 	}
 
 	/**
-	 * Get the FM fields used to schedule
-	 * @return [type] [description]
+	 * Get the FM fields used to schedule sponsors.
+	 *
+	 * @return array
 	 */
-	public static function get_fm_fields() : array {
+	public static function get_schedule_fm_fields() : array {
 		return [
 			'schedules' => new \Fieldmanager_Group(
 				[
@@ -62,7 +91,7 @@ class Sponsor extends \WP_Components\Component {
 					'collapsible'    => true,
 					'sortable'       => true,
 					'children'       => [
-						'sponsor_id'    => new \Fieldmanager_Select(
+						'sponsor_id'      => new \Fieldmanager_Select(
 							[
 								'datasource' => new \Fieldmanager_Datasource_Post(
 									[
@@ -73,21 +102,21 @@ class Sponsor extends \WP_Components\Component {
 								),
 							]
 						),
-						'schedule'       => new \Fieldmanager_Checkbox( __( 'Schedule this sponsor?', 'civil-first-fleet' ) ),
-						'start_date'     => new \Fieldmanager_Datepicker(
+						'enable_schedule' => new \Fieldmanager_Checkbox( __( 'Schedule this sponsor?', 'civil-first-fleet' ) ),
+						'start_date'      => new \Fieldmanager_Datepicker(
 							[
 								'label'      => __( 'Start Date', 'civil-first-fleet' ),
 								'display_if' => [
-									'src'   => 'schedule',
+									'src'   => 'enable_schedule',
 									'value' => true,
 								],
 							]
 						),
-						'end_date'       => new \Fieldmanager_Datepicker(
+						'end_date'        => new \Fieldmanager_Datepicker(
 							[
 								'label'      => __( 'Start Date', 'civil-first-fleet' ),
 								'display_if' => [
-									'src'   => 'schedule',
+									'src'   => 'enable_schedule',
 									'value' => true,
 								],
 							]
@@ -98,18 +127,68 @@ class Sponsor extends \WP_Components\Component {
 		];
 	}
 
-	public function parse_from_fm_data( $data ) : self {
-		print($data); die();
-		// Loop through schedules working from first to last. Using the first sponsor that either has no date range selected, or now() falls within that date range, display the sponsor (using whatever context we're in).
+	/**
+	 * Parse the first valid sponsor from an array of scheduled sponsors.
+	 *
+	 * @param  array  $schedules Schedules.
+	 * @return [type]            [description]
+	 */
+	public function parse_from_schedule_fm_data( array $schedules ) : self {
 
-		$this->set_config( 'start_date', $data['start_date'] ?? '' );
-		$this->set_config( 'end_date', $data['end_date'] ?? '' );
+		// Loop through schedules to determine which sponsor should be displayed.
+		foreach ( $schedules as $schedule ) {
 
-		$sponsor_id = $data['sponsor_id'] ?? 0;
-		$this->set_config( 'link', get_post_meta( $sponsor_id, 'link', true ) );
-		$this->set_config( 'logo_id', get_post_meta( $sponsor_id, 'logo_id', true ) );
-		$this->set_config( 'message', get_post_meta( $sponsor_id, 'message', true ) );
-		$this->set_config( 'short_message', get_post_meta( $sponsor_id, 'short_message', true ) );
+			// Validate the schedule shape.
+			$schedule = wp_parse_args(
+				$schedule,
+				[
+					'enable_schedule' => false,
+					'end_date'        => '',
+					'sponsor_id'      => 0,
+					'start_date'      => '',
+				]
+			);
 
+			// If enable schedule is false, use this sponsor.
+			if ( ! filter_var( $schedule['enable_schedule'] ?? false, FILTER_VALIDATE_BOOLEAN ) ) {
+				$this->set_post( $schedule['sponsor_id'] ?? 0 );
+				return $this;
+			}
+
+			$current_time = time();
+
+			// Determine which sponsor should display based on the scheduled
+			// dates.
+			// @todo figure out timezone offsets.
+			if (
+				! empty( $schedule['start_date'] )
+				&& ! empty( $schedule['end_date'] )
+				&& $current_time > $schedule['start_date']
+				&& $current_time < $schedule['end_date']
+			) {
+				// Start date and end date aren't empty.
+				// Current time is between start date and end date.
+				$this->set_post( $schedule['sponsor_id'] ?? 0 );
+				return $this;
+			} elseif (
+				! empty( $schedule['start_date'] )
+				&& $current_time > $schedule['start_date']
+			) {
+				// Show sponsor if there isn't an end date, and start date has
+				// passed.
+				$this->set_post( $schedule['sponsor_id'] ?? 0 );
+				return $this;
+			} elseif (
+				! empty( $schedule['end_date'] )
+				&& $current_time < $schedule['end_date']
+			) {
+				// Show sponsor if there isn't a start date, and we're before
+				// the end date.
+				$this->set_post( $schedule['sponsor_id'] ?? 0 );
+				return $this;
+			}
+		}
+
+		return $this;
 	}
 }

@@ -1,0 +1,22 @@
+.wrapper {
+  align-items: center;
+  border: 2px solid #CCC;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem auto;
+  max-width: 80%;
+  padding: 2rem;
+}
+
+.intro {
+  background: red;
+}
+
+.info {
+  background: purple;
+}
+
+.meta {
+  background: purple;
+}
+

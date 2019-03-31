@@ -38,7 +38,7 @@
 				"label": {
 					"label": { "__": "Enable Label" },
 					"type": "checkboxes",
-					"options": "`\\Civil_First_Fleet\\Components\\Sponsor\\Sponsor::get_fm_fields()`"
+					"options": "`\\Civil_First_Fleet\\Components\\Sponsor\\Sponsor::get_schedule_fm_fields()`"
 				}
 			}
 		},
@@ -133,7 +133,7 @@
 			}
 		},
 		"sponsorship": {
-			"children": "`\\Civil_First_Fleet\\Sponsors::instance()->get_fm_fields()`"
+			"children": "`\\Civil_First_Fleet\\Components\\Sponsor\\Sponsor::get_schedule_fm_fields()`"
 		}
 	}
 }

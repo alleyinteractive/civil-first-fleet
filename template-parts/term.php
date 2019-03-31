@@ -21,6 +21,10 @@ printf(
 			'post_ids' => array_slice( $wp_query->posts, 0, 7 ),
 		]
 	)
+	->set_data(
+		'sponsorship',
+		(array) get_term_meta( get_queried_object_id(), 'sponsorship', true)
+	)
 	->render();
 
 // Output Article Grid.
