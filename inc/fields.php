@@ -350,7 +350,7 @@ function civil_first_fleet_fm_post_post_article_settings() {
 							'label' => new Fieldmanager_Checkboxes(
 								[
 									'label' => __( 'Enable Label', 'civil-first-fleet' ),
-									'options' => \Civil_First_Fleet\Components\Sponsor\Sponsor::get_schedule_fm_fields(),
+									'options' => \Civil_First_Fleet\Component\Content_Item()->get_label_options(),
 								]
 							),
 						],
