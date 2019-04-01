@@ -25,7 +25,7 @@ add_filter(
 	2
 );
 
-// Filter for compoennt asset path.
+// Filter for component asset path.
 add_filter(
 	'wp_render_asset_path',
 	function( $path, $name, $type ) {
@@ -35,6 +35,7 @@ add_filter(
 	3
 );
 
+// Before WP Render outputs a component, capture the stylesheet and load the component's stylesheet.
 add_filter(
 	'wp_render_pre_component_render',
 	function( $component_instance ) {
@@ -44,6 +45,7 @@ add_filter(
 	}
 );
 
+// After WP Render outputs a component, load the parent stylesheet.
 add_action(
 	'wp_render_post_component_render',
 	function( $component_instance, $old_name ) {

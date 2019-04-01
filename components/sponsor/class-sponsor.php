@@ -29,7 +29,6 @@ class Sponsor extends \WP_Components\Component {
 	public function default_config() : array {
 		return [
 			'link'  => '',
-			'title' => '',
 			'theme' => 'module',
 		];
 	}
@@ -42,7 +41,6 @@ class Sponsor extends \WP_Components\Component {
 	public function post_has_set() : self {
 
 		$this->set_config( 'link', get_post_meta( $this->get_post_id(), 'link', true ) );
-		$this->wp_post_set_title();
 
 		// Append the message and short_message as HTML components.
 		$this->append_children(
@@ -58,9 +56,13 @@ class Sponsor extends \WP_Components\Component {
 		$logo_id = get_post_meta( $this->get_post_id(), 'logo_id', true );
 		if ( ! empty( $logo_id ) ) {
 			$this->append_child(
-				( new \WP_Components\Image() )
-					->set_attachment_id( $logo_id )
-					->set_config_for_size( 'large' )
+				// Note: We're mixing component libraries here. Sponsor uses WP
+				// Components, and this image class is an older version. This
+				// is because to use the WP Component's image we'd have to
+				// refactor quite a bit, so we'll come back to this later.
+				\Civil_First_Fleet\Component\image()
+					->set_post_id( $logo_id )
+					->size( 'full' )
 			);
 		}
 

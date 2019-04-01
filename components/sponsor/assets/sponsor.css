@@ -1,7 +1,7 @@
 @import 'core/index.css';
 
 .wrapper {
-  border: 2px solid #CCC;
+  border: 2px solid var(--gray4);
   grid-column: 1 / -1;
   margin: 2rem auto;
   max-width: 80%;
@@ -17,14 +17,37 @@
 
 .intro {
   @include byline;
-  color: var(--gray4);
+  color: var(--gray2);
 }
 
 .info {
-  background: purple;
+  color: var(--gray1);
+  margin: 1rem 0.5rem;
+
+  a {
+    @include medium-headline;
+    align-items: center;
+    color: var(--black);
+    display: flex;
+    text-decoration: none;
+  }
+
+  .image {
+    width: 200px;
+  }
 }
 
 .meta {
-  background: purple;
+  line-height: 1.4rem;
+  text-align: center;
+
+  a {
+    color: var(--gray1);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 

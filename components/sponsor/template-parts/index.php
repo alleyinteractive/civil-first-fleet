@@ -10,7 +10,6 @@ use function \WP_Render\{find_child, find_child_by_name, get_component, render, 
 $image   = find_child_by_name( 'image' );
 $message = find_child( 'context', 'message' );
 
-// print_r($image); die();
 $theme = 'featured-article';
 ?>
 <div class="<?php ai_the_classnames( [ 'wrapper' ] ); ?>">
@@ -21,8 +20,10 @@ $theme = 'featured-article';
 		</div>
 
 		<div class="<?php ai_the_classnames( [ 'info' ] ); ?>">
-			<div class="<?php ai_the_classnames( [ 'image' ] ); ?>">Image</div>
-			<p><a href="<?php echo esc_url( get_config( 'link' ) ); ?>"><?php render( $message ); ?></a></p>
+			<a href="<?php echo esc_url( get_config( 'link' ) ); ?>">
+				<div class="<?php ai_the_classnames( [ 'image' ] ); ?>"><?php $image->render(); ?></div>
+				<p><?php render( $message ); ?></p>
+			</a>
 		</div>
 
 		<div class="<?php ai_the_classnames( [ 'meta' ] ); ?>">
