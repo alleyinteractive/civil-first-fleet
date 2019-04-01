@@ -62,7 +62,10 @@ class Sponsor extends \WP_Components\Component {
 				// refactor quite a bit, so we'll come back to this later.
 				\Civil_First_Fleet\Component\image()
 					->set_post_id( $logo_id )
-					->size( 'full' )
+					->size( 'sponsor-logo' )
+					->aspect_ratio( false )
+					->set_data( 'alt', $this->wp_post_get_title() )
+					->disable_lazyload()
 			);
 		}
 

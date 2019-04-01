@@ -2,7 +2,7 @@
 
 .wrapper {
   border: 2px solid var(--gray4);
-  grid-column: 1 / -1;
+  grid-column: 3 / -3;
   margin: 2rem auto;
   max-width: 80%;
 }
@@ -31,9 +31,21 @@
     display: flex;
     text-decoration: none;
   }
+}
 
-  .image {
+.image {
+
+  span {
+    align-items: center;
+    display: flex;
+    height: 100px;
+    justify-content: center;
     width: 200px;
+  }
+
+  img {
+    max-height: 100%;
+    max-width: 100%;
   }
 }
 

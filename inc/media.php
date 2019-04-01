@@ -207,6 +207,16 @@ namespace Civil_First_Fleet;
 				],
 			],
 		],
+		'sponsor-logo' => [
+			'sources' => [
+				[
+					'transforms' => [
+						'w' => [ 175 ],
+					],
+					'descriptor' => 175,
+				],
+			],
+		],
 	]
 );
 
