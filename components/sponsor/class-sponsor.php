@@ -28,6 +28,7 @@ class Sponsor extends \WP_Components\Component {
 	 */
 	public function default_config() : array {
 		return [
+			'label' => '',
 			'link'  => '',
 			'theme' => 'module',
 		];
@@ -40,6 +41,11 @@ class Sponsor extends \WP_Components\Component {
 	 */
 	public function post_has_set() : self {
 
+		$label = (string) get_post_meta( $this->get_post_id(), 'label', true );
+		if ( empty( $label ) ) {
+			$label = self::get_default_eyebrow_label();
+		}
+		$this->set_config( 'label', $label );
 		$this->set_config( 'link', get_post_meta( $this->get_post_id(), 'link', true ) );
 
 		// Append the message and short_message as HTML components.
@@ -49,6 +55,7 @@ class Sponsor extends \WP_Components\Component {
 				( new \WP_Components\HTML() )
 					->set_config( 'context', 'message' )
 					->set_config( 'content', (string) get_post_meta( $this->get_post_id(), 'message', true ) ),
+				self::get_content_below_sponsor_component(),
 			]
 		);
 
@@ -73,15 +80,30 @@ class Sponsor extends \WP_Components\Component {
 	}
 
 	/**
+	 * Get the default eyebrow label text.
+	 *
+	 * @return string
+	 */
+	public static function get_default_eyebrow_label() {
+		return __( 'Supported Today By', 'civil-first-fleet' );
+	}
+
+	/**
 	 * Get the FM fields used for the sponsor post type.
 	 *
 	 * @return array
 	 */
 	public static function get_fm_fields() {
 		return [
-			'link'          => new \Fieldmanager_Link( __( 'Link', 'civil-first-fleet' ) ),
-			'logo_id'       => new \Fieldmanager_Media( __( 'Logo', 'civil-first-fleet' ) ),
-			'message'       => new \Fieldmanager_RichTextArea( __( 'Message', 'civil-first-fleet' ) ),
+			'label'   => new \Fieldmanager_Textfield(
+				[
+					'label'         => __( 'Eyebrow Label', 'civil-first-fleet' ),
+					'default_value' => self::get_default_eyebrow_label(),
+				]
+			),
+			'link'    => new \Fieldmanager_Link( __( 'Link', 'civil-first-fleet' ) ),
+			'logo_id' => new \Fieldmanager_Media( __( 'Logo', 'civil-first-fleet' ) ),
+			'message' => new \Fieldmanager_RichTextArea( __( 'Message', 'civil-first-fleet' ) ),
 		];
 	}
 
@@ -98,7 +120,7 @@ class Sponsor extends \WP_Components\Component {
 					'limit'          => 0,
 					'extra_elements' => 0,
 					'label'          => __( 'New Schedule', 'civil-first-fleet' ),
-					'label_macro'    => [ __( '%s', 'civil-first-fleet' ), 'sponsor_id' ],
+					'label_macro'    => [ '%s', 'sponsor_id' ],
 					'add_more_label' => __( 'Add Schedule', 'civil-first-fleet' ),
 					'collapsed'      => true,
 					'collapsible'    => true,
@@ -127,7 +149,7 @@ class Sponsor extends \WP_Components\Component {
 						),
 						'end_date'        => new \Fieldmanager_Datepicker(
 							[
-								'label'      => __( 'Start Date', 'civil-first-fleet' ),
+								'label'      => __( 'End Date', 'civil-first-fleet' ),
 								'display_if' => [
 									'src'   => 'enable_schedule',
 									'value' => true,
@@ -206,5 +228,47 @@ class Sponsor extends \WP_Components\Component {
 		$this->set_invalid();
 
 		return $this;
+	}
+
+	/**
+	 * Get the FM fields for the submenu settings.
+	 *
+	 * @return array
+	 */
+	public static function get_submenu_fm_fields() {
+		return [
+			'settings' => new \Fieldmanager_Group(
+				[
+					'label'    => __( 'Content Below Sponsor', 'civil-first-fleet' ),
+					'children' => [
+						'below_sponsor' => new \Fieldmanager_RichTextArea(
+							[
+								'description' => __( 'This content will appear below the sponsor. Use it for disclaimers or calls to action.', 'civil-first-fleet' ),
+							]
+						),
+					],
+				]
+			),
+		];
+	}
+
+	/**
+	 * Get the HTML component for the content below the sponsor.
+	 *
+	 * @return \WP_Components
+	 */
+	public static function get_content_below_sponsor_component() {
+		$newsroom_settings = (array) get_option( 'newsroom-settings' );
+		$content           = $newsroom_settings['sponsors']['settings']['below_sponsor'] ?? '';
+		$component         = new \WP_Components\HTML();
+
+		if ( empty( $content ) ) {
+			$component->set_invalid();
+		} else {
+			$component->set_config( 'context', 'below_sponsor' );
+			$component->set_config( 'content', $content );
+		}
+
+		return $component;
 	}
 }

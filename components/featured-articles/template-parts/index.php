@@ -42,7 +42,7 @@ $hide_sidebar = (bool) $component->get_data( 'meta', 'hide_sidebar' );
 			\WP_Render\render(
 				( new \Civil_First_Fleet\Components\Sponsor\Sponsor() )
 					->parse_from_schedule_fm_data( $sponsorship['schedules'] ?? [] )
-					->set_theme( 'featured-articles-module' )
+					->set_config( 'theme', 'featured-article' )
 			);
 		}
 		?>

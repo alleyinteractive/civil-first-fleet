@@ -2,7 +2,14 @@
 
 .wrapper {
   border: 2px solid var(--gray4);
+}
+
+.theme-article {
   grid-column: 3 / -3;
+  margin-bottom: 2rem;
+}
+
+.theme-featured-article {
   margin: 2rem auto;
   max-width: 80%;
 }
@@ -13,6 +20,28 @@
   display: flex;
   flex-direction: column;
   padding: 2rem;
+
+  .theme-article & {
+    flex-direction: column;
+    padding: 1rem;
+  }
+}
+
+.main {
+  align-items: center;
+  display: flex;
+
+  .theme-article & {
+    flex-direction: row;
+
+    @media (--smMax) {
+      flex-direction: column;
+    }
+  }
+
+  .theme-featured-article & {
+    flex-direction: column;
+  }
 }
 
 .intro {
@@ -25,15 +54,40 @@
   margin: 1rem 0.5rem;
 
   a {
-    @include medium-headline;
     align-items: center;
     color: var(--black);
     display: flex;
     text-decoration: none;
+
+    &:hover {
+      color: var(--black2);
+    }
+
+    .theme-article & {
+      @media (--smMax) {
+        flex-direction: column;
+      }
+    }
+
+    .theme-featured-article & {
+      @media (--smMax) {
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+.message {
+  @include spectral-headline;
+  font-size: rem(24);
+
+  @media (--smMax) {
+    text-align: center;
   }
 }
 
 .image {
+  margin-right: 10px;
 
   span {
     align-items: center;
@@ -41,6 +95,10 @@
     height: 100px;
     justify-content: center;
     width: 200px;
+
+    .theme-article & {
+      height: 80px;
+    }
   }
 
   img {

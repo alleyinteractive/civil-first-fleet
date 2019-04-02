@@ -29,8 +29,6 @@ class Article_Template extends \WP_Components\Component {
 	public function post_has_set() : self {
 		$body           = new \WP_Components\Body();
 		$body->children = array_filter( $this->get_components() );
-		$this->append_children([]);
-
 		return $this;
 	}
 

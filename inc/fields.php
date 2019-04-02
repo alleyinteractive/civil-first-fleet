@@ -210,6 +210,12 @@ function civil_first_fleet_fm_submenu_newsroom_settings() {
 						],
 					]
 				),
+				'sponsors' => new Fieldmanager_Group(
+					[
+						'label' => __( 'Sponsors', 'civil-first-fleet' ),
+						'children' => \Civil_First_Fleet\Components\Sponsor\Sponsor::get_submenu_fm_fields(),
+					]
+				),
 				'component_defaults' => new Fieldmanager_Group(
 					[
 						'label' => __( 'Component Defaults', 'civil-first-fleet' ),
