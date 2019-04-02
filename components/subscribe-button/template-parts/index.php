@@ -31,4 +31,4 @@ if ( 'standard' === $component->get_setting( 'width' ) ) {
 }
 ?>
 
-<a id="<?php echo esc_attr( $id ); ?>" class="<?php ai_the_classnames( $classnames ); ?>"><?php echo esc_html( $text ); ?></a>
+<a id="<?php echo esc_attr( $id ); ?>" class="PicoSignal <?php ai_the_classnames( $classnames ); ?>"><?php echo esc_html( $text ); ?></a>

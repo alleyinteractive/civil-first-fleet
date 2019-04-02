@@ -135,6 +135,16 @@
 							"label": { "__": "Button Text" },
 							"description": { "__": "E.g. the \"Subscribe\" buttons in header and footer navs" },
 							"default_value": { "__": "Subscribe" }
+						},
+						"pico_type": {
+							"label": { "__": "Pico Type" },
+							"type": "select",
+							"options": {
+								"rule": { "__": "Registration Rule" },
+								"plan": { "__": "Monetization Plan" }
+							},
+							"description": { "__": "The type of call to action to trigger" },
+							"default_value": "rule"
 						}
 					}
 				},

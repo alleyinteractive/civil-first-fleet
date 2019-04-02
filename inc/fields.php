@@ -226,6 +226,17 @@ function civil_first_fleet_fm_submenu_newsroom_settings() {
 												'default_value' => __( 'Subscribe', 'civil-first-fleet' ),
 											]
 										),
+										'pico_type' => new Fieldmanager_Select(
+											[
+												'label' => __( 'Pico Type', 'civil-first-fleet' ),
+												'options' => [
+													'rule' => __( 'Registration Rule', 'civil-first-fleet' ),
+													'plan' => __( 'Monetization Plan', 'civil-first-fleet' ),
+												],
+												'description' => __( 'The type of call to action to trigger', 'civil-first-fleet' ),
+												'default_value' => 'plan',
+											]
+										),
 									],
 								]
 							),
