@@ -99,11 +99,27 @@ class Sponsor extends \WP_Components\Component {
 				[
 					'label'         => __( 'Eyebrow Label', 'civil-first-fleet' ),
 					'default_value' => self::get_default_eyebrow_label(),
+					'description'   => __( 'Intro that appears above/next to the logo.', 'civil-first-fleet' ),
 				]
 			),
-			'link'    => new \Fieldmanager_Link( __( 'Link', 'civil-first-fleet' ) ),
-			'logo_id' => new \Fieldmanager_Media( __( 'Logo', 'civil-first-fleet' ) ),
-			'message' => new \Fieldmanager_RichTextArea( __( 'Message', 'civil-first-fleet' ) ),
+			'link'    => new \Fieldmanager_Link(
+				[
+					'label'       => __( 'Link', 'civil-first-fleet' ),
+					'description' => __( 'When your sponsor is clicked, where should the user go?', 'civil-first-fleet' ),
+				]
+			),
+			'logo_id' => new \Fieldmanager_Media(
+				[
+					'label'       => __( 'Logo', 'civil-first-fleet' ),
+					'description' => __( 'Logo of the sponsor. This will automatically resize as needed.', 'civil-first-fleet' ),
+				]
+			),
+			'message' => new \Fieldmanager_RichTextArea(
+				[
+					'label'       => __( 'Message', 'civil-first-fleet' ),
+					'description' => __( 'Mesage from the sponsor.', 'civil-first-fleet' ),
+				]
+			),
 		];
 	}
 
@@ -140,8 +156,9 @@ class Sponsor extends \WP_Components\Component {
 						'enable_schedule' => new \Fieldmanager_Checkbox( __( 'Schedule this sponsor?', 'civil-first-fleet' ) ),
 						'start_date'      => new \Fieldmanager_Datepicker(
 							[
-								'label'      => __( 'Start Date', 'civil-first-fleet' ),
-								'display_if' => [
+								'label'       => __( 'Start Date', 'civil-first-fleet' ),
+								'description' => __( 'Sponsorship will begin at 12:01am on this date.', 'civil-first-fleet' ),
+								'display_if'  => [
 									'src'   => 'enable_schedule',
 									'value' => true,
 								],
@@ -150,6 +167,7 @@ class Sponsor extends \WP_Components\Component {
 						'end_date'        => new \Fieldmanager_Datepicker(
 							[
 								'label'      => __( 'End Date', 'civil-first-fleet' ),
+								'description'   => __( 'Sponsorship will end at 12:01 on this date (this date _will not_ display the sponsor).', 'civil-first-fleet' ),
 								'display_if' => [
 									'src'   => 'enable_schedule',
 									'value' => true,
