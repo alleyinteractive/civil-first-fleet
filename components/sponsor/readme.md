@@ -22,7 +22,7 @@ Link - When your sponsor is clicked, where should the user go?
 Logo - Logo of the sponsor.
 Message - Message from the sponsor.
 
-![View Sponsor](/components/sponsor/assets/docs/view-sponsor.png)
+![View Sponsor](/components/sponsor/assets/docs/view-sponsors.png)
 
 ![Add Sponsor](/components/sponsor/assets/docs/add-sponsor.png)
 
