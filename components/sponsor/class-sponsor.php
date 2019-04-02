@@ -126,7 +126,7 @@ class Sponsor extends \WP_Components\Component {
 					'collapsible'    => true,
 					'sortable'       => true,
 					'children'       => [
-						'sponsor_id'      => new \Fieldmanager_Select(
+						'sponsor_id'      => new \Fieldmanager_Autocomplete(
 							[
 								'datasource' => new \Fieldmanager_Datasource_Post(
 									[
@@ -190,7 +190,7 @@ class Sponsor extends \WP_Components\Component {
 				return $this;
 			}
 
-			$current_time = time();
+			$current_time = current_time( 'timestamp' );
 
 			// Determine which sponsor should display based on the scheduled
 			// dates.
