@@ -59,7 +59,7 @@ class Sponsor extends \WP_Components\Component {
 			]
 		);
 
-		// Add thes sponsor logo as a child component.
+		// Add the sponsor logo as a child component.
 		$logo_id = get_post_meta( $this->get_post_id(), 'logo_id', true );
 		if ( ! empty( $logo_id ) ) {
 			$this->append_child(
