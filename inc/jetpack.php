@@ -25,6 +25,8 @@ add_action( 'loop_start', __NAMESPACE__ . '\remove_jetpack_shares' );
 /**
  * Make sure sharing JS is enqueued whether or not CSS/JS is disabled in options,
  * but only if we actually have some sharing options enabled.
+ *
+ * @param bool $enabled Enabled flag.
  */
 function maybe_enqueue_sharing_js( $enabled ) {
 	if ( count( $enabled['all'] ) > 0 ) {

@@ -117,6 +117,13 @@ class Component {
 	public $slug = '';
 
 	/**
+	 * Alias for slug while refactoring occurs.
+	 *
+	 * @var string
+	 */
+	public $name = '';
+
+	/**
 	 * Path to components folder. Relative to theme root.
 	 *
 	 * @var string
@@ -156,6 +163,7 @@ class Component {
 		$this->data      = wp_parse_args( $data, $this->default_data() );
 		$this->fm_fields = wp_parse_args( $fm_fields, $this->default_fm_fields() );
 
+		$this->name = $this->slug;
 		return $this;
 	}
 

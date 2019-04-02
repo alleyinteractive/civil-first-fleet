@@ -1,0 +1,13 @@
+{
+	"contexts": [
+		{
+			"type": "post",
+			"post_types": [ "sponsor" ],
+			"title": "Settings",
+			"priority": "high"
+		}
+	],
+	"serialize_data": false,
+	"add_to_prefix": false,
+	"children": "`\\Civil_First_Fleet\\Components\\Sponsor\\Sponsor::get_fm_fields()`"
+}

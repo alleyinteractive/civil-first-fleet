@@ -14,6 +14,15 @@ $post_indicators = array_filter( $credibility_indicators );
 
 <div class="<?php ai_the_classnames( [ 'wrapper' ], [ 'no-indicators' => empty( $post_indicators ) ] ); ?>">
 	<?php
+	// Output sponsor.
+	$category_id = absint( get_post_meta( get_the_ID(), 'primary_category_id', true ) );
+	$schedules   = array_filter( (array) get_term_meta( $category_id, 'sponsorship', true ) );
+	\WP_Render\render(
+		( new Civil_First_Fleet\Components\Sponsor\Sponsor() )
+			->parse_from_schedule_fm_data( $schedules['schedules'] ?? [] )
+			->set_config( 'theme', 'article' )
+	);
+
 	// Output Article Header.
 	\Civil_First_Fleet\Component\article_header()
 		->set_post_id( get_the_ID() )

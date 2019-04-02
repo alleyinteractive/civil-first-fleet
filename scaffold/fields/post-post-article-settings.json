@@ -131,6 +131,9 @@
 					}
 				}
 			}
+		},
+		"sponsorship": {
+			"children": "`\\Civil_First_Fleet\\Components\\Sponsor\\Sponsor::get_schedule_fm_fields()`"
 		}
 	}
 }

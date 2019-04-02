@@ -1,0 +1,9 @@
+{
+	"public": true,
+	"show_in_rest": true,
+	"publicly_queryable": false,
+	"menu_icon": "dashicons-groups",
+	"supports": [
+		"title"
+	]
+}

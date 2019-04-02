@@ -27,8 +27,9 @@ class Featured_Articles extends \Civil_First_Fleet\Component\Content_List {
 	 */
 	public function default_data() : array {
 		$data = parent::default_data();
-		$data['hide_sidebar']   = false;
 		$data['call_to_action'] = null;
+		$data['sponsorship']    = false;
+		$data['hide_sidebar']   = false;
 		return $data;
 	}
 
@@ -60,6 +61,12 @@ class Featured_Articles extends \Civil_First_Fleet\Component\Content_List {
 							'children'  => call_to_action()->get_fm_fields(),
 						]
 					),
+					'sponsorship'    => new \Fieldmanager_Group(
+						[
+							'label'    => __( 'Sponsors', 'civil-first-fleet' ),
+							'children' => \Civil_First_Fleet\Components\Sponsor\Sponsor::get_schedule_fm_fields(),
+						]
+					),
 				],
 			]
 		);
@@ -75,6 +82,9 @@ class Featured_Articles extends \Civil_First_Fleet\Component\Content_List {
 		$items               = absint( $this->get_setting( 'items' ) );
 		$hide_sidebar        = (bool) $this->get_data( 'meta', 'hide_sidebar' ) ?? false;
 		$show_call_to_action = (bool) $this->get_data( 'meta', 'call_to_action', 'enable' ) ?? false;
+
+		// Set the sponsorship data.
+		$this->set_data( 'sponsorship', $this->get_data( 'meta', 'sponsorship' ) );
 
 		if ( true === $hide_sidebar ) {
 			// Only 1 item if we're hiding the sidebar.

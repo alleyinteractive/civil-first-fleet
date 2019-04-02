@@ -210,6 +210,12 @@ function civil_first_fleet_fm_submenu_newsroom_settings() {
 						],
 					]
 				),
+				'sponsors' => new Fieldmanager_Group(
+					[
+						'label' => __( 'Sponsors', 'civil-first-fleet' ),
+						'children' => \Civil_First_Fleet\Components\Sponsor\Sponsor::get_submenu_fm_fields(),
+					]
+				),
 				'component_defaults' => new Fieldmanager_Group(
 					[
 						'label' => __( 'Component Defaults', 'civil-first-fleet' ),
@@ -457,6 +463,11 @@ function civil_first_fleet_fm_post_post_article_settings() {
 						],
 					]
 				),
+				'sponsorship' => new Fieldmanager_Group(
+					[
+						'children' => \Civil_First_Fleet\Components\Sponsor\Sponsor::get_schedule_fm_fields(),
+					]
+				),
 			],
 		]
 	);
@@ -464,3 +475,46 @@ function civil_first_fleet_fm_post_post_article_settings() {
 }
 add_action( 'fm_post_post', 'civil_first_fleet_fm_post_post_article_settings' );
 /* end fm:post-post-article-settings */
+
+/* begin fm:post-sponsor-settings */
+/**
+ * `post-sponsor-settings` Fieldmanager fields.
+ */
+function civil_first_fleet_fm_post_sponsor_settings() {
+	$fm = new Fieldmanager_Group(
+		[
+			'name' => 'post-sponsor-settings',
+			'serialize_data' => false,
+			'add_to_prefix' => false,
+			'children' => \Civil_First_Fleet\Components\Sponsor\Sponsor::get_fm_fields(),
+		]
+	);
+	$fm->add_meta_box( __( 'Settings', 'civil-first-fleet' ), [ 'sponsor' ], 'normal', 'high' );
+}
+add_action( 'fm_post_sponsor', 'civil_first_fleet_fm_post_sponsor_settings' );
+/* end fm:post-sponsor-settings */
+
+/* begin fm:term-mixed-sponsorship */
+/**
+ * `term-mixed-sponsorship` Fieldmanager fields.
+ */
+function civil_first_fleet_fm_term_mixed_sponsorship() {
+	$fm = new Fieldmanager_Group(
+		[
+			'name' => 'term-mixed-sponsorship',
+			'serialize_data' => false,
+			'add_to_prefix' => false,
+			'children' => [
+				'sponsorship' => new Fieldmanager_Group(
+					[
+						'children' => \Civil_First_Fleet\Components\Sponsor\Sponsor::get_schedule_fm_fields(),
+					]
+				),
+			],
+		]
+	);
+	$fm->add_term_meta_box( __( 'Sponsored Content', 'civil-first-fleet' ), [ 'category', 'post_tag' ] );
+}
+add_action( 'fm_term_category', 'civil_first_fleet_fm_term_mixed_sponsorship' );
+add_action( 'fm_term_post_tag', 'civil_first_fleet_fm_term_mixed_sponsorship' );
+/* end fm:term-mixed-sponsorship */

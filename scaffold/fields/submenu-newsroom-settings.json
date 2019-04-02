@@ -124,6 +124,10 @@
 				}
 			}
 		},
+		"sponsors": {
+			"label": { "__": "Sponsors" },
+			"children": "`\\Civil_First_Fleet\\Components\\Sponsor\\Sponsor::get_submenu_fm_fields()`"
+		},
 		"component_defaults": {
 			"label": { "__": "Component Defaults" },
 			"children": {

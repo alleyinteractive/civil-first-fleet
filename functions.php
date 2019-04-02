@@ -15,10 +15,14 @@ define( 'CIVIL_FIRST_FLEET_STATIC_VERSION', '1.0.3' );
 require_once CIVIL_FIRST_FLEET_PATH . '/inc/plugins.php';
 require_once CIVIL_FIRST_FLEET_PATH . '/inc/wp-components/wp-components.php';
 
+// Component customizations and settings.
+require_once CIVIL_FIRST_FLEET_PATH . '/inc/components.php';
+
 /**
  * Traits.
  */
 require_once CIVIL_FIRST_FLEET_PATH . '/inc/traits/trait-singleton.php';
+
 
 /**
  * Classes
@@ -183,5 +187,8 @@ require_once CIVIL_FIRST_FLEET_PATH . '/inc/post-types/class-civil-first-fleet-p
 
 // Landing Pages Post Type (cpt:landing-page).
 require_once CIVIL_FIRST_FLEET_PATH . '/inc/post-types/class-civil-first-fleet-post-type-landing-page.php';
+
+// Sponsors Post Type (cpt:sponsor).
+require_once CIVIL_FIRST_FLEET_PATH . '/inc/post-types/class-civil-first-fleet-post-type-sponsor.php';
 
 /* End Data Structures */

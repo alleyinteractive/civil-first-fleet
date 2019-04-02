@@ -1,0 +1,17 @@
+{
+  "contexts": [
+    {
+      "type": "term",
+      "taxonomies": [ "category", "post_tag" ],
+      "title": { "__": "Sponsored Content" },
+      "core_term_meta": true
+    }
+  ],
+  "serialize_data": false,
+  "add_to_prefix": false,
+  "children": {
+    "sponsorship": {
+      "children": "`\\Civil_First_Fleet\\Components\\Sponsor\\Sponsor::get_schedule_fm_fields()`"
+    }
+  }
+}
