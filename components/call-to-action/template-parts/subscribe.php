@@ -34,7 +34,7 @@ $context     = $component->get_data( 'context' );
 				<?php if ( 'inline' === $layout ) : ?>
 					<button
 						id="subscribe-button-cta"
-						class="<?php ai_the_classnames( [ 'civil__call-to-action__inline-link' ] ); ?>"
+						class="PicoSignal PicoPlan <?php ai_the_classnames( [ 'civil__call-to-action__inline-link' ] ); ?>"
 					>
 						<?php echo esc_html( $button_text ); ?>
 					</button>
