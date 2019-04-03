@@ -13,16 +13,16 @@ Sponsors allow you to create, manage, and deploy sponsorship and underwriting me
 * Override Sponsor on Posts - Override the primary category sponsor schedule for a specific post/article.
 
 ## Setting up a Sponsor
-Sponsors can be managed at yoursite.com/wp-admin/edit.php?post_type=sponsor. This URL can be accessed from your WordPress dashboard.
-
-### Fields
-Title - Name of the sponsor.
-Eyebrow Label - The text above/next to the logo. Defaults to "Supported Today By"
-Link - When your sponsor is clicked, where should the user go?
-Logo - Logo of the sponsor.
-Message - Message from the sponsor.
+Sponsors can be managed at `yoursite.com/wp-admin/edit.php?post_type=sponsor`. This URL can be accessed from your WordPress dashboard.
 
 ![View Sponsor](/components/sponsor/assets/docs/view-sponsors.png)
+
+### Fields
+* Title - Name of the sponsor.
+* Eyebrow Label - The text above/next to the logo. Defaults to "Supported Today By"
+* Link - When your sponsor is clicked, where should the user go?
+* Logo - Logo of the sponsor.
+* Message - Message from the sponsor.
 
 ![Add Sponsor](/components/sponsor/assets/docs/add-sponsor.png)
 
