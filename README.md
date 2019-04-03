@@ -31,3 +31,7 @@ https://github.com/PicoNetworks/wordpress-plugin
 
 ## Settings
 Coming soon.
+
+## Features
+* [Sponsors](https://github.com/alleyinteractive/civil-first-fleet/tree/master/components/sponsor) - Create, manage, and deploy sponsorship and underwriting messages without using DFP or other ad software.
+
