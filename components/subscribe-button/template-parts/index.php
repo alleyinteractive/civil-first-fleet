@@ -16,7 +16,11 @@ if ( empty( $text ) ) {
 	$text = $component->default_data()['text'];
 }
 
-$classnames = [ 'button' ];
+$classnames = [
+	'button',
+	'PicoSignal',
+	'PicoPlan',
+];
 
 if ( 'standard' === $component->get_setting( 'height' ) ) {
 	$classnames[] = 'standard-height';
