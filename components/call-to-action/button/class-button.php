@@ -27,9 +27,12 @@ class Button extends \WP_Components\Component {
 	public function default_config() : array {
 		return [
 			'action' => 'link',
+			'height' => 'standard',
+			'id'     => '',
 			'label'  => '',
 			'link'   => '',
 			'theme'  => 'module',
+			'width'  => 'full',
 		];
 	}
 
@@ -150,18 +153,9 @@ class Button extends \WP_Components\Component {
 				break;
 		}
 
-		// Add classes for height and width.
-		// if ( 'standard' === $component->get_setting( 'height' ) ) {
-		// 	$classnames[] = 'standard-height';
-		// } else if ( 'full' === $component->get_setting( 'height' ) ) {
-		// 	$classnames[] = 'full-height';
-		// }
-
-		// if ( 'standard' === $component->get_setting( 'width' ) ) {
-		// 	$classnames[] = 'standard-width';
-		// } else if ( 'full' === $component->get_setting( 'width' ) ) {
-		// 	$classnames[] = 'full-width';
-		// }
+		// Add height and width classes.
+		$classes[] = $this->get_config( 'height' ) . '-height';
+		$classes[] = $this->get_config( 'width' ) . '-width';
 
 		return $classes;
 	}

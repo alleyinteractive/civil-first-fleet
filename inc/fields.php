@@ -172,6 +172,19 @@ function civil_first_fleet_fm_submenu_newsroom_settings() {
 						],
 					]
 				),
+				'footer' => new Fieldmanager_Group(
+					[
+						'label' => __( 'Footer', 'civil-first-fleet' ),
+						'children' => [
+							'call_to_action_button' => new Fieldmanager_Group(
+								[
+									'label' => __( 'Call To Action Button', 'civil-first-fleet' ),
+									'children' => \Civil_First_Fleet\Components\Call_To_Action\Button::get_fm_fields(),
+								]
+							),
+						],
+					]
+				),
 				'newsletter' => new Fieldmanager_Group(
 					[
 						'label' => __( 'Newsletter', 'civil-first-fleet' ),

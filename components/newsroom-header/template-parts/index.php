@@ -76,6 +76,7 @@ $ai_component = ai_get_var( 'component' );
 				<?php
 				\WP_Render\render(
 					( new \Civil_First_Fleet\Components\Call_To_Action\Button() )
+						->set_config( 'id', 'subscribe-button-header' )
 						->parse_from_fm_data(
 							get_option( 'newsroom-settings' )['header']['call_to_action_button'] ?? []
 						)

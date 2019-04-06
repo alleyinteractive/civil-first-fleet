@@ -85,6 +85,15 @@
 				}
 			}
 		},
+		"footer": {
+			"label": { "__": "Footer" },
+			"children": {
+				"call_to_action_button": {
+					"label": { "__": "Call To Action Button" },
+					"children": "`\\Civil_First_Fleet\\Components\\Call_To_Action\\Button::get_fm_fields()`"
+				}
+			}
+		},
 		"newsletter": {
 			"label": { "__": "Newsletter" },
 			"children": {
