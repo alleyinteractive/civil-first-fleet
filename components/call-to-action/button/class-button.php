@@ -26,13 +26,14 @@ class Button extends \WP_Components\Component {
 	 */
 	public function default_config() : array {
 		return [
-			'action' => 'link',
-			'height' => 'standard',
-			'id'     => '',
-			'label'  => '',
-			'link'   => '',
-			'theme'  => 'module',
-			'width'  => 'full',
+			'action'  => 'link',
+			'classes' => [],
+			'height'  => 'standard',
+			'id'      => '',
+			'label'   => '',
+			'link'    => '',
+			'theme'   => 'module',
+			'width'   => 'full',
 		];
 	}
 
@@ -130,8 +131,14 @@ class Button extends \WP_Components\Component {
 		return 'button';
 	}
 
+	/**
+	 * Get the classes.
+	 *
+	 * @return array
+	 */
 	public function get_classnames() : array {
 		$classes = [ 'button' ];
+		$classes = array_merge( $classes, $this->get_config( 'classes' ) );
 
 		// Add classes based on action.
 		switch ( $this->get_config( 'action' ) ) {
