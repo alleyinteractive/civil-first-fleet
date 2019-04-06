@@ -76,6 +76,15 @@
 				}
 			}
 		},
+		"header": {
+			"label": { "__": "Header" },
+			"children": {
+				"call_to_action_button": {
+					"label": { "__": "Call To Action Button" },
+					"children": "`\\Civil_First_Fleet\\Components\\Call_To_Action\\Button::get_fm_fields()`"
+				}
+			}
+		},
 		"newsletter": {
 			"label": { "__": "Newsletter" },
 			"children": {
@@ -126,7 +135,7 @@
 		},
 		"sponsors": {
 			"label": { "__": "Sponsors" },
-			"children": "`\\Civil_First_Fleet\\Components\\Sponsor\\Sponsor::get_submenu_fm_fields()`"
+			"children": "`\\Civil_First_Fleet\\Components\\Sponsor::get_submenu_fm_fields()`"
 		},
 		"component_defaults": {
 			"label": { "__": "Component Defaults" },

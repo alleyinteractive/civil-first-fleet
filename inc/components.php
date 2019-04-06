@@ -15,16 +15,6 @@ add_filter(
 	}
 );
 
-// Filter the theme component path for autoloading.
-add_filter(
-	'wp_components_theme_components_path',
-	function( $class, $dirs ) {
-		return get_template_directory() . '/components' . implode( '/', $dirs ) . "/class-{$class}.php";
-	},
-	10,
-	2
-);
-
 // Filter for component asset path.
 add_filter(
 	'wp_render_asset_path',

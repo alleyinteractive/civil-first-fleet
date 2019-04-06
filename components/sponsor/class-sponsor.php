@@ -5,7 +5,7 @@
  * @package Civil_First_Fleet
  */
 
-namespace Civil_First_Fleet\Components\Sponsor;
+namespace Civil_First_Fleet\Components;
 
 /**
  * Class for the Article template.

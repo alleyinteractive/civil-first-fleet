@@ -159,6 +159,19 @@ function civil_first_fleet_fm_submenu_newsroom_settings() {
 						],
 					]
 				),
+				'header' => new Fieldmanager_Group(
+					[
+						'label' => __( 'Header', 'civil-first-fleet' ),
+						'children' => [
+							'call_to_action_button' => new Fieldmanager_Group(
+								[
+									'label' => __( 'Call To Action Button', 'civil-first-fleet' ),
+									'children' => \Civil_First_Fleet\Components\Call_To_Action\Button::get_fm_fields(),
+								]
+							),
+						],
+					]
+				),
 				'newsletter' => new Fieldmanager_Group(
 					[
 						'label' => __( 'Newsletter', 'civil-first-fleet' ),
@@ -213,7 +226,7 @@ function civil_first_fleet_fm_submenu_newsroom_settings() {
 				'sponsors' => new Fieldmanager_Group(
 					[
 						'label' => __( 'Sponsors', 'civil-first-fleet' ),
-						'children' => \Civil_First_Fleet\Components\Sponsor\Sponsor::get_submenu_fm_fields(),
+						'children' => \Civil_First_Fleet\Components\Sponsor::get_submenu_fm_fields(),
 					]
 				),
 				'component_defaults' => new Fieldmanager_Group(
@@ -465,7 +478,7 @@ function civil_first_fleet_fm_post_post_article_settings() {
 				),
 				'sponsorship' => new Fieldmanager_Group(
 					[
-						'children' => \Civil_First_Fleet\Components\Sponsor\Sponsor::get_schedule_fm_fields(),
+						'children' => \Civil_First_Fleet\Components\Sponsor::get_schedule_fm_fields(),
 					]
 				),
 			],
@@ -486,7 +499,7 @@ function civil_first_fleet_fm_post_sponsor_settings() {
 			'name' => 'post-sponsor-settings',
 			'serialize_data' => false,
 			'add_to_prefix' => false,
-			'children' => \Civil_First_Fleet\Components\Sponsor\Sponsor::get_fm_fields(),
+			'children' => \Civil_First_Fleet\Components\Sponsor::get_fm_fields(),
 		]
 	);
 	$fm->add_meta_box( __( 'Settings', 'civil-first-fleet' ), [ 'sponsor' ], 'normal', 'high' );
@@ -507,7 +520,7 @@ function civil_first_fleet_fm_term_mixed_sponsorship() {
 			'children' => [
 				'sponsorship' => new Fieldmanager_Group(
 					[
-						'children' => \Civil_First_Fleet\Components\Sponsor\Sponsor::get_schedule_fm_fields(),
+						'children' => \Civil_First_Fleet\Components\Sponsor::get_schedule_fm_fields(),
 					]
 				),
 			],
