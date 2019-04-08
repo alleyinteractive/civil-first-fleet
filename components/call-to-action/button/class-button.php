@@ -144,18 +144,22 @@ class Button extends \WP_Components\Component {
 		switch ( $this->get_config( 'action' ) ) {
 			case 'pico_manage_account':
 				$classes[] = 'PicoRule';
+				$classes[] = 'PicoSignal';
 				$classes[] = 'PicoManageAccount';
 				break;
 			case 'pico_edit_profile':
 				$classes[] = 'PicoRule';
+				$classes[] = 'PicoSignal';
 				$classes[] = 'PicoEditProfile';
 				break;
 			case 'pico_manage_newsletters':
 				$classes[] = 'PicoRule';
+				$classes[] = 'PicoSignal';
 				$classes[] = 'PicoManageNewsletters';
 				break;
 			case 'pico_manage_payment':
 				$classes[] = 'PicoRule';
+				$classes[] = 'PicoSignal';
 				$classes[] = 'PicoManagePayment';
 				break;
 		}
