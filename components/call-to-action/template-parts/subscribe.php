@@ -37,6 +37,7 @@ $context     = $component->get_data( 'context' );
 						( new \Civil_First_Fleet\Components\Call_To_Action\Button() )
 							->set_config( 'label', $button_text )
 							->set_config( 'id', 'subscribe-button-cta' )
+							->set_config( 'width', '' )
 							->set_config( 'action', 'pico_manage_newsletters' )
 							->set_config( 'classes', [ 'civil__call-to-action__inline-link' ] )
 					);
