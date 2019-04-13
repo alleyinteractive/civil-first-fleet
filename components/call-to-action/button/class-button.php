@@ -53,11 +53,9 @@ class Button extends \WP_Components\Component {
 				[
 					'label'   => __( 'Button Action', 'civil-first-fleet' ),
 					'options' => [
-						'link'                    => __( 'Link', 'civil-first-fleet' ),
-						'pico_manage_account'     => __( 'Pico - Manage Account', 'civil-first-fleet' ),
-						'pico_edit_profile'       => __( 'Pico - Edit Profile', 'civil-first-fleet' ),
-						'pico_manage_newsletters' => __( 'Pico - Manage Newsletters', 'civil-first-fleet' ),
-						'pico_manage_payment'     => __( 'Pico - Manage Payment', 'civil-first-fleet' ),
+						'link'              => __( 'Link', 'civil-first-fleet' ),
+						'pico_registration' => __( 'Pico - Registration', 'civil-first-fleet' ),
+						'pico_monetization' => __( 'Pico - Monetization', 'civil-first-fleet' ),
 					],
 				]
 			),
@@ -142,25 +140,13 @@ class Button extends \WP_Components\Component {
 
 		// Add classes based on action.
 		switch ( $this->get_config( 'action' ) ) {
-			case 'pico_manage_account':
-				$classes[] = 'PicoRule';
+			case 'pico_registration':
 				$classes[] = 'PicoSignal';
-				$classes[] = 'PicoManageAccount';
+				$classes[] = 'PicoRule';
 				break;
-			case 'pico_edit_profile':
-				$classes[] = 'PicoRule';
+			case 'pico_monetization':
 				$classes[] = 'PicoSignal';
-				$classes[] = 'PicoEditProfile';
-				break;
-			case 'pico_manage_newsletters':
-				$classes[] = 'PicoRule';
-				$classes[] = 'PicoSignal';
-				$classes[] = 'PicoManageNewsletters';
-				break;
-			case 'pico_manage_payment':
-				$classes[] = 'PicoRule';
-				$classes[] = 'PicoSignal';
-				$classes[] = 'PicoManagePayment';
+				$classes[] = 'PicoPlan';
 				break;
 		}
 
