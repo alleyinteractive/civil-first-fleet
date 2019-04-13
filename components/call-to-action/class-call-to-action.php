@@ -48,6 +48,7 @@ class Call_To_Action extends \Civil_First_Fleet\Component {
 			'title'       => '',
 			'description' => '',
 			'button_text' => __( 'Subscribe Now', 'civil-first-fleet' ),
+			'button'      => [],
 		];
 	}
 
@@ -137,13 +138,9 @@ class Call_To_Action extends \Civil_First_Fleet\Component {
 								],
 							]
 						),
-						'button_text' => new \Fieldmanager_Textfield(
+						'button' => new \Fieldmanager_Group(
 							[
-								'label' => __( 'Button Text', 'civil-first-fleet' ),
-								'display_if' => [
-									'src' => 'customize',
-									'value' => true,
-								],
+								'children' => \Civil_First_Fleet\Components\Call_To_Action\Button::get_fm_fields(),
 							]
 						),
 					],

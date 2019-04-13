@@ -14,6 +14,7 @@ $layout = $component->get_setting( 'layout' );
 
 // Get data.
 $button_text = $component->get_data( 'button_text' );
+$button      = (array) $component->get_data( 'button' );
 $description = $component->get_data( 'description' );
 $title       = $component->get_data( 'title' );
 $location    = $component->get_data( 'location' );
@@ -35,10 +36,9 @@ $context     = $component->get_data( 'context' );
 				if ( 'inline' === $layout ) {
 					\WP_Render\render(
 						( new \Civil_First_Fleet\Components\Call_To_Action\Button() )
-							->set_config( 'label', $button_text )
+							->parse_from_fm_data( $button ?? [] )
 							->set_config( 'id', 'subscribe-button-cta' )
 							->set_config( 'width', '' )
-							->set_config( 'action', 'pico_monetization' )
 							->set_config( 'classes', [ 'civil__call-to-action__inline-link' ] )
 					);
 				}
@@ -51,9 +51,8 @@ $context     = $component->get_data( 'context' );
 				<?php
 				\WP_Render\render(
 					( new \Civil_First_Fleet\Components\Call_To_Action\Button() )
-						->set_config( 'action', 'pico_monetization' )
+						->parse_from_fm_data( $button ?? [] )
 						->set_config( 'id', empty( $context ) ? 'subscribe-button-cta' : 'subscribe-button-cta-' . $context )
-						->set_config( 'label', $button_text )
 				);
 				?>
 			</div>
