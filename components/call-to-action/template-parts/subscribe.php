@@ -38,7 +38,7 @@ $context     = $component->get_data( 'context' );
 							->set_config( 'label', $button_text )
 							->set_config( 'id', 'subscribe-button-cta' )
 							->set_config( 'width', '' )
-							->set_config( 'action', 'pico_manage_newsletters' )
+							->set_config( 'action', 'pico_monetization' )
 							->set_config( 'classes', [ 'civil__call-to-action__inline-link' ] )
 					);
 				}
@@ -51,7 +51,7 @@ $context     = $component->get_data( 'context' );
 				<?php
 				\WP_Render\render(
 					( new \Civil_First_Fleet\Components\Call_To_Action\Button() )
-						->set_config( 'action', 'pico_manage_newsletters' )
+						->set_config( 'action', 'pico_monetization' )
 						->set_config( 'id', empty( $context ) ? 'subscribe-button-cta' : 'subscribe-button-cta-' . $context )
 						->set_config( 'label', $button_text )
 				);
