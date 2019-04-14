@@ -151,8 +151,12 @@ class Button extends \WP_Components\Component {
 		}
 
 		// Add height and width classes.
-		$classes[] = $this->get_config( 'height' ) . '-height';
-		$classes[] = $this->get_config( 'width' ) . '-width';
+		if ( ! empty( $this->get_config( 'height' ) ) ) {
+			$classes[] = $this->get_config( 'height' ) . '-height';
+		}
+		if ( ! empty( $this->get_config( 'width' ) ) ) {
+			$classes[] = $this->get_config( 'width' ) . '-width';
+		}
 
 		return $classes;
 	}
