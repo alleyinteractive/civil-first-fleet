@@ -4,6 +4,7 @@ const entry = {
   article: ['client/src/entries/article/index.js'],
   home: ['client/src/entries/home/index.js'],
   page: ['client/src/entries/page/index.js'],
+  'cta-button': ['components/call-to-action/button/assets/index.js'],
   sponsor: ['components/sponsor/assets/index.js'],
 };
 

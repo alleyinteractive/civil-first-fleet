@@ -55,11 +55,14 @@ $contact_email = $component->get_data( 'contact_email' );
 
 			<div class="<?php ai_the_classnames( [ 'subscribe-wrapper' ] ); ?>">
 				<?php
-				// Subscribe button.
-				\Civil_First_Fleet\Component\subscribe_button()
-					->set_setting( 'width', 'full' )
-					->set_data( 'id', 'subscribe-button-footer' )
-					->render();
+				\WP_Render\render(
+					( new \Civil_First_Fleet\Components\Call_To_Action\Button() )
+						->set_config( 'width', 'full' )
+						->set_config( 'id', 'subscribe-button-footer' )
+						->parse_from_fm_data(
+							get_option( 'newsroom-settings' )['footer']['call_to_action_button'] ?? []
+						)
+				);
 
 				if ( ! empty( $contact_email ) ) :
 					?>

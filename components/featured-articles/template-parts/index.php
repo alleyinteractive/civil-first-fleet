@@ -40,7 +40,7 @@ $hide_sidebar = (bool) $component->get_data( 'meta', 'hide_sidebar' );
 		$sponsorship = (array) $component->get_data( 'meta', 'sponsorship' );
 		if ( ! empty( $sponsorship ) ) {
 			\WP_Render\render(
-				( new \Civil_First_Fleet\Components\Sponsor\Sponsor() )
+				( new \Civil_First_Fleet\Components\Sponsor() )
 					->parse_from_schedule_fm_data( $sponsorship['schedules'] ?? [] )
 					->set_config( 'theme', 'featured-article' )
 			);

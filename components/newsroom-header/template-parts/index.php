@@ -74,9 +74,13 @@ $ai_component = ai_get_var( 'component' );
 
 			<div class="<?php ai_the_classnames( [ 'subscribe-wrapper' ] ); ?>">
 				<?php
-				\Civil_First_Fleet\Component\subscribe_button()
-					->set_data( 'id', 'subscribe-button-header' )
-					->render();
+				\WP_Render\render(
+					( new \Civil_First_Fleet\Components\Call_To_Action\Button() )
+						->set_config( 'id', 'subscribe-button-header' )
+						->parse_from_fm_data(
+							get_option( 'newsroom-settings' )['header']['call_to_action_button'] ?? []
+						)
+				);
 				?>
 			</div>
 

@@ -15,7 +15,6 @@ import CallToActionConfig from 'components/call-to-action';
 import 'components/newsroom-footer';
 import 'components/logo';
 import 'components/image';
-import 'components/subscribe-button';
 import 'components/search-form';
 
 // Global styles

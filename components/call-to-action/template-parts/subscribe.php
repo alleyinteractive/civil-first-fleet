@@ -14,6 +14,7 @@ $layout = $component->get_setting( 'layout' );
 
 // Get data.
 $button_text = $component->get_data( 'button_text' );
+$button      = (array) $component->get_data( 'button' );
 $description = $component->get_data( 'description' );
 $title       = $component->get_data( 'title' );
 $location    = $component->get_data( 'location' );
@@ -30,27 +31,31 @@ $context     = $component->get_data( 'context' );
 	<div class="<?php ai_the_classnames( [ 'civil__call-to-action__body' ] ); ?>">
 		<?php if ( ! empty( $description ) ) : ?>
 			<p class="<?php ai_the_classnames( [ 'civil__call-to-action__text' ] ); ?>">
-				<?php echo esc_html( $description ); ?>
-				<?php if ( 'inline' === $layout ) : ?>
-					<button
-						id="subscribe-button-cta"
-						class="<?php ai_the_classnames( [ 'civil__call-to-action__inline-link' ] ); ?>"
-					>
-						<?php echo esc_html( $button_text ); ?>
-					</button>
-				<?php endif; ?>
+				<?php
+				echo esc_html( $description );
+				if ( 'inline' === $layout ) {
+					\WP_Render\render(
+						( new \Civil_First_Fleet\Components\Call_To_Action\Button() )
+							->parse_from_fm_data( $button ?? [] )
+							->set_config( 'id', 'subscribe-button-cta' )
+							->set_config( 'width', '' )
+							->set_config( 'classes', [ 'civil__call-to-action__inline-link' ] )
+					);
+				}
+				?>
 			</p>
 		<?php endif; ?>
 
 		<?php if ( 'inline' !== $layout ) : ?>
-		<div class="<?php ai_the_classnames( [ 'civil__call-to-action__button-wrapper' ] ); ?>">
-			<?php
-			\Civil_First_Fleet\Component\subscribe_button()
-				->set_data( 'text', $button_text )
-				->set_data( 'id', empty( $context ) ? 'subscribe-button-cta' : 'subscribe-button-cta-' . $context )
-				->render();
-			?>
-		</div>
+			<div class="<?php ai_the_classnames( [ 'civil__call-to-action__button-wrapper' ] ); ?>">
+				<?php
+				\WP_Render\render(
+					( new \Civil_First_Fleet\Components\Call_To_Action\Button() )
+						->parse_from_fm_data( $button ?? [] )
+						->set_config( 'id', empty( $context ) ? 'subscribe-button-cta' : 'subscribe-button-cta-' . $context )
+				);
+				?>
+			</div>
 		<?php endif; ?>
 	</div>
 </section>
