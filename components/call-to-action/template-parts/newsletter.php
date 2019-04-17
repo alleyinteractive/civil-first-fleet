@@ -14,7 +14,7 @@ $layout     = $component->get_setting( 'layout' );
 $newsletter = $component->get_setting( 'newsletter' );
 
 // Get data.
-$button_text = $component->get_data( 'button_text' );
+$button_text = $component->get_data( 'button' )['label'] ?? $component->get_data( 'button_text' );
 $description = $component->get_data( 'description' );
 $title       = $component->get_data( 'title' );
 $location    = $component->get_data( 'location' );
@@ -67,7 +67,7 @@ $location    = $component->get_data( 'location' );
 				<input
 					class="<?php ai_the_classnames( [ 'civil__call-to-action__newsletter-submit' ] ); ?>"
 					type="submit"
-					value="<?php echo esc_attr( $component->get_data( 'button_text' ) ); ?>"
+					value="<?php echo esc_attr( $button_text ); ?>"
 				>
 			</div>
 			<div class="<?php ai_the_classnames( [ 'civil__call-to-action__newsletter-data' ] ); ?>">
