@@ -48,10 +48,20 @@
 		"analytics": {
 			"label": { "__": "Analytics" },
 			"children": {
-				"ga_property_code": {
-					"type": "text",
-					"label": { "__": "Google Analytics Property ID" },
-					"description": { "__": "This is the Google Analytics Property ID that will be used to track all data on this site. (i.e. 'UA-XXXXX-Y')" }
+				"properties": {
+					"label": { "__": "Properties" },
+					"children": {
+						"ga_property_code": {
+							"type": "text",
+							"label": { "__": "Google Analytics Property ID" },
+							"description": { "__": "This is the Google Analytics Property ID that will be used to track all data on this site. (i.e. 'UA-XXXXX-Y')" }
+						},
+						"gmt_property_code": {
+							"type": "text",
+							"label": { "__": "Google Tag Manager Property ID" },
+							"description": { "__": "This is the Google Tag Manager Property ID that will be used to track all data on this site. (i.e. 'GTM-XXXX')" }
+						}
+					}
 				}
 			}
 		},

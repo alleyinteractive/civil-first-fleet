@@ -14,7 +14,8 @@ if ( ! have_posts() ) {
 }
 
 ai_get_template_part(
-	'template-parts/homepage', $modifier,
+	'template-parts/homepage',
+	$modifier,
 	[
 		'homepage_id' => get_the_ID(),
 	]

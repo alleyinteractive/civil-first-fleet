@@ -124,9 +124,32 @@ add_action( 'wp_head', __NAMESPACE__ . '\pingback_header' );
  * Add Google Analytics Tracking to the site.
  */
 add_action(
-	'wp_head', function() {
+	'wp_head',
+	function() {
 		ai_get_template_part( 'template-parts/global/google-analytics' );
-	}, 15
+	},
+	15
+);
+
+/**
+ * Add Google Tag Manager Tracking to the site.
+ */
+add_action(
+	'wp_head',
+	function() {
+		ai_get_template_part( 'template-parts/global/google-tag-manager' );
+	},
+	15
+);
+
+/**
+ * Add Google Tag Manager NoScript Tracking to the site.
+ */
+add_action(
+	'wp_body_open',
+	function() {
+		ai_get_template_part( 'template-parts/global/google-tag-manager-nocript' );
+	}
 );
 
 /**

@@ -123,10 +123,23 @@ function civil_first_fleet_fm_submenu_newsroom_settings() {
 					[
 						'label' => __( 'Analytics', 'civil-first-fleet' ),
 						'children' => [
-							'ga_property_code' => new Fieldmanager_TextField(
+							'properties' => new Fieldmanager_Group(
 								[
-									'label' => __( 'Google Analytics Property ID', 'civil-first-fleet' ),
-									'description' => __( "This is the Google Analytics Property ID that will be used to track all data on this site. (i.e. 'UA-XXXXX-Y')", 'civil-first-fleet' ),
+									'label' => __( 'Properties', 'civil-first-fleet' ),
+									'children' => [
+										'ga_property_code' => new Fieldmanager_TextField(
+											[
+												'label' => __( 'Google Analytics Property ID', 'civil-first-fleet' ),
+												'description' => __( "This is the Google Analytics Property ID that will be used to track all data on this site. (i.e. 'UA-XXXXX-Y')", 'civil-first-fleet' ),
+											]
+										),
+										'gmt_property_code' => new Fieldmanager_TextField(
+											[
+												'label' => __( 'Google Tag Manager Property ID', 'civil-first-fleet' ),
+												'description' => __( "This is the Google Tag Manager Property ID that will be used to track all data on this site. (i.e. 'GTM-XXXX')", 'civil-first-fleet' ),
+											]
+										),
+									],
 								]
 							),
 						],

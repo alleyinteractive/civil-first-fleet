@@ -6,8 +6,7 @@
  */
 
 // Get the site's property code.
-$component = new \Civil_First_Fleet\Component();
-$ga_property_code = $component->get_option( 'newsroom-settings', 'analytics', 'ga_property_code' );
+$ga_property_code = ( new \Civil_First_Fleet\Component() )->get_option( 'newsroom-settings', 'analytics', 'properties', 'ga_property_code' );
 
 // No code found.
 if ( empty( $ga_property_code ) ) {
@@ -15,6 +14,7 @@ if ( empty( $ga_property_code ) ) {
 }
 
 ?>
+
 <!-- Google Analytics -->
 <script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
