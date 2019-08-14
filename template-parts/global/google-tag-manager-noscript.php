@@ -7,7 +7,7 @@
  */
 
 // Get the site's property code.
-$gtm_property_code = ( new \Civil_First_Fleet\Component() )->get_option( 'newsroom-settings', 'analytics', 'properties', 'gmt_property_code' );
+$gtm_property_code = ( new \Civil_First_Fleet\Component() )->get_option( 'newsroom-settings', 'analytics', 'gtm_property_code' );
 
 // No code found.
 if ( empty( $gtm_property_code ) ) {
