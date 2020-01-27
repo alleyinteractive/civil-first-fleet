@@ -52,6 +52,8 @@
 
 		</div>
 
+		<div class="PicoSignal"></div>
+
 		<?php wp_footer(); ?>
 	</body>
 </html>
