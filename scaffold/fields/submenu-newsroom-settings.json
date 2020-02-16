@@ -216,6 +216,20 @@
 		"article_taxonomies": {
 			"label": { "__": "Article Taxonomies" },
 			"children": "`\\Civil_First_Fleet\\Component\\article_taxonomies()->get_fm_fields()`"
+		},
+		"feeds": {
+			"label": { "__": "Feeds" },
+			"children": {
+				"rss_feed_settings": {
+					"label": { "__": "RSS Feed Settings" },
+					"children": {
+						"add_featured_image_to_rss_feeds": {
+							"type": "checkbox",
+							"label": { "__": "Add featured image to post content in RSS feeds." }
+						}
+					}
+				}
+			}
 		}
 	}
 }
