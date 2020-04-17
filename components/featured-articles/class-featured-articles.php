@@ -27,9 +27,10 @@ class Featured_Articles extends \Civil_First_Fleet\Component\Content_List {
 	 */
 	public function default_data() : array {
 		$data = parent::default_data();
-		$data['call_to_action'] = null;
-		$data['sponsorship']    = false;
-		$data['hide_sidebar']   = false;
+		$data['call_to_action']   = null;
+		$data['sponsorship']      = false;
+		$data['hide_sidebar']     = false;
+		$data['disable_backfill'] = false;
 		return $data;
 	}
 
@@ -48,20 +49,25 @@ class Featured_Articles extends \Civil_First_Fleet\Component\Content_List {
 				'label'     => __( 'Settings', 'civil-first-fleet' ),
 				'collapsed' => true,
 				'children'  => [
-					'title'          => new \Fieldmanager_Textfield( __( 'Title', 'civil-first-fleet' ) ),
-					'hide_sidebar'   => new \Fieldmanager_Checkbox(
+					'title'            => new \Fieldmanager_Textfield( __( 'Title', 'civil-first-fleet' ) ),
+					'hide_sidebar'     => new \Fieldmanager_Checkbox(
 						[
-							'label'       => __( 'Hide Sidebar (only display one post)', 'civil-first-fleet' ),
+							'label' => __( 'Hide Sidebar (only display one post)', 'civil-first-fleet' ),
 						]
 					),
-					'call_to_action' => new \Fieldmanager_Group(
+					'disable_backfill' => new \Fieldmanager_Checkbox(
+						[
+							'label' => __( 'Disable Article Backfill (only display curated posts)', 'civil-first-fleet' ),
+						],
+					),
+					'call_to_action'   => new \Fieldmanager_Group(
 						[
 							'label'     => __( 'Call To Action', 'civil-first-fleet' ),
 							'collapsed' => true,
 							'children'  => call_to_action()->get_fm_fields(),
 						]
 					),
-					'sponsorship'    => new \Fieldmanager_Group(
+					'sponsorship'      => new \Fieldmanager_Group(
 						[
 							'label'    => __( 'Sponsors', 'civil-first-fleet' ),
 							'children' => \Civil_First_Fleet\Components\Sponsor::get_schedule_fm_fields(),
@@ -82,6 +88,7 @@ class Featured_Articles extends \Civil_First_Fleet\Component\Content_List {
 		$items               = absint( $this->get_setting( 'items' ) );
 		$hide_sidebar        = (bool) $this->get_data( 'meta', 'hide_sidebar' ) ?? false;
 		$show_call_to_action = (bool) $this->get_data( 'meta', 'call_to_action', 'enable' ) ?? false;
+		$disable_backfill    = (bool) $this->get_data( 'meta', 'disable_backfill' ) ?? false;
 
 		// Set the sponsorship data.
 		$this->set_data( 'sponsorship', $this->get_data( 'meta', 'sponsorship' ) );
@@ -94,6 +101,9 @@ class Featured_Articles extends \Civil_First_Fleet\Component\Content_List {
 			// Only 6 items if rendering a call to action.
 			$this->set_setting( 'items', 6 );
 		}
+
+		// Set backfill setting.
+		$this->set_setting( 'disable_backfill', $disable_backfill );
 	}
 }
 
