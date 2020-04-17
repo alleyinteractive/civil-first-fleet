@@ -52,12 +52,12 @@ class Featured_Articles extends \Civil_First_Fleet\Component\Content_List {
 					'title'            => new \Fieldmanager_Textfield( __( 'Title', 'civil-first-fleet' ) ),
 					'hide_sidebar'     => new \Fieldmanager_Checkbox(
 						[
-							'label'       => __( 'Hide Sidebar (only display one post)', 'civil-first-fleet' ),
+							'label' => __( 'Hide Sidebar (only display one post)', 'civil-first-fleet' ),
 						]
 					),
 					'disable_backfill' => new \Fieldmanager_Checkbox(
 						[
-							'label'         => __( 'Disable Article Backfill (only display curated posts)', 'civil-first-fleet' ),
+							'label' => __( 'Disable Article Backfill (only display curated posts)', 'civil-first-fleet' ),
 						],
 					),
 					'call_to_action'   => new \Fieldmanager_Group(
