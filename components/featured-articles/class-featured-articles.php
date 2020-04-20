@@ -58,7 +58,7 @@ class Featured_Articles extends \Civil_First_Fleet\Component\Content_List {
 					'disable_backfill' => new \Fieldmanager_Checkbox(
 						[
 							'label' => __( 'Disable Article Backfill (only display curated posts)', 'civil-first-fleet' ),
-						],
+						]
 					),
 					'call_to_action'   => new \Fieldmanager_Group(
 						[
