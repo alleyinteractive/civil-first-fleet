@@ -51,7 +51,7 @@
 							"type": "checkbox"
 						},
 						"disable_footer": {
-							"label": { "__": "Disable 'This Newsroom runs on Civil' call to action in header." },
+							"label": { "__": "Disable the Civil footer." },
 							"type": "checkbox"
 						}
 					}
