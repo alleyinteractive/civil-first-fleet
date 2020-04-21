@@ -24,7 +24,7 @@ class Civil_First_Fleet_Post_Type_Sponsor extends Civil_First_Fleet_Post_Type {
 		register_post_type(
 			$this->name,
 			[
-				'labels' => [
+				'labels'             => [
 					'name'                     => __( 'Sponsors', 'civil-first-fleet' ),
 					'singular_name'            => __( 'Sponsor', 'civil-first-fleet' ),
 					'add_new'                  => __( 'Add New Sponsor', 'civil-first-fleet' ),
@@ -56,13 +56,86 @@ class Civil_First_Fleet_Post_Type_Sponsor extends Civil_First_Fleet_Post_Type {
 					'item_updated'             => __( 'Sponsor updated.', 'civil-first-fleet' ),
 					'menu_name'                => __( 'Sponsors', 'civil-first-fleet' ),
 				],
-				'public' => true,
-				'show_in_rest' => true,
+				'public'             => true,
+				'show_in_rest'       => true,
 				'publicly_queryable' => false,
-				'menu_icon' => 'dashicons-groups',
-				'supports' => [ 'title' ],
+				'menu_icon'          => 'dashicons-groups',
+				'supports'           => [ 'title' ],
 			]
 		);
+	}
+
+	/**
+	 * Set post type updated messages.
+	 *
+	 * The messages are as follows:
+	 *
+	 *   1 => "Post updated. {View Post}"
+	 *   2 => "Custom field updated."
+	 *   3 => "Custom field deleted."
+	 *   4 => "Post updated."
+	 *   5 => "Post restored to revision from [date]."
+	 *   6 => "Post published. {View post}"
+	 *   7 => "Post saved."
+	 *   8 => "Post submitted. {Preview post}"
+	 *   9 => "Post scheduled for: [date]. {Preview post}"
+	 *  10 => "Post draft updated. {Preview post}"
+	 *
+	 * (Via https://github.com/johnbillion/extended-cpts.)
+	 *
+	 * @param array $messages An associative array of post updated messages with post type as keys.
+	 * @return array Updated array of post updated messages.
+	 */
+	public function set_post_updated_messages( $messages ) {
+		global $post;
+
+		$preview_url    = get_preview_post_link( $post );
+		$permalink      = get_permalink( $post );
+		$scheduled_date = date_i18n( 'M j, Y @ H:i', strtotime( $post->post_date ) );
+
+		$preview_post_link_html   = '';
+		$scheduled_post_link_html = '';
+		$view_post_link_html      = '';
+
+		if ( is_post_type_viewable( $this->name ) ) {
+			// Preview-post link.
+			$preview_post_link_html = sprintf(
+				' <a target="_blank" href="%1$s">%2$s</a>',
+				esc_url( $preview_url ),
+				__( 'Preview sponsor', 'civil-first-fleet' )
+			);
+
+			// Scheduled post preview link.
+			$scheduled_post_link_html = sprintf(
+				' <a target="_blank" href="%1$s">%2$s</a>',
+				esc_url( $permalink ),
+				__( 'Preview sponsor', 'civil-first-fleet' )
+			);
+
+			// View-post link.
+			$view_post_link_html = sprintf(
+				' <a href="%1$s">%2$s</a>',
+				esc_url( $permalink ),
+				__( 'View sponsor', 'civil-first-fleet' )
+			);
+		}
+
+		$messages[ $this->name ] = [
+			1  => __( 'Sponsor updated.', 'civil-first-fleet' ) . $view_post_link_html,
+			2  => __( 'Custom field updated.', 'civil-first-fleet' ),
+			3  => __( 'Custom field updated.', 'civil-first-fleet' ),
+			4  => __( 'Sponsor updated.', 'civil-first-fleet' ),
+			/* translators: %s: date and time of the revision */
+			5  => isset( $_GET['revision'] ) ? sprintf( __( 'Sponsor restored to revision from %s.', 'civil-first-fleet' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false, // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			6  => __( 'Sponsor published.', 'civil-first-fleet' ) . $view_post_link_html,
+			7  => __( 'Sponsor saved.', 'civil-first-fleet' ),
+			8  => __( 'Sponsor submitted.', 'civil-first-fleet' ) . $preview_post_link_html,
+			/* translators: %s: date on which the sponsor is currently scheduled to be published */
+			9  => sprintf( __( 'Sponsor scheduled for: %s.', 'civil-first-fleet' ), '<strong>' . $scheduled_date . '</strong>' ) . $scheduled_post_link_html,
+			10 => __( 'Sponsor draft updated.', 'civil-first-fleet' ) . $preview_post_link_html,
+		];
+
+		return $messages;
 	}
 }
 $civil_first_fleet_post_type_sponsor = new Civil_First_Fleet_Post_Type_Sponsor();

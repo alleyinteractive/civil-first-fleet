@@ -65,6 +65,11 @@
 					"type": "text",
 					"label": { "__": "Google Analytics Property ID" },
 					"description": { "__": "This is the Google Analytics Property ID that will be used to track all data on this site. (i.e. 'UA-XXXXX-Y')" }
+				},
+				"gtm_property_code": {
+					"type": "text",
+					"label": { "__": "Google Tag Manager Property ID" },
+					"description": { "__": "This is the Google Tag Manager Property ID that will be used to track all data on this site. (i.e. 'GTM-XXXX')" }
 				}
 			}
 		},
@@ -223,6 +228,20 @@
 		"article_taxonomies": {
 			"label": { "__": "Article Taxonomies" },
 			"children": "`\\Civil_First_Fleet\\Component\\article_taxonomies()->get_fm_fields()`"
+		},
+		"feeds": {
+			"label": { "__": "Feeds" },
+			"children": {
+				"rss_feed_settings": {
+					"label": { "__": "RSS Feed Settings" },
+					"children": {
+						"add_featured_image_to_rss_feeds": {
+							"type": "checkbox",
+							"label": { "__": "Add featured image to post content in RSS feeds." }
+						}
+					}
+				}
+			}
 		}
 	}
 }
