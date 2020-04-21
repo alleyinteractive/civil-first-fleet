@@ -42,6 +42,19 @@
 							"type": "textarea"
 						}
 					}
+				},
+				"civil_branding": {
+					"label": { "__": "Civil Branding" },
+					"children": {
+						"disable_header_cta": {
+							"label": { "__": "Disable 'This Newsroom runs on Civil' call to action in header." },
+							"type": "checkbox"
+						},
+						"disable_footer": {
+							"label": { "__": "Disable 'This Newsroom runs on Civil' call to action in header." },
+							"type": "checkbox"
+						}
+					}
 				}
 			}
 		},
@@ -181,8 +194,7 @@
 			"label": { "__": "Contact Info" },
 			"children": {
 				"email": {
-					"label": { "__": "Email Address" },
-					"default_value": "support@civil.co"
+					"label": { "__": "Email Address" }
 				}
 			}
 		},
