@@ -11,7 +11,8 @@
 namespace Civil_First_Fleet;
 
 // Get this instance.
-$ai_component = ai_get_var( 'component' );
+$ai_component           = ai_get_var( 'component' );
+$disable_civil_branding = wp_validate_boolean( get_option( 'newsroom-settings' )['branding']['civil_branding']['disable_header_cta'] ?? false );
 ?>
 
 <header class="<?php ai_the_classnames( [ 'wrapper' ] ); ?>" data-component="<?php echo esc_attr( $ai_component->slug ); ?>">
@@ -84,7 +85,9 @@ $ai_component = ai_get_var( 'component' );
 				?>
 			</div>
 
-			<span class="<?php ai_the_classnames( [ 'runs-on-civil--nav' ] ); ?>"><a href="https://civil.co" target="_blank"><?php ai_get_template_part( $ai_component->get_component_path( 'svg/runs-on-civil-black-inline.svg' ) ); ?></a></span>
+			<?php if ( ! $disable_civil_branding ) : ?>
+				<span class="<?php ai_the_classnames( [ 'runs-on-civil--nav' ] ); ?>"><a href="https://civil.co" target="_blank"><?php ai_get_template_part( $ai_component->get_component_path( 'svg/runs-on-civil-black-inline.svg' ) ); ?></a></span>
+			<?php endif; ?>
 		</div><!-- #site-navigation -->
 
 		<button class="<?php ai_the_classnames( [ 'menu-trigger' ] ); ?>" aria-controls="newsroom-nav" aria-expanded="false">
@@ -92,6 +95,8 @@ $ai_component = ai_get_var( 'component' );
 			<span class="screen-reader-text"><?php esc_html_e( 'Newsroom Navigation', 'civil-first-fleet' ); ?></span>
 		</button>
 
-		<span class="<?php ai_the_classnames( [ 'runs-on-civil' ] ); ?>"><a href="https://civil.co" target="_blank"><?php ai_get_template_part( $ai_component->get_component_path( 'svg/runs-on-civil-black.svg' ) ); ?></a></span>
+		<?php if ( ! $disable_civil_branding ) : ?>
+			<span class="<?php ai_the_classnames( [ 'runs-on-civil' ] ); ?>"><a href="https://civil.co" target="_blank"><?php ai_get_template_part( $ai_component->get_component_path( 'svg/runs-on-civil-black.svg' ) ); ?></a></span>
+		<?php endif; ?>
 	</div>
 </header>
