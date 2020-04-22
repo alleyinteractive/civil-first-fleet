@@ -47,7 +47,7 @@
 
 			<?php
 			\Civil_First_Fleet\Component\newsroom_footer()->render();
-			if ( ! wp_validate_boolean( get_option( 'newsroom-settings' )['branding']['civil_branding']['disable_footer'] ) ) {
+			if ( ! wp_validate_boolean( get_option( 'newsroom-settings' )['branding']['civil_branding']['disable_footer']?? false ) ) {
 				\Civil_First_Fleet\Component\civil_footer()->render();
 			}
 			?>
