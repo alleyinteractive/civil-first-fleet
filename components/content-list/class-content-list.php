@@ -215,7 +215,9 @@ class Content_List extends \Civil_First_Fleet\Component {
 		);
 
 		// Do we need backfill post ids?
-		if ( count( $post_ids ) < $total_ids_needed ) {
+		$disable_backfill = $this->get_setting( 'disable_backfill' );
+
+		if ( ( count( $post_ids ) < $total_ids_needed ) && ! $disable_backfill ) {
 			$backfill_post_ids = $this->get_backfill_post_ids( $total_ids_needed - count( $post_ids ) );
 
 			// Merge backfill post ids.

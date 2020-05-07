@@ -98,7 +98,7 @@ function civil_first_fleet_fm_submenu_newsroom_settings() {
 					[
 						'label'    => __( 'Branding', 'civil-first-fleet' ),
 						'children' => [
-							'logo'        => new Fieldmanager_Group(
+							'logo'           => new Fieldmanager_Group(
 								[
 									'label'    => __( 'Logo', 'civil-first-fleet' ),
 									'children' => [
@@ -107,12 +107,21 @@ function civil_first_fleet_fm_submenu_newsroom_settings() {
 									],
 								]
 							),
-							'footer_logo' => new Fieldmanager_Group(
+							'footer_logo'    => new Fieldmanager_Group(
 								[
 									'label'    => __( 'Footer Logo', 'civil-first-fleet' ),
 									'children' => [
 										'image_id' => new Fieldmanager_Media( __( 'Upload a logo image', 'civil-first-fleet' ) ),
 										'svg'      => new Fieldmanager_TextArea( __( 'Logo SVG', 'civil-first-fleet' ) ),
+									],
+								]
+							),
+							'civil_branding' => new Fieldmanager_Group(
+								[
+									'label'    => __( 'Civil Branding', 'civil-first-fleet' ),
+									'children' => [
+										'disable_header_cta' => new Fieldmanager_Checkbox( __( "Disable 'This Newsroom runs on Civil' call to action in header.", 'civil-first-fleet' ) ),
+										'disable_footer'     => new Fieldmanager_Checkbox( __( 'Disable the Civil footer.', 'civil-first-fleet' ) ),
 									],
 								]
 							),
@@ -295,12 +304,7 @@ function civil_first_fleet_fm_submenu_newsroom_settings() {
 					[
 						'label'    => __( 'Contact Info', 'civil-first-fleet' ),
 						'children' => [
-							'email' => new Fieldmanager_TextField(
-								[
-									'label'         => __( 'Email Address', 'civil-first-fleet' ),
-									'default_value' => 'support@civil.co',
-								]
-							),
+							'email' => new Fieldmanager_TextField( __( 'Email Address', 'civil-first-fleet' ) ),
 						],
 					]
 				),
@@ -332,6 +336,21 @@ function civil_first_fleet_fm_submenu_newsroom_settings() {
 					[
 						'label'    => __( 'Article Taxonomies', 'civil-first-fleet' ),
 						'children' => \Civil_First_Fleet\Component\article_taxonomies()->get_fm_fields(),
+					]
+				),
+				'feeds'              => new Fieldmanager_Group(
+					[
+						'label'    => __( 'Feeds', 'civil-first-fleet' ),
+						'children' => [
+							'rss_feed_settings' => new Fieldmanager_Group(
+								[
+									'label'    => __( 'RSS Feed Settings', 'civil-first-fleet' ),
+									'children' => [
+										'add_featured_image_to_rss_feeds' => new Fieldmanager_Checkbox( __( 'Add featured image to post content in RSS feeds.', 'civil-first-fleet' ) ),
+									],
+								]
+							),
+						],
 					]
 				),
 			],
