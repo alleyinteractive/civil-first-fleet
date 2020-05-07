@@ -133,6 +133,9 @@
 			}
 		},
 		"sponsorship": {
+			"label": {
+				"__": "Sponsorship Schedule"
+			},
 			"children": "`\\Civil_First_Fleet\\Components\\Sponsor::get_schedule_fm_fields()`"
 		},
 		"canonical_url": {

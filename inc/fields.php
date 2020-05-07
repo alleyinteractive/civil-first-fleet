@@ -497,6 +497,7 @@ function civil_first_fleet_fm_post_post_article_settings() {
 				),
 				'sponsorship'                  => new Fieldmanager_Group(
 					[
+						'label'    => __( 'Sponsorship Schedule', 'civil-first-fleet' ),
 						'children' => \Civil_First_Fleet\Components\Sponsor::get_schedule_fm_fields(),
 					]
 				),
