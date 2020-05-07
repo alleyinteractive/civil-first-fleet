@@ -210,3 +210,20 @@ function social_meta() {
 	}
 }
 add_action( 'wp_head', __NAMESPACE__ . '\social_meta' );
+
+/**
+ * Filter post's canonical tag if applicable.
+ *
+ * @param string $canonical_url The post's canonical URL.
+ * @return string Filtered canonical URL.
+ */
+function canonical( $canonical_url ) {
+	if ( is_single() ) {
+		$canonic_url_override = get_post_meta( get_the_ID(), 'canonical_url', true );
+		if ( is_string( $canonic_url_override ) && ! empty( $canonic_url_override ) ) {
+			return $canonic_url_override;
+		}
+	}
+	return $canonical_url;
+}
+add_filter( 'get_canonical_url', __NAMESPACE__ . '\canonical' );
