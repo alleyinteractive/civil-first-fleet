@@ -133,7 +133,19 @@
 			}
 		},
 		"sponsorship": {
+			"label": {
+				"__": "Sponsorship Schedule"
+			},
 			"children": "`\\Civil_First_Fleet\\Components\\Sponsor::get_schedule_fm_fields()`"
+		},
+		"canonical_url": {
+			"type": "link",
+			"label": {
+				"__": "Canonical URL"
+			},
+			"description": {
+				"__": "Use this field to override the canonical URL. You should only set this in cases where an article is syndicated from another source."
+			}
 		}
 	}
 }

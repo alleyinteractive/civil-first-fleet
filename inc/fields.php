@@ -516,7 +516,14 @@ function civil_first_fleet_fm_post_post_article_settings() {
 				),
 				'sponsorship'                  => new Fieldmanager_Group(
 					[
+						'label'    => __( 'Sponsorship Schedule', 'civil-first-fleet' ),
 						'children' => \Civil_First_Fleet\Components\Sponsor::get_schedule_fm_fields(),
+					]
+				),
+				'canonical_url'                => new Fieldmanager_Link(
+					[
+						'label'       => __( 'Canonical URL', 'civil-first-fleet' ),
+						'description' => __( 'Use this field to override the canonical URL. You should only set this in cases where an article is syndicated from another source.', 'civil-first-fleet' ),
 					]
 				),
 			],
