@@ -45,6 +45,7 @@ $hide_sidebar = (bool) $component->get_data( 'meta', 'hide_sidebar' );
 					->set_config( 'theme', 'featured-article' )
 			);
 		}
+		do_action( 'civil_first_fleet_custom_hp_sponsor' );
 		?>
 	</div>
 	<?php if ( ! $hide_sidebar ) : ?>
