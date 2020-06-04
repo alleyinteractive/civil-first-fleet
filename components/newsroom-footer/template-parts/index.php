@@ -8,8 +8,9 @@
 namespace Civil_First_Fleet;
 
 // Get this instance.
-$component     = ai_get_var( 'component' );
-$contact_email = $component->get_data( 'contact_email' );
+$component      = ai_get_var( 'component' );
+$contact_email  = $component->get_data( 'contact_email' );
+$copyright_text = $component->get_data( 'copyright_text' );
 ?>
 <footer class="<?php ai_the_classnames( [ 'wrapper' ] ); ?>">
 	<div class="<?php ai_the_classnames( [ 'inner' ] ); ?>">
@@ -89,7 +90,7 @@ $contact_email = $component->get_data( 'contact_email' );
 				/* translators: Copyright [year] [blog name] */
 				esc_html__( 'Copyright © %1$s %2$s', 'civil-first-fleet' ),
 				absint( date( 'Y' ) ),
-				esc_html( get_bloginfo( 'name' ) )
+				esc_html( $copyright_text )
 			);
 			?>
 		</span>
