@@ -53,6 +53,12 @@ class Newsroom_Footer extends \Civil_First_Fleet\Component {
 	public function pre_render() {
 		// Set `contact_email` to the options setting or default to `support@civil.co`.
 		$this->set_data( 'contact_email', $this->get_option( 'newsroom-settings', 'contact', 'email' ) ?? 'support@civil.co' );
+		// Set `copyright_text` to the options setting or default to the blog name.
+		$copyright_text = $this->get_option( 'newsroom-settings', 'footer', 'copyright', 'copyright_text' ) ?? '';
+		if ( empty( $copyright_text ) ) {
+			$copyright_text = get_bloginfo( 'name' );
+		}
+		$this->set_data( 'copyright_text', $copyright_text );
 	}
 }
 

@@ -109,6 +109,16 @@
 				"call_to_action_button": {
 					"label": { "__": "Call To Action Button" },
 					"children": "`\\Civil_First_Fleet\\Components\\Call_To_Action\\Button::get_fm_fields()`"
+				},
+				"copyright": {
+					"label": { "__": "Copyright" },
+					"children": {
+						"copyright_text": {
+							"type": "text",
+							"label": { "__": "Copyright Text" },
+							"description": { "__": "The text to display after the year. Defaults to site title." }
+						}
+					}
 				}
 			}
 		},

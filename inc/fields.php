@@ -197,6 +197,19 @@ function civil_first_fleet_fm_submenu_newsroom_settings() {
 									'children' => \Civil_First_Fleet\Components\Call_To_Action\Button::get_fm_fields(),
 								]
 							),
+							'copyright'             => new Fieldmanager_Group(
+								[
+									'label'    => __( 'Copyright', 'civil-first-fleet' ),
+									'children' => [
+										'copyright_text' => new Fieldmanager_TextField(
+											[
+												'label'       => __( 'Copyright Text', 'civil-first-fleet' ),
+												'description' => __( 'The text to display after the year. Defaults to site title.', 'civil-first-fleet' ),
+											]
+										),
+									],
+								]
+							),
 						],
 					]
 				),
