@@ -410,3 +410,39 @@
     }
   }
 }
+
+.wrapper {
+
+  :global(.social-icons__wrapper) {
+    @media (--lgMax) {
+      border-top: 1px solid var(--gray1);
+      order: 3;
+      width: 100%;
+    }
+
+    @media (--lgMin) {
+      padding: 0;
+    }
+  }
+
+  :global(.social-icons__follow-text) {
+    color: var(--gray1);
+    font-family: var(--franklin);
+    font-size: rem(14);
+    font-weight: 500;
+
+    @media (--lgMin) {
+      @include screenreader-only;
+    }
+  }
+
+  :global(.social-icons__social-icon-nav) {
+    @media (--lgMax) {
+      margin-left: auto;
+    }
+
+    ul > li > a { /* stylelint-disable-line selector-max-specificity */
+      color: var(--gray1);
+    }
+  }
+}

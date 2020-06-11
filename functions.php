@@ -65,6 +65,7 @@ require_once CIVIL_FIRST_FLEET_PATH . '/components/newsroom-header/class-newsroo
 require_once CIVIL_FIRST_FLEET_PATH . '/components/page-body/class-page-body.php';
 require_once CIVIL_FIRST_FLEET_PATH . '/components/page-header/class-page-header.php';
 require_once CIVIL_FIRST_FLEET_PATH . '/components/search-form/class-search-form.php';
+require_once CIVIL_FIRST_FLEET_PATH . '/components/social-icons/class-social-icons.php';
 require_once CIVIL_FIRST_FLEET_PATH . '/components/error-page/class-error-page.php';
 require_once CIVIL_FIRST_FLEET_PATH . '/components/gallery/class-gallery.php';
 
