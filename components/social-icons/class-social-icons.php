@@ -29,17 +29,6 @@ class Social_Icons extends \Civil_First_Fleet\Component {
       'context' => '',
     );
   }
-
-  /**
-   * Default component data.
-   *
-   * @return array Default data.
-   */
-  public function default_data() : array {
-    return [
-      'search_query' => '',
-    ];
-  }
 }
 
 /**
