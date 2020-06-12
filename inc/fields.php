@@ -317,7 +317,18 @@ function civil_first_fleet_fm_submenu_newsroom_settings() {
 					[
 						'label'    => __( 'Contact Info', 'civil-first-fleet' ),
 						'children' => [
-							'email' => new Fieldmanager_TextField( __( 'Email Address', 'civil-first-fleet' ) ),
+							'email'  => new Fieldmanager_TextField( __( 'Email Address', 'civil-first-fleet' ) ),
+							'social' => new Fieldmanager_Group(
+								[
+									'label'    => __( 'Social Media Links', 'civil-first-fleet' ),
+									'children' => [
+										'facebook'                  => new Fieldmanager_Link( __( 'Facebook URL', 'civil-first-fleet' ) ),
+										'twitter'                   => new Fieldmanager_Link( __( 'Twitter URL', 'civil-first-fleet' ) ),
+										'instagram'                 => new Fieldmanager_Link( __( 'Instagram URL', 'civil-first-fleet' ) ),
+										'show_social_in_header_nav' => new Fieldmanager_Checkbox( __( 'Show social media links in header navigation.', 'civil-first-fleet' ) ),
+									],
+								]
+							),
 						],
 					]
 				),
