@@ -16,6 +16,7 @@ import 'components/newsroom-footer';
 import 'components/logo';
 import 'components/image';
 import 'components/search-form';
+import 'components/social-icons';
 
 // Global styles
 import 'css/global/global.css';

@@ -210,6 +210,27 @@
 			"children": {
 				"email": {
 					"label": { "__": "Email Address" }
+				},
+				"social": {
+					"label": { "__": "Social Media Links" },
+					"children": {
+						"facebook": {
+							"label": { "__": "Facebook URL" },
+							"type": "link"
+						},
+						"twitter": {
+							"label": { "__": "Twitter URL" },
+							"type": "link"
+						},
+						"instagram": {
+							"label": { "__": "Instagram URL" },
+							"type": "link"
+						},
+						"show_social_in_header_nav": {
+							"type": "checkbox",
+							"label": { "__": "Show social media links in header navigation." }
+						}
+					}
 				}
 			}
 		},

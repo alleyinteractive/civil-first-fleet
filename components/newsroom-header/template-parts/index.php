@@ -40,6 +40,15 @@ $disable_civil_branding = wp_validate_boolean( get_option( 'newsroom-settings' )
 			?>
 
 			<?php
+			// If this newsroom is showing a social media link in the header nav.
+			if ( $ai_component->get_option( 'newsroom-settings', 'contact', 'social', 'show_social_in_header_nav' ) ) {
+				\Civil_First_Fleet\Component\social_icons()
+					->set_data( 'context', 'header' )
+					->render();
+			}
+			?>
+
+			<?php
 			// If this newsroom is showing a search widget in the header nav.
 			if ( $ai_component->get_option( 'newsroom-settings', 'search', 'search_display', 'show_search_in_header_nav' ) ) {
 				$search_style = $ai_component->get_option( 'newsroom-settings', 'search', 'search_display', 'search_form_style' );
