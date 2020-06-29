@@ -1,6 +1,7 @@
 import './user-profile.css';
 import loadAttachmentDetails from './loadAttachmentDetails';
 import './blocks';
+import './sidebar';
 
 /* globals wp, fm */
 const { data } = wp;
