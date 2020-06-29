@@ -7,8 +7,6 @@
 
 namespace Civil_First_Fleet\Component;
 
-use function Civil_First_Fleet\get_the_featured_image_caption;
-
 /**
  * Content Item component class.
  */
