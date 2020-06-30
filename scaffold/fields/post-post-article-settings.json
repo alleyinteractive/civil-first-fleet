@@ -55,7 +55,12 @@
 				"featured_video_url": {
 					"label": { "__": "Video URL for the featured homepage slot and article header." },
 					"type": "link"
-				}
+				},
+        "featured_image_custom_caption": {
+          "label": { "__": "Enter a custom caption for the featured image (optional):" },
+          "description": { "__": "This will display instead of the caption saved in the Media Library." },
+          "type": "textarea"
+        }
 			}
 		},
 		"credibility_indicators_group": {
