@@ -263,9 +263,14 @@ class Content_Item extends \Civil_First_Fleet\Component {
 	}
 
 	/**
-	 * Return the caption for the post's featured image.
+	 * Get the post's featured image caption from custom field.
+	 * Fallback to default thumbnail caption.
+	 *
+	 * @return string|void Caption text, if image and caption exist.
 	 */
 	public function get_featured_image_caption() {
+
+		// Check for featured image.
 		$featured_image_id = absint( get_post_meta( $this->data( 'post_id' ), '_thumbnail_id', true ) );
 
 		// No image found.
@@ -273,12 +278,18 @@ class Content_Item extends \Civil_First_Fleet\Component {
 			return;
 		}
 
-		// Get the image caption.
-		$image_caption = get_post( $featured_image_id )->post_excerpt;
+		// Check for custom caption.
+		$image_caption = get_post_meta( $this->data( 'post_id' ), 'featured_image_custom_caption', true );
 
-		// No caption found.
 		if ( empty( $image_caption ) ) {
-			return;
+
+			// Get the default caption.
+			$image_caption = get_post( $featured_image_id )->post_excerpt;
+
+			// No caption found.
+			if ( empty( $image_caption ) ) {
+				return;
+			}
 		}
 
 		return sprintf(
