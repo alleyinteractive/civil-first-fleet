@@ -443,13 +443,19 @@ function civil_first_fleet_fm_post_post_article_settings() {
 						'serialize_data' => false,
 						'add_to_prefix'  => false,
 						'children'       => [
-							'disable_featured_image' => new Fieldmanager_Checkbox(
+							'disable_featured_image'        => new Fieldmanager_Checkbox(
 								[
 									'label'       => __( 'Hide image on article header', 'civil-first-fleet' ),
 									'description' => __( 'This will still display as the thumbnail on archives.', 'civil-first-fleet' ),
 								]
 							),
-							'featured_video_url'     => new Fieldmanager_Link( __( 'Video URL for the featured homepage slot and article header.', 'civil-first-fleet' ) ),
+							'featured_video_url'            => new Fieldmanager_Link( __( 'Video URL for the featured homepage slot and article header.', 'civil-first-fleet' ) ),
+							'featured_image_custom_caption' => new Fieldmanager_TextArea(
+								[
+									'label'       => __( 'Enter a custom caption for the featured image (optional):', 'civil-first-fleet' ),
+									'description' => __( 'This will display instead of the caption saved in the Media Library.', 'civil-first-fleet' ),
+								]
+							),
 						],
 					]
 				),
