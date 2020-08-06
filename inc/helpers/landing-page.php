@@ -36,6 +36,12 @@ function get_homepage_fields() : array {
 				'label' => __( 'Call To Action (below featured articles)', 'civil-first-fleet' ),
 			]
 		)->get_fm_group(),
+		'middle_feature' => Component\middle_feature(
+			[
+				'label' => __( 'Middle Feature', 'civil-first-fleet' ),
+				'items' => 4,
+			]
+		)->get_fm_group(),
 		'articles_grid' => Component\content_list(
 			[
 				'label' => __( 'Articles Grid', 'civil-first-fleet' ),

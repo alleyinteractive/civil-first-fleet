@@ -25,6 +25,12 @@ if ( ! empty( $homepage['call_to_action_1']['enable'] ) ) {
 		->render();
 }
 
+// Output Middle Feature.
+\Civil_First_Fleet\Component\middle_feature()
+	->set_setting( 'items', 4 )
+	->data( $homepage['middle_feature'] ?? [] )
+	->render();
+
 // Output Article Grid.
 \Civil_First_Fleet\Component\article_grid()
 	->set_setting( 'items', 9 )
