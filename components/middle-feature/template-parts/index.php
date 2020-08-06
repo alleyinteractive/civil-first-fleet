@@ -36,7 +36,6 @@ $title = $component->get_data( 'meta', 'title' );
 	</div>
 	<div class="<?php ai_the_classnames( [ 'sidebar' ] ); ?>">
 		<div class="<?php ai_the_classnames( [ 'sticky' ] ); ?>">
-			[Insert sidebar here]
 			<?php
 			if ( class_exists( 'Ad_Layers_Ad_Server' ) ) {
 				Ad_Layers_Ad_Server::instance()->get_ad_unit( 'HP_Middle_Sidebar', false );

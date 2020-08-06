@@ -1,14 +1,13 @@
 @import 'core/index.css';
 
 .wrapper {
-  border: 1px solid blue;
   margin-bottom: 2rem;
 
   @media (--lgMin) {
     display: grid;
     grid-gap: var(--gridGap);
     grid-template-columns: repeat(12, 1fr);
-    margin-bottom: rem(100);
+    margin-bottom: 0;
   }
 }
 

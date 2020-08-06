@@ -20,21 +20,6 @@ class Middle_Feature extends \Civil_First_Fleet\Component\Content_List {
 	public $slug = 'middle-feature';
 
 	/**
-	 * Default component data.
-	 *
-	 * @todo unique id
-	 * @return array Default data.
-	 */
-	public function default_data() : array {
-		$data = parent::default_data();
-		// $data['call_to_action']   = null;
-		// $data['sponsorship']      = false;
-		// $data['hide_sidebar']     = false;
-		// $data['disable_backfill'] = false;
-		return $data;
-	}
-
-	/**
 	 * Component Fieldmanager fields.
 	 *
 	 * @return array Fieldmanager fields.
@@ -65,32 +50,6 @@ class Middle_Feature extends \Civil_First_Fleet\Component\Content_List {
 		);
 
 		return $fields;
-	}
-
-	/**
-	 * Before render, modify the number of items needed based on other
-	 * settings.
-	 */
-	public function pre_render() {
-		// $items               = absint( $this->get_setting( 'items' ) );
-		// $hide_sidebar        = (bool) $this->get_data( 'meta', 'hide_sidebar' ) ?? false;
-		// $show_call_to_action = (bool) $this->get_data( 'meta', 'call_to_action', 'enable' ) ?? false;
-		// $disable_backfill    = (bool) $this->get_data( 'meta', 'disable_backfill' ) ?? false;
-
-		// // Set the sponsorship data.
-		// $this->set_data( 'sponsorship', $this->get_data( 'meta', 'sponsorship' ) );
-
-		// if ( true === $hide_sidebar ) {
-		// 	// Only 1 item if we're hiding the sidebar.
-		// 	$this->set_setting( 'items', 1 );
-
-		// } elseif ( true === $show_call_to_action ) {
-		// 	// Only 6 items if rendering a call to action.
-		// 	$this->set_setting( 'items', 6 );
-		// }
-
-		// // Set backfill setting.
-		// $this->set_setting( 'disable_backfill', $disable_backfill );
 	}
 }
 
