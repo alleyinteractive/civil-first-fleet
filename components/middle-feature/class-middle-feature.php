@@ -29,7 +29,7 @@ class Middle_Feature extends \Civil_First_Fleet\Component\Content_List {
 			return [];
 		}
 
-		// Inject an `enabel` checkbox before anything else.
+		// Inject an `enable` checkbox before anything else.
 		$fields = array_merge(
 			[
 				'enable' => new \Fieldmanager_Checkbox( __( 'Enable', 'civil-first-fleet' ) ),
