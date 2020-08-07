@@ -61,7 +61,7 @@ class Middle_Feature extends \Civil_First_Fleet\Component\Content_List {
 /**
  * Helper for creating new instances of this component.
  *
- * @param  array $settings Instance settings.
+ * @param  array $settings  Instance settings.
  * @param  array $data      Instance data.
  * @param  array $fm_fields Fieldmanager fields for this component.
  * @return Middle_Feature  An instance of this component.
