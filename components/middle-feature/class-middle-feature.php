@@ -43,7 +43,7 @@ class Middle_Feature extends \Civil_First_Fleet\Component\Content_List {
 				'label'     => __( 'Settings', 'civil-first-fleet' ),
 				'collapsed' => true,
 				'children'  => [
-					'title'              => new \Fieldmanager_Textfield( __( 'Title', 'civil-first-fleet' ) ),
+					'title'             => new \Fieldmanager_Textfield( __( 'Title', 'civil-first-fleet' ) ),
 					'sidebar_content' => new \Fieldmanager_Textarea(
 						[
 							'label'    => __( 'Sidebar Content', 'civil-first-fleet' ),
