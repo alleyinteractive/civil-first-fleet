@@ -60,6 +60,7 @@ require_once CIVIL_FIRST_FLEET_PATH . '/components/featured-articles-widget/clas
 require_once CIVIL_FIRST_FLEET_PATH . '/components/iframe/class-iframe.php';
 require_once CIVIL_FIRST_FLEET_PATH . '/components/image/class-image.php';
 require_once CIVIL_FIRST_FLEET_PATH . '/components/logo/class-logo.php';
+require_once CIVIL_FIRST_FLEET_PATH . '/components/middle-feature/class-middle-feature.php';
 require_once CIVIL_FIRST_FLEET_PATH . '/components/newsroom-footer/class-newsroom-footer.php';
 require_once CIVIL_FIRST_FLEET_PATH . '/components/newsroom-header/class-newsroom-header.php';
 require_once CIVIL_FIRST_FLEET_PATH . '/components/page-body/class-page-body.php';

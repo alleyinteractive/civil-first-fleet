@@ -99,6 +99,10 @@ class Content_Item extends \Civil_First_Fleet\Component {
 	 */
 	public function get_byline_no_avatar() {
 		$coauthors = $this->get_data( 'coauthors' );
+		if ( empty( $coauthors ) ) {
+			return '';
+		}
+
 		$coauthor = array_shift( $coauthors );
 
 		return sprintf(
