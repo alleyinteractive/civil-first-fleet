@@ -44,7 +44,7 @@ class Middle_Feature extends \Civil_First_Fleet\Component\Content_List {
 				'collapsed' => true,
 				'children'  => [
 					'title'             => new \Fieldmanager_Textfield( __( 'Title', 'civil-first-fleet' ) ),
-					'sidebar_content' => new \Fieldmanager_Textarea(
+					'sidebar_content' => new \Fieldmanager_RichTextArea(
 						[
 							'label'    => __( 'Sidebar Content', 'civil-first-fleet' ),
 							'sanitize' => 'wp_kses_post',
