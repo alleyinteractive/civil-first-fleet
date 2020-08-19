@@ -34,7 +34,7 @@ class Middle_Feature extends \Civil_First_Fleet\Component\Content_List {
 			[
 				'enable' => new \Fieldmanager_Checkbox( __( 'Enable', 'civil-first-fleet' ) ),
 			],
-			parent::default_fm_fields(),
+			parent::default_fm_fields()
 		);
 
 		// Simplify the meta group.
