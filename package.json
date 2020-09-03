@@ -20,7 +20,7 @@
     "classnames": "^2.2.6",
     "fastdom": "^1.0.8",
     "js-component-framework": "^1.0.2",
-    "lazysizes": "^4.0.2",
+    "lazysizes": "^5.2.1",
     "lodash": "^4.17.10",
     "react": "^16.6.3",
     "siema": "^1.5.1"
