@@ -325,6 +325,7 @@ function civil_first_fleet_fm_submenu_newsroom_settings() {
 										'facebook'                  => new Fieldmanager_Link( __( 'Facebook URL', 'civil-first-fleet' ) ),
 										'twitter'                   => new Fieldmanager_Link( __( 'Twitter URL', 'civil-first-fleet' ) ),
 										'instagram'                 => new Fieldmanager_Link( __( 'Instagram URL', 'civil-first-fleet' ) ),
+										'linkedin'                  => new Fieldmanager_Link( __( 'LinkedIn URL', 'civil-first-fleet' ) ),
 										'show_social_in_header_nav' => new Fieldmanager_Checkbox( __( 'Show social media links in header navigation.', 'civil-first-fleet' ) ),
 									],
 								]
