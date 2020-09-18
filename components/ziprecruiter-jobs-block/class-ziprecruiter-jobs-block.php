@@ -35,7 +35,7 @@ class Ziprecruiter_Jobs_Block extends \Civil_First_Fleet\Component {
       'settings' => new \Fieldmanager_Group(
         [
           'label'     => __( 'Settings', 'civil-first-fleet' ),
-          'collapsed' => false,
+          'collapsed' => true,
           'children'  => [
             'title'         => new \Fieldmanager_Textfield( __( 'Title', 'civil-first-fleet' ) ),
             'per_page'      => new \Fieldmanager_Textfield(
