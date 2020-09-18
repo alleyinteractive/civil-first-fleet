@@ -9,6 +9,7 @@ import 'components/featured-articles';
 import 'components/middle-feature';
 import 'components/article-grid';
 import 'components/content-item';
+import 'components/ziprecruiter-jobs-block';
 
 // Template CSS
 import './user-archive.css';

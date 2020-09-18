@@ -25,6 +25,13 @@ if ( ! empty( $homepage['call_to_action_1']['enable'] ) ) {
 		->render();
 }
 
+// ZipRecruiter Block.
+if ( ! empty( $homepage['ziprecruiter_jobs_block']['enable'] ) ) {
+	\Civil_First_Fleet\Component\ziprecruiter_jobs_block()
+		->set_data( $homepage['ziprecruiter_jobs_block'] ?? [] )
+		->render();
+}
+
 // Output Middle Feature.
 \Civil_First_Fleet\Component\middle_feature()
 	->set_setting( 'items', 4 )

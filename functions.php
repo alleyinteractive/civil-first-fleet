@@ -69,6 +69,7 @@ require_once CIVIL_FIRST_FLEET_PATH . '/components/search-form/class-search-form
 require_once CIVIL_FIRST_FLEET_PATH . '/components/social-icons/class-social-icons.php';
 require_once CIVIL_FIRST_FLEET_PATH . '/components/error-page/class-error-page.php';
 require_once CIVIL_FIRST_FLEET_PATH . '/components/gallery/class-gallery.php';
+require_once CIVIL_FIRST_FLEET_PATH . '/components/ziprecruiter-jobs-block/class-ziprecruiter-jobs-block.php';
 
 /**
  * Helpers
