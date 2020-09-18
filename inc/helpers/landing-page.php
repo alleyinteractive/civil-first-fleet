@@ -24,55 +24,71 @@ function get_landing_page_types() : array {
  * @return array FM fields.
  */
 function get_homepage_fields() : array {
-	return [
-		'featured_articles' => Component\featured_articles(
+	$fields = [];
+
+	$fields['featured_articles'] = Component\featured_articles(
+		[
+			'label' => __( 'Featured Articles', 'civil-first-fleet' ),
+			'items' => 7,
+		]
+	)->get_fm_group();
+
+	$fields['call_to_action_1'] = Component\call_to_action(
+		[
+			'label' => __( 'Call To Action (below featured articles)', 'civil-first-fleet' ),
+		]
+	)->get_fm_group();
+
+	if ( is_plugin_active( 'ziprecruiter-jobs/index.php' ) ) {
+		$fields['ziprecruiter_jobs_block'] = Component\ziprecruiter_jobs_block(
 			[
-				'label' => __( 'Featured Articles', 'civil-first-fleet' ),
-				'items' => 7,
-			]
-		)->get_fm_group(),
-		'call_to_action_1' => Component\call_to_action(
-			[
-				'label' => __( 'Call To Action (below featured articles)', 'civil-first-fleet' ),
-			]
-		)->get_fm_group(),
-		'middle_feature' => Component\middle_feature(
-			[
-				'label' => __( 'Middle Feature', 'civil-first-fleet' ),
+				'label' => __( 'ZipRecruiter Job Board Block', 'civil-first-fleet' ),
 				'items' => 4,
 			]
-		)->get_fm_group(),
-		'articles_grid' => Component\content_list(
-			[
-				'label' => __( 'Articles Grid', 'civil-first-fleet' ),
-				'items' => 7,
-			]
-		)
-		->remove_fm_field( 'meta' )
-		->remove_fm_field( 'curate' )
-		->get_fm_group(),
-		'call_to_action_2' => Component\call_to_action(
-			[
-				'label' => __( 'Call To Action (below article grid)', 'civil-first-fleet' ),
-			]
-		)->get_fm_group(),
-		'featured_image' => new \Fieldmanager_Group(
-			[
-				'label' => __( 'Featured Image', 'civil-first-fleet' ),
-				'children' => [
-					'image' => new \Fieldmanager_Media(
-						[
-							'label'              => __( 'Featured Image', 'civil-first-fleet' ),
-							'button_label'       => __( 'Select featured image', 'civil-first-fleet' ),
-							'preview_size'       => 'card',
-							'modal_button_label' => __( 'Use featured image', 'civil-first-fleet' ),
-							'modal_title'        => __( 'Featured Image', 'civil-first-fleet' ),
-						]
-					),
-				],
-			]
-		),
-	];
+		)->get_fm_group();
+	}
+
+	$fields['middle_feature'] = Component\middle_feature(
+		[
+			'label' => __( 'Middle Feature', 'civil-first-fleet' ),
+			'items' => 4,
+		]
+	)->get_fm_group();
+
+	$fields['articles_grid'] = Component\content_list(
+		[
+			'label' => __( 'Articles Grid', 'civil-first-fleet' ),
+			'items' => 7,
+		]
+	)
+	->remove_fm_field( 'meta' )
+	->remove_fm_field( 'curate' )
+	->get_fm_group();
+
+	$fields['call_to_action_2'] = Component\call_to_action(
+		[
+			'label' => __( 'Call To Action (below article grid)', 'civil-first-fleet' ),
+		]
+	)->get_fm_group();
+
+	$fields['featured_image'] = new \Fieldmanager_Group(
+		[
+			'label' => __( 'Featured Image', 'civil-first-fleet' ),
+			'children' => [
+				'image' => new \Fieldmanager_Media(
+					[
+						'label'              => __( 'Featured Image', 'civil-first-fleet' ),
+						'button_label'       => __( 'Select featured image', 'civil-first-fleet' ),
+						'preview_size'       => 'card',
+						'modal_button_label' => __( 'Use featured image', 'civil-first-fleet' ),
+						'modal_title'        => __( 'Featured Image', 'civil-first-fleet' ),
+					]
+				),
+			],
+		]
+	);
+
+	return $fields;
 }
 
 /**

@@ -1,0 +1,23 @@
+@import 'core/index.css';
+
+.wrapper {
+  margin-bottom: 2rem;
+}
+
+.title {
+  @include franklin-headline;
+  border-bottom: 5px solid var(--black);
+  font-size: rem(18);
+  font-weight: 700;
+  padding-bottom: rem(5);
+
+  @media (--mdMin) {
+    font-size: rem(28);
+    margin-bottom: rem(8);
+    padding-bottom: rem(10);
+  }
+
+  @media (--lgMin) {
+    margin-bottom: rem(20);
+  }
+}
