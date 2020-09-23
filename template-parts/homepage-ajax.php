@@ -17,6 +17,14 @@ $hide_sidebar = (bool) $homepage['featured_articles']['meta']['hide_sidebar'] ??
 	->get_content_items();
 
 // Replicate code ran on homepage to account for curated ids and backfill.
+if ( ! empty( $homepage['middle_feature']['enable'] ) ) {
+	\Civil_First_Fleet\Component\middle_feature()
+		->set_setting( 'items', 4 )
+		->data( $homepage['middle_feature'] ?? [] )
+		->get_content_items();
+}
+
+// Replicate code ran on homepage to account for curated ids and backfill.
 \Civil_First_Fleet\Component\article_grid()
 	->set_setting( 'items', 9 )
 	->data( $homepage['articles_grid'] ?? [] )
