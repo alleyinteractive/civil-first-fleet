@@ -8,5 +8,28 @@
       margin: 0 auto !important;
     }
     /* stylelint-enable */
+
+    /* stylelint-disable selector-max-specificity */
+    &.alignleft,
+    &.aligncenter,
+    &.alignright {
+      max-width: 40%;
+
+      @media (--mdMax) {
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+      }
+
+      .wp-block-embed__wrapper {
+        min-width: unset;
+      }
+    }
+
+    &.aligncenter {
+      max-width: 100%;
+    }
+    /* stylelint-enable */
   }
 }
