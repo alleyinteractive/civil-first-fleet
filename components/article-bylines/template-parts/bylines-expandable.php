@@ -30,7 +30,7 @@ $ai_coauthors = get_coauthors( $post_id );
 						 */
 						echo apply_filters(
 							'civil_first_fleet_get_expandable_coauthor_link',
-							esc_attr( $ai_component->get_bio_frag_id( $coauthor->ID ) ),
+							esc_attr( '#' . $ai_component->get_bio_frag_id( $coauthor->ID ) ),
 							$coauthor
 						);
 					?>"
