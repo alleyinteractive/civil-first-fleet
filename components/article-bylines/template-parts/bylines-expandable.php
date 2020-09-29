@@ -20,7 +20,22 @@ $ai_coauthors = get_coauthors( $post_id );
 
 			<header class="<?php ai_the_classnames( [ 'bio-header' ] ); ?>">
 
-				<a href="#<?php echo esc_attr( $ai_component->get_bio_frag_id( $coauthor->ID ) ); ?>" class="<?php ai_the_classnames( [ 'byline-expand' ] ); ?>">
+				<a
+					href="<?php
+						/**
+						 * Allow clients to link directly to coauthor if needed.
+						 *
+						 * @param string $coauthor_link Coauthor bio fragment by default.
+						 * @param object $coauthor Coauthor object.
+						 */
+						echo apply_filters(
+							'civil_first_fleet_get_expandable_coauthor_link',
+							esc_attr( $ai_component->get_bio_frag_id( $coauthor->ID ) ),
+							$coauthor
+						);
+					?>"
+					class="<?php ai_the_classnames( [ 'byline-expand' ] ); ?>"
+				>
 					<span class="<?php ai_the_classnames( [ 'avatar' ] ); ?>">
 						<?php $ai_component->author_avatar( $coauthor->ID ); ?>
 					</span>
