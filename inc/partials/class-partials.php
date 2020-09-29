@@ -384,6 +384,6 @@ class Partials {
 	 * @return string
 	 */
 	public static function cache_key( $args ) {
-		return 'partial_test_' . md5( serialize( $args ) );
+		return 'partial_' . md5( serialize( $args ) );
 	}
 }
