@@ -19,11 +19,11 @@ $is_opinion = ! empty( $component->get_label( $post_id ) );
 <div class="
 <?php
 ai_the_classnames(
-	[ 'content-item', 'wrapper' ],
+	[ 'content-item', 'wrapper', get_post_type( $post_id ) ],
 	[
-		'no-image' => ! has_post_thumbnail( $post_id ),
-		'no-dek'   => ! $has_dek,
-		'opinion'  => $is_opinion,
+		'no-image'  => ! has_post_thumbnail( $post_id ),
+		'no-dek'    => ! $has_dek,
+		'opinion'   => $is_opinion,
 	]
 );
 ?>
