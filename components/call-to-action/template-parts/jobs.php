@@ -37,7 +37,7 @@ $context     = $component->get_data( 'context' );
 					\WP_Render\render(
 						( new \Civil_First_Fleet\Components\Call_To_Action\Button() )
 							->parse_from_fm_data( $button ?? [] )
-							->set_config( 'id', 'subscribe-button-cta' )
+							->set_config( 'id', 'jobs-button-cta' )
 							->set_config( 'width', '' )
 							->set_config( 'classes', [ 'civil__call-to-action__inline-link' ] )
 					);
