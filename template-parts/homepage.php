@@ -32,6 +32,15 @@ if ( ! empty( $homepage['ziprecruiter_jobs_block']['enable'] ) ) {
 		->render();
 }
 
+// Call To Action Number 2.
+if ( ! empty( $homepage['call_to_action_2']['enable'] ) ) {
+	\Civil_First_Fleet\Component\call_to_action()
+		->set_setting( $homepage['call_to_action_2']['settings'] )
+		->set_data( $homepage['call_to_action_2']['data'] )
+		->set_data( 'context', 'home-upper' )
+		->render();
+}
+
 // Output Middle Feature.
 \Civil_First_Fleet\Component\middle_feature()
 	->set_setting( 'items', 4 )
@@ -44,11 +53,11 @@ if ( ! empty( $homepage['ziprecruiter_jobs_block']['enable'] ) ) {
 	->data( $homepage['articles_grid'] ?? [] )
 	->render();
 
-// Call To Action Number 2.
-if ( ! empty( $homepage['call_to_action_2']['enable'] ) ) {
+// Call To Action Number 3.
+if ( ! empty( $homepage['call_to_action_3']['enable'] ) ) {
 	\Civil_First_Fleet\Component\call_to_action()
-		->set_setting( $homepage['call_to_action_2']['settings'] )
-		->set_data( $homepage['call_to_action_2']['data'] )
+		->set_setting( $homepage['call_to_action_3']['settings'] )
+		->set_data( $homepage['call_to_action_3']['data'] )
 		->set_data( 'context', 'home-lower' )
 		->render();
 }
