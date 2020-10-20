@@ -31,6 +31,7 @@ class Featured_Articles extends \Civil_First_Fleet\Component\Content_List {
 		$data['sponsorship']      = false;
 		$data['hide_sidebar']     = false;
 		$data['disable_backfill'] = false;
+		$data['show_avatar']      = false;
 		return $data;
 	}
 
@@ -58,6 +59,11 @@ class Featured_Articles extends \Civil_First_Fleet\Component\Content_List {
 					'disable_backfill' => new \Fieldmanager_Checkbox(
 						[
 							'label' => __( 'Disable Article Backfill (only display curated posts)', 'civil-first-fleet' ),
+						]
+					),
+					'show_avatar'      => new \Fieldmanager_Checkbox(
+						[
+							'label' => __( 'Display Author Avatar in the Article Byline', 'civil-first-fleet' ),
 						]
 					),
 					'call_to_action'   => new \Fieldmanager_Group(

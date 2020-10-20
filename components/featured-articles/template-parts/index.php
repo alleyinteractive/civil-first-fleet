@@ -28,6 +28,9 @@ $call_to_action = $component->get_data( 'meta', 'call_to_action' );
 
 // Hide sidebar?
 $hide_sidebar = (bool) $component->get_data( 'meta', 'hide_sidebar' );
+
+// Show avatars in byline?
+$show_avatar = (bool) $component->get_data( 'meta', 'show_avatar' ) ?? false;
 ?>
 
 <section class="<?php ai_the_classnames( [ 'wrapper' ] ); ?>">
@@ -53,7 +56,10 @@ $hide_sidebar = (bool) $component->get_data( 'meta', 'hide_sidebar' );
 			<div class="articles">
 				<?php
 				foreach ( $articles as $article ) {
-					$article->set_setting( 'layout', 'river' )->render();
+					$article
+						->set_setting( 'layout', 'river' )
+						->set_setting( 'show_avatar', $show_avatar )
+						->render();
 				}
 				?>
 			</div>
