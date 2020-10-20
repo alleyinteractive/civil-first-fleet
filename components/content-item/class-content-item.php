@@ -260,7 +260,6 @@ class Content_Item extends \Civil_First_Fleet\Component {
 				->set_post_id( $avatar_id )
 				->size( $size )
 				->aspect_ratio( false )
-				->disable_lazyload()
 				->render();
 			return ob_get_clean();
 		} else {
