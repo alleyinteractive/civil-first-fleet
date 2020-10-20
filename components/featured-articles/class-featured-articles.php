@@ -61,11 +61,6 @@ class Featured_Articles extends \Civil_First_Fleet\Component\Content_List {
 							'label' => __( 'Disable Article Backfill (only display curated posts)', 'civil-first-fleet' ),
 						]
 					),
-					'show_avatar'      => new \Fieldmanager_Checkbox(
-						[
-							'label' => __( 'Display Author Avatar in the Article Byline', 'civil-first-fleet' ),
-						]
-					),
 					'call_to_action'   => new \Fieldmanager_Group(
 						[
 							'label'     => __( 'Call To Action', 'civil-first-fleet' ),
@@ -87,8 +82,8 @@ class Featured_Articles extends \Civil_First_Fleet\Component\Content_List {
 	}
 
 	/**
-	 * Before render, modify the number of items needed based on other
-	 * settings.
+	 * Before render, modify the number of items and display options needed based on
+	 * other settings.
 	 */
 	public function pre_render() {
 		$items               = absint( $this->get_setting( 'items' ) );
@@ -110,6 +105,11 @@ class Featured_Articles extends \Civil_First_Fleet\Component\Content_List {
 
 		// Set backfill setting.
 		$this->set_setting( 'disable_backfill', $disable_backfill );
+
+		// Set option to display author avatars.
+		$newsroom_settings = (array) $this->get_option( 'newsroom-settings', 'component_defaults', 'featured_articles' );
+		$show_avatar       = (bool) $newsroom_settings[ 'show_avatar' ] ?? false;
+		$this->set_data( 'show_avatar', $show_avatar );
 	}
 }
 

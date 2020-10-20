@@ -110,7 +110,7 @@ class Content_Item extends \Civil_First_Fleet\Component {
 		return sprintf(
 			'<a href="%1$s" class="%2$s">%3$sBy %4$s</a>',
 			esc_url( get_author_posts_url( $coauthor->ID, $coauthor->user_nicename ) ),
-			ai_get_classnames( [ 'byline' ] ),
+			ai_get_classnames( [ 'byline', 'avatar' ] ),
 			$show_avatar ? $this->get_author_avatar( $coauthor->ID ) : '',
 			esc_html( $coauthor->display_name )
 		);
@@ -255,11 +255,14 @@ class Content_Item extends \Civil_First_Fleet\Component {
 		$avatar_id = get_post_meta( $coauthor_id, '_thumbnail_id', true );
 
 		if ( ! empty( $avatar_id ) ) {
-			return \Civil_First_Fleet\Component\image()
+			ob_start();
+			\Civil_First_Fleet\Component\image()
 				->set_post_id( $avatar_id )
 				->size( $size )
 				->aspect_ratio( false )
-				->disable_lazyload();
+				->disable_lazyload()
+				->render();
+			return ob_get_clean();
 		} else {
 			return sprintf(
 				'<img src="%1$s">',
@@ -275,15 +278,7 @@ class Content_Item extends \Civil_First_Fleet\Component {
 	 * @param string $size Image size to use for avatar image.
 	 */
 	public function author_avatar( $coauthor_id, $size = 'avatar-small' ) {
-		$author_avatar = get_author_avatar( $coauthor_id, $size );
-
-		if ( $author_avatar instanceof \Civil_First_Fleet\Component\image ) {
-			$author_avatar->render();
-		}
-
-		if ( is_string( $author_avatar ) ) {
-			echo wp_kses_post( $author_avatar );
-		}
+		echo wp_kses_post( $this->get_author_avatar( $coauthor_id, $size ) );
 	}
 
 	/**

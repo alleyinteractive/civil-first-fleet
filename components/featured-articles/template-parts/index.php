@@ -30,7 +30,7 @@ $call_to_action = $component->get_data( 'meta', 'call_to_action' );
 $hide_sidebar = (bool) $component->get_data( 'meta', 'hide_sidebar' );
 
 // Show avatars in byline?
-$show_avatar = (bool) $component->get_data( 'meta', 'show_avatar' ) ?? false;
+$show_avatar = (bool) $component->get_data( 'show_avatar' ) ?? false;
 ?>
 
 <section class="<?php ai_the_classnames( [ 'wrapper' ] ); ?>">
