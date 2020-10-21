@@ -41,6 +41,7 @@
     "babel-preset-env": "1.4.0",
     "babel-preset-react": "^6.24.1",
     "chalk": "^2.3.0",
+    "check-node-version": "^4.0.1",
     "clean-webpack-plugin": "0.1.13",
     "css-loader": "^3.2.0",
     "eslint": "4.9.0",
