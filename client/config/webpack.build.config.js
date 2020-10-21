@@ -17,6 +17,7 @@ const wpAssets = require('../bin/wpAssets');
 // Plugins
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const StatsPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
 
 /**
@@ -33,6 +34,13 @@ module.exports = {
       root: path.join(__dirname, '../../'),
     }),
     new ExtractTextPlugin(filenames.cssWithHash),
+    new OptimizeCssAssetsPlugin({
+      cssProcessorOptions: {
+        map: {
+          inline: false,
+        },
+      },
+    }),
     new StatsPlugin({
       transform: wpAssets,
       fields: ['assetsByChunkName', 'hash'],
