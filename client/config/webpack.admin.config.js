@@ -13,6 +13,7 @@ const themename = require('./themename');
 
 // Plugins
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 /**
  * Primary WebPack config.
@@ -30,6 +31,13 @@ module.exports = {
       jQuery: 'jquery',
     }),
     new ExtractTextPlugin(filenames.cssNoHash),
+    new OptimizeCssAssetsPlugin({
+      cssProcessorOptions: {
+        map: {
+          inline: false,
+        },
+      },
+    }),
   ],
 
   devtool: 'source-map',
