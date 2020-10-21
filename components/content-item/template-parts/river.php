@@ -9,10 +9,11 @@
 namespace Civil_First_Fleet;
 
 // Get this instance.
-$component  = ai_get_var( 'component' );
-$post_id    = $component->get_data( 'post_id' );
-$layout     = $component->get_setting( 'layout' );
-$is_opinion = ! empty( $component->get_label( $post_id ) );
+$component   = ai_get_var( 'component' );
+$post_id     = $component->get_data( 'post_id' );
+$layout      = $component->get_setting( 'layout' );
+$show_avatar = $component->get_setting( 'show_avatar' );
+$is_opinion  = ! empty( $component->get_label( $post_id ) );
 $component->set_data( 'coauthors', get_coauthors( $post_id ) );
 ?>
 
@@ -39,11 +40,10 @@ $component->set_data( 'coauthors', get_coauthors( $post_id ) );
 		</h2>
 
 		<?php
-		if ( ! empty( $component->get_byline_no_avatar() ) ) {
-			$component->byline_no_avatar();
+		if ( ! empty( $component->get_byline() ) ) {
+			$component->byline( $show_avatar );
 		}
 		?>
-
 
 		<?php if ( $is_opinion ) : ?>
 			<span class="<?php ai_the_classnames( [ 'label' ] ); ?>">

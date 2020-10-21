@@ -87,6 +87,17 @@ importance in source, for accessibility reasons. */
   }
 }
 
+.avatar {
+  @include byline-link;
+  align-items: center;
+  display: flex;
+
+  img {
+    @include avatar;
+    margin-right: rem(4);
+  }
+}
+
 .byline {
   color: var(--gray3);
   font-family: var(--franklin);

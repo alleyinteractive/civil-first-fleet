@@ -148,6 +148,8 @@ class Button extends \WP_Components\Component {
 				$classes[] = 'PicoSignal';
 				$classes[] = 'PicoPlan';
 				break;
+			case 'link':
+				$classes[] = 'link';
 		}
 
 		// Add height and width classes.

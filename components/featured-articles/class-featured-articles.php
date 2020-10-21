@@ -31,6 +31,7 @@ class Featured_Articles extends \Civil_First_Fleet\Component\Content_List {
 		$data['sponsorship']      = false;
 		$data['hide_sidebar']     = false;
 		$data['disable_backfill'] = false;
+		$data['show_avatar']      = false;
 		return $data;
 	}
 
@@ -81,8 +82,8 @@ class Featured_Articles extends \Civil_First_Fleet\Component\Content_List {
 	}
 
 	/**
-	 * Before render, modify the number of items needed based on other
-	 * settings.
+	 * Before render, modify the number of items and display options needed based on
+	 * other settings.
 	 */
 	public function pre_render() {
 		$items               = absint( $this->get_setting( 'items' ) );
@@ -104,6 +105,11 @@ class Featured_Articles extends \Civil_First_Fleet\Component\Content_List {
 
 		// Set backfill setting.
 		$this->set_setting( 'disable_backfill', $disable_backfill );
+
+		// Set option to display author avatars.
+		$newsroom_settings = (array) $this->get_option( 'newsroom-settings', 'component_defaults', 'featured_articles' );
+		$show_avatar       = (bool) $newsroom_settings[ 'show_avatar' ] ?? false;
+		$this->set_data( 'show_avatar', $show_avatar );
 	}
 }
 

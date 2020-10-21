@@ -1,11 +1,11 @@
 {
-  "version": "0.6.1",
-  "cpt:landing-page": "1caa2e06c7484f83dd0d53e71a88cabe",
+  "version": "0.7.0",
+  "cpt:landing-page": "ea1346afc6443add4adb31aa475d5a33",
   "fm:post-landing-page-settings": "607ba0e0c1f153e645425343fc2aa504",
   "fm:post-guest-author-info": "06dc346b9cc8805854b636a8db0717cd",
   "fm:post-post-article-settings": "03210a3fcb820dc8fedb0e449706acef",
   "fm:submenu-newsroom-settings": "5445c9ce7ff9b1768a63fda4d5517192",
-  "cpt:sponsor": "13d756b54335904c1231d3197a1bb6fd",
+  "cpt:sponsor": "7440797aa6e92a1bbf911b2888f8040a",
   "fm:post-sponsor-settings": "91faec08ca16894b6f1e88d277ca87e3",
   "fm:term-mixed-sponsorship": "dcdf7369e895c2b7743296235d2d055e"
 }
