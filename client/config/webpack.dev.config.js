@@ -79,7 +79,7 @@ module.exports = (env) => {
           path.join(certPath, 'server.key'),
           'utf8'
         ),
-      }
+      },
     },
   };
 };
