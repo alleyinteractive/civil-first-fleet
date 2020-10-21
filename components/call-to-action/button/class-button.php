@@ -150,6 +150,7 @@ class Button extends \WP_Components\Component {
 				break;
 			case 'link':
 				$classes[] = 'link';
+				break;
 		}
 
 		// Add height and width classes.
