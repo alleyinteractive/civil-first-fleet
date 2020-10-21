@@ -15,6 +15,7 @@ if ( empty( $articles ) ) {
 }
 
 // Get title.
+// phpcs:disable WordPress.WP.GlobalVariablesOverride.Prohibited
 $title = $component->get_data( 'meta', 'title' );
 if ( empty( $title ) ) {
 	$title = __( 'Featured Articles', 'civil-first-fleet' );

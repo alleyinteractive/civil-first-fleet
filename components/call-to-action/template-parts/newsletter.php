@@ -6,7 +6,7 @@
  */
 
 // Get this instance.
-$component   = ai_get_var( 'component' );
+$component = ai_get_var( 'component' );
 
 // Get settings.
 $theme      = $component->get_setting( 'theme' );

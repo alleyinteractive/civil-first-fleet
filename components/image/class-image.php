@@ -47,10 +47,10 @@ class Image extends \Civil_First_Fleet\Component {
 	 */
 	public function default_data() : array {
 		return [
-			'alt'         => '',
-			'crops'       => [],
-			'sources'     => [],
-			'url'         => '',
+			'alt'     => '',
+			'crops'   => [],
+			'sources' => [],
+			'url'     => '',
 		];
 	}
 
@@ -66,7 +66,7 @@ class Image extends \Civil_First_Fleet\Component {
 			'lazyload'     => true,
 			'picture'      => false,
 			'aspect_ratio' => 9 / 16,
-			'is_featured' => false,
+			'is_featured'  => false,
 		];
 	}
 
@@ -509,7 +509,7 @@ class Image extends \Civil_First_Fleet\Component {
 			$values[] = $density_multiplier;
 
 			call_user_func_array(
-				array( $this, $transform ),
+				[ $this, $transform ],
 				$values
 			);
 		}
@@ -523,10 +523,10 @@ class Image extends \Civil_First_Fleet\Component {
 	public function render_picture() {
 		\ai_get_template_part(
 			$this->get_component_path( 'picture' ),
-			array(
+			[
 				'component'  => $this,
 				'stylesheet' => 'image',
-			)
+			]
 		);
 	}
 }
@@ -539,6 +539,6 @@ class Image extends \Civil_First_Fleet\Component {
  * @param  array $fm_fields Fieldmanager fields for this component.
  * @return Image  An instance of this component.
  */
-function image( array $settings = array(), array $data = array(), array $fm_fields = array() ) : Image {
+function image( array $settings = [], array $data = [], array $fm_fields = [] ) : Image {
 	return new Image( $settings, $data );
 }

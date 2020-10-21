@@ -135,21 +135,21 @@ class Component {
 	 *
 	 * @var array
 	 */
-	protected $settings = array();
+	protected $settings = [];
 
 	/**
 	 * Component data. This is data used to output the component.
 	 *
 	 * @var array
 	 */
-	protected $data = array();
+	protected $data = [];
 
 	/**
 	 * Component Fieldmanager fields. These fields are the admin interface.
 	 *
 	 * @var array
 	 */
-	protected $fm_fields = array();
+	protected $fm_fields = [];
 
 	/**
 	 * Instantiate a new instance of this component.
@@ -158,7 +158,7 @@ class Component {
 	 * @param array $data      Instance data.
 	 * @param array $fm_fields Fieldmanager fields.
 	 */
-	public function __construct( array $settings = array(), array $data = array(), array $fm_fields = array() ) {
+	public function __construct( array $settings = [], array $data = [], array $fm_fields = [] ) {
 		$this->settings  = wp_parse_args( $settings, $this->default_settings() );
 		$this->data      = wp_parse_args( $data, $this->default_data() );
 		$this->fm_fields = wp_parse_args( $fm_fields, $this->default_fm_fields() );
@@ -173,11 +173,11 @@ class Component {
 	 * @return array Default settings.
 	 */
 	public function default_settings() : array {
-		return array(
+		return [
 			'label'          => '',
-			'classes'        => array(),
-			'hide_fm_fields' => array(),
-		);
+			'classes'        => [],
+			'hide_fm_fields' => [],
+		];
 	}
 
 	/**
@@ -186,7 +186,7 @@ class Component {
 	 * @return array Default data.
 	 */
 	public function default_data() : array {
-		return array();
+		return [];
 	}
 
 	/**
@@ -195,7 +195,7 @@ class Component {
 	 * @return array Fieldmanager fields.
 	 */
 	public function default_fm_fields() : array {
-		return array();
+		return [];
 	}
 
 	/**
@@ -252,7 +252,7 @@ class Component {
 		}
 
 		// First arg is the option key.
-		$option_key = array_shift( $args );
+		$option_key  = array_shift( $args );
 		$option_data = get_option( $option_key );
 
 		// Return.
@@ -368,7 +368,7 @@ class Component {
 		if ( is_array( $key ) && is_null( $value ) ) {
 			$this->$data = $key;
 		} elseif ( $append ) {
-			$current_value = $this->$data[ $key ] ?? array();
+			$current_value       = $this->$data[ $key ] ?? [];
 			$this->$data[ $key ] = array_merge( (array) $current_value, (array) $value );
 		} else {
 			$this->$data[ $key ] = $value;
@@ -421,7 +421,7 @@ class Component {
 	 * @param  array $additional_classes Array of classes.
 	 * @param  bool  $echo               Return or echo output.
 	 */
-	public function classes( array $additional_classes = array(), bool $echo = true ) {
+	public function classes( array $additional_classes = [], bool $echo = true ) {
 
 		// Merge component classes and additional classes.
 		$classes = array_merge( (array) $this->get_setting( 'classes' ), (array) $additional_classes );
@@ -474,7 +474,7 @@ class Component {
 	 */
 	final public function get_fm_fields() {
 
-		$fm_fields = $this->fm_fields;
+		$fm_fields     = $this->fm_fields;
 		$keys_to_unset = (array) $this->get_setting( 'hide_fm_fields' );
 
 		foreach ( $keys_to_unset as $key_to_unset ) {
@@ -494,7 +494,8 @@ class Component {
 	 */
 	final public function get_fm_group( array $group_settings = [] ) : \Fieldmanager_Group {
 		$group_settings = wp_parse_args(
-			$group_settings, [
+			$group_settings,
+			[
 				'label'    => ! empty( $this->get_setting( 'label' ) ) ? $this->get_setting( 'label' ) : $this->slug,
 				'children' => $this->get_fm_fields(),
 			]
@@ -529,8 +530,9 @@ class Component {
 
 		if ( function_exists( 'ai_get_template_part' ) ) {
 			\ai_get_template_part(
-				$this->get_component_path(), [
-					'component' => $this,
+				$this->get_component_path(),
+				[
+					'component'  => $this,
 					'stylesheet' => $this->slug,
 				]
 			);

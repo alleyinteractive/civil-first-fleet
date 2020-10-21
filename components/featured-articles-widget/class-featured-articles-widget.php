@@ -55,21 +55,21 @@ class Featured_Articles_Widget extends \Civil_First_Fleet\Component\Content_List
 
 		// Add the 'Enabled' checkbox to the front of the list of fields.
 		$fields = array_merge(
-			array(
+			[
 				'enable' => new \Fieldmanager_Checkbox(
 					__( 'Show list of featured articles in post sidebar.', 'civil-first-fleet' )
 				),
-			),
+			],
 			$fields
 		);
 
 		// Change meta.
 		$fields['meta'] = new \Fieldmanager_Group(
 			[
-				'label'     => __( 'Settings', 'civil-first-fleet' ),
-				'collapsed' => false,
-				'children'  => [
-					'title'  => new \Fieldmanager_TextField(
+				'label'      => __( 'Settings', 'civil-first-fleet' ),
+				'collapsed'  => false,
+				'children'   => [
+					'title' => new \Fieldmanager_TextField(
 						[
 							'label'         => __( 'Title', 'civil-first-fleet' ),
 							'default_value' => __( 'Featured Articles', 'civil-first-fleet' ),
@@ -109,6 +109,6 @@ class Featured_Articles_Widget extends \Civil_First_Fleet\Component\Content_List
  * @param  array $fm_fields Fieldmanager fields for this component.
  * @return Featured_Articles  An instance of this component.
  */
-function featured_articles_widget( array $settings = array(), array $data = array(), array $fm_fields = array() ) : Featured_Articles_Widget {
+function featured_articles_widget( array $settings = [], array $data = [], array $fm_fields = [] ) : Featured_Articles_Widget {
 	return new Featured_Articles_Widget( $settings, $data );
 }

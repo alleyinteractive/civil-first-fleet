@@ -9,16 +9,17 @@
 $component = ai_get_var( 'component' );
 
 // Get settings.
-$theme = $component->get_setting( 'theme' );
+$theme  = $component->get_setting( 'theme' );
 $layout = $component->get_setting( 'layout' );
 
 // Get data.
 $button_text = $component->get_data( 'button_text' );
 $button      = (array) $component->get_data( 'button' );
 $description = $component->get_data( 'description' );
-$title       = $component->get_data( 'title' );
-$location    = $component->get_data( 'location' );
-$context     = $component->get_data( 'context' );
+// phpcs:disable WordPress.WP.GlobalVariablesOverride.Prohibited
+$title    = $component->get_data( 'title' );
+$location = $component->get_data( 'location' );
+$context  = $component->get_data( 'context' );
 ?>
 
 <section class="<?php ai_the_classnames( [ 'civil__call-to-action__wrapper', "civil__call-to-action__theme-{$theme}", "civil__call-to-action__layout-{$layout}" ], [ $location => ! empty( $location ) ] ); ?>">

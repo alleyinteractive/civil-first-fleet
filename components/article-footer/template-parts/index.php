@@ -6,7 +6,8 @@
  */
 
 // Get this instance.
-$component              = ai_get_var( 'component' );
+$component = ai_get_var( 'component' );
+// phpcs:disable WordPress.WP.GlobalVariablesOverride.Prohibited
 $post_id                = $component->data( 'post_id' );
 $ai_coauthors           = get_coauthors( $post_id );
 $credibility_indicators = get_post_meta( $post_id, 'credibility_indicators', true );

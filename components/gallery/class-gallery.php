@@ -35,7 +35,8 @@ class Gallery extends Component {
 	 */
 	public function render() {
 		\ai_get_template_part(
-			$this->get_component_path(), [
+			$this->get_component_path(),
+			[
 				'component'  => $this,
 				'stylesheet' => $this->slug,
 			]
@@ -50,7 +51,7 @@ class Gallery extends Component {
  * @param  array $data     Instance data.
  * @return Gallery  An instance of this component.
  */
-function gallery( array $settings = array(), array $data = array() ) : Gallery {
+function gallery( array $settings = [], array $data = [] ) : Gallery {
 	return new Gallery( $settings, $data );
 }
 

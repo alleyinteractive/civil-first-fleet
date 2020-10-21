@@ -28,6 +28,6 @@ class Article_Grid extends \Civil_First_Fleet\Component\Content_List {
  * @param  array $fm_fields Fieldmanager fields for this component.
  * @return Article_Grid  An instance of this component.
  */
-function article_grid( array $settings = array(), array $data = array(), array $fm_fields = array() ) : Article_Grid {
+function article_grid( array $settings = [], array $data = [], array $fm_fields = [] ) : Article_Grid {
 	return new Article_Grid( $settings, $data, $fm_fields );
 }

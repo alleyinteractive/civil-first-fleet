@@ -44,12 +44,12 @@ class Button extends \WP_Components\Component {
 	 */
 	public static function get_fm_fields() {
 		return [
-			'label' => new \Fieldmanager_Textfield(
+			'label'  => new \Fieldmanager_Textfield(
 				[
-					'label'         => __( 'Button Text', 'civil-first-fleet' ),
+					'label' => __( 'Button Text', 'civil-first-fleet' ),
 				]
 			),
-			'action'  => new \Fieldmanager_Select(
+			'action' => new \Fieldmanager_Select(
 				[
 					'label'   => __( 'Button Action', 'civil-first-fleet' ),
 					'options' => [
@@ -59,10 +59,10 @@ class Button extends \WP_Components\Component {
 					],
 				]
 			),
-			'link'  => new \Fieldmanager_Link(
+			'link'   => new \Fieldmanager_Link(
 				[
-					'label'       => __( 'Link', 'civil-first-fleet' ),
-					'display_if'  => [
+					'label'      => __( 'Link', 'civil-first-fleet' ),
+					'display_if' => [
 						'src'   => 'action',
 						'value' => 'link',
 					],

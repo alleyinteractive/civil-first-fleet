@@ -10,11 +10,13 @@ namespace Civil_First_Fleet;
 // Get this instance.
 $component = ai_get_var( 'component' );
 $context   = $component->setting( 'context' );
-$blog_id   = 'civil' === $context ? 1 : null;
-$link      = get_home_url( $blog_id, '/' );
+// phpcs:disable WordPress.WP.GlobalVariablesOverride.Prohibited
+$blog_id = 'civil' === $context ? 1 : null;
+$link    = get_home_url( $blog_id, '/' );
 
 open_anchor(
-	$link, [
+	$link,
+	[
 		'class' => ai_get_classnames(
 			[
 				'wrapper',

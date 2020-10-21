@@ -25,9 +25,9 @@ class Content_Item extends \Civil_First_Fleet\Component {
 	 * @return array Default settings.
 	 */
 	public function default_settings() : array {
-		return array(
+		return [
 			'layout' => 'single',
-		);
+		];
 	}
 
 	/**
@@ -36,9 +36,9 @@ class Content_Item extends \Civil_First_Fleet\Component {
 	 * @return array Default data.
 	 */
 	public function default_data() : array {
-		return array(
+		return [
 			'post_id' => 0,
-		);
+		];
 	}
 
 	/**
@@ -48,7 +48,7 @@ class Content_Item extends \Civil_First_Fleet\Component {
 	 */
 	public function set_post_id( $post_id = null ) {
 		$post_id = $post_id ?? get_the_ID();
-		$post = get_post( $post_id );
+		$post    = get_post( $post_id );
 
 		// Only update if a valid post_Id.
 		if ( $post instanceof \WP_Post ) {
@@ -67,10 +67,11 @@ class Content_Item extends \Civil_First_Fleet\Component {
 	 */
 	public function render() {
 		\ai_get_template_part(
-			$this->get_component_path( $this->setting( 'layout' ) ), array(
-				'component' => $this,
+			$this->get_component_path( $this->setting( 'layout' ) ),
+			[
+				'component'  => $this,
 				'stylesheet' => $this->setting( 'layout' ),
-			)
+			]
 		);
 	}
 
@@ -141,15 +142,15 @@ class Content_Item extends \Civil_First_Fleet\Component {
 	public function published_date() {
 		echo wp_kses(
 			$this->get_published_date(),
-			array(
-				'time' => array(
-					'datetime' => array(),
-					'class' => array(),
-				),
-				'span' => array(
-					'class' => array(),
-				),
-			)
+			[
+				'time' => [
+					'datetime' => [],
+					'class'    => [],
+				],
+				'span' => [
+					'class' => [],
+				],
+			]
 		);
 	}
 
@@ -160,17 +161,19 @@ class Content_Item extends \Civil_First_Fleet\Component {
 
 		// Get and validate primary category.
 		$category_id = absint( get_post_meta( $this->data( 'post_id' ), 'primary_category_id', true ) );
-		$category = get_term_by( 'id', $category_id, 'category' );
+		$category    = get_term_by( 'id', $category_id, 'category' );
 
 		if ( ! $category instanceof \WP_Term ) {
 			return;
 		}
 
+		$link = get_term_link( $category, 'category' );
+
 		// Output.
 		return sprintf(
 			'<a href="%2$s" class="%4$s">%1$s <span class="screen-reader-text">%3$s</span></a>',
 			esc_html( $category->name ),
-			esc_url( (string) get_term_link( $category, 'category' ) ),
+			esc_url( is_string( $link ? $link : '' ) ),
 			esc_html__( 'Primary category in which blog post is published', 'civil-first-fleet' ),
 			ai_get_classnames( [ 'eyebrow' ] )
 		);
@@ -218,7 +221,7 @@ class Content_Item extends \Civil_First_Fleet\Component {
 	 */
 	public function get_label( $post_id = null ) {
 		$post_id = $post_id ?? get_the_ID();
-		$labels = get_post_meta( $post_id, 'label', true );
+		$labels  = get_post_meta( $post_id, 'label', true );
 		if ( is_array( $labels ) && in_array( 'opinion', $labels, true ) ) {
 			return sprintf(
 				/* translators: 1: Label to identify opinion pieces. */

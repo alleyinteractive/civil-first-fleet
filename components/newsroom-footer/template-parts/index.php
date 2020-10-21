@@ -43,11 +43,11 @@ $copyright_text = $component->get_data( 'copyright_text' );
 							$component->menu_name( $location );
 						}
 						wp_nav_menu(
-							array(
+							[
 								'theme_location' => $location,
 								'menu_id'        => $location,
 								'container'      => '',
-							)
+							]
 						);
 						?>
 					</div>
@@ -89,6 +89,7 @@ $copyright_text = $component->get_data( 'copyright_text' );
 			printf(
 				/* translators: Copyright [year] [blog name] */
 				esc_html__( 'Copyright © %1$s %2$s', 'civil-first-fleet' ),
+				// phpcs: disable WordPress.DateTime.RestrictedFunctions.date_date
 				absint( date( 'Y' ) ),
 				esc_html( $copyright_text )
 			);

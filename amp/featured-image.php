@@ -13,7 +13,7 @@ if ( empty( $featured_image ) ) {
 
 $amp_html       = $featured_image['amp_html'];
 $custom_caption = get_post_meta( get_the_ID(), 'featured_image_custom_caption', true );
-$caption        =  ! empty( $custom_caption ) ? $custom_caption : $featured_image['caption'];
+$caption        = ! empty( $custom_caption ) ? $custom_caption : $featured_image['caption'];
 ?>
 <figure class="amp-wp-article-featured-image wp-caption">
 	<?php echo $amp_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>

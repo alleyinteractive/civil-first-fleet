@@ -26,7 +26,7 @@ class Featured_Articles extends \Civil_First_Fleet\Component\Content_List {
 	 * @return array Default data.
 	 */
 	public function default_data() : array {
-		$data = parent::default_data();
+		$data                     = parent::default_data();
 		$data['call_to_action']   = null;
 		$data['sponsorship']      = false;
 		$data['hide_sidebar']     = false;
@@ -115,6 +115,6 @@ class Featured_Articles extends \Civil_First_Fleet\Component\Content_List {
  * @param  array $fm_fields Fieldmanager fields for this component.
  * @return Featured_Articles  An instance of this component.
  */
-function featured_articles( array $settings = array(), array $data = array(), array $fm_fields = array() ) : Featured_Articles {
+function featured_articles( array $settings = [], array $data = [], array $fm_fields = [] ) : Featured_Articles {
 	return new Featured_Articles( $settings, $data );
 }

@@ -14,6 +14,7 @@ if ( ! wp_validate_boolean( $component->get_data( 'enable' ) ) ) {
 }
 
 // Setup title.
+// phpcs:disable WordPress.WP.GlobalVariablesOverride.Prohibited
 $title         = $component->get_data( 'settings', 'title' );
 $per_page      = (int) $component->get_data( 'settings', 'per_page' );
 $show_location = $component->get_data( 'settings', 'show_location' );

@@ -1,4 +1,3 @@
-
 <?php
 /**
  * Template file for the Google Tag Manager noscript code.

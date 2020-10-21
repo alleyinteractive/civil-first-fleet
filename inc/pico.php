@@ -25,9 +25,11 @@ function ensure_gutenberg_block_structure( $content ) {
 	$dynamic_block_pattern = (
 		'/<!--\s+wp:(' .
 		str_replace(
-			'/', '\/',                 // Escape namespace, not handled by preg_quote.
+			'/',
+			'\/',                 // Escape namespace, not handled by preg_quote.
 			str_replace(
-				'core/', '(?:core/)?', // Allow implicit core namespace, but don't capture.
+				'core/',
+				'(?:core/)?', // Allow implicit core namespace, but don't capture.
 				implode(
 					'|',                   // Join block names into capture group alternation.
 					array_map(

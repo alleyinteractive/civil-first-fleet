@@ -24,7 +24,8 @@ class Page_Body extends \Civil_First_Fleet\Component\Content_Item {
 	 */
 	public function render() {
 		\ai_get_template_part(
-			$this->get_component_path(), [
+			$this->get_component_path(),
+			[
 				'component'  => $this,
 				'stylesheet' => $this->slug,
 			]

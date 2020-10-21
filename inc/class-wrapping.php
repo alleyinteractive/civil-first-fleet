@@ -50,7 +50,7 @@ class Wrapping {
 
 		self::$base = substr( basename( $template ), 0, -4 );
 
-		$templates = array( 'wrapper.php' );
+		$templates = [ 'wrapper.php' ];
 
 		if ( 'index' !== self::$base ) {
 			array_unshift( $templates, sprintf( 'wrapper-%s.php', self::$base ) );
@@ -59,4 +59,4 @@ class Wrapping {
 		return locate_template( $templates );
 	}
 }
-add_filter( 'template_include', array( __NAMESPACE__ . '\Wrapping', 'wrap' ), 99 );
+add_filter( 'template_include', [ __NAMESPACE__ . '\Wrapping', 'wrap' ], 99 );

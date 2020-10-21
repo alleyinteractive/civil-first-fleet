@@ -9,11 +9,11 @@
  */
 
 // Get this instance.
-$component = ai_get_var( 'component' );
-$post_id = $component->data( 'post_id' );
+$component    = ai_get_var( 'component' );
+$post_id      = $component->data( 'post_id' );
 $ai_coauthors = get_coauthors( $post_id );
-$is_opinion = ! empty( $component->get_label() );
-$has_dek = ! empty( $component->get_dek() );
+$is_opinion   = ! empty( $component->get_label() );
+$has_dek      = ! empty( $component->get_dek() );
 
 // Secondary bylines.
 $component->set_data( 'secondary_bylines', get_post_meta( $post_id, 'secondary_bylines', true ) );
@@ -28,17 +28,19 @@ $component->set_data( 'secondary_bylines', get_post_meta( $post_id, 'secondary_b
 $featured_video_url = (bool) get_post_meta( $post_id, 'featured_video_url', true );
 if ( $featured_video_url ) {
 	\ai_get_template_part(
-		$component->get_component_path( 'video' ), array(
+		$component->get_component_path( 'video' ),
+		[
 			'component' => $component,
-		)
+		]
 	);
 } else {
 	$disable_featured_image = (bool) get_post_meta( $post_id, 'disable_featured_image', true );
 	if ( ! $disable_featured_image ) {
 		\ai_get_template_part(
-			$component->get_component_path( 'image' ), array(
+			$component->get_component_path( 'image' ),
+			[
 				'component' => $component,
-			)
+			]
 		);
 	}
 }
@@ -47,8 +49,9 @@ if ( $featured_video_url ) {
 <header class="
 	<?php
 	ai_the_classnames(
-		[ 'wrapper' ], [
-			'opinion' => $is_opinion,
+		[ 'wrapper' ],
+		[
+			'opinion'  => $is_opinion,
 			'with-dek' => $has_dek,
 		]
 	);

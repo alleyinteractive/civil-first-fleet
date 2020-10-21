@@ -166,9 +166,9 @@ class Sponsor extends \WP_Components\Component {
 						),
 						'end_date'        => new \Fieldmanager_Datepicker(
 							[
-								'label'      => __( 'End Date', 'civil-first-fleet' ),
-								'description'   => __( 'Sponsorship will end at 12:01 on this date (this date _will not_ display the sponsor).', 'civil-first-fleet' ),
-								'display_if' => [
+								'label'       => __( 'End Date', 'civil-first-fleet' ),
+								'description' => __( 'Sponsorship will end at 12:01 on this date (this date _will not_ display the sponsor).', 'civil-first-fleet' ),
+								'display_if'  => [
 									'src'   => 'enable_schedule',
 									'value' => true,
 								],
@@ -208,6 +208,7 @@ class Sponsor extends \WP_Components\Component {
 				return $this;
 			}
 
+			// phpcs:disable WordPress.DateTime.CurrentTimeTimestamp.Requested
 			$current_time = current_time( 'timestamp' );
 
 			// Determine which sponsor should display based on the scheduled

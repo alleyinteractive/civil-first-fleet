@@ -6,10 +6,10 @@
  */
 
 // Get this instance.
-$ai_component = ai_get_var( 'component' );
-$author_id = get_the_author_meta( 'ID' );
+$ai_component  = ai_get_var( 'component' );
+$author_id     = get_the_author_meta( 'ID' );
 $coauthor_meta = get_the_coauthor_meta( 'ID', $author_id );
-$coauthor_id = array_pop( $coauthor_meta );
+$coauthor_id   = array_pop( $coauthor_meta );
 ?>
 
 <!-- avatars, bylines, and bios -->
@@ -34,8 +34,8 @@ $coauthor_id = array_pop( $coauthor_meta );
 				echo wp_kses(
 					get_post_meta( $coauthor_id, 'biography', true ),
 					[
-						'a' => [ 'href' => [] ],
-						'em' => [],
+						'a'      => [ 'href' => [] ],
+						'em'     => [],
 						'strong' => [],
 					]
 				);

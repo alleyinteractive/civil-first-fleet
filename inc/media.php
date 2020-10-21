@@ -32,17 +32,17 @@ namespace Civil_First_Fleet;
 				'height' => 810,
 				'width'  => 1440,
 			],
-			'card' => [
+			'card'           => [
 				'height' => 258,
 				'width'  => 460,
 			],
 		],
-		'1:1' => [
+		'1:1'  => [
 			'avatar-small' => [
 				'height' => 25,
 				'width'  => 25,
 			],
-			'river' => [
+			'river'        => [
 				'height' => 140,
 				'width'  => 140,
 			],
@@ -55,7 +55,7 @@ namespace Civil_First_Fleet;
  */
 \Civil_First_Fleet\Component\Image::register_sizes(
 	[
-		'large-feature' => [
+		'large-feature'        => [
 			'sources' => [
 				[
 					'transforms' => [
@@ -83,7 +83,7 @@ namespace Civil_First_Fleet;
 				],
 			],
 		],
-		'article-header' => [
+		'article-header'       => [
 			'sources' => [
 				[
 					'transforms' => [
@@ -117,7 +117,7 @@ namespace Civil_First_Fleet;
 				],
 			],
 		],
-		'gallery-fullscreen' => [
+		'gallery-fullscreen'   => [
 			'sources' => [
 				[
 					'transforms' => [
@@ -157,7 +157,7 @@ namespace Civil_First_Fleet;
 				],
 			],
 		],
-		'card' => [
+		'card'                 => [
 			'sources' => [
 				[
 					'transforms' => [
@@ -167,7 +167,7 @@ namespace Civil_First_Fleet;
 				],
 			],
 		],
-		'river' => [
+		'river'                => [
 			'sources' => [
 				[
 					'transforms' => [
@@ -177,7 +177,7 @@ namespace Civil_First_Fleet;
 				],
 			],
 		],
-		'avatar-small' => [
+		'avatar-small'         => [
 			'sources' => [
 				[
 					'transforms' => [
@@ -187,7 +187,7 @@ namespace Civil_First_Fleet;
 				],
 			],
 		],
-		'avatar-large' => [
+		'avatar-large'         => [
 			'sources' => [
 				[
 					'transforms' => [
@@ -207,7 +207,7 @@ namespace Civil_First_Fleet;
 				],
 			],
 		],
-		'sponsor-logo' => [
+		'sponsor-logo'         => [
 			'sources' => [
 				[
 					'transforms' => [

@@ -52,14 +52,14 @@ class Partials {
 	 *
 	 * @var WP_Post
 	 */
-	public $original_posts = array();
+	public $original_posts = [];
 
 	/**
 	 * The template stack.
 	 *
 	 * @var array
 	 */
-	public $stack = array();
+	public $stack = [];
 
 	/**
 	 * The currently-active partial.
@@ -167,7 +167,7 @@ class Partials {
 
 		if ( $cache ) {
 			if ( is_bool( $args['cache'] ) ) {
-				$args['cache'] = array();
+				$args['cache'] = [];
 			}
 
 			// If no key was provided, make one.
@@ -197,7 +197,7 @@ class Partials {
 		}
 
 		if ( ! isset( $args['parent'] ) && isset( $this->current_partial->slug ) ) {
-			$args['parent'] = array( $this->current_partial->slug, $this->current_partial->name );
+			$args['parent'] = [ $this->current_partial->slug, $this->current_partial->name ];
 		}
 
 		$this->preserve_post();
@@ -277,12 +277,12 @@ class Partials {
 	 * @param array    $args {@see Partials::loop()}.
 	 */
 	protected function loop_query( $query, $args ) {
-		$return = array();
+		$return = [];
 
 		while ( $query->have_posts() ) {
 			$query->the_post();
 			$args['variables']['index'] = $query->current_post;
-			$return[] = $this->load_single( $args );
+			$return[]                   = $this->load_single( $args );
 		}
 
 		return $return;
@@ -299,7 +299,7 @@ class Partials {
 	 * @param array $args {@see Partials::loop()}.
 	 */
 	protected function loop_posts( $posts, $args ) {
-		$return = array();
+		$return = [];
 		global $post;
 
 		foreach ( $posts as $i => $post ) {
@@ -309,7 +309,7 @@ class Partials {
 
 			setup_postdata( $post );
 			$args['variables']['index'] = $i;
-			$return[] = $this->load_single( $args );
+			$return[]                   = $this->load_single( $args );
 		}
 
 		return $return;
@@ -328,14 +328,14 @@ class Partials {
 	 * @param array $args {@see Partials::loop()}.
 	 */
 	public function iterate( $args ) {
-		$return = array();
-		$items = (array) $args['iterate'];
+		$return = [];
+		$items  = (array) $args['iterate'];
 		unset( $args['iterate'] );
 
 		foreach ( $items as $index => $item ) {
-			$args['variables']['item'] = $item;
+			$args['variables']['item']  = $item;
 			$args['variables']['index'] = $index;
-			$return[] = $this->load_single( $args );
+			$return[]                   = $this->load_single( $args );
 		}
 
 		return $return;
@@ -364,7 +364,7 @@ class Partials {
 	 * @param  Partial $partial The partial we're loading.
 	 */
 	protected function push( $partial ) {
-		$this->stack[] = $partial;
+		$this->stack[]         = $partial;
 		$this->current_partial = $partial;
 	}
 

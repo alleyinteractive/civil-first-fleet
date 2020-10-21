@@ -25,12 +25,12 @@ class Logo extends \Civil_First_Fleet\Component {
 	 * @return array Default settings.
 	 */
 	public function default_settings() : array {
-		return array(
+		return [
 			// Options are 'civil' or 'newsroom'.
 			'context'  => 'civil',
 			'version'  => 'white',
 			'location' => 'header',
-		);
+		];
 	}
 }
 
@@ -42,6 +42,6 @@ class Logo extends \Civil_First_Fleet\Component {
  * @param  array $fm_fields Fieldmanager fields for this component.
  * @return Logo  An instance of this component.
  */
-function logo( array $settings = array(), array $data = array(), array $fm_fields = array() ) : Logo {
+function logo( array $settings = [], array $data = [], array $fm_fields = [] ) : Logo {
 	return new Logo( $settings, $data );
 }

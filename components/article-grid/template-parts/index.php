@@ -7,7 +7,7 @@
 
 // Get this instance.
 $component = ai_get_var( 'component' );
-$articles = (array) $component->get_content_items();
+$articles  = (array) $component->get_content_items();
 ?>
 
 <div class="<?php ai_the_classnames( [ 'wrapper' ] ); ?>" data-component="content-list">

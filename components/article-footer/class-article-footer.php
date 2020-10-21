@@ -24,7 +24,8 @@ class Article_Footer extends \Civil_First_Fleet\Component\Content_Item {
 	 */
 	public function render() {
 		\ai_get_template_part(
-			$this->get_component_path(), [
+			$this->get_component_path(),
+			[
 				'component'  => $this,
 				'stylesheet' => $this->slug,
 			]
@@ -40,6 +41,6 @@ class Article_Footer extends \Civil_First_Fleet\Component\Content_Item {
  * @param  array $fm_fields Fieldmanager fields for this component.
  * @return Article_Footer  An instance of this component.
  */
-function article_footer( array $settings = array(), array $data = array(), array $fm_fields = array() ) : Article_Footer {
+function article_footer( array $settings = [], array $data = [], array $fm_fields = [] ) : Article_Footer {
 	return new Article_Footer( $settings, $data );
 }

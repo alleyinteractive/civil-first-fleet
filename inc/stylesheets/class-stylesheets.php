@@ -128,11 +128,12 @@ class Stylesheets {
 	 * @return string
 	 */
 	private function camel_case( $string ) {
-		$words = explode( '-', $string );
+		$words           = explode( '-', $string );
 		$uppercase_words = array_map(
 			function( $word ) {
 					return ucfirst( $word );
-			}, $words
+			},
+			$words
 		);
 		return lcfirst( implode( '', $uppercase_words ) );
 	}
@@ -145,7 +146,7 @@ class Stylesheets {
 	 */
 	public function get_classname( $classname ) {
 		if ( array_key_exists( $classname, $this->current_stylesheet_classnames ) ) {
-			$classes = $this->current_stylesheet_classnames[ $classname ];
+			$classes             = $this->current_stylesheet_classnames[ $classname ];
 			$composed_class_list = array_map(
 				function( $local_class ) {
 						return sanitize_html_class( $local_class );

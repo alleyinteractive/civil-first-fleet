@@ -13,12 +13,12 @@ namespace Civil_First_Fleet;
 function dispatch_rewrites() {
 	\path_dispatch()->add_path(
 		[
-			'path'     => 'homepage',
-			'rewrite'  => array(
+			'path'    => 'homepage',
+			'rewrite' => [
 				'rule'       => 'page/([0-9]+)/?',
 				'redirect'   => 'index.php?dispatch=homepage&pagination=$matches[1]',
 				'query_vars' => 'pagination',
-			),
+			],
 		]
 	);
 }

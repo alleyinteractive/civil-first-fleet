@@ -25,9 +25,9 @@ class Article_Bylines extends \Civil_First_Fleet\Component\Content_Item {
 	 * @return array Default settings.
 	 */
 	public function default_settings() : array {
-		return array(
+		return [
 			'layout' => 'expandable',
-		);
+		];
 	}
 
 	/**
@@ -37,10 +37,10 @@ class Article_Bylines extends \Civil_First_Fleet\Component\Content_Item {
 		$layout = "bylines-{$this->get_setting( 'layout' )}";
 		\ai_get_template_part(
 			$this->get_component_path( $layout ),
-			array(
+			[
 				'component'  => $this,
 				'stylesheet' => 'article-bylines',
-			)
+			]
 		);
 	}
 
@@ -93,6 +93,6 @@ class Article_Bylines extends \Civil_First_Fleet\Component\Content_Item {
  * @param  array $fm_fields Fieldmanager fields for this component.
  * @return Article_Bylines  An instance of this component.
  */
-function article_bylines( array $settings = array(), array $data = array(), array $fm_fields = array() ) : Article_Bylines {
+function article_bylines( array $settings = [], array $data = [], array $fm_fields = [] ) : Article_Bylines {
 	return new Article_Bylines( $settings, $data );
 }

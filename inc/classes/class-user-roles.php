@@ -44,7 +44,7 @@ class User_Roles {
 					'edit_usergroups'         => true,
 				],
 			],
-			'editor' => [
+			'editor'        => [
 				'display_name' => __( 'Editor', 'civil-first-fleet' ),
 				'action'       => 'merge',
 				'caps'         => [
@@ -61,7 +61,7 @@ class User_Roles {
 					'ef_view_story_budget'    => true,
 				],
 			],
-			'author' => [
+			'author'        => [
 				'display_name' => __( 'Author', 'civil-first-fleet' ),
 				'action'       => 'merge',
 				'caps'         => [
@@ -74,7 +74,7 @@ class User_Roles {
 					'ef_view_story_budget'    => true,
 				],
 			],
-			'contributor' => [
+			'contributor'   => [
 				'display_name' => __( 'Contributor', 'civil-first-fleet' ),
 				'action'       => 'merge',
 				'caps'         => [
@@ -109,7 +109,7 @@ class User_Roles {
 			'ef_view_story_budget'    => true,
 			'edit_usergroups'         => true,
 		];
-		$admin_role = get_role( 'administrator' );
+		$admin_role            = get_role( 'administrator' );
 		if ( $admin_role instanceof \WP_Role ) {
 			$admin_unfiltered_caps = array_replace(
 				$admin_role->capabilities,

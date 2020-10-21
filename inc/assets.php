@@ -10,7 +10,8 @@ namespace Civil_First_Fleet;
 define( 'CIVIL_FIRST_FLEET_ASSET_VERSION', '1.3' );
 
 add_filter(
-	'am_inline_script_context', function () {
+	'am_inline_script_context',
+	function () {
 		return 'civilCMS';
 	}
 );
@@ -181,8 +182,8 @@ add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
  * Enqueues scripts and styles for admin screens
  */
 function enqueue_admin() {
-	wp_enqueue_script( 'civil-first-fleet-admin-js', get_template_directory_uri() . '/client/build/js/admin.bundle.js', array(), CIVIL_FIRST_FLEET_ASSET_VERSION, true );
-	wp_enqueue_style( 'civil-first-fleet-admin-css', get_template_directory_uri() . '/client/build/css/admin.css', array(), CIVIL_FIRST_FLEET_ASSET_VERSION );
+	wp_enqueue_script( 'civil-first-fleet-admin-js', get_template_directory_uri() . '/client/build/js/admin.bundle.js', [], CIVIL_FIRST_FLEET_ASSET_VERSION, true );
+	wp_enqueue_style( 'civil-first-fleet-admin-css', get_template_directory_uri() . '/client/build/css/admin.css', [], CIVIL_FIRST_FLEET_ASSET_VERSION );
 }
 add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\enqueue_admin' );
 
@@ -190,7 +191,7 @@ add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\enqueue_admin' );
  * Enqueues scripts and styles for admin screens
  */
 function enqueue_gutenberg() {
-	wp_enqueue_style( 'civil-first-fleet-gutenberg-css', get_template_directory_uri() . '/client/build/css/editor.css', array(), CIVIL_FIRST_FLEET_ASSET_VERSION );
+	wp_enqueue_style( 'civil-first-fleet-gutenberg-css', get_template_directory_uri() . '/client/build/css/editor.css', [], CIVIL_FIRST_FLEET_ASSET_VERSION );
 }
 add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\enqueue_gutenberg' );
 

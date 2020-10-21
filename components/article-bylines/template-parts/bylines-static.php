@@ -7,7 +7,8 @@
 
 // Get this instance.
 $ai_component = ai_get_var( 'component' );
-$post_id = $ai_component->data( 'post_id' );
+// phpcs:disable WordPress.WP.GlobalVariablesOverride.Prohibited
+$post_id      = $ai_component->data( 'post_id' );
 $ai_coauthors = get_coauthors( $post_id );
 ?>
 
@@ -37,8 +38,8 @@ $ai_coauthors = get_coauthors( $post_id );
 						echo wp_kses(
 							get_post_meta( $coauthor->ID, 'biography', true ),
 							[
-								'a' => [ 'href' => [] ],
-								'em' => [],
+								'a'      => [ 'href' => [] ],
+								'em'     => [],
 								'strong' => [],
 							]
 						);

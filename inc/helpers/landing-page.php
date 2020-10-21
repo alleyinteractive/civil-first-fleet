@@ -73,7 +73,7 @@ function get_homepage_fields() : array {
 
 	$fields['featured_image'] = new \Fieldmanager_Group(
 		[
-			'label' => __( 'Featured Image', 'civil-first-fleet' ),
+			'label'    => __( 'Featured Image', 'civil-first-fleet' ),
 			'children' => [
 				'image' => new \Fieldmanager_Media(
 					[

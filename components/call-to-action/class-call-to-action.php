@@ -63,22 +63,22 @@ class Call_To_Action extends \Civil_First_Fleet\Component {
 		}
 
 		return [
-			'enable' => new \Fieldmanager_Checkbox( __( 'Enable', 'civil-first-fleet' ) ),
+			'enable'   => new \Fieldmanager_Checkbox( __( 'Enable', 'civil-first-fleet' ) ),
 			'settings' => new \Fieldmanager_Group(
 				[
-					'label' => __( 'Settings', 'civil-first-fleet' ),
-					'collapsed' => true,
-					'children'  => [
-						'type'  => new \Fieldmanager_Select(
+					'label'      => __( 'Settings', 'civil-first-fleet' ),
+					'collapsed'  => true,
+					'children'   => [
+						'type'       => new \Fieldmanager_Select(
 							[
 								'label'   => __( 'Type', 'civil-first-fleet' ),
-								'options' => array(
+								'options' => [
 									'subscribe'  => __( 'Subscribe', 'civil-first-fleet' ),
 									'newsletter' => __( 'Newsletter Sign up', 'civil-first-fleet' ),
-								),
+								],
 							]
 						),
-						'theme' => new \Fieldmanager_Select(
+						'theme'      => new \Fieldmanager_Select(
 							[
 								'label'   => __( 'Theme', 'civil-first-fleet' ),
 								'options' => [
@@ -88,7 +88,7 @@ class Call_To_Action extends \Civil_First_Fleet\Component {
 								],
 							]
 						),
-						'layout' => new \Fieldmanager_Select(
+						'layout'     => new \Fieldmanager_Select(
 							[
 								'label'   => __( 'Layout', 'civil-first-fleet' ),
 								'options' => [
@@ -99,9 +99,9 @@ class Call_To_Action extends \Civil_First_Fleet\Component {
 						),
 						'newsletter' => new \Fieldmanager_Select(
 							[
-								'label'       => __( 'Newsletter', 'civil-first-fleet' ),
-								'options'     => $this->get_newsletter_options(),
-								'display_if'  => [
+								'label'      => __( 'Newsletter', 'civil-first-fleet' ),
+								'options'    => $this->get_newsletter_options(),
+								'display_if' => [
 									'src'   => 'type',
 									'value' => 'newsletter',
 								],
@@ -114,31 +114,31 @@ class Call_To_Action extends \Civil_First_Fleet\Component {
 					],
 				]
 			),
-			'data' => new \Fieldmanager_Group(
+			'data'     => new \Fieldmanager_Group(
 				[
-					'label'     => __( 'Override Copy', 'civil-first-fleet' ),
-					'collapsed' => true,
-					'children'  => [
-						'customize' => new \Fieldmanager_Checkbox( __( 'Customize Copy', 'civil-first-fleet' ) ),
+					'label'      => __( 'Override Copy', 'civil-first-fleet' ),
+					'collapsed'  => true,
+					'children'   => [
+						'customize'   => new \Fieldmanager_Checkbox( __( 'Customize Copy', 'civil-first-fleet' ) ),
 						'title'       => new \Fieldmanager_Textfield(
 							[
-								'label' => __( 'Title', 'civil-first-fleet' ),
+								'label'      => __( 'Title', 'civil-first-fleet' ),
 								'display_if' => [
-									'src' => 'customize',
+									'src'   => 'customize',
 									'value' => true,
 								],
 							]
 						),
 						'description' => new \Fieldmanager_Textfield(
 							[
-								'label' => __( 'Description', 'civil-first-fleet' ),
+								'label'      => __( 'Description', 'civil-first-fleet' ),
 								'display_if' => [
-									'src' => 'customize',
+									'src'   => 'customize',
 									'value' => true,
 								],
 							]
 						),
-						'button' => new \Fieldmanager_Group(
+						'button'      => new \Fieldmanager_Group(
 							[
 								'children' => \Civil_First_Fleet\Components\Call_To_Action\Button::get_fm_fields(),
 							]
@@ -159,26 +159,26 @@ class Call_To_Action extends \Civil_First_Fleet\Component {
 	 */
 	public function sticky_cta_fm_fields() : array {
 		return [
-			'enable' => new \Fieldmanager_Checkbox( __( 'Enable', 'civil-first-fleet' ) ),
+			'enable'   => new \Fieldmanager_Checkbox( __( 'Enable', 'civil-first-fleet' ) ),
 			'settings' => new \Fieldmanager_Group(
 				[
-					'label' => __( 'Settings', 'civil-first-fleet' ),
-					'collapsed' => true,
-					'children'  => [
-						'type'  => new \Fieldmanager_Select(
+					'label'      => __( 'Settings', 'civil-first-fleet' ),
+					'collapsed'  => true,
+					'children'   => [
+						'type'       => new \Fieldmanager_Select(
 							[
 								'label'   => __( 'Type', 'civil-first-fleet' ),
-								'options' => array(
+								'options' => [
 									'subscribe'  => __( 'Subscribe', 'civil-first-fleet' ),
 									'newsletter' => __( 'Newsletter Sign up', 'civil-first-fleet' ),
-								),
+								],
 							]
 						),
 						'newsletter' => new \Fieldmanager_Select(
 							[
-								'label'       => __( 'Newsletter', 'civil-first-fleet' ),
-								'options'     => $this->get_newsletter_options(),
-								'display_if'  => [
+								'label'      => __( 'Newsletter', 'civil-first-fleet' ),
+								'options'    => $this->get_newsletter_options(),
+								'display_if' => [
 									'src'   => 'type',
 									'value' => 'newsletter',
 								],
@@ -191,35 +191,35 @@ class Call_To_Action extends \Civil_First_Fleet\Component {
 					],
 				]
 			),
-			'data' => new \Fieldmanager_Group(
+			'data'     => new \Fieldmanager_Group(
 				[
-					'label'     => __( 'Override Copy', 'civil-first-fleet' ),
-					'collapsed' => true,
-					'children'  => [
-						'customize' => new \Fieldmanager_Checkbox( __( 'Customize Copy', 'civil-first-fleet' ) ),
+					'label'      => __( 'Override Copy', 'civil-first-fleet' ),
+					'collapsed'  => true,
+					'children'   => [
+						'customize'   => new \Fieldmanager_Checkbox( __( 'Customize Copy', 'civil-first-fleet' ) ),
 						'title'       => new \Fieldmanager_Textfield(
 							[
-								'label' => __( 'Title', 'civil-first-fleet' ),
+								'label'      => __( 'Title', 'civil-first-fleet' ),
 								'display_if' => [
-									'src' => 'customize',
+									'src'   => 'customize',
 									'value' => true,
 								],
 							]
 						),
 						'description' => new \Fieldmanager_Textfield(
 							[
-								'label' => __( 'Description', 'civil-first-fleet' ),
+								'label'      => __( 'Description', 'civil-first-fleet' ),
 								'display_if' => [
-									'src' => 'customize',
+									'src'   => 'customize',
 									'value' => true,
 								],
 							]
 						),
 						'button_text' => new \Fieldmanager_Textfield(
 							[
-								'label' => __( 'Button Text', 'civil-first-fleet' ),
+								'label'      => __( 'Button Text', 'civil-first-fleet' ),
 								'display_if' => [
-									'src' => 'customize',
+									'src'   => 'customize',
 									'value' => true,
 								],
 							]
@@ -239,21 +239,23 @@ class Call_To_Action extends \Civil_First_Fleet\Component {
 	 */
 	public function render() {
 		if ( false === (bool) $this->data( 'customize' ) ) {
-			$type = $this->setting( 'type' );
+			$type     = $this->setting( 'type' );
 			$defaults = (array) $this->get_option( 'newsroom-settings', 'component_defaults', "{$type}_call_to_action", 'data' );
 			$this->set_data( $defaults );
 		}
 
 		if ( 'sticky' === $this->setting( 'layout' ) ) {
 			\ai_get_template_part(
-				$this->get_component_path( 'sticky' ), [
+				$this->get_component_path( 'sticky' ),
+				[
 					'component'  => $this,
 					'stylesheet' => 'sticky-cta',
 				]
 			);
 		} else {
 			\ai_get_template_part(
-				$this->get_component_path( $this->setting( 'type' ) ), [
+				$this->get_component_path( $this->setting( 'type' ) ),
+				[
 					'component'  => $this,
 					'stylesheet' => $this->slug,
 				]
@@ -339,16 +341,16 @@ class Call_To_Action extends \Civil_First_Fleet\Component {
 			register_block_type(
 				"civil/{$this->slug}",
 				[
-					'editor_script' => 'block-js-' . $this->slug,
+					'editor_script'   => 'block-js-' . $this->slug,
 					'render_callback' => function( array $attributes ) {
 						return $this->render_block_data( $attributes );
 					},
-					'attributes' => [
-						'title' => [
+					'attributes'      => [
+						'title'           => [
 							'type'    => 'text',
 							'default' => __( 'CTA Title', 'civil-first-fleet' ),
 						],
-						'cta_text' => [
+						'cta_text'        => [
 							'type'    => 'text',
 							'default' => __( 'CTA Description', 'civil-first-fleet' ),
 						],
@@ -356,7 +358,7 @@ class Call_To_Action extends \Civil_First_Fleet\Component {
 							'type'    => 'text',
 							'default' => __( 'CTA Button', 'civil-first-fleet' ),
 						],
-						'newsletter' => [
+						'newsletter'      => [
 							'type' => 'boolean',
 						],
 						'newsletter_list' => [
@@ -387,8 +389,8 @@ class Call_To_Action extends \Civil_First_Fleet\Component {
 
 		return ai_partial(
 			[
-				'slug' => $this->get_component_path( $this->setting( 'type' ) ),
-				'return' => true,
+				'slug'      => $this->get_component_path( $this->setting( 'type' ) ),
+				'return'    => true,
 				'variables' => [
 					'component'  => $this,
 					'stylesheet' => $this->slug,
@@ -509,7 +511,7 @@ function newsletter_submission_ajax() {
 				'Authorization' => 'Basic ' . base64_encode( 'user:' . $mailchimp_api_key ),
 				'Content Type'  => 'application/json',
 			],
-			'body' => wp_json_encode(
+			'body'    => wp_json_encode(
 				[
 					'email_address' => $email,
 					'status'        => 'subscribed',
