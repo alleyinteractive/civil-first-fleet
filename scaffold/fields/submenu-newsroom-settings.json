@@ -202,6 +202,16 @@
 					"label": { "__": "Subscribe CTA" },
 					"collapsed": true,
 					"children": "`\\Civil_First_Fleet\\Component\\call_to_action()->set_setting( 'type', 'subscribe' )->remove_fm_field( 'enable' )->remove_fm_field( 'settings' )->get_fm_fields()`"
+				},
+				"featured_articles": {
+					"label": { "__": "Featured Articles" },
+					"collapsed": true,
+					"children": {
+						"show_avatar": {
+							"type": "checkbox",
+							"label": { "__": "Show author avatars in featured article lists" }
+						}
+					}
 				}
 			}
 		},

@@ -26,7 +26,8 @@ class Content_Item extends \Civil_First_Fleet\Component {
 	 */
 	public function default_settings() : array {
 		return array(
-			'layout' => 'single',
+			'layout'      => 'single',
+			'show_avatar' => true,
 		);
 	}
 
@@ -93,11 +94,12 @@ class Content_Item extends \Civil_First_Fleet\Component {
 	}
 
 	/**
-	 * Text-only byline helper.
+	 * Get byline.
 	 *
+	 * @param bool Show avatar.
 	 * @return string The byline.
 	 */
-	public function get_byline_no_avatar() {
+	public function get_byline( $show_avatar = false ) {
 		$coauthors = $this->get_data( 'coauthors' );
 		if ( empty( $coauthors ) ) {
 			return '';
@@ -106,18 +108,21 @@ class Content_Item extends \Civil_First_Fleet\Component {
 		$coauthor = array_shift( $coauthors );
 
 		return sprintf(
-			'<a href="%1$s" class="%2$s">By %3$s</a>',
+			'<a href="%1$s" class="%2$s">%3$sBy %4$s</a>',
 			esc_url( get_author_posts_url( $coauthor->ID, $coauthor->user_nicename ) ),
-			ai_get_classnames( [ 'byline' ] ),
+			ai_get_classnames( [ 'byline', 'avatar' ] ),
+			$show_avatar ? $this->get_author_avatar( $coauthor->ID ) : '',
 			esc_html( $coauthor->display_name )
 		);
 	}
 
 	/**
-	 * Display text-only byline.
+	 * Display byline.
+	 *
+	 * @param bool Show avatar.
 	 */
-	public function byline_no_avatar() {
-		echo wp_kses_post( $this->get_byline_no_avatar() );
+	public function byline( $show_avatar = false ) {
+		echo wp_kses_post( $this->get_byline( $show_avatar ) );
 	}
 
 	/**
@@ -241,29 +246,38 @@ class Content_Item extends \Civil_First_Fleet\Component {
 	}
 
 	/**
+	 * Get the author avatar.
+	 *
+	 * @param object $coauthor_id The coauthor ID.
+	 * @param string $size Image size to use for avatar image.
+	 */
+	public function get_author_avatar( $coauthor_id, $size = 'avatar-small' ) {
+		$avatar_id = get_post_meta( $coauthor_id, '_thumbnail_id', true );
+
+		if ( ! empty( $avatar_id ) ) {
+			ob_start();
+			\Civil_First_Fleet\Component\image()
+				->set_post_id( $avatar_id )
+				->size( $size )
+				->aspect_ratio( false )
+				->render();
+			return ob_get_clean();
+		} else {
+			return sprintf(
+				'<img src="%1$s">',
+				esc_url( get_avatar_url( $coauthor_id, 75 ) )
+			);
+		}
+	}
+
+	/**
 	 * Display the author avatar.
 	 *
 	 * @param object $coauthor_id The coauthor ID.
 	 * @param string $size Image size to use for avatar image.
 	 */
 	public function author_avatar( $coauthor_id, $size = 'avatar-small' ) {
-		$avatar_id = get_post_meta( $coauthor_id, '_thumbnail_id', true );
-
-		if ( ! empty( $avatar_id ) ) {
-			\Civil_First_Fleet\Component\image()
-				->set_post_id( $avatar_id )
-				->size( $size )
-				->aspect_ratio( false )
-				->disable_lazyload()
-				->render();
-		} else {
-			echo wp_kses_post(
-				sprintf(
-					'<img src="%1$s">',
-					esc_url( get_avatar_url( $coauthor_id, 75 ) )
-				)
-			);
-		}
+		echo wp_kses_post( $this->get_author_avatar( $coauthor_id, $size ) );
 	}
 
 	/**
