@@ -108,7 +108,7 @@ class Content_Item extends \Civil_First_Fleet\Component {
 		$coauthor = array_shift( $coauthors );
 
 		return sprintf(
-			'<a href="%1$s" class="%2$s">%3$sBy %4$s</a>',
+			'<a href="%1$s" class="%2$s">%3$s%4$s</a>',
 			esc_url( get_author_posts_url( $coauthor->ID, $coauthor->user_nicename ) ),
 			ai_get_classnames( [ 'byline', 'avatar' ] ),
 			$show_avatar ? $this->get_author_avatar( $coauthor->ID ) : '',
