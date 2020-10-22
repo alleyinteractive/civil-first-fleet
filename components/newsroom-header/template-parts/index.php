@@ -29,12 +29,12 @@ $disable_civil_branding = wp_validate_boolean( get_option( 'newsroom-settings' )
 			<?php
 			if ( has_nav_menu( 'newsroom-header' ) ) {
 				wp_nav_menu(
-					array(
+					[
 						'theme_location'  => 'newsroom-header',
 						'menu_id'         => 'newsroom-header-nav',
 						'container'       => 'nav',
 						'container_class' => ai_get_classnames( [ 'nav' ] ),
-					)
+					]
 				);
 			}
 			?>

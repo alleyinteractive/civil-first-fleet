@@ -43,7 +43,7 @@ function posted_on() {
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
-	$allowed_html = wp_kses_allowed_html( 'post' );
+	$allowed_html         = wp_kses_allowed_html( 'post' );
 	$allowed_html['time'] = [
 		'class'    => true,
 		'datetime' => true,
@@ -80,11 +80,11 @@ function entry_footer() {
 				wp_kses(
 					/* translators: %s: post title */
 					__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'civil-first-fleet' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
+					[
+						'span' => [
+							'class' => [],
+						],
+					]
 				),
 				get_the_title()
 			)
@@ -97,11 +97,11 @@ function entry_footer() {
 			wp_kses(
 				/* translators: %s: Name of current post. Only visible to screen readers */
 				__( 'Edit <span class="screen-reader-text">%s</span>', 'civil-first-fleet' ),
-				array(
-					'span' => array(
-						'class' => array(),
-					),
-				)
+				[
+					'span' => [
+						'class' => [],
+					],
+				]
 			),
 			get_the_title()
 		),
@@ -156,7 +156,7 @@ remove_action( 'wp_head', 'wp_generator' );
  * @param  string $url        URL string.
  * @param  array  $attributes Anchor attributes.
  */
-function open_anchor( $url, $attributes = array() ) {
+function open_anchor( $url, $attributes = [] ) {
 	if ( empty( $url ) ) {
 		return;
 	}

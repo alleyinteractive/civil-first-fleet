@@ -24,7 +24,8 @@ class Article_Header extends \Civil_First_Fleet\Component\Content_Item {
 	 */
 	public function render() {
 		\ai_get_template_part(
-			$this->get_component_path(), [
+			$this->get_component_path(),
+			[
 				'component'  => $this,
 				'stylesheet' => $this->slug,
 			]
@@ -37,9 +38,9 @@ class Article_Header extends \Civil_First_Fleet\Component\Content_Item {
 	 * @return array Default settings.
 	 */
 	public function default_settings() : array {
-		return array(
+		return [
 			'stylesheet' => $this->slug,
-		);
+		];
 	}
 
 	/**
@@ -92,12 +93,12 @@ class Article_Header extends \Civil_First_Fleet\Component\Content_Item {
 				// Query for any posts.
 				$author_query = new \WP_Query(
 					[
-						'author_name' => $user_login,
-						'post_status' => 'publish',
-						'post_type' => 'post',
+						'author_name'    => $user_login,
+						'post_status'    => 'publish',
+						'post_type'      => 'post',
 						'posts_per_page' => 1,
-						'fields' => 'ids',
-						'no_found_rows' => true,
+						'fields'         => 'ids',
+						'no_found_rows'  => true,
 					]
 				);
 
@@ -132,6 +133,6 @@ class Article_Header extends \Civil_First_Fleet\Component\Content_Item {
  * @param  array $fm_fields Fieldmanager fields for this component.
  * @return Article_Header  An instance of this component.
  */
-function article_header( array $settings = array(), array $data = array(), array $fm_fields = array() ) : Article_Header {
+function article_header( array $settings = [], array $data = [], array $fm_fields = [] ) : Article_Header {
 	return new Article_Header( $settings, $data );
 }

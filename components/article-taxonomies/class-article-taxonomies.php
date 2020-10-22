@@ -25,18 +25,18 @@ class Article_Taxonomies extends \Civil_First_Fleet\Component {
 	 * @return array Default settings.
 	 */
 	public function default_settings() : array {
-		return array(
-			'tags' => array(
-				'enable' => true,
-				'label'  => __( 'This story is tagged in:', 'civil-first-fleet' ),
+		return [
+			'tags'       => [
+				'enable'                             => true,
+				'label'                              => __( 'This story is tagged in:', 'civil-first-fleet' ),
 				'hide_tags_prefixed_with_underscore' => true,
-			),
-			'categories'  => array(
-				'enable' => false,
-				'label'  => __( 'This story is categorized in:', 'civil-first-fleet' ),
+			],
+			'categories' => [
+				'enable'                                   => false,
+				'label'                                    => __( 'This story is categorized in:', 'civil-first-fleet' ),
 				'hide_categories_prefixed_with_underscore' => true,
-			),
-		);
+			],
+		];
 	}
 
 	/**
@@ -58,18 +58,18 @@ class Article_Taxonomies extends \Civil_First_Fleet\Component {
 	public function default_fm_fields() : array {
 		// Add the 'Enabled' checkbox to the front of the list of fields.
 		return [
-			'tags' => new \Fieldmanager_Group(
+			'tags'       => new \Fieldmanager_Group(
 				[
-					'label' => __( 'Tags', 'civil-first-fleet' ),
+					'label'    => __( 'Tags', 'civil-first-fleet' ),
 					'children' => [
 						'enable' => new \Fieldmanager_Checkbox(
 							__( 'Show a list of assigned tags in the article footer.', 'civil-first-fleet' )
 						),
-						'label' => new \Fieldmanager_TextField(
+						'label'  => new \Fieldmanager_TextField(
 							[
 								'label'         => __( 'Label', 'civil-first-fleet' ),
 								'default_value' => __( 'This story is tagged in:', 'civil-first-fleet' ),
-								'display_if' => [
+								'display_if'    => [
 									'src'   => 'enable',
 									'value' => true,
 								],
@@ -77,7 +77,7 @@ class Article_Taxonomies extends \Civil_First_Fleet\Component {
 						),
 						'hide_tags_prefixed_with_underscore' => new \Fieldmanager_Checkbox(
 							[
-								'label' => __( 'Don’t show tags that start with _ (an underscore).', 'civil-first-fleet' ),
+								'label'      => __( 'Don’t show tags that start with _ (an underscore).', 'civil-first-fleet' ),
 								'display_if' => [
 									'src'   => 'enable',
 									'value' => true,
@@ -89,16 +89,16 @@ class Article_Taxonomies extends \Civil_First_Fleet\Component {
 			),
 			'categories' => new \Fieldmanager_Group(
 				[
-					'label' => __( 'Categories', 'civil-first-fleet' ),
+					'label'    => __( 'Categories', 'civil-first-fleet' ),
 					'children' => [
 						'enable' => new \Fieldmanager_Checkbox(
 							__( 'Show a list of assigned categories in the article footer.', 'civil-first-fleet' )
 						),
-						'label' => new \Fieldmanager_TextField(
+						'label'  => new \Fieldmanager_TextField(
 							[
 								'label'         => __( 'Label', 'civil-first-fleet' ),
 								'default_value' => __( 'This story is categorized in:', 'civil-first-fleet' ),
-								'display_if' => [
+								'display_if'    => [
 									'src'   => 'enable',
 									'value' => true,
 								],
@@ -106,7 +106,7 @@ class Article_Taxonomies extends \Civil_First_Fleet\Component {
 						),
 						'hide_categories_prefixed_with_underscore' => new \Fieldmanager_Checkbox(
 							[
-								'label' => __( 'Don’t show categories that start with _ (an underscore).', 'civil-first-fleet' ),
+								'label'      => __( 'Don’t show categories that start with _ (an underscore).', 'civil-first-fleet' ),
 								'display_if' => [
 									'src'   => 'enable',
 									'value' => true,
@@ -124,8 +124,8 @@ class Article_Taxonomies extends \Civil_First_Fleet\Component {
 	 * filter it if necessary.
 	 */
 	public function pre_render() {
-		$taxonomy = $this->get_data( 'taxonomy' );
-		$hide_tags_prefixed_with_underscore = (bool) $this->get_setting( 'hide_tags_prefixed_with_underscore' ) ?? true;
+		$taxonomy                                 = $this->get_data( 'taxonomy' );
+		$hide_tags_prefixed_with_underscore       = (bool) $this->get_setting( 'hide_tags_prefixed_with_underscore' ) ?? true;
 		$hide_categories_prefixed_with_underscore = (bool) $this->get_setting( 'hide_categories_prefixed_with_underscore' ) ?? true;
 
 		// Get the terms in the requested taxonomy.
@@ -175,6 +175,6 @@ class Article_Taxonomies extends \Civil_First_Fleet\Component {
  * @param  array $fm_fields Fieldmanager fields for this component.
  * @return Featured_Articles  An instance of this component.
  */
-function article_taxonomies( array $settings = array(), array $data = array(), array $fm_fields = array() ) : Article_Taxonomies {
+function article_taxonomies( array $settings = [], array $data = [], array $fm_fields = [] ) : Article_Taxonomies {
 	return new Article_Taxonomies( $settings, $data );
 }

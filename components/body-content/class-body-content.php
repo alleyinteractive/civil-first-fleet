@@ -25,9 +25,9 @@ class Body_Content extends \Civil_First_Fleet\Component\Content_Item {
 	 * @return array Default settings.
 	 */
 	public function default_settings() : array {
-		return array(
+		return [
 			'layout' => 'sidebar',
-		);
+		];
 	}
 
 	/**
@@ -43,7 +43,8 @@ class Body_Content extends \Civil_First_Fleet\Component\Content_Item {
 	 */
 	public function render() {
 		\ai_get_template_part(
-			$this->get_component_path(), [
+			$this->get_component_path(),
+			[
 				'component'  => $this,
 				'stylesheet' => $this->slug,
 			]

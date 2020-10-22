@@ -9,8 +9,8 @@ namespace Civil_First_Fleet;
 
 // Get this instance.
 $component = ai_get_var( 'component' );
-$srcset = ai_get_var( 'srcset' );
-$lazyload = $component->get_setting( 'lazyload' );
+$srcset    = ai_get_var( 'srcset' );
+$lazyload  = $component->get_setting( 'lazyload' );
 
 if ( $lazyload ) {
 	printf(

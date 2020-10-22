@@ -12,7 +12,7 @@ $component = ai_get_var( 'component' );
 
 // iframe context cannot be from site.
 $home_url_parts = wp_parse_url( home_url() );
-$src_url_parts = wp_parse_url( $component->get_data( 'src' ) );
+$src_url_parts  = wp_parse_url( $component->get_data( 'src' ) );
 
 // No hosts found.
 if ( empty( $home_url_parts['host'] ) || empty( $src_url_parts['host'] ) ) {

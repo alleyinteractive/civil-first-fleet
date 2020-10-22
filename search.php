@@ -6,7 +6,8 @@
  */
 
 ai_get_template_part(
-	'template-parts/search', [
+	'template-parts/search',
+	[
 		'stylesheet' => 'search-template',
 	]
 );

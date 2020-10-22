@@ -27,12 +27,15 @@ function get_homepage_fields() : array {
 	$fields = [];
 
 	if ( is_plugin_active( 'ziprecruiter-jobs/index.php' ) ) {
-		add_filter( 'cta_type_options', function ( $options ) {
-			return  array_merge( 
-				$options,
-				[ 'jobs' => __( 'Jobs', 'civil-first-fleet' ) ]
-			);
-		});
+		add_filter(
+			'cta_type_options',
+			function ( $options ) {
+				return array_merge( 
+					$options,
+					[ 'jobs' => __( 'Jobs', 'civil-first-fleet' ) ]
+				);
+			}
+		);
 	}
 
 	$fields['featured_articles'] = Component\featured_articles(
@@ -88,7 +91,7 @@ function get_homepage_fields() : array {
 
 	$fields['featured_image'] = new \Fieldmanager_Group(
 		[
-			'label' => __( 'Featured Image', 'civil-first-fleet' ),
+			'label'    => __( 'Featured Image', 'civil-first-fleet' ),
 			'children' => [
 				'image' => new \Fieldmanager_Media(
 					[
@@ -116,7 +119,7 @@ function get_landing_page_id( $type = 'homepage' ) {
 	$landing_page = new \WP_Query(
 		[
 			'meta_key'       => 'landing_page_type',
-			'meta_value'     => 'homepage',
+			'meta_value'     => 'homepage', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
 			'post_status'    => 'publish',
 			'post_type'      => 'landing-page',
 			'posts_per_page' => 1,

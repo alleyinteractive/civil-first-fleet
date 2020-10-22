@@ -41,6 +41,6 @@ class Civil_Header extends \Civil_First_Fleet\Component {
  * @param  array $fm_fields Fieldmanager fields for this component.
  * @return Civil_Header  An instance of this component.
  */
-function civil_header( array $settings = array(), array $data = array(), array $fm_fields = array() ) : Civil_Header {
+function civil_header( array $settings = [], array $data = [], array $fm_fields = [] ) : Civil_Header {
 	return new Civil_Header( $settings, $data );
 }

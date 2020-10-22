@@ -27,15 +27,16 @@ class Content_List extends \Civil_First_Fleet\Component {
 	public function default_settings() : array {
 		return wp_parse_args(
 			[
-				'label'         => __( 'Component List', 'civil-first-fleet' ),
-				'items'         => 3,
-				'paged'         => 1,
-				'post_types'    => [
+				'label'        => __( 'Component List', 'civil-first-fleet' ),
+				'items'        => 3,
+				'paged'        => 1,
+				'post_types'   => [
 					'post',
 				],
 				'post__not_in' => [],
 				'load_more'    => false,
-			], parent::default_settings()
+			],
+			parent::default_settings()
 		);
 	}
 
@@ -46,13 +47,13 @@ class Content_List extends \Civil_First_Fleet\Component {
 	 */
 	public function default_data() : array {
 		return [
-			'meta'     => [
+			'meta'    => [
 				'title'     => '',
 				'permalink' => '',
 				'cta_text'  => '',
 				'cta_url'   => '',
 			],
-			'curate' => [
+			'curate'  => [
 				'post_ids' => [],
 			],
 			'filters' => [
@@ -67,12 +68,12 @@ class Content_List extends \Civil_First_Fleet\Component {
 	 * @return array Fieldmanager fields.
 	 */
 	public function default_fm_fields() : array {
-		return array(
-			'meta' => new \Fieldmanager_Group(
+		return [
+			'meta'    => new \Fieldmanager_Group(
 				[
-					'label' => __( 'Settings', 'civil-first-fleet' ),
+					'label'     => __( 'Settings', 'civil-first-fleet' ),
 					'collapsed' => true,
-					'children' => [
+					'children'  => [
 						'title'     => new \Fieldmanager_Textfield( __( 'Title', 'civil-first-fleet' ) ),
 						'permalink' => new \Fieldmanager_Link( __( 'Link', 'civil-first-fleet' ) ),
 						'cta_text'  => new \Fieldmanager_Textfield( __( 'CTA Text', 'civil-first-fleet' ) ),
@@ -80,32 +81,32 @@ class Content_List extends \Civil_First_Fleet\Component {
 					],
 				]
 			),
-			'curate' => new \Fieldmanager_Group(
+			'curate'  => new \Fieldmanager_Group(
 				[
 					'label'     => __( 'Curate Posts', 'civil-first-fleet' ),
 					'collapsed' => true,
 					'children'  => [
-						'post_ids'  => new \Fieldmanager_Zone_Field(
-							array(
-								'post_limit'     => absint( $this->setting( 'items' ) ),
-								'query_args'     => [
-									'post_type'  => (array) $this->setting( 'post_types' ),
+						'post_ids' => new \Fieldmanager_Zone_Field(
+							[
+								'post_limit' => absint( $this->setting( 'items' ) ),
+								'query_args' => [
+									'post_type' => (array) $this->setting( 'post_types' ),
 								],
-							)
+							]
 						),
 					],
 				]
 			),
 			'filters' => new \Fieldmanager_Group(
 				[
-					'label' => __( 'Content Filters (Max of 3)', 'civil-first-fleet' ),
+					'label'     => __( 'Content Filters (Max of 3)', 'civil-first-fleet' ),
 					'collapsed' => true,
-					'children' => [
+					'children'  => [
 						'filter' => new \Fieldmanager_Group(
 							[
 								'children'       => $this->get_filters(),
 								'label'          => __( 'Blank Filter', 'civil-first-fleet' ),
-								'label_macro'    => array( '%s', 'type' ),
+								'label_macro'    => [ '%s', 'type' ],
 								'limit'          => 3,
 								'minimum_count'  => 3,
 								'sortable'       => false,
@@ -121,7 +122,7 @@ class Content_List extends \Civil_First_Fleet\Component {
 					],
 				]
 			),
-		);
+		];
 	}
 
 	/**
@@ -144,53 +145,53 @@ class Content_List extends \Civil_First_Fleet\Component {
 	 */
 	public function get_filters() {
 		return [
-			'type' => new \Fieldmanager_Select(
+			'type'        => new \Fieldmanager_Select(
 				[
 					'first_empty' => true,
-					'options' => $this->get_filter_options(),
+					'options'     => $this->get_filter_options(),
 				]
 			),
-			'post_type' => new \Fieldmanager_Select(
-				array(
-					'multiple' => true,
+			'post_type'   => new \Fieldmanager_Select(
+				[
+					'multiple'    => true,
 					'first_empty' => false,
-					'attributes' => [
+					'attributes'  => [
 						'size' => 5,
 					],
-					'options' => [
+					'options'     => [
 						'post' => __( 'Posts', 'civil-first-fleet' ),
 					],
-					'display_if' => [
-						'src' => 'type',
+					'display_if'  => [
+						'src'   => 'type',
 						'value' => 'post_type',
 					],
-				)
+				]
 			),
 			'category_id' => new \Fieldmanager_Select(
-				array(
+				[
 					'datasource' => new \Fieldmanager_Datasource_Term(
-						array(
+						[
 							'taxonomy' => 'category',
-						)
+						]
 					),
 					'display_if' => [
-						'src' => 'type',
+						'src'   => 'type',
 						'value' => 'category',
 					],
-				)
+				]
 			),
 			'post_tag_id' => new \Fieldmanager_Select(
-				array(
+				[
 					'datasource' => new \Fieldmanager_Datasource_Term(
-						array(
+						[
 							'taxonomy' => 'post_tag',
-						)
+						]
 					),
 					'display_if' => [
-						'src' => 'type',
+						'src'   => 'type',
 						'value' => 'post_tag',
 					],
-				)
+				]
 			),
 		];
 	}
@@ -227,7 +228,7 @@ class Content_List extends \Civil_First_Fleet\Component {
 		}
 
 		if ( empty( $post_ids ) ) {
-			return array();
+			return [];
 		}
 
 		// Build an array of content_items based on the post_ids.
@@ -235,7 +236,8 @@ class Content_List extends \Civil_First_Fleet\Component {
 			array_map(
 				function( $post_id ) {
 						return \Civil_First_Fleet\Component\content_item()->set_post_id( absint( $post_id ) );
-				}, $post_ids
+				},
+				$post_ids
 			)
 		);
 	}
@@ -250,13 +252,14 @@ class Content_List extends \Civil_First_Fleet\Component {
 		$component_filters = $this->get_data( 'filters', 'filter' );
 
 		// Build default query args.
+		// phpcs:disable WordPress.DB.SlowDBQuery.slow_db_query_meta_query
 		$query_args = [
 			'fields'         => 'ids',
 			'meta_query'     => [],
 			'paged'          => $this->get_setting( 'paged' ),
 			'post_status'    => 'publish',
 			'post_type'      => [], // Set to an empty array to make filtering easier.
-			'post__not_in'  => $this->get_setting( 'post__not_in' ),
+			'post__not_in'   => $this->get_setting( 'post__not_in' ),
 			'posts_per_page' => $posts_required,
 		];
 
@@ -459,6 +462,6 @@ class Content_List extends \Civil_First_Fleet\Component {
  * @param  array $fm_fields Instance FM fields.
  * @return Content_List  An instance of this component.
  */
-function content_list( array $settings = array(), array $data = array(), array $fm_fields = array() ) : Content_List {
+function content_list( array $settings = [], array $data = [], array $fm_fields = [] ) : Content_List {
 	return new Content_List( $settings, $data );
 }

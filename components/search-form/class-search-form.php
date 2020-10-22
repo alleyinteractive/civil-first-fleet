@@ -27,10 +27,10 @@ class Search_Form extends \Civil_First_Fleet\Component {
 	 * @return array Default settings.
 	 */
 	public function default_settings() : array {
-		return array(
+		return [
 			'include_button' => false,
-			'context' => '',
-		);
+			'context'        => '',
+		];
 	}
 
 	/**

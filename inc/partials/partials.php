@@ -21,7 +21,6 @@
  * http://www.gnu.org/licenses/gpl-2.0.html
  */
 
-
 // Load required classes.
 require_once __DIR__ . '/class-partial.php';
 require_once __DIR__ . '/class-partials.php';
@@ -42,7 +41,7 @@ if ( ! function_exists( 'ai_get_template_part' ) ) :
 	 * @param array  $variables Optional. key => value pairs you want to access
 	 *                          from the template.
 	 */
-	function ai_get_template_part( $slug, $name = null, $variables = array() ) {
+	function ai_get_template_part( $slug, $name = null, $variables = [] ) {
 		list( $name, $variables ) = _ai_fix_template_part_args( $name, $variables );
 		ai_partial( compact( 'slug', 'name', 'variables' ) );
 	}
@@ -66,9 +65,9 @@ if ( ! function_exists( 'ai_get_cached_template_part' ) ) :
 	 * @param array  $variables Optional. Variables for the template.
 	 *                          @see ai_get_template_part().
 	 */
-	function ai_get_cached_template_part( $slug, $name = null, $variables = array() ) {
+	function ai_get_cached_template_part( $slug, $name = null, $variables = [] ) {
 		list( $name, $variables ) = _ai_fix_template_part_args( $name, $variables );
-		$cache = array();
+		$cache                    = [];
 		if ( ! empty( $variables['_cache_key'] ) ) {
 			$cache['key'] = $variables['_cache_key'];
 		}
@@ -112,7 +111,7 @@ if ( ! function_exists( 'ai_loop_template_part' ) ) :
 	 * @param array          $variables Optional. Variables for the template.
 	 *                                  @see ai_get_template_part().
 	 */
-	function ai_loop_template_part( $loop, $slug, $name = null, $variables = array() ) {
+	function ai_loop_template_part( $loop, $slug, $name = null, $variables = [] ) {
 		list( $name, $variables ) = _ai_fix_template_part_args( $name, $variables );
 		ai_partial( compact( 'slug', 'name', 'variables', 'loop' ) );
 	}
@@ -135,7 +134,7 @@ if ( ! function_exists( 'ai_iterate_template_part' ) ) :
 	 * @param array  $variables Variables for the template. Adds 'index' and
 	 *                          'item' as noted above. @see ai_get_template_part.
 	 */
-	function ai_iterate_template_part( $iterate, $slug, $name = null, $variables = array() ) {
+	function ai_iterate_template_part( $iterate, $slug, $name = null, $variables = [] ) {
 		list( $name, $variables ) = _ai_fix_template_part_args( $name, $variables );
 		ai_partial( compact( 'slug', 'name', 'variables', 'iterate' ) );
 	}
@@ -164,10 +163,10 @@ if ( ! function_exists( '_ai_fix_template_part_args' ) ) {
 	function _ai_fix_template_part_args( $name, $variables ) {
 		if ( is_array( $name ) ) {
 			$variables = $name;
-			$name = null;
+			$name      = null;
 		}
 
-		return array( $name, $variables );
+		return [ $name, $variables ];
 	}
 }
 

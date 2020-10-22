@@ -9,6 +9,8 @@
  * @version 1.0.0
  */
 
+ // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+
 /**
  * Unique WP Query Manager class.
  */
@@ -19,7 +21,7 @@ class Unique_WP_Query_Manager {
 	 *
 	 * @var array
 	 */
-	public static $used_post_ids = array();
+	public static $used_post_ids = [];
 
 	/**
 	 * Keeps track of how many used_posts_ids exist.
@@ -64,7 +66,7 @@ class Unique_WP_Query_Manager {
 				}
 
 				// Has this post already been used?
-				if ( in_array( $post_id, Unique_WP_Query_Manager::$used_post_ids, true ) ) {
+				if ( in_array( $post_id, self::$used_post_ids, true ) ) {
 					// Remove from $posts.
 					unset( $posts[ $key ] );
 
@@ -73,7 +75,7 @@ class Unique_WP_Query_Manager {
 
 				} else {
 					// If not, add it to the list of used ids.
-					Unique_WP_Query_Manager::$used_post_ids[] = $post_id;
+					self::$used_post_ids[] = $post_id;
 
 					// Update how many accepted posts we have.
 					$current_accepted_post_count++;
@@ -89,7 +91,7 @@ class Unique_WP_Query_Manager {
 		$posts = array_values( $posts );
 
 		// Update the $used_post_count.
-		Unique_WP_Query_Manager::$used_post_count = count( Unique_WP_Query_Manager::$used_post_ids );
+		self::$used_post_count = count( self::$used_post_ids );
 
 		// Trim any excess posts and update $post_count.
 		if ( count( $posts ) > $original_posts_per_page ) {
@@ -108,8 +110,8 @@ class Unique_WP_Query_Manager {
 	 * @param array $used_ids Used ids.
 	 */
 	public static function set_used_post_ids( $used_ids ) {
-		Unique_WP_Query_Manager::$used_post_ids = $used_ids;
-		Unique_WP_Query_Manager::$used_post_count = count( Unique_WP_Query_Manager::$used_post_ids );
+		self::$used_post_ids   = $used_ids;
+		self::$used_post_count = count( self::$used_post_ids );
 	}
 }
 
@@ -122,12 +124,13 @@ if ( ! function_exists( 'unique_wp_query_pre_get_posts' ) ) {
 	 *
 	 * @return void
 	 */
-	function unique_wp_query_pre_get_posts( &$query ) {
+	function unique_wp_query_pre_get_posts( &$query ) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 
 		// Only apply to Unique_WP_Query objects.
 		if ( true === $query->get( 'unique_wp_query' ) ) {
 
 			// Check our upward bound of posts_per_page.
+			// phpcs:disable WordPressVIPMinimum.Hooks.PreGetPosts.PreGetPosts
 			$posts_per_page = $query->get( 'posts_per_page' );
 			if ( $posts_per_page <= 200 ) {
 				// Increase posts_per_page by the amount of used post_ids.

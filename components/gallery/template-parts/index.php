@@ -8,8 +8,8 @@
 namespace Civil_First_Fleet;
 
 // Get this instance.
-$component = ai_get_var( 'component' );
-$attributes = $component->get_data( 'attributes' );
+$component     = ai_get_var( 'component' );
+$attributes    = $component->get_data( 'attributes' );
 $columns_class = 'columns-' . ( $attributes['columns'] ?? 3 );
 if ( empty( $attributes['images'] ) ) {
 	return;
@@ -58,9 +58,9 @@ if ( empty( $attributes['images'] ) ) {
 				<li class="<?php ai_the_classnames( [ 'slide' ] ); ?>" data-id="<?php echo esc_attr( $image['id'] ); ?>" data-index=<?php echo esc_attr( $idx ); ?>>
 					<figure class="<?php ai_the_classnames( [ 'figure' ] ); ?>">
 						<?php
-						$image_url = wp_get_attachment_url( $image['id'] );
+						$image_url     = wp_get_attachment_url( $image['id'] );
 						$image_caption = get_post( $image['id'] )->post_excerpt;
-						$image_credit = get_image_credit( $image['id'] );
+						$image_credit  = get_image_credit( $image['id'] );
 						( new Component\image() )
 							->set_url( $image_url )
 							->size( 'gallery-fullscreen' )

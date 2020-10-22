@@ -7,7 +7,7 @@
 
 // Get this instance.
 $ai_component = ai_get_var( 'component' );
-$post_id = $ai_component->data( 'post_id' );
+$post_id      = $ai_component->data( 'post_id' ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 $ai_coauthors = get_coauthors( $post_id );
 ?>
 
@@ -21,19 +21,21 @@ $ai_coauthors = get_coauthors( $post_id );
 			<header class="<?php ai_the_classnames( [ 'bio-header' ] ); ?>">
 
 				<a
-					href="<?php
+					href="
+					<?php
 						/**
 						 * Allow clients to link directly to coauthor if needed.
 						 *
 						 * @param string $coauthor_link Coauthor bio fragment by default.
 						 * @param object $coauthor Coauthor object.
 						 */
-						echo apply_filters(
+						echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 							'civil_first_fleet_get_expandable_coauthor_link',
 							esc_attr( '#' . $ai_component->get_bio_frag_id( $coauthor->ID ) ),
 							$coauthor
 						);
-					?>"
+					?>
+					"
 					class="<?php ai_the_classnames( [ 'byline-expand' ] ); ?>"
 				>
 					<span class="<?php ai_the_classnames( [ 'avatar' ] ); ?>">
@@ -58,8 +60,8 @@ $ai_coauthors = get_coauthors( $post_id );
 						echo wp_kses(
 							get_post_meta( $coauthor->ID, 'biography', true ),
 							[
-								'a' => [ 'href' => [] ],
-								'em' => [],
+								'a'      => [ 'href' => [] ],
+								'em'     => [],
 								'strong' => [],
 							]
 						);

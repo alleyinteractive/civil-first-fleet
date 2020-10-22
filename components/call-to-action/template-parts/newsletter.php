@@ -6,7 +6,7 @@
  */
 
 // Get this instance.
-$component   = ai_get_var( 'component' );
+$component = ai_get_var( 'component' );
 
 // Get settings.
 $theme      = $component->get_setting( 'theme' );
@@ -16,7 +16,7 @@ $newsletter = $component->get_setting( 'newsletter' );
 // Get data.
 $button_text = $component->get_data( 'button' )['label'] ?? $component->get_data( 'button_text' );
 $description = $component->get_data( 'description' );
-$title       = $component->get_data( 'title' );
+$title       = $component->get_data( 'title' ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 $location    = $component->get_data( 'location' );
 ?>
 

@@ -8,7 +8,8 @@
 while ( have_posts() ) {
 	the_post();
 	ai_get_template_part(
-		'template-parts/post', [
+		'template-parts/post',
+		[
 			'stylesheet' => 'article-template',
 		]
 	);

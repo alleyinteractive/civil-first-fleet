@@ -77,7 +77,8 @@ class IFrame extends \Civil_First_Fleet\Component {
 			'block-js-' . $this->slug,
 			get_template_directory_uri() . "/{$this->path}/{$this->slug}/assets/block.js",
 			[ 'wp-blocks', 'wp-element' ],
-			CIVIL_FIRST_FLEET_STATIC_VERSION
+			CIVIL_FIRST_FLEET_STATIC_VERSION,
+			false
 		);
 
 		// Expose settings.

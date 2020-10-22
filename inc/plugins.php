@@ -41,7 +41,7 @@ add_action(
 		];
 
 		foreach ( $required_plugins as $define => $label ) {
-			if ( ! defined( $define ) ) {
+			if ( ! defined( $define ) ) { // phpcs:ignore WordPressVIPMinimum.Constants.ConstantString.NotCheckingConstantName
 				missing_plugin_notice( $label );
 			}
 		}

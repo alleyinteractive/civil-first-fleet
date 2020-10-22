@@ -43,6 +43,6 @@ class Civil_Footer extends \Civil_First_Fleet\Component {
  * @param  array $fm_fields Fieldmanager fields for this component.
  * @return Civil_Footer  An instance of this component.
  */
-function civil_footer( array $settings = array(), array $data = array(), array $fm_fields = array() ) : Civil_Footer {
+function civil_footer( array $settings = [], array $data = [], array $fm_fields = [] ) : Civil_Footer {
 	return new Civil_Footer( $settings, $data );
 }

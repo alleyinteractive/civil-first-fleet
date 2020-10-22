@@ -58,6 +58,7 @@
 
 			<div class="compat-meta">
 				<# if ( data.compat && data.compat.meta ) { #>
+					<?php // phpcs:disable WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 					{{{ data.compat.meta }}}
 				<# } #>
 			</div>
@@ -77,10 +78,10 @@
 	<?php endif; ?>
 	<# if ( 'audio' === data.type ) { #>
 	<?php
-	foreach ( array(
+	foreach ( [
 		'artist' => __( 'Artist', 'civil-first-fleet' ),
 		'album'  => __( 'Album', 'civil-first-fleet' ),
-	) as $key => $label ) :
+	] as $key => $label ) :
 		?>
 		<label class="setting" data-setting="<?php echo esc_attr( $key ); ?>">
 			<span class="name"><?php echo esc_html( $label ); ?></span>

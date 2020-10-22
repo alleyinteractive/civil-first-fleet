@@ -10,11 +10,13 @@
  * @version 1.0.0
  */
 
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+
 /**
  * Unique_WP_Query class.
  */
 class Unique_WP_Query extends WP_Query {
-
+	
 	/**
 	 * Class constructor.
 	 *

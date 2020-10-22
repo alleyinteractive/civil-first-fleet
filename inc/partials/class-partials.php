@@ -52,14 +52,14 @@ class Partials {
 	 *
 	 * @var WP_Post
 	 */
-	public $original_posts = array();
+	public $original_posts = [];
 
 	/**
 	 * The template stack.
 	 *
 	 * @var array
 	 */
-	public $stack = array();
+	public $stack = [];
 
 	/**
 	 * The currently-active partial.
@@ -101,7 +101,7 @@ class Partials {
 		$original_post = array_pop( $this->original_posts );
 
 		if ( $original_post !== $post ) {
-			$post = $original_post; // WPCS: override ok.
+			$post = $original_post; // phpcs:ignore Standard.Category.SniffName.ErrorCode, WordPress.WP.GlobalVariablesOverride.Prohibited
 
 			if ( $post instanceof \WP_Post ) {
 				setup_postdata( $post );
@@ -167,7 +167,7 @@ class Partials {
 
 		if ( $cache ) {
 			if ( is_bool( $args['cache'] ) ) {
-				$args['cache'] = array();
+				$args['cache'] = [];
 			}
 
 			// If no key was provided, make one.
@@ -186,7 +186,7 @@ class Partials {
 				if ( $return ) {
 					return $partial;
 				} else {
-					echo $partial; // wpcs: xss ok.
+					echo $partial; // phpcs:ignore Standard.Category.SniffName.ErrorCode, WordPress.Security.EscapeOutput.OutputNotEscaped
 					return;
 				}
 			}
@@ -197,7 +197,7 @@ class Partials {
 		}
 
 		if ( ! isset( $args['parent'] ) && isset( $this->current_partial->slug ) ) {
-			$args['parent'] = array( $this->current_partial->slug, $this->current_partial->name );
+			$args['parent'] = [ $this->current_partial->slug, $this->current_partial->name ];
 		}
 
 		$this->preserve_post();
@@ -223,7 +223,7 @@ class Partials {
 			if ( $return ) {
 				return $contents;
 			} else {
-				echo $contents; // wpcs: xss ok.
+				echo $contents; // phpcs:ignore Standard.Category.SniffName.ErrorCode, WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}
 	}
@@ -277,12 +277,12 @@ class Partials {
 	 * @param array    $args {@see Partials::loop()}.
 	 */
 	protected function loop_query( $query, $args ) {
-		$return = array();
+		$return = [];
 
 		while ( $query->have_posts() ) {
 			$query->the_post();
 			$args['variables']['index'] = $query->current_post;
-			$return[] = $this->load_single( $args );
+			$return[]                   = $this->load_single( $args );
 		}
 
 		return $return;
@@ -299,17 +299,17 @@ class Partials {
 	 * @param array $args {@see Partials::loop()}.
 	 */
 	protected function loop_posts( $posts, $args ) {
-		$return = array();
+		$return = [];
 		global $post;
 
-		foreach ( $posts as $i => $post ) {
+		foreach ( $posts as $i => $post ) { // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 			if ( ! ( $post instanceof \WP_Post ) ) {
-				$post = get_post( $post ); // WPCS: override ok.
+				$post = get_post( $post ); // phpcs:ignore Standard.Category.SniffName.ErrorCode, WordPress.WP.GlobalVariablesOverride.Prohibited
 			}
 
 			setup_postdata( $post );
 			$args['variables']['index'] = $i;
-			$return[] = $this->load_single( $args );
+			$return[]                   = $this->load_single( $args );
 		}
 
 		return $return;
@@ -328,14 +328,14 @@ class Partials {
 	 * @param array $args {@see Partials::loop()}.
 	 */
 	public function iterate( $args ) {
-		$return = array();
-		$items = (array) $args['iterate'];
+		$return = [];
+		$items  = (array) $args['iterate'];
 		unset( $args['iterate'] );
 
 		foreach ( $items as $index => $item ) {
-			$args['variables']['item'] = $item;
+			$args['variables']['item']  = $item;
 			$args['variables']['index'] = $index;
-			$return[] = $this->load_single( $args );
+			$return[]                   = $this->load_single( $args );
 		}
 
 		return $return;
@@ -364,7 +364,7 @@ class Partials {
 	 * @param  Partial $partial The partial we're loading.
 	 */
 	protected function push( $partial ) {
-		$this->stack[] = $partial;
+		$this->stack[]         = $partial;
 		$this->current_partial = $partial;
 	}
 
@@ -384,6 +384,6 @@ class Partials {
 	 * @return string
 	 */
 	public static function cache_key( $args ) {
-		return 'partial_' . md5( serialize( $args ) );
+		return 'partial_' . md5( serialize( $args ) ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.serialize_serialize
 	}
 }

@@ -19,10 +19,10 @@ add_filter( 'jetpack_enable_open_graph', '__return_false' );
 function wp_seo_single_post_types( $post_types ) {
 
 	// Build an array of post types to remove from WP SEO.
-	$post_types_to_remove = array(
+	$post_types_to_remove = [
 		'guest-author',
 		'sponsor',
-	);
+	];
 
 	// Remove post types.
 	foreach ( $post_types_to_remove as $post_type_to_remove ) {
@@ -82,7 +82,7 @@ function generate_header_meta() {
 	}
 
 	// Setup array.
-	$meta = array(
+	$meta = [
 		'title'         => $title,
 		'og:title'      => $title,
 		'og:url'        => $url,
@@ -90,7 +90,7 @@ function generate_header_meta() {
 		'og:type'       => 'website',
 		'twitter:card'  => 'summary_large_image',
 		'twitter:title' => $title,
-	);
+	];
 
 	// Get newsroom SEO settings.
 	$component             = new \Civil_First_Fleet\Component();
@@ -124,8 +124,8 @@ function generate_header_meta() {
 	}
 
 	if ( ! empty( $description ) ) {
-		$meta['description'] = $description;
-		$meta['og:description'] = $description;
+		$meta['description']         = $description;
+		$meta['og:description']      = $description;
 		$meta['twitter:description'] = $description;
 	}
 
@@ -174,12 +174,12 @@ function generate_header_meta() {
 	 *
 	 * @var array
 	 */
-	$cleaned_meta = array();
+	$cleaned_meta = [];
 	foreach ( $meta as $key => $value ) {
-		$cleaned_meta[] = array(
+		$cleaned_meta[] = [
 			'property' => esc_attr( $key ),
 			'content'  => esc_attr( $value ),
-		);
+		];
 	}
 
 	return $cleaned_meta;

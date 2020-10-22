@@ -26,7 +26,7 @@ class Wrapping {
 	 * @param  string $template The path of the template to wrap.
 	 * @return mixed            Template filename (@see locate_template()) or void.
 	 */
-	public static function wrap( $template ) {
+	public static function wrap( $template ) { // phpcs:ignore WordPressVIPMinimum.Hooks.AlwaysReturnInFilter.VoidReturn
 		/**
 		 * Filter to force skip wrapping the template. To skip wrapping the
 		 * template in wrapper.php, simply return true.
@@ -50,7 +50,7 @@ class Wrapping {
 
 		self::$base = substr( basename( $template ), 0, -4 );
 
-		$templates = array( 'wrapper.php' );
+		$templates = [ 'wrapper.php' ];
 
 		if ( 'index' !== self::$base ) {
 			array_unshift( $templates, sprintf( 'wrapper-%s.php', self::$base ) );
@@ -59,4 +59,4 @@ class Wrapping {
 		return locate_template( $templates );
 	}
 }
-add_filter( 'template_include', array( __NAMESPACE__ . '\Wrapping', 'wrap' ), 99 );
+add_filter( 'template_include', [ __NAMESPACE__ . '\Wrapping', 'wrap' ], 99 );

@@ -9,14 +9,14 @@
 $component = ai_get_var( 'component' );
 
 // Get settings.
-$theme = $component->get_setting( 'theme' );
+$theme  = $component->get_setting( 'theme' );
 $layout = $component->get_setting( 'layout' );
 
 // Get data.
 $button_text = $component->get_data( 'button_text' );
 $button      = (array) $component->get_data( 'button' );
 $description = $component->get_data( 'description' );
-$title       = $component->get_data( 'title' );
+$title       = $component->get_data( 'title' ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 $location    = $component->get_data( 'location' );
 $context     = $component->get_data( 'context' );
 ?>

@@ -30,7 +30,7 @@ class Newsroom_Footer extends \Civil_First_Fleet\Component {
 	 */
 	public function get_menu_name( $location ) {
 		$theme_locations = get_nav_menu_locations();
-		$menu_obj = get_term( $theme_locations[ $location ], 'nav_menu' );
+		$menu_obj        = get_term( $theme_locations[ $location ], 'nav_menu' );
 		return sprintf(
 			'<h3 class="%2$s">%1$s</h3>',
 			esc_html( $menu_obj->name ),
@@ -70,6 +70,6 @@ class Newsroom_Footer extends \Civil_First_Fleet\Component {
  * @param  array $fm_fields Fieldmanager fields for this component.
  * @return Newsroom_Footer  An instance of this component.
  */
-function newsroom_footer( array $settings = array(), array $data = array(), array $fm_fields = array() ) : Newsroom_Footer {
+function newsroom_footer( array $settings = [], array $data = [], array $fm_fields = [] ) : Newsroom_Footer {
 	return new Newsroom_Footer( $settings, $data );
 }

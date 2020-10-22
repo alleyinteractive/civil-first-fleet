@@ -33,7 +33,7 @@ class Partial {
 	 *
 	 * @var array
 	 */
-	public $variables = array();
+	public $variables = [];
 
 	/**
 	 * The path to the calling/parent template.
@@ -171,13 +171,13 @@ class Partial {
 		}
 
 		// Locate the parent template that was loaded.
-		$templates = array();
-		$name = (string) $this->parent[1];
+		$templates = [];
+		$name      = (string) $this->parent[1];
 		if ( '' !== $name ) {
 			$templates[] = "{$this->parent[0]}-{$name}.php";
 		}
 		$templates[] = "{$this->parent[0]}.php";
-		$located = locate_template( $templates, false );
+		$located     = locate_template( $templates, false );
 
 		// If we have a located template, and it contains the $name, return it.
 		if ( $located && false !== strpos( $located, "{$this->parent[0]}-{$name}.php" ) ) {

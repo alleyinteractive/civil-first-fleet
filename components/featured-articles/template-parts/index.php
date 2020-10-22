@@ -18,6 +18,7 @@ if ( empty( $articles ) ) {
 $featured_article = array_shift( $articles );
 
 // Setup title.
+// phpcs:disable WordPress.WP.GlobalVariablesOverride.Prohibited
 $title = $component->get_data( 'meta', 'title' );
 if ( empty( $title ) ) {
 	$title = __( 'Top Stories', 'civil-first-fleet' );

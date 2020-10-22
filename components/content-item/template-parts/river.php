@@ -10,7 +10,7 @@ namespace Civil_First_Fleet;
 
 // Get this instance.
 $component   = ai_get_var( 'component' );
-$post_id     = $component->get_data( 'post_id' );
+$post_id     = $component->get_data( 'post_id' ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 $layout      = $component->get_setting( 'layout' );
 $show_avatar = $component->get_setting( 'show_avatar' );
 $is_opinion  = ! empty( $component->get_label( $post_id ) );

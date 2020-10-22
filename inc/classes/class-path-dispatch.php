@@ -7,6 +7,8 @@
 
 if ( ! class_exists( 'Path_Dispatch' ) ) :
 
+	// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+
 	/**
 	 * Path Dispatch
 	 * =============
@@ -112,21 +114,21 @@ if ( ! class_exists( 'Path_Dispatch' ) ) :
 		 *
 		 * @var array
 		 */
-		public $qv = array( 'dispatch' );
+		public $qv = [ 'dispatch' ];
 
 		/**
 		 * Array of baisc paths.
 		 *
 		 * @var array
 		 */
-		public $basic_paths = array();
+		public $basic_paths = [];
 
 		/**
 		 * Array of rewrite paths.
 		 *
 		 * @var array
 		 */
-		public $rewrite_paths = array();
+		public $rewrite_paths = [];
 
 		/**
 		 * Instance of this class.
@@ -174,13 +176,13 @@ if ( ! class_exists( 'Path_Dispatch' ) ) :
 		 */
 		public function setup() {
 			// Add our query_var, 'dispatch'.
-			add_filter( 'query_vars', array( $this, 'add_query_var' ) );
+			add_filter( 'query_vars', [ $this, 'add_query_var' ] );
 
 			// Setup rewrite rules for our paths.
-			add_action( 'init', array( $this, 'add_rewrite_rules' ), 5 );
+			add_action( 'init', [ $this, 'add_rewrite_rules' ], 5 );
 
 			// We're doing this on parse_query to ensure that query vars are set.
-			add_action( 'parse_query', array( $this, 'dispatch_path' ) );
+			add_action( 'parse_query', [ $this, 'dispatch_path' ] );
 		}
 
 		/**
@@ -214,11 +216,11 @@ if ( ! class_exists( 'Path_Dispatch' ) ) :
 		 *
 		 * @return void
 		 */
-		public function add_path( $args = array() ) {
+		public function add_path( $args = [] ) {
 			if ( is_string( $args ) && ! empty( $args ) ) {
-				$args = array(
+				$args = [
 					'path' => $args,
-				);
+				];
 			}
 
 			if ( ! empty( $args['path'] ) ) {
@@ -315,9 +317,9 @@ if ( ! class_exists( 'Path_Dispatch' ) ) :
 					$args = $this->rewrite_paths[ $path ];
 				}
 				if ( empty( $args['action'] ) ) {
-					do_action( 'dispatch_path_' . $path, $args );
+					do_action( 'dispatch_path_' . $path, $args ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 				} else {
-					do_action( $args['action'], $args );
+					do_action( $args['action'], $args ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
 				}
 
 				if ( ! empty( $args['template'] ) ) {
@@ -333,7 +335,7 @@ if ( ! class_exists( 'Path_Dispatch' ) ) :
 	 *
 	 * @return Path_Dispatch
 	 */
-	function path_dispatch() {
+	function path_dispatch() { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 		return Path_Dispatch::instance();
 	}
 

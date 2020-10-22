@@ -17,7 +17,7 @@ class Shortcode {
 	 *
 	 * @var array
 	 */
-	public $settings = array();
+	public $settings = [];
 
 	/**
 	 * Class constructor.
@@ -28,18 +28,19 @@ class Shortcode {
 
 		// Parse and set settings.
 		$this->settings = wp_parse_args(
-			$settings, array(
-				'name' => '',
-				'label' => '',
-				'icon' => '',
-				'post_types' => array( 'post' ),
-				'attributes' => array(),
-				'fields' => array(),
-			)
+			$settings,
+			[
+				'name'       => '',
+				'label'      => '',
+				'icon'       => '',
+				'post_types' => [ 'post' ],
+				'attributes' => [],
+				'fields'     => [],
+			]
 		);
 
-		add_shortcode( $this->settings['name'], array( $this, 'shortcode' ) );
-		add_action( 'register_shortcode_ui', array( $this, 'register_shortcode_ui' ) );
+		add_shortcode( $this->settings['name'], [ $this, 'shortcode' ] );
+		add_action( 'register_shortcode_ui', [ $this, 'register_shortcode_ui' ] );
 	}
 
 	/**
@@ -60,12 +61,12 @@ class Shortcode {
 	 * Shortcode UI setup.
 	 */
 	public function register_shortcode_ui() {
-		$settings = array(
-			'label' => $this->settings['label'],
+		$settings = [
+			'label'         => $this->settings['label'],
 			'listItemImage' => $this->settings['icon'],
-			'post_type' => $this->settings['post_types'],
-			'attrs' => $this->settings['fields'],
-		);
+			'post_type'     => $this->settings['post_types'],
+			'attrs'         => $this->settings['fields'],
+		];
 		shortcode_ui_register_for_shortcode( $this->settings['name'], $settings );
 	}
 }

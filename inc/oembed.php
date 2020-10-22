@@ -59,6 +59,6 @@ function add_embed_css() {
 </style>
 HTML;
 
-	echo filter_var( $excerpt_css, FILTER_UNSAFE_RAW );
+	echo filter_var( $excerpt_css, FILTER_UNSAFE_RAW ); // phpcs:ignore WordPressVIPMinimum.Security.PHPFilterFunctions.RestrictedFilter
 }
 add_filter( 'embed_head', __NAMESPACE__ . '\add_embed_css' );

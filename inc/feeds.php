@@ -22,8 +22,8 @@ function show_guest_author_name_in_feeds( $author_display_name ) {
 		return $author_display_name;
 	}
 
-	$authors_array = array();
-	$coauthors = get_coauthors( $post->ID );
+	$authors_array = [];
+	$coauthors     = get_coauthors( $post->ID );
 
 	if ( empty( $coauthors ) || ! is_array( $coauthors ) ) {
 		return $author_display_name;
@@ -49,10 +49,10 @@ function rss_post_thumbnail( $content ) {
 	global $post;
 
 	// Get newsroom RSS Feed settings.
-	$add_featured_image_to_rss_feeds  = ( new \Civil_First_Fleet\Component() )->get_option( 'newsroom-settings', 'feeds', 'rss_feed_settings', 'add_featured_image_to_rss_feeds' );
+	$add_featured_image_to_rss_feeds = ( new \Civil_First_Fleet\Component() )->get_option( 'newsroom-settings', 'feeds', 'rss_feed_settings', 'add_featured_image_to_rss_feeds' );
 
-	if ( has_post_thumbnail( $post->ID ) && $add_featured_image_to_rss_feeds ){
-		$content = '<div>' . get_the_post_thumbnail( $post->ID, 'medium' ) .'</div>' . $content;
+	if ( has_post_thumbnail( $post->ID ) && $add_featured_image_to_rss_feeds ) {
+		$content = '<div>' . get_the_post_thumbnail( $post->ID, 'medium' ) . '</div>' . $content;
 	}
 	return $content;
 }
