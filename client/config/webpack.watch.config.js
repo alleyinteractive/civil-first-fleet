@@ -59,8 +59,7 @@ module.exports = (env) => {
     plugins: buildPlugins.concat([
       new LiveReloadPlugin(env.http ?
         defaultSettings :
-        Object.assign({}, defaultSettings, httpsSettings)
-      ),
+        Object.assign({}, defaultSettings, httpsSettings)),
       new ExtractTextPlugin(filenames.cssNoHash),
       new StatsPlugin({
         transform: wpAssets,

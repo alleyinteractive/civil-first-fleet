@@ -26,6 +26,18 @@ function get_landing_page_types() : array {
 function get_homepage_fields() : array {
 	$fields = [];
 
+	if ( is_plugin_active( 'ziprecruiter-jobs/index.php' ) ) {
+		add_filter(
+			'cta_type_options',
+			function ( $options ) {
+				return array_merge( 
+					$options,
+					[ 'jobs' => __( 'Jobs', 'civil-first-fleet' ) ]
+				);
+			}
+		);
+	}
+
 	$fields['featured_articles'] = Component\featured_articles(
 		[
 			'label' => __( 'Featured Articles', 'civil-first-fleet' ),
@@ -44,6 +56,12 @@ function get_homepage_fields() : array {
 			[
 				'label' => __( 'ZipRecruiter Job Board Block', 'civil-first-fleet' ),
 				'items' => 4,
+			]
+		)->get_fm_group();
+
+		$fields['call_to_action_2'] = Component\call_to_action(
+			[
+				'label' => __( 'Call To Action (below Ziprecruiter block)', 'civil-first-fleet' ),
 			]
 		)->get_fm_group();
 	}
@@ -65,7 +83,7 @@ function get_homepage_fields() : array {
 	->remove_fm_field( 'curate' )
 	->get_fm_group();
 
-	$fields['call_to_action_2'] = Component\call_to_action(
+	$fields['call_to_action_3'] = Component\call_to_action(
 		[
 			'label' => __( 'Call To Action (below article grid)', 'civil-first-fleet' ),
 		]

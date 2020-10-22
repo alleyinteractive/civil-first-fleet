@@ -1,6 +1,5 @@
 const path = require('path');
 const paths = require('./paths');
-const filenames = require('./filenames');
 const lintingPlugins = require('./postcssLinting');
 
 const jsExclude = [
@@ -21,16 +20,7 @@ module.exports.cssExclude = [
 
 // Loaders used for processing CSS
 module.exports.cssLoaders = [
-  {
-    loader: 'css-loader',
-    options: {
-      sourceMap: true,
-      importLoaders: 1,
-      minimize: {
-        autoprefixer: false,
-      },
-    },
-  },
+  'css-loader',
   {
     loader: 'postcss-loader',
     options: {

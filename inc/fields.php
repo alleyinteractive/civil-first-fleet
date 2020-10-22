@@ -310,6 +310,15 @@ function civil_first_fleet_fm_submenu_newsroom_settings() {
 									'children'  => \Civil_First_Fleet\Component\call_to_action()->set_setting( 'type', 'subscribe' )->remove_fm_field( 'enable' )->remove_fm_field( 'settings' )->get_fm_fields(),
 								]
 							),
+							'featured_articles'         => new Fieldmanager_Group(
+								[
+									'label'     => __( 'Featured Articles', 'civil-first-fleet' ),
+									'collapsed' => true,
+									'children'  => [
+										'show_avatar' => new Fieldmanager_Checkbox( __( 'Show author avatars in featured article lists', 'civil-first-fleet' ) ),
+									],
+								]
+							)
 						],
 					]
 				),

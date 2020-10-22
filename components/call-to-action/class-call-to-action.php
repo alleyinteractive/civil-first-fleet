@@ -72,10 +72,7 @@ class Call_To_Action extends \Civil_First_Fleet\Component {
 						'type'       => new \Fieldmanager_Select(
 							[
 								'label'   => __( 'Type', 'civil-first-fleet' ),
-								'options' => [
-									'subscribe'  => __( 'Subscribe', 'civil-first-fleet' ),
-									'newsletter' => __( 'Newsletter Sign up', 'civil-first-fleet' ),
-								],
+								'options' => $this->get_type_options(),
 							]
 						),
 						'theme'      => new \Fieldmanager_Select(
@@ -168,10 +165,7 @@ class Call_To_Action extends \Civil_First_Fleet\Component {
 						'type'       => new \Fieldmanager_Select(
 							[
 								'label'   => __( 'Type', 'civil-first-fleet' ),
-								'options' => [
-									'subscribe'  => __( 'Subscribe', 'civil-first-fleet' ),
-									'newsletter' => __( 'Newsletter Sign up', 'civil-first-fleet' ),
-								],
+								'options' => $this->get_type_options(),
 							]
 						),
 						'newsletter' => new \Fieldmanager_Select(
@@ -261,6 +255,27 @@ class Call_To_Action extends \Civil_First_Fleet\Component {
 				]
 			);
 		}
+	}
+
+	/**
+	 * Return an array of Call to Action type options.
+	 * 
+	 * @return array Types.
+	 */
+	public function get_type_options() : array {
+
+		/**
+		 * Filters Call to Action type options.
+		 * 
+		 * @param array Type options to be filtered.
+		 */
+		return apply_filters(
+			'cta_type_options', // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
+			[
+				'subscribe'  => __( 'Subscribe', 'civil-first-fleet' ),
+				'newsletter' => __( 'Newsletter Sign up', 'civil-first-fleet' ),
+			]
+		);
 	}
 
 	/**
