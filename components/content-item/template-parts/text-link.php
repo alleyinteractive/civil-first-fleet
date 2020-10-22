@@ -8,9 +8,8 @@
 namespace Civil_First_Fleet;
 
 // Get this instance.
-$component = ai_get_var( 'component' );
-// phpcs:disable WordPress.WP.GlobalVariablesOverride.Prohibited
-$post_id      = $component->get_data( 'post_id' );
+$component    = ai_get_var( 'component' );
+$post_id      = $component->get_data( 'post_id' ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 $layout       = $component->get_setting( 'layout' );
 $ai_coauthors = get_coauthors( $post_id );
 ?>

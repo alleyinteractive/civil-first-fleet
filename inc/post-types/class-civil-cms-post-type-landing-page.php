@@ -24,7 +24,7 @@ class Civil_Cms_Post_Type_Landing_Page extends Civil_Cms_Post_Type {
 		register_post_type(
 			$this->name,
 			[
-				'labels' => [
+				'labels'       => [
 					'name'                  => __( 'Landing Pages', 'civil-first-fleet' ),
 					'singular_name'         => __( 'Landing Page', 'civil-first-fleet' ),
 					'add_new'               => __( 'Add New Landing Page', 'civil-first-fleet' ),
@@ -47,10 +47,10 @@ class Civil_Cms_Post_Type_Landing_Page extends Civil_Cms_Post_Type {
 					'items_list'            => __( 'Landing Pages list', 'civil-first-fleet' ),
 					'menu_name'             => __( 'Landing Pages', 'civil-first-fleet' ),
 				],
-				'public' => true,
+				'public'       => true,
 				'show_in_rest' => true,
-				'menu_icon' => 'dashicons-layout',
-				'supports' => [ 'title', 'revisions' ],
+				'menu_icon'    => 'dashicons-layout',
+				'supports'     => [ 'title', 'revisions' ],
 			]
 		);
 	}

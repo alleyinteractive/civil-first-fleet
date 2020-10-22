@@ -16,10 +16,9 @@ $layout = $component->get_setting( 'layout' );
 $button_text = $component->get_data( 'button_text' );
 $button      = (array) $component->get_data( 'button' );
 $description = $component->get_data( 'description' );
-// phpcs:disable WordPress.WP.GlobalVariablesOverride.Prohibited
-$title    = $component->get_data( 'title' );
-$location = $component->get_data( 'location' );
-$context  = $component->get_data( 'context' );
+$title       = $component->get_data( 'title' ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+$location    = $component->get_data( 'location' );
+$context     = $component->get_data( 'context' );
 ?>
 
 <section class="<?php ai_the_classnames( [ 'civil__call-to-action__wrapper', "civil__call-to-action__theme-{$theme}", "civil__call-to-action__layout-{$layout}" ], [ $location => ! empty( $location ) ] ); ?>">

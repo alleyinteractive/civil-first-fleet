@@ -208,8 +208,7 @@ class Sponsor extends \WP_Components\Component {
 				return $this;
 			}
 
-			// phpcs:disable WordPress.DateTime.CurrentTimeTimestamp.Requested
-			$current_time = current_time( 'timestamp' );
+			$current_time = current_time( 'timestamp' ); // phpcs:ignore WordPress.DateTime.CurrentTimeTimestamp.Requested
 
 			// Determine which sponsor should display based on the scheduled
 			// dates.

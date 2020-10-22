@@ -26,7 +26,7 @@ class Wrapping {
 	 * @param  string $template The path of the template to wrap.
 	 * @return mixed            Template filename (@see locate_template()) or void.
 	 */
-	public static function wrap( $template ) {
+	public static function wrap( $template ) { // phpcs:ignore WordPressVIPMinimum.Hooks.AlwaysReturnInFilter.VoidReturn
 		/**
 		 * Filter to force skip wrapping the template. To skip wrapping the
 		 * template in wrapper.php, simply return true.

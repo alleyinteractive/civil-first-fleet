@@ -101,7 +101,7 @@ function get_landing_page_id( $type = 'homepage' ) {
 	$landing_page = new \WP_Query(
 		[
 			'meta_key'       => 'landing_page_type',
-			'meta_value'     => 'homepage',
+			'meta_value'     => 'homepage', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
 			'post_status'    => 'publish',
 			'post_type'      => 'landing-page',
 			'posts_per_page' => 1,

@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:disable
 /**
  * The template for displaying comments.
  *

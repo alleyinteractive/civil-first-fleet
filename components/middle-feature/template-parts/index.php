@@ -20,8 +20,7 @@ if ( empty( $articles ) ) {
 }
 
 // Setup title.
-// phpcs:disable WordPress.WP.GlobalVariablesOverride.Prohibited
-$title = $component->get_data( 'meta', 'title' );
+$title = $component->get_data( 'meta', 'title' ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 ?>
 
 <section class="<?php ai_the_classnames( [ 'wrapper' ] ); ?>">

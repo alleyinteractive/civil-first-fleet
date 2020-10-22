@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:disable
 
 WP_CLI::add_command( 'civil-first-fleet', 'Civil_First_Fleet_CLI_Command' );
 

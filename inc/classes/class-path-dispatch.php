@@ -7,6 +7,8 @@
 
 if ( ! class_exists( 'Path_Dispatch' ) ) :
 
+	// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+
 	/**
 	 * Path Dispatch
 	 * =============
@@ -315,9 +317,9 @@ if ( ! class_exists( 'Path_Dispatch' ) ) :
 					$args = $this->rewrite_paths[ $path ];
 				}
 				if ( empty( $args['action'] ) ) {
-					do_action( 'dispatch_path_' . $path, $args );
+					do_action( 'dispatch_path_' . $path, $args ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 				} else {
-					do_action( $args['action'], $args );
+					do_action( $args['action'], $args ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
 				}
 
 				if ( ! empty( $args['template'] ) ) {
@@ -333,7 +335,7 @@ if ( ! class_exists( 'Path_Dispatch' ) ) :
 	 *
 	 * @return Path_Dispatch
 	 */
-	function path_dispatch() {
+	function path_dispatch() { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 		return Path_Dispatch::instance();
 	}
 

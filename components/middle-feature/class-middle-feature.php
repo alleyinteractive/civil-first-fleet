@@ -58,6 +58,7 @@ class Middle_Feature extends \Civil_First_Fleet\Component\Content_List {
 	}
 }
 
+// phpcs:disable WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
 /**
  * Helper for creating new instances of this component.
  *
@@ -66,7 +67,6 @@ class Middle_Feature extends \Civil_First_Fleet\Component\Content_List {
  * @param  array $fm_fields Fieldmanager fields for this component.
  * @return Middle_Feature  An instance of this component.
  */
-// phpcs:disable WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
 function Middle_Feature( array $settings = [], array $data = [], array $fm_fields = [] ) : Middle_Feature {
 	return new Middle_Feature( $settings, $data );
 }

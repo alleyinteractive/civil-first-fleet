@@ -21,7 +21,6 @@
  * http://www.gnu.org/licenses/gpl-2.0.html
  */
 
-
 // Load required classes.
 require_once __DIR__ . '/class-partial.php';
 require_once __DIR__ . '/class-partials.php';

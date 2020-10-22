@@ -41,13 +41,13 @@ function disable_non_ajax_pagination() {
 		switch ( true ) {
 			case $queried_object instanceof \WP_Term:
 				$redirect_url = get_term_link( $queried_object, $queried_object->taxonomy );
-				wp_safe_redirect( esc_url( $redirect_url ), 301 );
-				exit();
+				wp_safe_redirect( esc_url( is_string( $redirect_url ) ? $redirect_url : '' ), 301 );
+				exit;
 
 			case $queried_object instanceof \WP_User:
 				$redirect_url = get_author_posts_url( $queried_object->ID, $queried_object->data->user_nicename );
 				wp_safe_redirect( esc_url( $redirect_url ), 301 );
-				exit();
+				exit;
 
 			case ! empty( get_query_var( 's' ) ):
 				$redirect_url = add_query_arg(
@@ -56,7 +56,7 @@ function disable_non_ajax_pagination() {
 					home_url()
 				);
 				wp_safe_redirect( esc_url( $redirect_url ), 301 );
-				exit();
+				exit;
 		}
 	}
 }

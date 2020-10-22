@@ -7,8 +7,7 @@
 
 // Get this instance.
 $ai_component = ai_get_var( 'component' );
-// phpcs:disable WordPress.WP.GlobalVariablesOverride.Prohibited
-$post_id      = $ai_component->data( 'post_id' );
+$post_id      = $ai_component->data( 'post_id' ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 $ai_coauthors = get_coauthors( $post_id );
 ?>
 
@@ -30,8 +29,7 @@ $ai_coauthors = get_coauthors( $post_id );
 						 * @param string $coauthor_link Coauthor bio fragment by default.
 						 * @param object $coauthor Coauthor object.
 						 */
-						// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-						echo apply_filters(
+						echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 							'civil_first_fleet_get_expandable_coauthor_link',
 							esc_attr( '#' . $ai_component->get_bio_frag_id( $coauthor->ID ) ),
 							$coauthor

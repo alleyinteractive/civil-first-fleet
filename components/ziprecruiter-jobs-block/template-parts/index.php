@@ -14,9 +14,8 @@ if ( ! wp_validate_boolean( $component->get_data( 'enable' ) ) ) {
 }
 
 // Setup title.
-// phpcs:disable WordPress.WP.GlobalVariablesOverride.Prohibited
-$title         = $component->get_data( 'settings', 'title' );
-$per_page      = (int) $component->get_data( 'settings', 'per_page' );
+$title         = $component->get_data( 'settings', 'title' ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+$per_page      = (int) $component->get_data( 'settings', 'per_page' ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 $show_location = $component->get_data( 'settings', 'show_location' );
 $show_salary   = $component->get_data( 'settings', 'show_salary' );
 ?>

@@ -160,7 +160,7 @@ class Stylesheets {
 					function( $output_class ) {
 						$base_class = explode( '___', $output_class );
 						if ( 2 === count( $base_class ) ) {
-							  return $base_class[0];
+							return $base_class[0];
 						}
 					},
 					$composed_class_list

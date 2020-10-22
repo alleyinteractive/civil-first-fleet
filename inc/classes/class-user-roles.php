@@ -206,7 +206,7 @@ class User_Roles {
 					if ( function_exists( 'wpcom_vip_add_role' ) ) {
 						wpcom_vip_add_role( $role, $args['display_name'], $args['caps'] );
 					} else {
-						// phpcs:ignore WordPress.VIP.RestrictedFunctions.custom_role_add_role
+						// phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.custom_role_add_role
 						add_role( $role, $args['display_name'], $args['caps'] );
 					}
 
@@ -243,7 +243,7 @@ class User_Roles {
 		if ( function_exists( 'wpcom_vip_add_role' ) ) {
 			wpcom_vip_add_role( $role_slug, $display_name, $capabilities );
 		} else {
-			// phpcs:ignore WordPress.VIP.RestrictedFunctions.custom_role_add_role
+			// phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.custom_role_add_role
 			add_role( $role_slug, $display_name, $capabilities );
 		}
 	}

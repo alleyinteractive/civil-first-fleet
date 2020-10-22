@@ -10,7 +10,7 @@
 
 // Get this instance.
 $component    = ai_get_var( 'component' );
-$post_id      = $component->data( 'post_id' );
+$post_id      = $component->data( 'post_id' ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 $ai_coauthors = get_coauthors( $post_id );
 $is_opinion   = ! empty( $component->get_label() );
 $has_dek      = ! empty( $component->get_dek() );

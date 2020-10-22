@@ -308,9 +308,7 @@ class Image extends \Civil_First_Fleet\Component {
 		}
 
 		// This prints <source> tags, all of which have been esacaped.
-		// phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped, WordPress.Security.EscapeOutput.OutputNotEscaped
-		echo implode( '', $source_tags );
-		// phpcs:enable
+		echo implode( '', $source_tags ); // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped, WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**

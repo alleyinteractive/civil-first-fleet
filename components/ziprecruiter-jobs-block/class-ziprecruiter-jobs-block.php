@@ -65,6 +65,7 @@ class Ziprecruiter_Jobs_Block extends \Civil_First_Fleet\Component {
 	}
 }
 
+// phpcs:disable WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
 /**
  * Helper for creating new instances of this component.
  *
@@ -73,7 +74,6 @@ class Ziprecruiter_Jobs_Block extends \Civil_First_Fleet\Component {
  * @param  array $fm_fields Fieldmanager fields for this component.
  * @return Ziprecruiter_Jobs_Block An instance of this component.
  */
-// phpcs:disable WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
 function Ziprecruiter_Jobs_Block( array $settings = [], array $data = [], array $fm_fields = [] ) : Ziprecruiter_Jobs_Block {
 	return new Ziprecruiter_Jobs_Block( $settings, $data );
 }

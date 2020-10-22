@@ -9,6 +9,8 @@
  * @version 1.0.0
  */
 
+ // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+
 /**
  * Unique WP Query Manager class.
  */
@@ -122,12 +124,13 @@ if ( ! function_exists( 'unique_wp_query_pre_get_posts' ) ) {
 	 *
 	 * @return void
 	 */
-	function unique_wp_query_pre_get_posts( &$query ) {
+	function unique_wp_query_pre_get_posts( &$query ) { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 
 		// Only apply to Unique_WP_Query objects.
 		if ( true === $query->get( 'unique_wp_query' ) ) {
 
 			// Check our upward bound of posts_per_page.
+			// phpcs:disable WordPressVIPMinimum.Hooks.PreGetPosts.PreGetPosts
 			$posts_per_page = $query->get( 'posts_per_page' );
 			if ( $posts_per_page <= 200 ) {
 				// Increase posts_per_page by the amount of used post_ids.
