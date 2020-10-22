@@ -89,7 +89,7 @@ $copyright_text = $component->get_data( 'copyright_text' );
 			printf(
 				/* translators: Copyright [year] [blog name] */
 				esc_html__( 'Copyright © %1$s %2$s', 'civil-first-fleet' ),
-				absint( date( 'Y' ) ), // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date
+				absint( gmdate( 'Y' ) ),
 				esc_html( $copyright_text )
 			);
 			?>
