@@ -189,6 +189,11 @@ function generate_header_meta() {
  * Output a post's or page's social meta tags.
  */
 function social_meta() {
+	// Bail if Yoast is active.
+	if ( is_plugin_active( 'wordpress-seo/wp-seo.php' ) ) {
+		return;
+	}
+
 	if ( is_single() || is_page() || \Civil_First_Fleet\is_landing_page() || is_archive() ) {
 
 		$meta = generate_header_meta();
