@@ -12,7 +12,8 @@
     "scaffold": "scaffold dir ./scaffold --theme=./",
     "watch-scaffold": "nodemon -l -e json -w scaffold -x 'npm run scaffold'",
     "lint-configs": "eslint client/bin/*.js client/config/*.js",
-    "lint-css": "stylelint -f verbose **/*.{css,scss} -i ../../.stylelintignore"
+    "lint-css": "stylelint -f verbose **/*.{css,scss} -i ../../.stylelintignore",
+    "lint-php": "composer phpcs-module `pwd`"
   },
   "engines": {
     "node": "12",
