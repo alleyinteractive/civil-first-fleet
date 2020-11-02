@@ -1,6 +1,5 @@
 const path = require('path');
 const paths = require('./paths');
-const lintingPlugins = require('./postcssLinting');
 
 const jsExclude = [
   /node_modules/,
@@ -45,9 +44,6 @@ module.exports.defaultLoaders = [
     enforce: 'pre',
     test: /\.s?css$/,
     loader: 'postcss-loader',
-    options: {
-      plugins: () => lintingPlugins,
-    },
   },
   {
     test: /\.js$/,

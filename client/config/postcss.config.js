@@ -17,9 +17,8 @@ const focus = require('postcss-focus');
 // Other imports
 const filenames = require('./filenames');
 const paths = require('./paths');
-const lintingPlugins = require('./postcssLinting');
 const localClasses = require('../bin/localClasses');
-const cssVars = require('./css');
+const cssVars = require('./css'); 
 
 // Flattens child objects into top-level object
 function flatten(obj) {
@@ -33,7 +32,6 @@ function flatten(obj) {
 module.exports = (ctx) => ({
   plugins: [
     cssImport({
-      plugins: lintingPlugins,
       path: [
         paths.globalStyles,
       ],
