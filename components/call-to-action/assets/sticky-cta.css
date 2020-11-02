@@ -31,9 +31,9 @@
 .close:checked ~ :global(.civil__call-to-action__wrapper) {
   display: none;
 }
-/* stylelint-enable */
+/* stylelint-enable selector-max-specificity */
 
-.label {
+.label { /* stylelint-disable-line a11y/font-size-is-readable */
   cursor: pointer;
   font-family: sans-serif;
   font-size: 14px;

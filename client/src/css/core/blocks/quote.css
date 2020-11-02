@@ -1,4 +1,7 @@
 /* Styles for core quote block */
+
+/* stylelint-disable a11y/content-property-no-static-value */
+
 @mixin block-quote {
 
   .wp-block-pullquote,
@@ -127,3 +130,5 @@
     }
   }
 }
+
+/* stylelint-emable */

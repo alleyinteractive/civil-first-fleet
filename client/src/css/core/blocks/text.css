@@ -16,6 +16,28 @@
  * Mixin for styling body content links.
  */
 @mixin body-link {
+  @media screen and (prefers-reduced-motion: reduce) {
+
+    a {
+      border-bottom: var(--heavyBorderTeal);
+      color: inherit;
+      display: inline;
+      text-decoration: none;
+      transition: none;
+
+      /* Use native border where supported */
+      @supports (text-underline-position: under) {
+        border: none;
+        text-decoration: underline var(--teal);
+        text-underline-position: under;
+      }
+
+      &:hover,
+      &:focus {
+        color: var(--teal);
+      }
+    }
+  }
 
   a {
     border-bottom: var(--heavyBorderTeal);
@@ -31,7 +53,8 @@
       text-underline-position: under;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: var(--teal);
     }
   }

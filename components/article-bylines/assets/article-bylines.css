@@ -1,5 +1,7 @@
 @import 'core/index.css';
 
+/* stylelint-disable a11y/content-property-no-static-value */
+
 .static,
 .expandable {
   margin-bottom: rem(20);
@@ -154,6 +156,24 @@
 }
 
 .bio-content-wrapper {
+  @media screen and (prefers-reduced-motion: reduce) {
+
+    .expandable & {
+      display: none;
+      overflow: hidden;
+      transition: none;
+
+      @media (--mdMin) {
+        display: block;
+
+        /* stylelint-disable selector-max-specificity */
+        &[aria-hidden="false"] {
+          margin-bottom: rem(10);
+        }
+        /* stylelint-enable selector-max-specificity */
+      }
+    }
+  }
 
   .expandable & {
     display: none;
@@ -167,7 +187,7 @@
       &[aria-hidden="false"] {
         margin-bottom: rem(10);
       }
-      /* stylelint-enable */
+      /* stylelint-enable selector-max-specificity */
     }
   }
 
@@ -210,3 +230,5 @@
     margin-left: rem(46); /* avatar width + margin */
   }
 }
+
+/* stylelint-enable a11y/content-property-no-static-value */

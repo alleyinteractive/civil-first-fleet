@@ -1,7 +1,9 @@
 @import 'core/index.css';
 
+/* stylelint-disable block-no-empty */
 .wrapper {
 }
 
 .inner {
 }
+/* stylelint-enable block-no-empty */

@@ -34,7 +34,8 @@
   text-transform: uppercase;
   transition: background-color var(--transitionDurShort) linear;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: var(--blueLight);
   }
 }
@@ -51,7 +52,8 @@
   padding: 0 1rem;
   transition: background-color var(--transitionDurShort) linear;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: var(--blue);
     color: var(--white);
   }

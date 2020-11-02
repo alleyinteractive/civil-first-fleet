@@ -1,3 +1,5 @@
+/* stylelint-disable a11y/content-property-no-static-value */
+
 @import 'core/index.css';
 
 .video {
@@ -381,3 +383,5 @@
   margin: 0 auto rem(10) auto;
   width: rem(21);
 }
+
+/* stylelint-enable */
