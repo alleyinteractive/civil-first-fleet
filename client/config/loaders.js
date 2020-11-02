@@ -41,11 +41,6 @@ module.exports.defaultLoaders = [
     use: 'eslint-loader',
   },
   {
-    enforce: 'pre',
-    test: /\.s?css$/,
-    loader: 'postcss-loader',
-  },
-  {
     test: /\.js$/,
     exclude: jsExclude,
     include: jsInclude,
