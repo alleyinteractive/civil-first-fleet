@@ -18,7 +18,7 @@ const focus = require('postcss-focus');
 const filenames = require('./filenames');
 const paths = require('./paths');
 const localClasses = require('../bin/localClasses');
-const cssVars = require('./css'); 
+const cssVars = require('./css');
 
 // Flattens child objects into top-level object
 function flatten(obj) {
