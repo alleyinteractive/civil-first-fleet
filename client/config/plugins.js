@@ -1,16 +1,29 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const StylelintPlugin = require('stylelint-webpack-plugin'); 
 const webpack = require('webpack');
+const fs = require("fs");
 const path = require('path');
 const paths = require('./paths');
+const stylelintignore =
+  fs.existsSync( path.join(paths.repoRoot, '.stylelintignore') )
+    ?  path.join(paths.repoRoot, '.stylelintignore')
+    : ''
+  ;
+const stylelintrc =
+  fs.existsSync( path.join(paths.repoRoot, '.stylelintrc') )
+    ?  path.join(paths.repoRoot, '.stylelintrc')
+    : ''
+  ;
 
 // Plugins used in all webpack configs
 const defaultPlugins = [
-  new StylelintPlugin({
-    configFile: path.join(paths.repoRoot, '.stylelintrc'),
-    context: paths.themeRoot,
-    ignorePath: path.join(paths.repoRoot, '.stylelintignore')
-  }),
+  ...(stylelintrc ? 
+    [ new StylelintPlugin({
+      configFile: stylelintrc,
+      context: paths.themeRoot,
+      ignorePath: stylelintignore
+    })] : []
+  ),
   new webpack.optimize.ModuleConcatenationPlugin(),
   new webpack.NamedModulesPlugin(),
 ];
