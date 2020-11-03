@@ -1,5 +1,36 @@
 @import 'core/index.css';
 
+@media screen and (prefers-reduced-motion: reduce) {
+
+  .lightbox-wrapper {
+    background-color: rgba(0, 0, 0, 0.75);
+    height: 100vh;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    transition: none;
+    width: 100vw;
+    z-index: 100;
+
+    /* overrides for .rich-text child styles */
+    .slide {
+      margin: 0;
+    }
+
+    .figure,
+    .direction-controls {
+      display: flex;
+    }
+
+    &.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+}
+
 .lightbox-wrapper {
   background-color: rgba(0, 0, 0, 0.75);
   height: 100vh;

@@ -150,7 +150,8 @@
   color: var(--gray2);
   text-decoration: none;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: var(--gray1);
   }
 }

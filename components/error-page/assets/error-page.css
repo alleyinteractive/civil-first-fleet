@@ -44,7 +44,8 @@
       text-decoration: none; /* override body-link mixin */
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: var(--blue); /* override body-link mixin */
     }
   }

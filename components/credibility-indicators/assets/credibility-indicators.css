@@ -42,6 +42,18 @@
   flex-direction: column;
 }
 
+@media screen and (prefers-reduced-motion: reduce) {
+
+  .indicator {
+    border-bottom: 1px solid var(--gray5);
+    /* Necessary b/c real css vars won't work with rem() function */
+    max-height: calc(var(--indicatorHeight) / 16 * 1rem);
+    overflow: hidden;
+    transition: none;
+    will-change: max-height;
+  }
+}
+
 .indicator {
   border-bottom: 1px solid var(--gray5);
   /* Necessary b/c real css vars won't work with rem() function */
@@ -59,9 +71,9 @@
   text-align: left;
   width: 100%;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: var(--blue);
-    outline: none;
 
     path {
       fill: var(--blue);
@@ -120,6 +132,19 @@
   }
 }
 
+@media screen and (prefers-reduced-motion: reduce) {
+
+  .open-icon,
+  .close-icon {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: none;
+  }
+}
+
+/* stylelint-disable a11y/media-prefers-reduced-motion */
 .open-icon,
 .close-icon {
   left: 50%;
@@ -128,6 +153,7 @@
   transform: translate(-50%, -50%);
   transition: opacity var(--transitionDurShort) linear;
 }
+/* stylelint-enable a11y/media-prefers-reduced-motion */
 
 .text {
   font-size: rem(14);

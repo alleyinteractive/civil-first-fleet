@@ -20,6 +20,20 @@
   display: inline-block;
 }
 
+@media screen and (prefers-reduced-motion: reduce) {
+
+  .link {
+    background-color: var(--gray5);
+    color: var(--black);
+    display: inline-block;
+    font-size: rem(14);
+    margin: 0 rem(8) rem(10) 0;
+    padding: rem(8) rem(10) rem(6) rem(10);
+    text-decoration: none;
+    transition: none;
+  }
+}
+
 .link {
   background-color: var(--gray5);
   color: var(--black);
@@ -31,6 +45,7 @@
   transition: background-color var(--transitionDurShort) linear;
 }
 
-.link:hover {
+.link:hover,
+.link:focus {
   background-color: var(--gray4);
 }

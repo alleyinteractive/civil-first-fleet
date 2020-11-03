@@ -23,6 +23,18 @@
   }
 }
 
+@media screen and (prefers-reduced-motion: reduce) {
+
+  .image-lazyload {
+    filter: blur(5px);
+    transition: none;
+
+    &:global(.lazyloaded) {
+      filter: blur(0);
+    }
+  }
+}
+
 .image-lazyload {
   filter: blur(5px);
   transition: filter 250ms linear;

@@ -59,7 +59,8 @@
     display: flex;
     text-decoration: none;
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: var(--black2);
     }
 
@@ -115,7 +116,8 @@
     color: var(--gray1);
     text-decoration: none;
 
-    &:hover {
+    &:hover,
+    &:focus {
       text-decoration: underline;
     }
   }

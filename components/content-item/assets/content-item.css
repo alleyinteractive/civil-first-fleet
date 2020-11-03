@@ -16,7 +16,8 @@
     text-decoration: none;
     text-transform: uppercase;
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: var(--gray1);
     }
 

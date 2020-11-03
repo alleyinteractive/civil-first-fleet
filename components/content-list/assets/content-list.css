@@ -25,7 +25,8 @@
     opacity: 0.5;
 
     /* stylelint-disable selector-max-specificity */
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: transparent;
       color: var(--blue);
     }
