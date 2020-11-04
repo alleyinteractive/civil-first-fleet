@@ -2,7 +2,7 @@
 /**
  * This file changes the default output of the oEmbed component when a post
  * from this website is shared. (To see an example, append `/embed/` to the end
- * of any post URL in the network.)
+ * of any post URL in the network.) It also adds additional provider support.
  *
  * @package Civil_First_Fleet
  */
@@ -62,3 +62,14 @@ HTML;
 	echo filter_var( $excerpt_css, FILTER_UNSAFE_RAW ); // phpcs:ignore WordPressVIPMinimum.Security.PHPFilterFunctions.RestrictedFilter
 }
 add_filter( 'embed_head', __NAMESPACE__ . '\add_embed_css' );
+
+/**
+ * Add Flourish oEmbed support.
+ *
+ * @see https://flourish.studio/developers/integration/.
+ */
+wp_oembed_add_provider(
+	'https://public.flourish.studio/(visualisation|story)/*',
+	'https://app.flourish.studio/api/v1/oembed',
+	true
+);

@@ -25,8 +25,8 @@ function theme_setup() {
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
-		// Add styles to visual editor.
-		add_editor_style( 'client/build/css/editor.css' );
+	// Add styles to visual editor.
+	add_editor_style( 'client/build/css/editor.css' );
 
 	/*
 	 * Let WordPress manage the document title.
@@ -80,3 +80,10 @@ function body_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', __NAMESPACE__ . '\body_classes' );
+
+/**
+ * Set global content width for max width on media & oEmbeds.
+ */
+if ( ! isset( $content_width ) ) {
+	$content_width = 863;
+}
