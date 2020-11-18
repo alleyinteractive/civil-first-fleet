@@ -344,7 +344,7 @@ class Content_Item extends \Civil_First_Fleet\Component {
 			'<span class="%1$s wp-credit-%2$s">%3$s</span>',
 			ai_get_classnames( [ 'credit' ] ),
 			esc_attr( $featured_image_id ),
-			esc_html( make_clickable( $image_credit ) )
+			wp_kses_post( make_clickable( $image_credit ) )
 		);
 	}
 
