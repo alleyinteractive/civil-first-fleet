@@ -57,7 +57,7 @@ $featured_video_url = (string) get_post_meta( $component->data( 'post_id' ), 'fe
 		<div class="<?php ai_the_classnames( [ 'image' ] ); ?>">
 			<?php
 			$component->open_permalink();
-			$component->featured_image()
+			$component->featured_image_hero()
 				->size( 'large-feature' )
 				->aspect_ratio( 2 / 3 )
 				->render();

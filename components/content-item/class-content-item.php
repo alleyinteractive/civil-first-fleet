@@ -357,6 +357,32 @@ class Content_Item extends \Civil_First_Fleet\Component {
 			->set_post_id( $featured_image_id )
 			->set_data( 'alt', get_post_meta( $featured_image_id, '_wp_attachment_image_alt', true ) );
 	}
+
+	/**
+	 * Return an image Component for the post's landing page hero image.
+	 */
+	public function featured_image_hero() {
+		$featured_image_hero_id = absint( get_post_meta( $this->data( 'post_id' ), 'override_index_hero', true ) );
+		if ( empty( $featured_image_hero_id ) ) {
+			return $this->featured_image();
+		}
+		return \Civil_First_Fleet\Component\image()
+			->set_post_id( $featured_image_hero_id )
+			->set_data( 'alt', get_post_meta( $featured_image_hero_id, '_wp_attachment_image_alt', true ) );
+	}
+
+	/**
+	 * Return an image Component for the post's landing page non-hero image.
+	 */
+	public function featured_image_non_hero() {
+		$featured_image_non_hero_id = absint( get_post_meta( $this->data( 'post_id' ), 'override_index_non_hero', true ) );
+		if ( empty( $featured_image_non_hero_id ) ) {
+			return $this->featured_image();
+		}
+		return \Civil_First_Fleet\Component\image()
+			->set_post_id( $featured_image_non_hero_id )
+			->set_data( 'alt', get_post_meta( $featured_image_non_hero_id, '_wp_attachment_image_alt', true ) );
+	}
 }
 
 /**
