@@ -60,6 +60,16 @@
           "label": { "__": "Enter a custom caption for the featured image (optional):" },
           "description": { "__": "This will display instead of the caption saved in the Media Library." },
           "type": "textarea"
+        },
+        "override_index_hero": {
+          "label": { "__": "Landing page hero override" },
+          "description": { "__" :  "Select an image to be used for the landing page hero position instead of the default." },
+          "type": "media"
+        },
+        "override_index_non_hero": {
+          "label": { "__": "Landing page non-hero override" },
+          "description": { "__" :  "Select an image to be used for landing page non-hero positions instead of the default." },
+          "type": "media"
         }
 			}
 		},
