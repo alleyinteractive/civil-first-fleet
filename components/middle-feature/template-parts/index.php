@@ -40,7 +40,7 @@ $title = $component->get_data( 'meta', 'title' ); // phpcs:ignore WordPress.WP.G
 			if ( class_exists( 'Ad_Layers_Ad_Server' ) ) {
 				Ad_Layers_Ad_Server::instance()->get_ad_unit( 'HP_Middle_Sidebar', false );
 			}
-			echo wp_kses_post( $component->get_data( 'meta', 'sidebar_content' ) );
+			echo do_shortcode( wp_kses_post( $component->get_data( 'meta', 'sidebar_content' ) ) );
 			?>
 		</div>
 	</div>
