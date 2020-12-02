@@ -232,3 +232,15 @@ function canonical( $canonical_url ) {
 	return $canonical_url;
 }
 add_filter( 'get_canonical_url', __NAMESPACE__ . '\canonical' );
+
+/**
+ * Get social image size.
+ *
+ * @return string Social image size to use.
+ */
+function get_social_image_size() {
+	return 'large-feature';
+}
+
+add_filter( 'wpseo_opengraph_image_size', __NAMESPACE__ . '\get_social_image_size' );
+add_filter( 'wpseo_image_sizes', __NAMESPACE__ . '\get_social_image_size' );
