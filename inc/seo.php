@@ -239,8 +239,8 @@ add_filter( 'get_canonical_url', __NAMESPACE__ . '\canonical' );
  * @return string Social image size to use.
  */
 function get_social_image_size() {
-	return 'gallery-fullscreen';
+	return 'civil-og-image';
 }
-
+add_image_size( 'civil-og-image', 1080 ); // Open Graph large image.
 add_filter( 'wpseo_opengraph_image_size', __NAMESPACE__ . '\get_social_image_size' );
 add_filter( 'wpseo_image_sizes', __NAMESPACE__ . '\get_social_image_size' );
