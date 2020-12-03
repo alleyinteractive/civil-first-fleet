@@ -344,7 +344,7 @@ class Content_Item extends \Civil_First_Fleet\Component {
 			'<span class="%1$s wp-credit-%2$s">%3$s</span>',
 			ai_get_classnames( [ 'credit' ] ),
 			esc_attr( $featured_image_id ),
-			esc_html( make_clickable( $image_credit ) )
+			wp_kses_post( make_clickable( $image_credit ) )
 		);
 	}
 
@@ -356,6 +356,28 @@ class Content_Item extends \Civil_First_Fleet\Component {
 		return \Civil_First_Fleet\Component\image()
 			->set_post_id( $featured_image_id )
 			->set_data( 'alt', get_post_meta( $featured_image_id, '_wp_attachment_image_alt', true ) );
+	}
+
+	/**
+	 * Return an image Component for the post's landing page hero image.
+	 *
+	 * @param string $alt_key Alternate featured image key to use.
+	 * @return object Featured image component.
+	 */
+	public function featured_image_alt( $alt_key ) {
+		if (
+			! is_string( $alt_key ) ||
+			! in_array( $alt_key, [ 'override_index_non_hero', 'override_index_hero' ] )
+		) {
+			return $this->featured_image();
+		}
+		$featured_image_alt_id = absint( get_post_meta( $this->data( 'post_id' ), $alt_key, true ) );
+		if ( empty( $featured_image_alt_id ) ) {
+			return $this->featured_image();
+		}
+		return \Civil_First_Fleet\Component\image()
+			->set_post_id( $featured_image_alt_id )
+			->set_data( 'alt', get_post_meta( $featured_image_alt_id, '_wp_attachment_image_alt', true ) );
 	}
 }
 

@@ -466,6 +466,18 @@ function civil_first_fleet_fm_post_post_article_settings() {
 									'description' => __( 'This will display instead of the caption saved in the Media Library.', 'civil-first-fleet' ),
 								]
 							),
+							'override_index_hero'           => new Fieldmanager_Media(
+								[
+									'label'       => __( 'Landing page hero override', 'civil-first-fleet' ),
+									'description' => __( 'Select an image to be used for the landing page hero position instead of the default.', 'civil-first-fleet' ),
+								]
+							),
+							'override_index_non_hero'       => new Fieldmanager_Media(
+								[
+									'label'       => __( 'Landing page non-hero override', 'civil-first-fleet' ),
+									'description' => __( 'Select an image to be used for landing page non-hero positions instead of the default.', 'civil-first-fleet' ),
+								]
+							),
 						],
 					]
 				),
