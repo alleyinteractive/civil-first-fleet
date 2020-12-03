@@ -31,6 +31,7 @@ $post_indicators = array_filter( $credibility_indicators );
 
 	<aside class="<?php ai_the_classnames( [ 'sidebar-right' ] ); ?>">
 		<?php
+		do_action( 'civil_first_fleet_custom_article_sponsor' );
 		if ( ! empty( $call_to_action['enable'] ) ) {
 			// Always use the inline theme for the sidebar.
 			\Civil_First_Fleet\Component\call_to_action()
