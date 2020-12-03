@@ -66,7 +66,7 @@ ai_the_classnames(
 	<div class="<?php ai_the_classnames( [ 'image' ] ); ?>">
 		<?php
 		$component->open_permalink();
-		$component->featured_image_alt( 'override_index_hero' )
+		$component->featured_image_alt( 'override_index_non_hero' )
 			->size( 'card' )
 			->render();
 		$component->close_permalink();
