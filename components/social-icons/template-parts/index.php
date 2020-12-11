@@ -12,6 +12,7 @@ $facebook  = $component->get_option( 'newsroom-settings', 'contact', 'social', '
 $twitter   = $component->get_option( 'newsroom-settings', 'contact', 'social', 'twitter' );
 $instagram = $component->get_option( 'newsroom-settings', 'contact', 'social', 'instagram' );
 $linkedin  = $component->get_option( 'newsroom-settings', 'contact', 'social', 'linkedin' );
+$pinterest = $component->get_option( 'newsroom-settings', 'contact', 'social', 'pinterest' );
 
 ?>
 <div class="<?php ai_the_classnames( [ 'wrapper' ] ); ?>">
@@ -47,6 +48,13 @@ $linkedin  = $component->get_option( 'newsroom-settings', 'contact', 'social', '
 					<?php ai_get_template_part( $component->get_component_path( 'svg/linkedin.svg' ) ); ?>
 				</a>
 			</li>
+			<?php } ?>
+			<?php if ( ! empty( $pinterest ) ) { ?>
+				<li>
+					<a class="social-icon-nav--pinterest" href="<?php echo esc_url( $pinterest ); ?>" target="_blank">
+						<?php ai_get_template_part( $component->get_component_path( 'svg/pinterest.svg' ) ); ?>
+					</a>
+				</li>
 			<?php } ?>
 		</ul>
 	</nav>
