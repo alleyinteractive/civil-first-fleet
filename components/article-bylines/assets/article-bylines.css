@@ -134,7 +134,8 @@
   }
 }
 
-.twitter-handle {
+.twitter-handle,
+.instagram-handle {
   color: var(--blue);
   font-family: var(--franklin);
   font-size: rem(18);

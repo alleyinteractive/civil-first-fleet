@@ -59,6 +59,12 @@ function civil_first_fleet_fm_post_guest_author_info() {
 						'sanitize' => function( $value ) { return str_replace( '@', '', $value ); },
 					]
 				),
+				'instagram' => new Fieldmanager_TextField(
+					[
+						'label'    => __( 'Instagram', 'civil-first-fleet' ),
+						'sanitize' => function( $value ) { return str_replace( '@', '', $value ); },
+					]
+				),
 				'biography' => new Fieldmanager_RichTextArea(
 					[
 						'label'           => __( 'Biography', 'civil-first-fleet' ),

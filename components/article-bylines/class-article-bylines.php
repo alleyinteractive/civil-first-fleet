@@ -83,6 +83,36 @@ class Article_Bylines extends \Civil_First_Fleet\Component\Content_Item {
 	public function author_twitter_handle( $coauthor_id ) {
 		echo wp_kses_post( $this->get_author_twitter_handle( $coauthor_id ) );
 	}
+
+	/**
+	 * Author Instagram handle.
+	 *
+	 * @param int $coauthor_id Author ID.
+	 *
+	 * @return null|string The Instagram link, if exists.
+	 */
+	public function get_author_instagram_handle( $coauthor_id ) {
+		$instagram_handle = get_post_meta( $coauthor_id, 'instagram', true );
+
+		if ( ! empty( $instagram_handle ) ) {
+			return sprintf(
+				'<a class="%1$s" href="https://instagram.com/%2$s">@%2$s</a>',
+				ai_get_classnames( [ 'instagram-handle' ], [], $this->get_setting( 'stylesheet' ) ),
+				esc_html( $instagram_handle )
+			);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Display author Instagram link.
+	 *
+	 * @param int $coauthor_id Author ID.
+	 */
+	public function author_instagram_handle( $coauthor_id ) {
+		echo wp_kses_post( $this->get_author_instagram_handle( $coauthor_id ) );
+	}
 }
 
 /**
