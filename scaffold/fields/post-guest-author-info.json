@@ -18,6 +18,11 @@
 			"label": { "__": "Twitter" },
 			"sanitize": "`function( $value ) { return str_replace( '@', '', $value ); }`"
 		},
+		"instagram": {
+			"type": "text",
+			"label": { "__": "Instagram" },
+			"sanitize": "`function( $value ) { return str_replace( '@', '', $value ); }`"
+		},
 		"biography": {
 			"label": { "__": "Biography" },
 			"type": "richtextarea",

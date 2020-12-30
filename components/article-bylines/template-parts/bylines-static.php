@@ -28,6 +28,10 @@ $ai_coauthors = get_coauthors( $post_id );
 					<?php $ai_component->author_twitter_handle( $coauthor->ID ); ?>
 				<?php endif; ?>
 
+				<?php if ( ! empty( $ai_component->get_author_instagram_handle( $coauthor->ID ) ) ) : ?>
+					<?php $ai_component->author_instagram_handle( $coauthor->ID ); ?>
+				<?php endif; ?>
+
 			</header>
 
 			<div class="<?php ai_the_classnames( [ 'bio-content-wrapper' ] ); ?>" id="<?php echo esc_attr( $ai_component->get_bio_frag_id( $coauthor->ID ) ); ?>">

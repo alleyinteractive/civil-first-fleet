@@ -28,6 +28,10 @@ $coauthor_id   = array_pop( $coauthor_meta );
 			<?php $ai_component->author_twitter_handle( $coauthor_id ); ?>
 		<?php endif; ?>
 
+		<?php if ( ! empty( $ai_component->get_author_instagram_handle( $coauthor_id ) ) ) : ?>
+			<?php $ai_component->author_instagram_handle( $coauthor_id ); ?>
+		<?php endif; ?>
+
 		<div class="<?php ai_the_classnames( [ 'bio-content-inner' ] ); ?>">
 			<div class="<?php ai_the_classnames( [ 'bio-content' ] ); ?>">
 				<?php
