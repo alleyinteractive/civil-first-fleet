@@ -27,6 +27,7 @@ $component->set_data( 'coauthors', get_coauthors( $post_id ) );
 		],
 		[
 			'no-image' => ! has_post_thumbnail( $post_id ),
+			'video'    => $is_video,
 		]
 	);
 	?>
@@ -75,7 +76,6 @@ $component->set_data( 'coauthors', get_coauthors( $post_id ) );
 				<span class="<?php ai_the_classnames( [ 'image_label' ] ); ?>">
 					<?php $component->image_label( $post_id ); ?>
 				</span>
-			</span>
 			<?php endif; ?>
 		</div>
 	<?php endif; ?>
