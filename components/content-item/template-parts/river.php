@@ -14,6 +14,7 @@ $post_id     = $component->get_data( 'post_id' ); // phpcs:ignore WordPress.WP.G
 $layout      = $component->get_setting( 'layout' );
 $show_avatar = $component->get_setting( 'show_avatar' );
 $is_opinion  = ! empty( $component->get_label( $post_id ) );
+$is_video    = ! empty( $component->get_image_label( $post_id ) );
 $component->set_data( 'coauthors', get_coauthors( $post_id ) );
 ?>
 
@@ -70,6 +71,13 @@ $component->set_data( 'coauthors', get_coauthors( $post_id ) );
 				->render();
 			$component->close_permalink();
 			?>
+			<?php if ( $is_video ) : ?>
+				<span class="<?php ai_the_classnames( [ 'image_label' ] ); ?>">
+					<?php $component->image_label( $post_id ); ?>
+				</span>
+			</span>
+			<?php endif; ?>
 		</div>
 	<?php endif; ?>
 </div>
+ 
