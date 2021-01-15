@@ -445,6 +445,12 @@ function civil_first_fleet_fm_post_post_article_settings() {
 									'options' => \Civil_First_Fleet\Component\Content_Item()->get_label_options(),
 								]
 							),
+							'image_label'         => new Fieldmanager_Checkboxes(
+								[
+									'label'   => __( 'Enable Image Label', 'civil-first-fleet' ),
+									'options' => \Civil_First_Fleet\Component\Content_Item()->get_image_label_options(),
+								]
+							),
 						],
 					]
 				),
