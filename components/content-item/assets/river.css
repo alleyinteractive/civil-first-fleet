@@ -67,8 +67,8 @@ importance in source, for accessibility reasons. */
 
 .image-label {
   @include video-label;
-  top: rem(82);
   position: absolute;
+  top: rem(82);
 
   span {
     @include screenreader-only;
