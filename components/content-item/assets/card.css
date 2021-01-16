@@ -98,6 +98,23 @@
   }
 }
 
+.image {
+
+  .video & {
+    position: relative;
+  }
+}
+
+.image-label {
+  @include video-label;
+  bottom: 0;
+  position: absolute;
+
+  span {
+    @include screenreader-only;
+  }
+}
+
 .authors {
   align-items: center;
   display: grid;

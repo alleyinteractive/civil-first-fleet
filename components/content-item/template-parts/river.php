@@ -73,11 +73,10 @@ $component->set_data( 'coauthors', get_coauthors( $post_id ) );
 			$component->close_permalink();
 			?>
 			<?php if ( $is_video ) : ?>
-				<span class="<?php ai_the_classnames( [ 'image_label' ] ); ?>">
+				<span class="<?php ai_the_classnames( [ 'image-label' ] ); ?>">
 					<?php $component->image_label( $post_id ); ?>
 				</span>
 			<?php endif; ?>
 		</div>
 	<?php endif; ?>
 </div>
- 

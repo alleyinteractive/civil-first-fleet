@@ -290,7 +290,7 @@ class Content_Item extends \Civil_First_Fleet\Component {
 	 */
 	public function get_image_label_options() {
 		return [
-				'video' => __( 'Is Video', 'civil-first-fleet' ),
+			'video' => __( 'Is Video', 'civil-first-fleet' ),
 		];
 	}
 
