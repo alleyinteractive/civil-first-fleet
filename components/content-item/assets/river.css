@@ -22,17 +22,6 @@
   }
 }
 
-.image {
-  grid-column: 3 / span 1;
-
-  a {
-    display: block;
-    height: 0;
-    padding-bottom: 100%;
-    position: relative;
-  }
-}
-
 /* Visual reordering of items. This is necessary b/c items are ordered according to
 importance in source, for accessibility reasons. */
 .eyebrow {
@@ -58,6 +47,31 @@ importance in source, for accessibility reasons. */
 
   a {
     font-size: rem(12);
+  }
+}
+
+.image {
+  grid-column: 3 / span 1;
+
+  .video & {
+    position: relative;
+  }
+
+  a {
+    display: block;
+    height: 0;
+    padding-bottom: 100%;
+    position: relative;
+  }
+}
+
+.image-label {
+  @include video-label;
+  position: absolute;
+  top: rem(82);
+
+  span {
+    @include screenreader-only;
   }
 }
 

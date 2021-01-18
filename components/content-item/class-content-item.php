@@ -284,6 +284,47 @@ class Content_Item extends \Civil_First_Fleet\Component {
 	}
 
 	/**
+	 * Return a list of available image labels.
+	 *
+	 * @return array List of image label options.
+	 */
+	public function get_image_label_options() {
+		return [
+			'video' => __( 'Is Video', 'civil-first-fleet' ),
+		];
+	}
+
+	/**
+	 * Get image label.
+	 *
+	 * @param int $post_id ID of post to get image label for.
+	 * @return string The post's image label or empty string.
+	 */
+	public function get_image_label( $post_id = null ) {
+		$post_id = $post_id ?? get_the_ID();
+		$labels  = get_post_meta( $post_id, 'image_label', true );
+		if ( is_array( $labels ) && in_array( 'video', $labels, true ) ) {
+			return sprintf(
+				/* translators: 1: Label to identify video posts. */
+				'<span>%1$s</span>',
+				esc_html__( 'Video', 'civil-first-fleet' )
+			);
+		}
+		return '';
+	}
+
+	/**
+	 * Display image_label.
+	 *
+	 * @param int $post_id ID of post to print label for.
+	 * @return void
+	 */
+	public function image_label( $post_id = null ) {
+		$post_id = $post_id ?? get_the_ID();
+		echo wp_kses_post( $this->get_image_label( $post_id ) );
+	}
+
+	/**
 	 * Get the post's featured image caption from custom field.
 	 * Fallback to default thumbnail caption.
 	 *

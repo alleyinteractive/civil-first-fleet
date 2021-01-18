@@ -14,6 +14,7 @@ $layout       = $component->get_setting( 'layout' );
 $has_dek      = ! empty( $component->get_dek() );
 $ai_coauthors = get_coauthors( $post_id );
 $is_opinion   = ! empty( $component->get_label( $post_id ) );
+$is_video     = ! empty( $component->get_image_label( $post_id ) );
 ?>
 
 <div class="
@@ -24,6 +25,7 @@ ai_the_classnames(
 		'no-image' => ! has_post_thumbnail( $post_id ),
 		'no-dek'   => ! $has_dek,
 		'opinion'  => $is_opinion,
+		'video'    => $is_video,
 	]
 );
 ?>
@@ -71,5 +73,10 @@ ai_the_classnames(
 			->render();
 		$component->close_permalink();
 		?>
+		<?php if ( $is_video ) : ?>
+			<span class="<?php ai_the_classnames( [ 'image-label' ] ); ?>">
+				<?php $component->image_label( $post_id ); ?>
+			</span>
+		<?php endif; ?>
 	</div>
 </div>
