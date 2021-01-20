@@ -284,17 +284,6 @@ class Content_Item extends \Civil_First_Fleet\Component {
 	}
 
 	/**
-	 * Return a list of available image labels.
-	 *
-	 * @return array List of image label options.
-	 */
-	public function get_image_label_options() {
-		return [
-			'video' => __( 'Is Video', 'civil-first-fleet' ),
-		];
-	}
-
-	/**
 	 * Get image label.
 	 *
 	 * @param int $post_id ID of post to get image label for.
@@ -302,8 +291,8 @@ class Content_Item extends \Civil_First_Fleet\Component {
 	 */
 	public function get_image_label( $post_id = null ) {
 		$post_id = $post_id ?? get_the_ID();
-		$labels  = get_post_meta( $post_id, 'image_label', true );
-		if ( is_array( $labels ) && in_array( 'video', $labels, true ) ) {
+		$label  = get_post_meta( $post_id, 'image_label', true );
+		if ( ! empty( $label ) ) {
 			return sprintf(
 				/* translators: 1: Label to identify video posts. */
 				'<span>%1$s</span>',

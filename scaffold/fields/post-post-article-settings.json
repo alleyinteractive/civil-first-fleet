@@ -15,6 +15,11 @@
 			"serialize_data": false,
 			"add_to_prefix": false,
 			"children": {
+				"image_label": {
+          "label": { "__": "Enable Video Flag" },
+					"description": { "__": "Indicates that this is a video post." },
+					"type": "checkbox"
+				},
 				"dek": {
 					"label": { "__": "Deck" },
 					"type": "textarea",
@@ -39,11 +44,6 @@
 					"label": { "__": "Enable Label" },
 					"type": "checkboxes",
 					"options": "`\\Civil_First_Fleet\\Component\\Content_Item()->get_label_options()`"
-				},
-				"image_label": {
-					"label": { "__": "Enable Image Label" },
-					"type": "checkboxes",
-					"options": "`\\Civil_First_Fleet\\Component\\Content_Item()->get_image_label_options()`"
 				}
 			}
 		},

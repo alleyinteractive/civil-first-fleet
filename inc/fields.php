@@ -417,6 +417,12 @@ function civil_first_fleet_fm_post_post_article_settings() {
 						'serialize_data' => false,
 						'add_to_prefix'  => false,
 						'children'       => [
+							'image_label'         => new Fieldmanager_Checkbox(
+								[
+									'label'       => __( 'Enable Video Flag', 'civil-first-fleet' ),
+									'description' => __( 'Indicates that this is a video post.', 'civil-first-fleet' ),
+								]
+							),
 							'dek'                 => new Fieldmanager_TextArea(
 								[
 									'label'      => __( 'Deck', 'civil-first-fleet' ),
@@ -443,12 +449,6 @@ function civil_first_fleet_fm_post_post_article_settings() {
 								[
 									'label'   => __( 'Enable Label', 'civil-first-fleet' ),
 									'options' => \Civil_First_Fleet\Component\Content_Item()->get_label_options(),
-								]
-							),
-							'image_label'         => new Fieldmanager_Checkboxes(
-								[
-									'label'   => __( 'Enable Image Label', 'civil-first-fleet' ),
-									'options' => \Civil_First_Fleet\Component\Content_Item()->get_image_label_options(),
 								]
 							),
 						],
