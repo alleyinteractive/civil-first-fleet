@@ -102,12 +102,18 @@ export default class ArticleBylines extends Component {
       const target = wrapper.querySelector(this.content);
       const header = wrapper.querySelector(this.header);
       const name = wrapper.querySelector(this.name).innerText;
+      const controller = this.constructor.getController(header, target.id);
+
+      // Hotfix to accommodate disabling of expansion logic.
+      if (null === controller) {
+        return acc;
+      }
 
       const bio = {
         index,
         wrapper,
         target,
-        controller: this.constructor.getController(header, target.id),
+        controller,
         id: target.id,
         label: `${this.i8nExpand} ${name}'s bio`,
         isExpanded: (0 === index),
