@@ -368,10 +368,10 @@ class Component {
 		if ( is_array( $key ) && is_null( $value ) ) {
 			$this->$data = $key;
 		} elseif ( $append ) {
-			$current_value       = $this->$data[ $key ] ?? [];
-			$this->$data[ $key ] = array_merge( (array) $current_value, (array) $value );
+			$current_value           = ( $this->$data )[ $key ] ?? [];
+			( $this->$data )[ $key ] = array_merge( (array) $current_value, (array) $value );
 		} else {
-			$this->$data[ $key ] = $value;
+			( $this->$data )[ $key ] = $value;
 		}
 	}
 

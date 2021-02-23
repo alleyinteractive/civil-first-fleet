@@ -291,7 +291,7 @@ class Content_Item extends \Civil_First_Fleet\Component {
 	 */
 	public function get_image_label( $post_id = null ) {
 		$post_id = $post_id ?? get_the_ID();
-		$label  = get_post_meta( $post_id, 'image_label', true );
+		$label   = get_post_meta( $post_id, 'image_label', true );
 		if ( ! empty( $label ) ) {
 			return sprintf(
 				/* translators: 1: Label to identify video posts. */
