@@ -240,7 +240,7 @@ class Stylesheets {
 	public function get_classname_manifest() {
 		if ( file_exists( $this->classname_json_filepath ) && 0 === validate_file( $this->classname_json_filepath ) ) {
 			ob_start();
-			include $this->classname_json_filepath;
+			include $this->classname_json_filepath; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingVariable
 			return json_decode( ob_get_clean(), true );
 		}
 

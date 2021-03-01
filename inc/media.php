@@ -224,8 +224,8 @@ namespace Civil_First_Fleet;
  * Override the default WordPress media templates.
  */
 function custom_media_templates() {
-	require_once CIVIL_FIRST_FLEET_PATH . '/template-parts/media-templates/attachment-details.php';
-	require_once CIVIL_FIRST_FLEET_PATH . '/template-parts/media-templates/attachment-details-two-column.php';
+	require_once CIVIL_FIRST_FLEET_PATH . '/template-parts/media-templates/attachment-details.php'; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingCustomConstant
+	require_once CIVIL_FIRST_FLEET_PATH . '/template-parts/media-templates/attachment-details-two-column.php'; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingCustomConstant
 }
 
 add_action( 'print_media_templates', __NAMESPACE__ . '\custom_media_templates' );

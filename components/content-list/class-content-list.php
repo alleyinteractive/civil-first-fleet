@@ -5,6 +5,8 @@
  * @package Civil_First_Fleet
  */
 
+// phpcs:disable WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn
+
 namespace Civil_First_Fleet\Component;
 
 /**

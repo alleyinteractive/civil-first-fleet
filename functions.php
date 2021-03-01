@@ -5,6 +5,8 @@
  * @package Civil_First_Fleet
  */
 
+// phpcs:disable WordPressVIPMinimum.Files.IncludingFile.UsingCustomConstant
+
 namespace Civil_First_Fleet;
 
 define( 'CIVIL_FIRST_FLEET_PATH', dirname( __FILE__ ) );
