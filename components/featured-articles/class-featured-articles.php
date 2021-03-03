@@ -86,7 +86,6 @@ class Featured_Articles extends \Civil_First_Fleet\Component\Content_List {
 	 * other settings.
 	 */
 	public function pre_render() {
-		$items               = absint( $this->get_setting( 'items' ) );
 		$hide_sidebar        = (bool) $this->get_data( 'meta', 'hide_sidebar' ) ?? false;
 		$show_call_to_action = (bool) $this->get_data( 'meta', 'call_to_action', 'enable' ) ?? false;
 		$disable_backfill    = (bool) $this->get_data( 'meta', 'disable_backfill' ) ?? false;

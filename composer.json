@@ -1,0 +1,13 @@
+{
+  "name": "alleyinteractive/lede",
+  "authors": [
+    {
+      "name": "Alley Interactive",
+      "email": "noreply@alleyinteractive.com"
+    }
+  ],
+  "scripts": {
+    "phpcs": "phpcs . --basepath=.",
+    "phpcbf": "phpcbf . --basepath=."
+  }
+}

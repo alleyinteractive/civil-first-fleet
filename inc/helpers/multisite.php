@@ -12,7 +12,7 @@ namespace Civil_First_Fleet;
  */
 function civ_switch_to_blog() {
 	if ( function_exists( 'switch_to_blog' ) ) {
-		switch_to_blog( 1 );
+		switch_to_blog( 1 ); // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.switch_to_blog_switch_to_blog
 	}
 }
 

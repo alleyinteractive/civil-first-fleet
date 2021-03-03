@@ -397,7 +397,7 @@ class Content_Item extends \Civil_First_Fleet\Component {
 	public function featured_image_alt( $alt_key ) {
 		if (
 			! is_string( $alt_key ) ||
-			! in_array( $alt_key, [ 'override_index_non_hero', 'override_index_hero' ] )
+			! in_array( $alt_key, [ 'override_index_non_hero', 'override_index_hero' ], true )
 		) {
 			return $this->featured_image();
 		}

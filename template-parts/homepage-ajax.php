@@ -34,7 +34,7 @@ if ( ! empty( $homepage['middle_feature']['enable'] ) ) {
 $query_args = [
 	'fields'         => 'ids',
 	'paged'          => absint( get_query_var( 'pagination', 1 ) ) - 1,
-	'post__not_in'   => Unique_WP_Query_Manager::$used_post_ids,
+	'post__not_in'   => Unique_WP_Query_Manager::$used_post_ids, // phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn
 	'post_status'    => 'publish',
 	'post_type'      => 'post',
 	'posts_per_page' => 9,

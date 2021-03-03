@@ -47,7 +47,7 @@ function ai_get_versioned_asset( $asset_path ) {
 
 		if ( file_exists( $asset_map_file ) && 0 === validate_file( $asset_map_file ) ) {
 			ob_start();
-			include $asset_map_file;
+			include $asset_map_file; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingVariable
 			$asset_map = json_decode( ob_get_clean(), true );
 		} else {
 			$asset_map = [];

@@ -5,7 +5,7 @@
  * @package Civil_First_Fleet
  */
 
-$featured_image = $this->get( 'featured_image' );
+$featured_image = $this->get( 'featured_image' ); // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UndefinedVariable
 
 if ( empty( $featured_image ) ) {
 	return;

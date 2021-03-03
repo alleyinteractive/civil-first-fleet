@@ -56,8 +56,6 @@ class Article_Header extends \Civil_First_Fleet\Component\Content_Item {
 	 * Secondary byline helper.
 	 */
 	public function secondary_bylines() {
-		global $coauthors_plus;
-
 		// Loop through bylines.
 		foreach ( $this->get_data( 'secondary_bylines' ) as $byline ) {
 

@@ -19,8 +19,6 @@ namespace Civil_First_Fleet;
  * @return string          Updated post content.
  */
 function ensure_gutenberg_block_structure( $content ) {
-	$rendered_content = '';
-
 	$dynamic_block_names   = get_dynamic_block_names();
 	$dynamic_block_pattern = (
 		'/<!--\s+wp:(' .
