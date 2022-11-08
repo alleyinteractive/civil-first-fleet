@@ -49,6 +49,7 @@ $show_avatar = (bool) $component->get_data( 'show_avatar' ) ?? false;
 					->set_config( 'theme', 'featured-article' )
 			);
 		}
+		do_action( 'civil_first_fleet_custom_hp_sponsor' );
 		?>
 	</div>
 	<?php if ( ! $hide_sidebar ) : ?>
